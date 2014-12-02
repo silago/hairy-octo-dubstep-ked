@@ -48,13 +48,37 @@
      </section>
 </nav>
 </div>
-
+        
+    <!---   каким-нибудь параметром определяется страница. типо соглашение. например куда-нибудь прописывается. #section/main ? мб роут. не важно.
+            допустим на текущий момент контенстные зоны определяеются в шаблонах руками .
+            итого. эта ебола : main/center
+    --!>
+    <div ng-init="block = data.center "> 
+        <div ng-init="block = block" ng-include="'views/renderers/'+block.type+'.html'">
+                .... 
+        </div>
+    </div>
+        <!--
+        <div 
+            ng-block="$scope.data"
+            class="app_section" name="center">
+            --!> <!---
+                внутри директивы зашрузим данные в зависимости от app_section, center 
+                $scope.page = 'main';
+                var page = $scope.page;
+                var pos  = element.attr['name'];
+                blocks = $scope.data[page][center];
+                include template(blocks.data.type);
+            -->
+        <!-- </div>
+        -->
+<!--
 <video autoplay loop poster="images/bgwebm.jpg" id="bgvid">
     <source src="images/bg.webm" type="video/webm">
-    <!--
-        <source src="polina.mp4" type="video/mp4">
-    -->
 </video>
+-->
+
+
 
 <div class="large-12 collapse foot">
     <div class="columns large-3 small-3">
