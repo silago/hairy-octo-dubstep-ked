@@ -1,0 +1,21 @@
+<div style="position:fixed; left:0px; top:0px; z-index:9999; background-color:#e1e2e3; border:3px solid #242424;">
+<ul class="side-nav">
+    <li> <a 
+           ng-click="add_item=!add_item" 
+            data-hint="Добавить меню">
+        <i class='step fi-page-add size-72'> </i>
+        </a> 
+        <div ng-show="!!add_item" style="position:relative;">
+            <div 
+                style="position:absolute; width:200px; left:0px; top:0px; background-color:#e4e4e4; padding:10px;"
+            >
+                <input placeholder="title" ng-model="list1.title" type="text" />
+                <input placeholder="url" ng-model="list1.url" type="text" />
+
+            <div
+                class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}" ng-model="list1" jqyoui-draggable="{animate:true}" ng-hide="!list1.title">{{list1.title}}</div>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>

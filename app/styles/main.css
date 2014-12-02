@@ -1,0 +1,190 @@
+/* Space out content a bit */
+
+.uppercase {
+    text-transform:uppercase;
+}
+.pointer { cursor:pointer;}
+
+a[data-hint]:hover:after {
+    content:attr(data-hint);
+    text-transform:uppercase;
+}
+
+.ui-draggable {
+    cursor:pointer;
+}
+.ui-draggable-dragging {
+    color:red!important;
+    width:15px; height:15px; background-color:red; overflow:hidden;
+}
+
+ul > li.ui-droppable {
+    display:none;
+}
+ul.has-droppable {min-height:10px; }
+ul:hover > li.ui-droppable {
+    display:block;
+}
+
+
+z*:hover {color:red!important;}
+.ui-droppable {
+    z-height:20px; z-width:20px; border:1px solid #242424; border-radius:3px;
+    z-display:inline;
+}
+
+div.foot {
+    background-color:#656565;
+}
+
+div.foot div.bottom-center h2  {
+    color: #e5e5e5;
+    font-size: 14px;
+    font-weight:bold
+}
+
+div.foot div.bottom-center ul.menu li a {
+    color:#e5e5e5;
+    font-size:14px; 
+}
+
+div.foot div.bottom-center div > ul.menu {
+    margin:0px;
+}
+div.foot div.bottom-center ul.menu li {
+    list-style:none;
+}
+
+div.foot div.bottom-center p {
+    font-size:14px; 
+    color:#e5e5e5;
+}
+div.bottom-center hr.separator { border-color:#575757;}
+
+div.bottom-center .subscribe a {
+    color:#242424;
+    background-color:yellow;
+}
+
+a {cursor:pointer;}
+
+.collapse > div {
+    padding:0px;
+}
+
+.bottom-center {
+    background-color:#656565;
+}
+video#bgvid { 
+    zposition: fixed; right: 0; bottom: 0;
+    min-width: 100%; zmin-height: 100%;
+    width: auto; height: auto; z-index: -100;
+    background: url(../images/bgwebm.jpg) no-repeat;
+    background-size: cover; 
+}
+
+
+.absolute {position:absolute;}
+
+.top-bar-section ul.main-menu  {
+    margin-top:5px;
+}
+.top-bar-section ul.main-menu  > li > a:hover {
+    text-decoration:underline;
+}
+.top-bar-section ul.main-menu > li input {
+    top:1px;
+}
+.top-bar-section ul.main-menu > li a {
+    color:#0b0b0b;
+    font-size:15px;    
+    text-transform: uppercase;
+    margin-left:30px;
+}
+
+.keddo_club {
+    margin-top:-15px;
+    
+}
+
+.adm-add {display:none!important;}
+li:hover > button.adm-add {
+    display:inline!important;
+    right: 0px;
+    z-index: 4;
+    top: 0px;
+    background: royalblue;
+    border: 1px solid red;
+    width: 1px;
+    float: right;
+    position:absolute;
+    height:100%;
+}
+
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
