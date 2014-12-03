@@ -4,7 +4,6 @@
 
 <div ng-init="init()" class="">
 
-        <div adm-widget>!!!!!!!! </div> 
     <div class="adm-nav" ng-include="'views/adm/adm-nav.html'"></div>
 
 <nav style="height:104px;padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar role="navigation">
@@ -54,10 +53,8 @@
             допустим на текущий момент контенстные зоны определяеются в шаблонах руками .
             итого. эта ебола : main/center
     --!>
-    <div ng-init="block = data.center "> 
-        <div ng-init="block = block" ng-include="'views/renderers/'+block.type+'.html'">
-                .... 
-        </div>
+    <div ng-iniy="block = data.center" ng-include="views/renderers/block_holder.html">
+
     </div>
         <!--
         <div 
@@ -121,7 +118,6 @@
             </div>
             <div class="columns large-3">
             <h2 class="uppercase"> Droppable </h2>
- <div adm-Widget></div>
                 <div 
                     ng-if="menu"
                     ng-include="'views/adm/adm-links-tree.html'"

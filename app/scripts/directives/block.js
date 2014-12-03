@@ -6,7 +6,7 @@
  * @description
  * # block
  */
-angular.module('keddoApp')
+angular.module('frontendApp')
   .directive('block', function () {
     return {
       template: '<div></div>',

@@ -20,7 +20,11 @@ angular.module('frontendApp')
                                     'imgsrc':'images/bgwebm.jpg',
                                     'src'   :'images/bg.webm',
                                  },
-                            subitems: []
+      subitems: [
+        {id:2,type:'html',data:{'html':''}},
+        {id:0,type:'photo',data:{'src':'static/1.jpg'}},{id:1,type:'photo',data:{'src':'static/2.jpg'}}
+        
+  ]
                      }
         };
     };

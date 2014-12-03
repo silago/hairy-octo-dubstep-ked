@@ -1,11 +1,15 @@
 <div style="position:fixed; left:0px; top:0px; z-index:9999; background-color:#e1e2e3; border:3px solid #242424;">
-<ul class="side-nav">
+    <ul ng-init="add_item=[]" class="side-nav">
+        <li> <div adm-widget> </div> </li>
+        <li adm-add-widget="{'title':'Добавить фото','template':'default',interface:{'type':'photo','data':['src','width','height']}">
+        </li>
+
     <li> <a 
-           ng-click="add_item=!add_item" 
+           ng-click="add_item[1]=!add_item[1]" 
             data-hint="Добавить меню">
         <i class='step fi-page-add size-72'> </i>
         </a> 
-        <div ng-show="!!add_item" style="position:relative;">
+        <div ng-show="!!add_item[1]" style="position:relative;">
             <div 
                 style="position:absolute; width:200px; left:0px; top:0px; background-color:#e4e4e4; padding:10px;"
             >
@@ -17,5 +21,26 @@
             </div>
         </div>
     </li>
+
+
+    
+    <li> <a 
+           ng-click="add_item[2]=!add_item[2]" 
+            data-hint="Добавить картинку">
+        <i class='step fi-page-add size-72'> </i>
+        </a> 
+        <div ng-show="!!add_item[2]" style="position:relative;">
+            <div 
+                style="position:absolute; width:200px; left:0px; top:0px; background-color:#e4e4e4; padding:10px;"
+            >
+                <input placeholder="src" ng-model="list1.data.src" type="text" />
+                <input placeholder="type" ng-model="list1.type" type="text" />
+
+            <div
+                class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}" ng-model="list1" jqyoui-draggable="{animate:true}" ng-hide="!list1.data.src"> [image] </div>
+            </div>
+        </div>
+    </li>
+
 </ul>
 </div>
