@@ -8,45 +8,53 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('MainCtrl', function ($scope,menuSrvc) {
+  .controller('MainCtrl', function ($scope,$location,blockRes,pageRes) {
+
+    $scope.pageRes =pageRes;
 
     $scope.init = function(){
+        $scope.path = encodeURIComponent(encodeURIComponent($location.$$path));
+        $scope.pageRes = pageRes;
+        $scope.w = angular.fromJson;
+        window.zz = angular.fromJson;
+      $scope.page = pageRes.get({'url':$scope.path});
+
+
+
+
         $scope.info = "loaded";
-        $scope.menu = [{'id':1,'title':'Menu Item 1','url':'#','subitems':[{'id':2,'title':'sub','url':'#'}]}];
-        $scope.data = {'center':
+        $scope.blockRes = blockRes;
+        window.menu = $scope.menu = blockRes.GET({'id':1});
+        /* $scope.data = {'center':
                             {id:0,
                             type:'bgvideo',
                             data:{
-                                    'imgsrc':'images/bgwebm.jpg',
+                                    'imgsrc':'zimages/bgwebm.jpg',
                                     'src'   :'images/bg.webm',
                                  },
-      subitems: [
+        subitems: [
+
         {id:2,type:'html',data:{'html':''}},
         {id:0,type:'photo',data:{'src':'static/1.jpg'}},{id:1,type:'photo',data:{'src':'static/2.jpg'}}
-        
+
   ]
                      }
-        };
+        }; */
     };
-        /*
-        menuSrvc.request('GET',{},'').success(function(data){
-            $scope.menu = data;
-        });
-        */
- 
 
-    
-    
-    
+
+
+
+
  $scope.trash = [];
  $scope.list1 = {'subitems':[]};
  $scope.list2 = [];
-    $scope.saveMenu = function(data){
-        menuSrvc.request('POST',angular.toJson(data),'').success(function(data){
-            //$scope.menu = data;
-            $scope.info = 'menu saved';
-        });
-    };
+   // $scope.saveMenu = function(data){
+   //     menuSrvc.request('POST',angular.toJson(data),'').success(function(data){
+   //         //$scope.menu = data;
+   //         $scope.info = 'menu saved';
+   //     });
+   // };
 
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

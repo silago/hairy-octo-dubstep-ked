@@ -9,10 +9,12 @@
 angular.module('frontendApp')
   .directive('block', function () {
     return {
-      template: '<div></div>',
+      templateUrl: 'views/renderers/block_holder.html',
+      replace:true,
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the block directive');
+      scope: {
+        resource: "=resource",
+        block: "=data"
       }
     };
   });

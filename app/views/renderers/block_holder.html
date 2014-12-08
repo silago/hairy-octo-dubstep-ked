@@ -1,6 +1,16 @@
+        <div
 
-    <div ng-init="block = data.center "> 
-        <div ng-init="block = block" ng-include="'views/renderers/'+block.type+'.html'">
-                .... 
+             class="has-block-controls block-type-{{block.type}}" ng-init="block.data = block.data.fromJson()">
+            <div
+                 data-drop="true"
+                 data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
+                 ng-model="block.subitems"
+                 jqyoui-droppable="{multiple:true}"
+
+                 ng-init="block = block" ng-include="'views/renderers/'+block.type+'.html'">
+                    ....
+            </div>
+            <span style="display:block; margin-bottom:10px; ng-show="!!block" class="block-controls">
+                <button class="tiny alert" ng-show="!!block"  ng-click="block = undefined"> x </button>
+            <span>
         </div>
-    </div>

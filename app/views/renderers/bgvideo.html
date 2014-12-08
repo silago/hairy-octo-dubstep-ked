@@ -5,14 +5,14 @@
         <video id="bgvid" autoplay loop poster="{{block.data.imgsrc}}" class="{{block.data.class}}">
             <source src="{{block.data.src}}" type="video/webm">
         </video>
-    
-        
-        <ng-include src="'views/renderers/'+block.type+'.html'"  ng-repeat="block in block.subitems"> ... </ng-include>
 
-        <div style="width:200px; height:200px; border:1px solid red;" 
-             data-drop="true"
-             data-jqyoui-options
-             ng-model="block.subitems"
-             jqyoui-droppable="{multiple:true}"
+
+        <ng-include src="'views/renderers/block_holder.html'"  ng-repeat="block in block.subitems"> ... </ng-include>
+
+    <!--        <div
+
+             zstyle="width:200px; height:200px; border:1px solid red;"
+
              >
-    </div>
+    -->
+</div>

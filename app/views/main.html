@@ -1,38 +1,33 @@
-<div style="border:1px solid red; color:#fff; right:1px; top:1px;  position:fixed; position:99; padding:5px; height:40px; width:200px;">
-    {{info}} 
-</div>
-
 <div ng-init="init()" class="">
-
-        <div adm-widget>!!!!!!!! </div> 
     <div class="adm-nav" ng-include="'views/adm/adm-nav.html'"></div>
-
 <nav style="height:104px;padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar role="navigation">
- <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">
-            <img style="height:42px" src="images/logo.png">
-        </a></h1>
 
-    </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
+    <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">
+                <img style="height:42px" src="images/logo.png">
+            </a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
 
      <section class="top-bar-section">
-        <ul class="left main-menu" ng-if="menu" ng-include="'views/tree.html'" ng-init="data=menu;">
-        </ul>
 
+        <!--
+        <block resource="blockRes" data="menu">
+                ....
+        </block>
+        -->
         <ul class="right main-menu">
         <li class="has-form">
-            <div ng-show="!showTopSearch"> 
+            <div ng-show="!showTopSearch">
                     <a ng-click="showTopSearch=!showTopSearch">
                         <img src="images/search.png" />
                     </a>
             </div>
             <div ng-show="!!showTopSearch" class="row collapse">
                 <div class="large-8 small-8 columns">
-                   <input style="" type="text" placeholder="Find Stuff"> 
+                   <input style="" type="text" placeholder="Find Stuff">
                 </div>
                 <div class="large-4 small-4 columns">
                     <a href="#">
@@ -45,40 +40,27 @@
                 <img class="keddo_club" alt="" src="images/keddo_club.png" />
             </li>
         </ul>
-            
+
      </section>
 </nav>
 </div>
-        
-    <!---   каким-нибудь параметром определяется страница. типо соглашение. например куда-нибудь прописывается. #section/main ? мб роут. не важно.
-            допустим на текущий момент контенстные зоны определяеются в шаблонах руками .
-            итого. эта ебола : main/center
-    --!>
-    <div ng-init="block = data.center "> 
-        <div ng-init="block = block" ng-include="'views/renderers/'+block.type+'.html'">
-                .... 
-        </div>
-    </div>
-        <!--
-        <div 
-            ng-block="$scope.data"
-            class="app_section" name="center">
-            --!> <!---
-                внутри директивы зашрузим данные в зависимости от app_section, center 
-                $scope.page = 'main';
-                var page = $scope.page;
-                var pos  = element.attr['name'];
-                blocks = $scope.data[page][center];
-                include template(blocks.data.type);
-            -->
-        <!-- </div>
-        -->
-<!--
-<video autoplay loop poster="images/bgwebm.jpg" id="bgvid">
-    <source src="images/bg.webm" type="video/webm">
-</video>
--->
 
+        <div
+                 data-drop="true"
+                 data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
+                 ng-model="page.subitems"
+                 jqyoui-droppable="{multiple:true}">
+                    <div ng-repeat="block in page.subitems">
+                        <block  place="center" page="/" resource="blockRes" data="block">
+                                ....
+                        </block>
+                </div>
+            <span style="display:block; margin-bottom:10px; ng-show="block" class="block-controls">
+                <button class="tiny" ng-click="block = undefined"> delete </button>
+                <button ng-click="pageRes.POST({url:path,data:page.subitems});" class="tiny"> save </button>
+                {{path}}
+            <span>
+        </div>
 
 
 <div class="large-12 collapse foot">
@@ -90,7 +72,7 @@
             <br/>
             <h2 class="uppercase"> Новости </h2>
             <p>
-                Подпишитесь на нашу рассылку новостей и при новых поступлениях 
+                Подпишитесь на нашу рассылку новостей и при новых поступлениях
                 мы будем оповещать вас о приходящих новинках.
 
             </p>
@@ -121,16 +103,9 @@
             </div>
             <div class="columns large-3">
             <h2 class="uppercase"> Droppable </h2>
- <div adm-Widget></div>
-                <div 
-                    ng-if="menu"
-                    ng-include="'views/adm/adm-links-tree.html'"
-                    ng-init="data=menu;">
-                </div>
-                
-                <button ng-click="saveMenu(menu);" class="button"> SAVE </button>
-
-
+                <block data="menu">
+                        ....
+                </block>
             </div>
             <div class="columns large-3">
             <h2 class="uppercase"> Draggable </h2>
@@ -143,7 +118,7 @@
     <div class="columns large-3 small-3">
         <img src="images/footer_right.png" />
     </div>
-    
+
 
     <div style="clear:both;"> </div>
 </div>

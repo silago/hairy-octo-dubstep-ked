@@ -1,16 +1,16 @@
 <ul class="menu has-droppable">
-        <li ng-repeat="i in data track by $index"> 
+        <li ng-repeat="i in data track by $index">
             <span class="pointer" ng-click="$parent.data.splice($index,1)"> [ x ] </span>
-            <a 
-            jqyoui-draggable 
-            ng-model="i" data-drag="true" data-jqyoui-options    
-            href="#" ng-href="{{  (i.subitems.length ? 'javascript:void(0);' : i.url )}}"> 
+            <a
+            jqyoui-draggable
+            ng-model="i" data-drag="true" data-jqyoui-options
+            href="#" ng-href="{{  (i.subitems.length ? 'javascript:void(0);' : i.url )}}">
             {{i.title}} </a>
 
             <ng-include src="'views/adm/adm-links-tree.html'" ng-init="data=i.subitems">
             </ng-include>
         </li>
-        <li style="" 
+        <li style=""
              data-drop="true"
              data-jqyoui-options
              ng-init="data=(!data ? [] : data)"
@@ -18,9 +18,9 @@
              jqyoui-droppable="{multiple:true}"
              >
              &nbsp;
-             
+
              &nbsp;
         </li>
 </ul>
 
-        
+

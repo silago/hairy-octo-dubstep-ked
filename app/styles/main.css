@@ -1,6 +1,33 @@
 /* Space out content a bit */
 
+.has-block-controls:hover > .block-controls {
+   display: inline;
+}
+.has-block-controls > .block-controls {
+   display: none;
+}
 
+.as_li {
+   padding:10px;
+}
+.as_li .as_li {margin-left:10px;}
+section > div.block-type-menu {
+   float:left;
+}
+
+.block-type-photo {
+   margin:10px;
+   display:inline-block;
+}
+
+.hover-droppable-place{
+    border:5px solid green!important;
+}
+
+.add-menu-item div.container
+{
+    position:absolute; width:200px; left:0px; top:0px; background-color:#e4e4e4; padding:10px;
+}
 
 .uppercase {
     text-transform:uppercase;
@@ -47,7 +74,7 @@ div.foot div.bottom-center h2  {
 
 div.foot div.bottom-center ul.menu li a {
     color:#e5e5e5;
-    font-size:14px; 
+    font-size:14px;
 }
 
 div.foot div.bottom-center div > ul.menu {
@@ -58,7 +85,7 @@ div.foot div.bottom-center ul.menu li {
 }
 
 div.foot div.bottom-center p {
-    font-size:14px; 
+    font-size:14px;
     color:#e5e5e5;
 }
 div.bottom-center hr.separator { border-color:#575757;}
@@ -77,13 +104,13 @@ a {cursor:pointer;}
 .bottom-center {
     background-color:#656565;
 }
-video#bgvid { 
-    
+video#bgvid {
+
     position: fixed; right: 0; bottom: 0;
     min-width: 100%; zmin-height: 100%;
     width: auto; height: auto; z-index: -100;
     background: url(../images/bgwebm.jpg) no-repeat;
-    background-size: cover; 
+    background-size: cover;
 }
 
 
@@ -100,14 +127,14 @@ video#bgvid {
 }
 .top-bar-section ul.main-menu > li a {
     color:#0b0b0b;
-    font-size:15px;    
+    font-size:15px;
     text-transform: uppercase;
     margin-left:30px;
 }
 
 .keddo_club {
     margin-top:-15px;
-    
+
 }
 
 .adm-add {display:none!important;}

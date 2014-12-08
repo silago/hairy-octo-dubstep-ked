@@ -1,4 +1,5 @@
 'use strict';
+window.RESTurl = 'http://localhost:5000';
 
 /**
  * @ngdoc overview
@@ -16,7 +17,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngDragDrop'
+    'ngDragDrop',
+    'wysiwyg.module',
+    'ngResource'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -31,6 +34,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  }).config(function($compileProvider) { 
+  }).config(function($compileProvider) {
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|javascript|mailto|file):/);
 });

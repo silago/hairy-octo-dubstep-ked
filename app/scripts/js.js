@@ -11,9 +11,15 @@ Array.prototype.filter = function (key,value,childKey){
             }
         }
         return walk(this);
-        
+
     }
 
 Array.prototype.last = function () {
     return this[this.length];
+}
+
+
+
+String.prototype.fromJson = function(){
+   return angular.fromJson(this);
 }
