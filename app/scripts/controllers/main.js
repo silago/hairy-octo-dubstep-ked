@@ -8,17 +8,19 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('MainCtrl', function ($scope,$location,blockRes,pageRes) {
+  .controller('MainCtrl', function ($scope,$location,$routeParams,blockRes,pageRes) {
 
     $scope.pageRes =pageRes;
 
     $scope.init = function(){
         $scope.path = encodeURIComponent(encodeURIComponent($location.$$path));
         $scope.pageRes = pageRes;
-        $scope.w = angular.fromJson;
-        window.zz = angular.fromJson;
-      $scope.page = pageRes.get({'url':$scope.path});
+        //$scope.w = angular.fromJson;
+        window.rp = $routeParams;
 
+        //$scope.page = pageRes.get({'url':$scope.path});
+      if ($scope.page==[])
+        $scope.page = {id:undefined,url:$routeParams.pageName, subitems:[]}
 
 
 

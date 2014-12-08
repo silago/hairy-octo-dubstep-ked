@@ -23,7 +23,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+    .when('/page/:pageName', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -32,7 +32,7 @@ angular
         controller: 'AboutCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/page/index'
       });
   }).config(function($compileProvider) {
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|javascript|mailto|file):/);
