@@ -50,6 +50,7 @@
                  data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
                  ng-model="page.subitems"
                  jqyoui-droppable="{multiple:true}">
+                    {{page.subitems}}
                     <div ng-repeat="block in page.subitems">
                         <block  place="center" page="/" resource="blockRes" data="block">
                                 ....

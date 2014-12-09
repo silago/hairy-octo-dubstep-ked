@@ -32,7 +32,7 @@ angular.module('frontendApp')
         '             ng-model="model"'+
         '             jqyoui-draggable="{animate:true}"'+
         '             ng-hide="!model">[dragme]</div>'+
-        '        </div>'+
+      '        {{model}}</div>'+
         '    </div>'+
         '</div>'
       }
