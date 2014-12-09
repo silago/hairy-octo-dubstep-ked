@@ -1,5 +1,9 @@
 /* Space out content a bit */
 
+.main-menu li, .main-menu li a  {
+   background-color:transparent!important;
+  color:#232323!important;
+}
 .has-block-controls:hover > .block-controls {
    display: inline;
 }

@@ -8,9 +8,14 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('MainCtrl', function ($scope,$location,$routeParams,blockRes,pageRes) {
+  .controller('MainCtrl', function ($scope,$location,$routeParams,blockRes,pageRes,ngDialog) {
 
     $scope.pageRes =pageRes;
+
+    $scope.createElement = function (){
+      ngDialog.open({template:'views/adm/createElement.html'});
+    }
+
 
     $scope.init = function(){
         $scope.path = encodeURIComponent(encodeURIComponent($location.$$path));
