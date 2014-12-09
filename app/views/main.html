@@ -1,5 +1,7 @@
 <div ng-init="init()" class="">
+    <!--
     <div class="adm-nav" ng-include="'views/adm/adm-nav.html'"></div>
+    -->
 <nav style="height:104px;padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar role="navigation">
 
     <ul class="title-area">
@@ -19,6 +21,10 @@
         </block>
         -->
         <ul class="right main-menu">
+
+        <li> Items </li>
+            <li><a ng-click="createElement();" >  ( + ) </a>  </li>
+
         <li class="has-form">
             <div ng-show="!showTopSearch">
                     <a ng-click="showTopSearch=!showTopSearch">

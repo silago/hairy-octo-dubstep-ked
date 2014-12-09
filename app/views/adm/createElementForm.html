@@ -1,0 +1,17 @@
+<div>
+        <div>
+            <div class="container">
+                <span ng-repeat="(key,param) in item.data">
+                    <input type="text" placeholder="{{key}}"  ng-model="model.data[key]" />
+                </span>
+                <input type="text" ng-model="item.type" />
+            </div>
+
+            <div class="btn btn-primary"
+                 data-drag="true"
+                 data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}"
+                 ng-model="model"
+                 jqyoui-draggable="{animate:true}"
+                 >[dragme]</div>
+        </div>
+</div>

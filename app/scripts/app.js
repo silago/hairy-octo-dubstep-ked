@@ -19,7 +19,8 @@ angular
     'ngTouch',
     'ngDragDrop',
     'wysiwyg.module',
-    'ngResource'
+    'ngResource',
+    'ngDialog'
   ])
   .config(function ($routeProvider) {
     $routeProvider
