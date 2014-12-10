@@ -2,8 +2,8 @@
     <!--
     <div class="adm-nav" ng-include="'views/adm/adm-nav.html'"></div>
     -->
-<nav style="height:104px;padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar role=$"ke$$key[i.$$keys()[0]]}} {{
-    <ul class="title-area"
+<nav style="height:104px;padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar>
+    <ul class="title-area">
 
         <li class="name">
           <h1><a href="#">
@@ -20,20 +20,19 @@
                 ....
         </block>
         -->
-        <ul class="right main-menu">
-
-                                   <li> Items  </li>
-        <li><a ng-click="createElement();" >  ( + ) </a>  </li>
-        <li ng-repeat="i in itemsStack">
-            <span class="button"
-                 data-drag="true"
-                 data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}"
-                 ng-model="i"
-                 jqyoui-draggable="{animate:true}"
-                 >
-                     {{i.type}} :: {{ i.data[i.data.$$keys()[0]] }}
-            </span>
-        </li>
+        <ul ng-init="stack = itemsStack" class="right main-menu">
+                    <li ng-show="!!i.type" ng-repeat="i in stack track by $index">
+                        <span  class=""
+                             data-drag="true"
+                             style="display:block; background-color:#f4f4f4; padding:4px; margin-right:10px;"
+                             data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}"
+                             ng-model="i"
+                             jqyoui-draggable="{animate:true}"
+                             >
+                         {{ i.data[i.data.$$keys()[0]] }}
+                        </span>
+                    </li>
+                    <li><a ng-click="createElement();" >ADD <i class="fi-plus small"> </i> </a>   </li>
 
         <li class="has-form">
             <div ng-show="!showTopSearch">
@@ -60,19 +59,18 @@
      </section>
 </nav>
 </div>
-
         <div
+                 z-ng-init="if (!page.subitems) page.subitems=[];"
                  data-drop="true"
                  data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
                  ng-model="page.subitems"
-                 jqyoui-droppable="{multiple:true}">
-                    {{page.subitems}}
+                 jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
                     <div ng-repeat="block in page.subitems">
                         <block  place="center" page="/" resource="blockRes" data="block">
                                 ....
                         </block>
                 </div>
-            <span style="display:block; margin-bottom:10px; ng-show="block" class="block-controls">
+            <span style="display:block; margin-bottom:10px"; z-ng-show="block" class="block-controls">
                 <button class="tiny" ng-click="block = undefined"> delete </button>
                 <button ng-click="pageRes.POST({url:path,data:page.subitems});" class="tiny"> save </button>
                 {{path}}

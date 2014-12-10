@@ -20,17 +20,17 @@ angular.module('frontendApp')
     $scope.init = function(){
         $scope.path = $routeParams.pageLocation;
         $scope.pageRes = pageRes;
+      $scope.page = {};
         pageRes.get({'url':$scope.path}).$promise.then(function(data){
-          if (data.id == undefined) {
-            $scope.page = {'url':pageRes, subitems : [], meta:[{'description':''},{'keywords':''}] }
+          if (data.id){
+              $scope.page = data;
+          } else {
+              $scope.page = {'url':pageRes, subitems : [], meta:[{'description':''},{'keywords':''}] };
           }
-          else $scope.page = data;
-        });
-        //$scope.w = angular.fromJson;
+        },function(data){
 
-        //$scope.page = pageRes.get({'url':$scope.path});
-        //if ($scope.page==[])
-        //$scope.page = {id:undefined,url:$routeParams.pageName, subitems:[]}
+          $scope.page = {'url':pageRes, subitems : [], meta:[{'description':''},{'keywords':''}] };
+          });
 
 
         $scope.info = "loaded";

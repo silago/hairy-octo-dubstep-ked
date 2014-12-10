@@ -19,6 +19,15 @@ Array.prototype.last = function () {
 }
 
 
+Array.prototype.clearEmpty = function () {
+  for( var i=0; i<=this.length; i++){
+    console.log(i);
+    console.log(this);
+    if (!this[i]) this.splice(i,1);
+    }
+  return this;
+}
+
 Object.prototype.$$keys = function(){
    return Object.keys(this);
 }
