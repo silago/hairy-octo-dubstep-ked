@@ -19,6 +19,32 @@ Array.prototype.last = function () {
 }
 
 
+Object.prototype.$$keys = function(){
+   return Object.keys(this);
+}
+Object.defineProperty(Object.prototype, "$$keys", {enumerable: false})
+
+
+
+Object.prototype.$$hasUndefined = function(){
+   var keys = Object.keys(this);
+   for (var i=0; i<=keys.length; i++){
+       if (this[keys[i]]===undefined)
+         return true;
+   }
+   return false;
+}
+Object.defineProperty(Object.prototype, "$$hasUndefined", {enumerable: false})
+
+Object.prototype.$$hasDefined = function(){
+   var keys = Object.keys(this);
+   for (var i=0; i<=keys.length; i++){
+       if (this[keys[i]]!==undefined)
+         return true;
+   }
+   return false;
+}
+Object.defineProperty(Object.prototype, "$$hasDefined", {enumerable: false})
 
 String.prototype.fromJson = function(){
    return angular.fromJson(this);

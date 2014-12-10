@@ -2,9 +2,9 @@
     <!--
     <div class="adm-nav" ng-include="'views/adm/adm-nav.html'"></div>
     -->
-<nav style="height:104px;padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar role="navigation">
+<nav style="height:104px;padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar role=$"ke$$key[i.$$keys()[0]]}} {{
+    <ul class="title-area"
 
-    <ul class="title-area">
         <li class="name">
           <h1><a href="#">
                 <img style="height:42px" src="images/logo.png">
@@ -22,8 +22,18 @@
         -->
         <ul class="right main-menu">
 
-        <li> Items </li>
-            <li><a ng-click="createElement();" >  ( + ) </a>  </li>
+                                   <li> Items  </li>
+        <li><a ng-click="createElement();" >  ( + ) </a>  </li>
+        <li ng-repeat="i in itemsStack">
+            <span class="button"
+                 data-drag="true"
+                 data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}"
+                 ng-model="i"
+                 jqyoui-draggable="{animate:true}"
+                 >
+                     {{i.type}} :: {{ i.data[i.data.$$keys()[0]] }}
+            </span>
+        </li>
 
         <li class="has-form">
             <div ng-show="!showTopSearch">

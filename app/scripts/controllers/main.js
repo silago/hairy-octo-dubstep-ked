@@ -8,8 +8,8 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('MainCtrl', function ($scope,$location,$routeParams,blockRes,pageRes,ngDialog) {
-
+  .controller('MainCtrl', function ($scope,$location,$routeParams,blockRes,pageRes,ngDialog,blocksFactory) {
+    $scope.itemsStack = blocksFactory.get();
     $scope.pageRes =pageRes;
 
     $scope.createElement = function (){

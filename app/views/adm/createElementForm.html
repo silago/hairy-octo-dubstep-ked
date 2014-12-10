@@ -2,16 +2,21 @@
         <div>
             <div class="container">
                 <span ng-repeat="(key,param) in item.data">
-                    <input type="text" placeholder="{{key}}"  ng-model="model.data[key]" />
+                    <input type="text" placeholder="{{key}}"  ng-model="item.data[key]" />
                 </span>
                 <input type="text" ng-model="item.type" />
-            </div>
 
+                <button ng-click="addBlock(item);" z-ng-show="model.data.$$hasDefined()">
+                        save
+                </button>
+            </div>
+            <!---
             <div class="btn btn-primary"
                  data-drag="true"
                  data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}"
                  ng-model="model"
                  jqyoui-draggable="{animate:true}"
                  >[dragme]</div>
+            --->
         </div>
 </div>
