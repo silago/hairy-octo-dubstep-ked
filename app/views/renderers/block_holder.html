@@ -8,10 +8,11 @@
                  ng-model="block.subitems"
                  jqyoui-droppable="{multiple:true}"
 
-                 ng-init="block = block" ng-include="'views/renderers/'+block.type+'.html'">
+                 z-ng-init="block = block" ng-include="'views/renderers/'+block.type+'.html'">
                     ....
             </div>
-            <span style="display:block; margin-bottom:10px; ng-show="!!block" class="block-controls">
-                <button class="tiny alert" ng-show="!!block"  ng-click="block = undefined"> x </button>
+            <span style="display:block; margin-bottom:10px; ng-show="!!block && block.type!='deleted'" class="block-controls">
+                <button class="tiny alert" ng-show="!!block"  ng-click="block.type = 'deleted'"> x </button>
+
             <span>
         </div>

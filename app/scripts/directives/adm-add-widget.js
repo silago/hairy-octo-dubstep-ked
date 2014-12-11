@@ -18,10 +18,15 @@ angular.module('frontendApp')
 
 
         console.log('init controller');
-        $scope.addBlock = function(item){
-          var i = item;
-          console.log(angular.toJson('s'));
-          blocksFactory.push(i);
+        $scope.addBlock = function(i){
+          var i_local = {}
+          i_local.data = {};
+          i_local.subitems = [];
+          i_local.type = i.type;
+          for (var d in i.data){
+             i_local.data[d] = i.data[d];
+          }
+          blocksFactory.push(i_local);
         }
 
       }]

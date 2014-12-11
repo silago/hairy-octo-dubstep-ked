@@ -20,7 +20,7 @@ angular.module('frontendApp')
     $scope.init = function(){
         $scope.path = $routeParams.pageLocation;
         $scope.pageRes = pageRes;
-      $scope.page = {};
+        $scope.page = {};
         pageRes.get({'url':$scope.path}).$promise.then(function(data){
           if (data.id){
               $scope.page = data;
@@ -32,6 +32,11 @@ angular.module('frontendApp')
           $scope.page = {'url':pageRes, subitems : [], meta:[{'description':''},{'keywords':''}] };
           });
 
+          $scope.savePage = function(data){
+            pageRes.POST({url:$scope.path,data:data}).$promise.then(function(data){
+               $scope.page = data;
+            },function(data){ alert('something go wrong');});
+        }
 
         $scope.info = "loaded";
         $scope.blockRes = blockRes;
