@@ -15,6 +15,12 @@ angular.module('frontendApp')
       scope: {
         resource: "=resource",
         block: "=data"
-      }
+      },
+      //controller:['$scope','ngDialog',function(){
+      controller: ["$scope","ngDialog",function($scope,ngDialog,ngQuill){
+        $scope.updateElement = function (params){
+          ngDialog.open({template:'views/adm/updateElement.html',data:params});
+        }
+      }]
     };
   });

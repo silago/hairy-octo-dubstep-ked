@@ -16,7 +16,23 @@ angular.module('frontendApp')
       ngDialog.open({template:'views/adm/createElement.html'});
     }
 
+    $scope.savePageData = function(data){
 
+            pageRes.POST({url:$scope.path,data:data}).$promise.then(function(data){
+               $scope.page = data;
+        },function(data){ alert('something go wrong');});
+    }
+    $scope.savePage = function(data){
+            if ($scope.page.id == undefined){
+            var dialog = ngDialog.open({template:'views/adm/pageCreate.html'});
+              dialog.closePromise.then(function(d) {
+                // this must also save meta and update news
+                $scope.savePageData(data);
+              });
+            } else {
+               $scope.savePageData(data);
+            }
+    }
     $scope.init = function(){
         $scope.path = $routeParams.pageLocation;
         $scope.pageRes = pageRes;
@@ -32,15 +48,10 @@ angular.module('frontendApp')
           $scope.page = {'url':pageRes, subitems : [], meta:[{'description':''},{'keywords':''}] };
           });
 
-          $scope.savePage = function(data){
-            pageRes.POST({url:$scope.path,data:data}).$promise.then(function(data){
-               $scope.page = data;
-            },function(data){ alert('something go wrong');});
-        }
 
         $scope.info = "loaded";
         $scope.blockRes = blockRes;
-        window.menu = $scope.menu = blockRes.GET({'id':1});
+        $scope.menu = blockRes.GET({'id':1});
         /* $scope.data = {'center':
                             {id:0,
                             type:'bgvideo',

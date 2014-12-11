@@ -16,7 +16,9 @@
     "angular-sanitize": "^1.3.0",
     "angular-touch": "^1.3.0",
     "angular-wysiwyg":"*",
-    "ngDialog":"*"
+    "ngDialog":"*",
+    "quill":"*",
+    "ng-quill":"*"
     
   },
   "devDependencies": {

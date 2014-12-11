@@ -20,7 +20,8 @@ angular
     'ngDragDrop',
     'wysiwyg.module',
     'ngResource',
-    'ngDialog'
+    'ngDialog',
+    'ngQuill'
   ])
   .config(function ($routeProvider) {
     $routeProvider

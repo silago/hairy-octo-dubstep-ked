@@ -1,5 +1,8 @@
 /* Space out content a bit */
 
+div.block-type-menu div > div {
+  margin-left:10px;
+}
 
 .top-bar .top-bar-section li ul.dropdown-light {
 

@@ -1,9 +1,18 @@
 <div>
+                {{item}}
                 <input type="text" ng-model="item.type" />
-        <div>
-                <span ng-repeat="(key,param) in item.data">
-                    <input type="text" placeholder="{{key}}"  ng-model="item.data[key]" />
-                </span>
+
+                <div ng-switch="item.type">
+                    <div ng-switch-when="html">
+                        <div ng-include="'views/forms/html.html'"> </div> </div>
+                    <div ng-switch-default>
+                        <span ng-repeat="(key,param) in item.data">
+                            <input type="text" placeholder="{{key}}"  ng-model="item.data[key]" />
+                        </span>
+                    </div>
+                </div>
+
+
 
                 <button ng-click="addBlock(item);" z-ng-show="model.data.$$hasDefined()">
                         save
@@ -16,5 +25,4 @@
                  jqyoui-draggable="{animate:true}"
                  >[dragme]</div>
             --->
-        </div>
 </div>
