@@ -11,9 +11,9 @@
                  z-ng-init="block = block" ng-include="'views/renderers/'+block.type+'.html'">
                     ....
             </div>
-
-        <ng-include class="block-type-subitems" src="'views/renderers/block_holder.html'"  ng-repeat="block in block.subitems"> ... </ng-include>
-
+        <div ui-sortable model="block.subitems">
+            <ng-include class="block-type-subitems"  src="'views/renderers/block_holder.html'"  ng-repeat="block in block.subitems | orderBy:order"> ... </ng-include>
+        </div>
             <div   ng-show="!!block && block.type &&  block.type!='deleted'" >
                 <a class="fi-x      small" ng-click="block.type = 'deleted'">  </a>
                 <a class="fi-pencil      small" ng-click="updateElement(block);">  </a>

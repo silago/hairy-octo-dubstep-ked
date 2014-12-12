@@ -21,7 +21,8 @@ angular
     'wysiwyg.module',
     'ngResource',
     'ngDialog',
-    'ngQuill'
+    'ngQuill',
+    'ui.sortable'
   ])
   .config(function ($routeProvider) {
     $routeProvider

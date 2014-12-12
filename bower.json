@@ -18,7 +18,8 @@
     "angular-wysiwyg":"*",
     "ngDialog":"*",
     "quill":"*",
-    "ng-quill":"*"
+    "ng-quill":"*",
+    "angular-ui-sortable":"*"
     
   },
   "devDependencies": {
