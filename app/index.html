@@ -1,9 +1,10 @@
 <!doctype html>
-<html class="no-js">
-  <head>
+<html class="no-js"  ng-app="frontendApp">
+  <head ng-controller="MetaCtrl">
     <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
+      <title>{{meta.title || 'Keddo' }}</title>
+    <meta name="description" content="{{meta.description || 'Keddo' }}">
+    <meta name="keywords" content="{{meta.keywords || 'Keddo' }}">
     <meta name="viewport" content="width=device-width">
       <link rel="stylesheet" href="bower_components/quill/dist/quill.snow.css" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -23,11 +24,30 @@
     <!-- endbuild -->
 
   </head>
-  <body ng-app="frontendApp">
+  <body >
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="">
+      <div ng-controller="MainCtrl" ng-init="init('::topMenu')">
+<nav style="height:104px;padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">
+                <img style="height:42px" src="images/logo.png">
+            </a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+        <ng-include src="'views/block.html'"> </ng-include>
+        <ng-include src="'views/adm/menu.html'"> </ng-include>
+     </section>
+</nav>
+          <div style="clear:both;"> </div>
+
+      </div>
+
       <div ng-view="">
 
       </div>
@@ -87,10 +107,14 @@
         <script src="scripts/directives/blockcontroll.js"></script>
         <script src="scripts/services/blocksstack.js"></script>
         <script src="scripts/services/blocksfactory.js"></script>
+        <script src="scripts/controllers/meta.js"></script>
+        <script src="scripts/controllers/auth.js"></script>
         <!-- endbuild -->
 
       <script src="scripts/resources/blockres.js"></script>
       <script src="scripts/resources/pageres.js"></script>
+      <script src="scripts/resources/userres.js"></script>
+
     <script src="bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
 
         <script src="f/js/foundation.min.js"></script>

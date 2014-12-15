@@ -13,7 +13,6 @@ angular.module('frontendApp')
       replace:true,
       restrict: 'E',
       scope: {
-        resource: "=resource",
         block: "=data"
       },
       //controller:['$scope','ngDialog',function(){

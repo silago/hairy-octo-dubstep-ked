@@ -1,10 +1,10 @@
 <div class="row">
     <h2> Будет созданаа нова страница. </h2>
-    <div>
+    <div ng-init="page={meta:{}}">
         <h3> Meta </h3> <br/>
         <div class="row collapse">
             <div class="small-4 columns"> <span class="prefix"> Заголовок:  </span> </div>
-            <div class="small-8 columns"> <input type="text" />  </div>
+            <div class="small-8 columns"> <input ng-model="page.meta.title" type="text" />  </div>
         </div>
 
         <div class="row collapse">
@@ -12,21 +12,23 @@
             Ключевые слова:
                  </span> </div>
             <div class="small-8 columns">
-                <input type="text" />  </div>
+                <input type="text" ng-model="page.meta.keywords" />  </div>
         </div>
         <div class="row collapse">
              <div class="small-4 columns"> <span class="prefix">
             Описание:
                  </span> </div>
             <div class="small-8 columns">
-                <input type="text" /> </div>
+                <input type="text" ng-model="page.meta.description" /> </div>
         </div>
         <hr/>
         <div class="row collapse">
-            Добавить страницу в рассылку новостей? <input type="checkbox" />
+            Добавить страницу в рассылку новостей? <input ng-model="page.asNews" type="checkbox" />
         </div>
         <hr/>
-        <button type="button tiny"> Продолжить </button>
+        <button
+
+                class="button tiny" ng-click="closeThisDialog(page)"> Продолжить </button>
     </div>
 
 </div>

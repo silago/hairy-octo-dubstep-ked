@@ -34,6 +34,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+    .when('/auth',{
+      templateUrl: 'views/auth.html',
+      controller: 'AuthCtrl'
+    })
       .otherwise({
         redirectTo: '/page/index'
       });

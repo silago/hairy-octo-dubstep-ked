@@ -2,79 +2,17 @@
     <!--
     <div class="adm-nav" ng-include="'views/adm/adm-nav.html'"></div>
     -->
-<nav style="height:104px;padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar>
-    <ul class="title-area">
-
-        <li class="name">
-          <h1><a href="#">
-                <img style="height:42px" src="images/logo.png">
-            </a></h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-
-     <section class="top-bar-section">
 
         <!--
-        <block resource="blockRes" data="menu">
-                ....
-        </block>
+            if adm:
+                    droppable
+            else:
+                    usual
         -->
-        <ul ng-init="stack = itemsStack" class="right main-menu">
-                    <li ng-show="!!i.type" ng-repeat="i in stack track by $index">
-                        <span  class=""
-                             data-drag="true"
-                             style="display:block; background-color:#f4f4f4; padding:4px; margin-right:10px;"
-                             data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}"
-                             ng-model="i"
-                             jqyoui-draggable="{animate:true}"
-                             >
-                         {{ i.data[i.data.$$keys()[0]] }}
-                        </span>
-                    </li>
-                    <li><a ng-click="createElement();" >ADD <i class="fi-plus small"> </i> </a>   </li>
 
-        <li class="has-form">
-            <div ng-show="!showTopSearch">
-                    <a ng-click="showTopSearch=!showTopSearch">
-                        <img src="images/search.png" />
-                    </a>
-            </div>
-            <div ng-show="!!showTopSearch" class="row collapse">
-                <div class="large-8 small-8 columns">
-                   <input style="" type="text" placeholder="Find Stuff">
-                </div>
-                <div class="large-4 small-4 columns">
-                    <a href="#">
-                        <img src="images/search.png" />
-                    </a>
-                </div>
-            </div>
-        </li>
-            <li>
-                <img class="keddo_club" alt="" src="images/keddo_club.png" />
-            </li>
-        </ul>
+<ng-include src="'views/block.html'"> </ng-include>
+<!-- src must be a function that get adm or usual interface -->
 
-     </section>
-</nav>
-</div>
-        <div
-                 z-ng-init="if (!page.subitems) page.subitems=[];"
-                 data-drop="true"
-                 data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
-                 ng-model="page.subitems"
-                 jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
-                    <div ng-repeat="block in page.subitems">
-                        <block  place="center" page="/" resource="blockRes" data="block">
-                                ....
-                        </block>
-                </div>
-            <span style="display:block; margin-bottom:10px"; z-ng-show="block" class="block-controls">
-                <!-- <button class="tiny" ng-click="block = undefined"> delete </button> -->
-                <a ng-click="savePage(page.subitems);" class="fi-check">  </a>
-            <span>
-        </div>
 
 
 <div class="large-12 collapse foot">

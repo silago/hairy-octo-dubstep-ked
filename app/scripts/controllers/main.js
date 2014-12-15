@@ -10,33 +10,47 @@
 angular.module('frontendApp')
   .controller('MainCtrl', function ($scope,$location,$routeParams,blockRes,pageRes,ngDialog,blocksFactory) {
     $scope.itemsStack = blocksFactory.get();
-    $scope.pageRes =pageRes;
+    $scope.pageRes =  pageRes;
+    $scope.blockRes = blockRes;
+    //$scope.topMenu =  blockRes.GET({alias:'::topMenu'});
+    $scope.page = {};
+
+    /*
+      $scope.topMenu = {};
+      $scope.
+    */
 
     $scope.createElement = function (){
       ngDialog.open({template:'views/adm/createElement.html'});
     }
 
     $scope.savePageData = function(data){
-
             pageRes.POST({url:$scope.path,data:data}).$promise.then(function(data){
                $scope.page = data;
         },function(data){ alert('something go wrong');});
     }
+
     $scope.savePage = function(data){
             if ($scope.page.id == undefined){
             var dialog = ngDialog.open({template:'views/adm/pageCreate.html'});
               dialog.closePromise.then(function(d) {
-                // this must also save meta and update news
-                $scope.savePageData(data);
+                var new_page_data = d.value;
+                pageRes.PUT({url:$scope.path,data:new_page_data}).$promise.then(function(a){
+                  $scope.savePageData(data);
+                });
               });
             } else {
                $scope.savePageData(data);
             }
     }
-    $scope.init = function(){
+
+    $scope.init = function(page_path){
+      if (page_path==undefined){
         $scope.path = $routeParams.pageLocation;
-        $scope.pageRes = pageRes;
-        $scope.page = {};
+      } else {
+        $scope.path = page_path;
+      }
+
         pageRes.get({'url':$scope.path}).$promise.then(function(data){
           if (data.id){
               $scope.page = data;
@@ -47,45 +61,5 @@ angular.module('frontendApp')
 
           $scope.page = {'url':pageRes, subitems : [], meta:[{'description':''},{'keywords':''}] };
           });
-
-
-        $scope.info = "loaded";
-        $scope.blockRes = blockRes;
-        $scope.menu = blockRes.GET({'id':1});
-        /* $scope.data = {'center':
-                            {id:0,
-                            type:'bgvideo',
-                            data:{
-                                    'imgsrc':'zimages/bgwebm.jpg',
-                                    'src'   :'images/bg.webm',
-                                 },
-        subitems: [
-
-        {id:2,type:'html',data:{'html':''}},
-        {id:0,type:'photo',data:{'src':'static/1.jpg'}},{id:1,type:'photo',data:{'src':'static/2.jpg'}}
-
-  ]
-                     }
-        }; */
     };
-
-
-
-
-
- $scope.trash = [];
- $scope.list1 = {'subitems':[]};
- $scope.list2 = [];
-   // $scope.saveMenu = function(data){
-   //     menuSrvc.request('POST',angular.toJson(data),'').success(function(data){
-   //         //$scope.menu = data;
-   //         $scope.info = 'menu saved';
-   //     });
-   // };
-
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
   });
