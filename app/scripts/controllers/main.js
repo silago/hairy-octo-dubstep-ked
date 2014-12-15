@@ -12,13 +12,7 @@ angular.module('frontendApp')
     $scope.itemsStack = blocksFactory.get();
     $scope.pageRes =  pageRes;
     $scope.blockRes = blockRes;
-    //$scope.topMenu =  blockRes.GET({alias:'::topMenu'});
     $scope.page = {};
-
-    /*
-      $scope.topMenu = {};
-      $scope.
-    */
 
     $scope.createElement = function (){
       ngDialog.open({template:'views/adm/createElement.html'});

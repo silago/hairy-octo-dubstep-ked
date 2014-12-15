@@ -8,10 +8,12 @@ angular.module('frontendApp')
                      },
                      {
                        GET:{
-                         method:'GET'
+                         method:'GET',
+                         withCredentials:true
                        },
                        POST:{
-                         method:'POST'
+                         method:'POST',
+                         params: {}
                         },
                        PUT:{
                          method:'PUT'
