@@ -13,7 +13,8 @@ angular.module('frontendApp')
                        },
                        POST:{
                          method:'POST',
-                         params: {}
+                         params: {},
+                         withCredentials:true
                         },
                        PUT:{
                          method:'PUT'

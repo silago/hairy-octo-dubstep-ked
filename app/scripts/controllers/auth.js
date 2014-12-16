@@ -14,6 +14,9 @@ angular.module('frontendApp')
     });
 
     window.d = userRes;
+    $scope.check =function(){
+      userRes.GET({});
+    }
 
     $scope.auth = function(data) {
       var username = data.username;
