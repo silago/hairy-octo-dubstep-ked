@@ -1,12 +1,30 @@
 /* Space out content a bit */
 
+.block-type-menu {
+  float:left;
+}
+
+
+/* need to add top menu selector */
+.top-bar .block-type-menu > .block + .block-subitems {display:none!important;}
+.top-bar .block-type-menu > .block.opened + .block-subitems {display:inline-block!important;
+      height: 0;
+      left: 0;
+      position: relative;
+      top: -30px;
+      z-index: 1049;
+}
+.ui-droppable {min-width:20px; min-height:20px; float:left;}
+
 div.block-type-menu div > div {
   margin-left:10px;
+
+
 }
 
 .top-bar .top-bar-section li ul.dropdown-light {
 
-   background-color:#f4f4f4!importat;
+   z-background-color:#f4f4f4!important;
    border-radius:3px;
 }
 .main-menu li, .main-menu li a  {
@@ -71,7 +89,7 @@ ul:hover > li.ui-droppable {
 
 z*:hover {color:red!important;}
 .ui-droppable {
-    z-height:20px; z-width:20px; border:1px solid #242424; border-radius:3px;
+    z-height:20px; z-width:20px; z-border:1px solid #242424; border-radius:3px;
     z-display:inline;
 }
 

@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js"  ng-app="frontendApp">
-  <head ng-controller="MetaCtrl">
+  <head ng-controller="MetaCtrl" ng-cloack>
     <meta charset="utf-8">
       <title>{{meta.title || 'Keddo' }}</title>
     <meta name="description" content="{{meta.description || 'Keddo' }}">
@@ -39,8 +39,8 @@
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
-    <section class="top-bar-section">
-        <ng-include src="'views/block.html'"> </ng-include>
+    <section  class="top-bar-section">
+        <ng-include style="float:left;" src="'views/block.html'"> </ng-include>
         <ng-include src="'views/adm/menu.html'"> </ng-include>
      </section>
 </nav>

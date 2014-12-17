@@ -8,22 +8,21 @@
  * Controller of the keddoApp
  */
 angular.module('frontendApp')
-  .controller('AuthCtrl', function ($scope,$cookieStore,userRes) {
+  .controller('AuthCtrl', function ($scope,$location,$route,$cookieStore,userRes) {
     userRes.GET({}).$promise.then(function(data){
       $scope.user = data;
     });
 
-    window.d = userRes;
-    $scope.check =function(){
-      userRes.GET({});
+    $scope.logout = function(){
+      userRes.DELETE({}).$promise.then( function(d) {$route.reload();});
     }
 
-    $scope.auth = function(data) {
+    $scope.login = function(data) {
       var username = data.username;
       var password = btoa(data.password);
       userRes.POST({data:{username:username,password:password}}).$promise.then(function(d){
           $scope.user = d;
-          $cookieStore.put('token',d.token);
+          $cookieStore.put('token',d.role_id);
           window.c = $cookieStore;
       });
     };

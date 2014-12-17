@@ -12,6 +12,15 @@ angular.module('frontendApp')
     $scope.itemsStack = blocksFactory.get();
     $scope.pageRes =  pageRes;
     $scope.blockRes = blockRes;
+
+
+    $scope._USER  = {'isAdmin':true};
+    $scope.toggleUsert = function(){
+      $scope._USER.isAdmin=!$scope._USER.isAdmin;
+    }
+
+   $scope.isEditable = true;
+
     $scope.page = {};
 
     $scope.createElement = function (){

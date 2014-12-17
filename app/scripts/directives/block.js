@@ -13,7 +13,7 @@ angular.module('frontendApp')
       replace:true,
       restrict: 'E',
       scope: {
-        block: "=data"
+        block: "=data", isEditable:"=isEditable"
       },
       //controller:['$scope','ngDialog',function(){
       controller: ["$scope","ngDialog",function($scope,ngDialog,ngQuill){

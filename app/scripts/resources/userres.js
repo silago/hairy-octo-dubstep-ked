@@ -16,6 +16,10 @@ angular.module('frontendApp')
                          params: {},
                          withCredentials:true
                         },
+                       DELETE:{
+                         method:'DELETE',
+                         withCredentials:true
+                        },
                        PUT:{
                          method:'PUT'
                         }
