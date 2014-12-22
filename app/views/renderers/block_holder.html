@@ -2,7 +2,7 @@
             ng-show="block.type"
              class="has-block-controls block-type-{{block.type}}">
             <div
-                 ng-click="block.open=!block.open" ng-class="{opened:block.open}"
+                 z-ng-click="block.open=!block.open" ng-class="{opened:block.open}"
                  class="block"
                  data-drop="isEditable"
                  data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
@@ -12,12 +12,12 @@
                  z-ng-init="block = block">
 
                 <ng-include src="'views/renderers/'+block.type+'.html'"> </ng-include>
-                <div   ng-show="isEditable && !!block && block.type &&  block.type!='deleted'" >
+               <div class="block-controls"  ng-show="isEditable && !!block && block.type &&  block.type!='deleted'" >
                     <a class="fi-x      small" ng-click="block.type = 'deleted'">  </a>
                     <a class="fi-pencil      small" ng-click="updateElement(block);">  </a>
                 </div>
             </div>
-            <div class="block-subitems" ui-sortable model="block.subitems">
+            <div class="block-subitems" z-ui-sortable z-model="block.subitems">
                 <ng-include class="block-type-subitems"  src="'views/renderers/block_holder.html'"  ng-repeat="block in block.subitems | orderBy:order"> ... </ng-include>
             </div>
 

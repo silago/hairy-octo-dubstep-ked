@@ -8,18 +8,20 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('MainCtrl', function ($scope,$location,$routeParams,blockRes,pageRes,ngDialog,blocksFactory) {
+  .controller('MainCtrl', function ($scope,$location,$stateParams,blockRes,pageRes,ngDialog,blocksFactory) {
     $scope.itemsStack = blocksFactory.get();
     $scope.pageRes =  pageRes;
     $scope.blockRes = blockRes;
 
 
-    $scope._USER  = {'isAdmin':true};
+
+    $scope._USER  = {'isAdmin':false};
     $scope.toggleUsert = function(){
       $scope._USER.isAdmin=!$scope._USER.isAdmin;
     }
+    window._USER = $scope._USER;
 
-   $scope.isEditable = true;
+    $scope.isEditable = false;
 
     $scope.page = {};
 
@@ -49,7 +51,7 @@ angular.module('frontendApp')
 
     $scope.init = function(page_path){
       if (page_path==undefined){
-        $scope.path = $routeParams.pageLocation;
+        $scope.path = $stateParams.url;
       } else {
         $scope.path = page_path;
       }

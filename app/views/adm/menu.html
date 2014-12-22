@@ -1,4 +1,5 @@
-        <ul ng-init="stack = itemsStack" class="right main-menu">
+        <ul ng-init="stack = itemsStack" class="right">
+                    <!--
                     <li ng-show="!!i.type" ng-repeat="i in stack track by $index">
                         <span  class=""
                              data-drag="true"
@@ -10,8 +11,12 @@
                          {{ i.data[i.data.$$keys()[0]] }}
                         </span>
                     </li>
-                    <li><a ng-click="createElement();" >ADD <i class="fi-plus small"> </i> </a>   </li>
-                    <li class="has-form">
+                    -->
+            <li><a ng-href="/#/users"> Users </a></li>
+            <li><a ng-click="createElement();" >ADD <i class="fi-plus small"> </i> </a>   </li>
+            <li><a href="#"> Search </a></li>
+            <!--
+            <li class="has-form">
                         <div ng-show="!showTopSearch">
                                 <a ng-click="showTopSearch=!showTopSearch">
                                     <img src="images/search.png" />
@@ -28,7 +33,8 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+            -->
+            <li>
                         <img class="keddo_club" alt="" src="images/keddo_club.png" />
                     </li>
         </ul>

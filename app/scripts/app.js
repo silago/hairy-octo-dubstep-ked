@@ -14,7 +14,7 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch',
     'ngDragDrop',
@@ -22,25 +22,37 @@ angular
     'ngResource',
     'ngDialog',
     'ngQuill',
-    'ui.sortable'
+    'ui.sortable',
+    'mm.foundation'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-    .when('/page/:pageLocation', {
+  .config(function ($stateProvider,$urlRouterProvider) {
+    $urlRouterProvider.otherwise('/page/index');
+    $stateProvider
+    .state('pages', {
+        url:'/page/:url',
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-    .when('/auth',{
-      templateUrl: 'views/auth.html',
-      controller: 'AuthCtrl'
-    })
-      .otherwise({
-        redirectTo: '/page/index'
-      });
+      controller: 'MainCtrl'
+      }).
+    state('users',{
+      url:'/users',
+      templateUrl:'views/users.html',
+      controller: 'UserCtrl'
+    }).
+      state('auth',{
+        url:'/auth',
+        templateUrl:'views/auth.html',
+        controller: 'AuthCtrl'
+      }).
+    state('catalog',{
+      url:'/:group',
+      templateUrl:'views/catalog.html',
+      controller: 'CatalogCtrl'}).
+    state('catalog.item',{
+      url:'/:item',
+      templateUrl: 'views/catalog.html',
+      controller: function($scope){
+    }})
+
   }).config(function($compileProvider) {
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|javascript|mailto|file):/);
 });

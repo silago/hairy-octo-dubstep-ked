@@ -9,7 +9,9 @@
 angular.module('frontendApp')
   .directive('block', function () {
     return {
-      templateUrl: 'views/renderers/block_holder.html',
+      templateUrl: function(elem,attrs){
+        return attrs.template || 'views/renderers/block_holder.html'
+      },
       replace:true,
       restrict: 'E',
       scope: {

@@ -8,12 +8,12 @@
  * Controller of the keddoApp
  */
 angular.module('frontendApp')
-  .controller('MetaCtrl', function ($scope,pageRes,$routeParams,$location) {
+  .controller('MetaCtrl', function ($scope,pageRes,$location) {
     $scope.path = $location.$$path.replace(/^\/page\//g,'');
-        pageRes.get({'url':$scope.path}).$promise.then(function(data){
-          if (data.id){
-              $scope.meta = data.meta.fromJson();
-          }
-        },function(data){
-          });
+      //  pageRes.get({'url':$scope.path}).$promise.then(function(data){
+      //    if (data.id){
+      //        $scope.meta = data.meta.fromJson();
+      //    }
+      //  },function(data){
+      //    });
   });

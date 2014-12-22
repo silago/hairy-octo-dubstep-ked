@@ -30,25 +30,70 @@
     <![endif]-->
     <div class="">
       <div ng-controller="MainCtrl" ng-init="init('::topMenu')">
-<nav style="height:104px;padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar>
-    <ul class="title-area">
-        <li class="name">
-          <h1><a href="#">
-                <img style="height:42px" src="images/logo.png">
-            </a></h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-    <section  class="top-bar-section">
-        <ng-include style="float:left;" src="'views/block.html'"> </ng-include>
-        <ng-include src="'views/adm/menu.html'"> </ng-include>
-     </section>
-</nav>
-          <div style="clear:both;"> </div>
+            <top-bar>
+                <ul class="title-area">
+                  <li class="name">
+                    <h1><a href="#">KEDDO</a></h1>
+                  </li>
+                  <li toggle-top-bar class="menu-icon"><a href="">Menu</a></li>
+                </ul>
 
+
+
+                <top-bar-section>
+                    <ng-include style="float:left;" src="'views/ul_block.html'"> </ng-include>
+                    <ng-include src="'views/adm/menu.html'"> </ng-include>
+                  <!-- Right Nav Section
+                  <ul class="right">
+                    <li class="active"><a href="#">Active</a></li>
+                    <li has-dropdown>
+                      <a href="#">Dropdown</a>
+                      <ul top-bar-dropdown>
+                        <li><a href="#">First link in dropdown</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+
+                  <ul class="left">
+                    <li><a href="#">Left</a></li>
+                  </ul>
+                </top-bar-section>
+              </top-bar>
+          <!--
+            <nav style="z-height:104px; z-padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar>
+                <ul class="title-area">
+                    <li class="name">
+                      <h1><a href="#">
+                            <img style="height:42px" src="images/logo.png">
+                        </a></h1>
+                    </li>
+                    <li class="toggle-topbar menu-icon"><a ng-href=""><span>Menu</span></a></li>
+                </ul>
+                <section  class="top-bar-section">
+                    <ul class="">
+                        <li> <a href="#"> link</a> </li>
+                        <li> <a href="#"> link</a> </li>
+                    </ul>
+                    <div class="">
+                        <span> <a href='#'> link2 </a> </span>
+                        <span> <a href='#'> link2 </a>
+                            <div>
+                                <span> <a href='#'> sublink </a>
+                            </div>
+                        </span>
+                    </div>
+                    <!--
+                    <ng-include style="float:left;" src="'views/block.html'"> </ng-include>
+                    <ng-include src="'views/adm/menu.html'"> </ng-include>
+                     -->
+        <!--
+        </section>
+            </nav>
+          <div style="clear:both;"> </div>
+        -->
       </div>
 
-      <div ng-view="">
+      <div ui-view>
 
       </div>
     </div>
@@ -93,6 +138,8 @@
     <script src="bower_components/ng-quill/src/ng-quill.min.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+    <script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -109,11 +156,14 @@
         <script src="scripts/services/blocksfactory.js"></script>
         <script src="scripts/controllers/meta.js"></script>
         <script src="scripts/controllers/auth.js"></script>
+        <script src="scripts/controllers/user.js"></script>
+        <script src="scripts/controllers/catalog.js"></script>
         <!-- endbuild -->
 
       <script src="scripts/resources/blockres.js"></script>
       <script src="scripts/resources/pageres.js"></script>
       <script src="scripts/resources/userres.js"></script>
+      <script src="scripts/resources/authres.js"></script>
 
     <script src="bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
 
