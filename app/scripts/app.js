@@ -30,8 +30,8 @@ angular
     $stateProvider
     .state('pages', {
         url:'/page/:url',
-        templateUrl: 'views/main.html',
-      controller: 'MainCtrl'
+        templateUrl: function(){ return ( true ? 'views' : 'extended_views')+'/main.html';},
+        controller:  ( true ?  'MainCtrl' : 'ExtendedmainCtrl' )
       }).
     state('users',{
       url:'/users',

@@ -23,6 +23,7 @@
     <script src="f/js/vendor/modernizr.js"></script>
     <!-- endbuild -->
 
+      <script type='text/javascript' id='lt_ws' src='http://localhost:60523/socket.io/lighttable/ws.js'></script>
   </head>
   <body >
     <!--[if lt IE 7]>
@@ -33,69 +34,68 @@
             <top-bar>
                 <ul class="title-area">
                   <li class="name">
-                    <h1><a href="#">KEDDO</a></h1>
+                    <h1><a href="#">KEDDO </a></h1>
                   </li>
                   <li toggle-top-bar class="menu-icon"><a href="">Menu</a></li>
                 </ul>
 
-
-
                 <top-bar-section>
                     <ng-include style="float:left;" src="'views/ul_block.html'"> </ng-include>
                     <ng-include src="'views/adm/menu.html'"> </ng-include>
-                  <!-- Right Nav Section
-                  <ul class="right">
-                    <li class="active"><a href="#">Active</a></li>
-                    <li has-dropdown>
-                      <a href="#">Dropdown</a>
-                      <ul top-bar-dropdown>
-                        <li><a href="#">First link in dropdown</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-
-                  <ul class="left">
-                    <li><a href="#">Left</a></li>
-                  </ul>
                 </top-bar-section>
               </top-bar>
-          <!--
-            <nav style="z-height:104px; z-padding:23px; width:100%;background-color:#e6e6e6;"   class="top-bar" data-topbar>
-                <ul class="title-area">
-                    <li class="name">
-                      <h1><a href="#">
-                            <img style="height:42px" src="images/logo.png">
-                        </a></h1>
-                    </li>
-                    <li class="toggle-topbar menu-icon"><a ng-href=""><span>Menu</span></a></li>
-                </ul>
-                <section  class="top-bar-section">
-                    <ul class="">
-                        <li> <a href="#"> link</a> </li>
-                        <li> <a href="#"> link</a> </li>
-                    </ul>
-                    <div class="">
-                        <span> <a href='#'> link2 </a> </span>
-                        <span> <a href='#'> link2 </a>
-                            <div>
-                                <span> <a href='#'> sublink </a>
-                            </div>
-                        </span>
-                    </div>
-                    <!--
-                    <ng-include style="float:left;" src="'views/block.html'"> </ng-include>
-                    <ng-include src="'views/adm/menu.html'"> </ng-include>
-                     -->
-        <!--
-        </section>
-            </nav>
-          <div style="clear:both;"> </div>
-        -->
       </div>
 
       <div ui-view>
 
       </div>
+
+
+<div class="large-12 collapse foot">
+    <div class="columns large-3 small-3">
+        <img src="images/footer_left.png" />
+    </div>
+    <div class="columns bottom-center large-6 small-6">
+        <div class="columns large-7">
+            <br/>
+            <h2 class="uppercase"> Новости </h2>
+            <p>
+                Подпишитесь на нашу рассылку новостей и при новых поступлениях
+                мы будем оповещать вас о приходящих новинках.
+
+            </p>
+                  <div class="row collapse subscribe">
+                    <div class="small-10 columns">
+                      <input type="text" placeholder="Адрес электронной почты">
+                    </div>
+                    <div class="small-2 columns">
+                      <a href="#" class="button postfix">OK</a>
+                    </div>
+                  </div>
+        </div>
+        <div class="columns large-5">
+                    <div ng-controller="MainCtrl" ng-init="init('::bottomRight')">
+                        <ng-include style="float:left;" src="'views/block.html'"> </ng-include>
+                    </div>
+        </div>
+        <hr class="separator columns" />
+        <div class="row">
+                        <div ng-controller="MainCtrl" ng-init="init('::bottomRight')">
+                            <ng-include style="float:left;" src="'views/block.html'"> </ng-include>
+                        </div>
+        </div>
+        <div style="clear:both;"> </div>
+        <br/>
+    </div>
+    <div class="columns large-3 small-3">
+        <img src="images/footer_right.png" />
+    </div>
+
+
+    <div style="clear:both;"> </div>
+</div>
+
+
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -158,6 +158,9 @@
         <script src="scripts/controllers/auth.js"></script>
         <script src="scripts/controllers/user.js"></script>
         <script src="scripts/controllers/catalog.js"></script>
+        <script src="scripts/controllers/common.js"></script>
+        <script src="scripts/controllers/adm.js"></script>
+        <script src="scripts/controllers/extendedmain.js"></script>
         <!-- endbuild -->
 
       <script src="scripts/resources/blockres.js"></script>

@@ -8,13 +8,13 @@
  * Controller of the keddoApp
  */
 angular.module('frontendApp')
-  .controller('AuthCtrl', function ($scope,$location,$route,$cookieStore,authRes) {
+  .controller('AuthCtrl', function ($scope,$location,$cookieStore,authRes) {
     authRes.GET({}).$promise.then(function(data){
       $scope.user = data;
     });
 
     $scope.logout = function(){
-      authRes.DELETE({}).$promise.then( function(d) {$route.reload();});
+    ///  authRes.DELETE({}).$promise.then( function(d) {$route.reload();});
     }
 
     $scope.login = function(data) {

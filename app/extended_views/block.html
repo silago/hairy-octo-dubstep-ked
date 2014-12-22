@@ -1,0 +1,17 @@
+        <div class="page-content">
+            <div
+                         data-drop="isEditable"
+                         data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
+                         ng-model="page.subitems"
+                         jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
+                             <block ng-repeat="block in page.subitems" is-editable="isEditable"  data="block">
+                                     ....
+                             </block>
+            </div>
+            <span
+                  ng-if="isEditable"
+                  style="display:block; margin-left:-10px; margin-bottom:10px"  class="block-controls">
+                <a ng-click="savePage(page.subitems);" class="fi-check">  </a>
+            </span>
+                <div style="clear:both;"> </div>
+        </div>

@@ -1,0 +1,13 @@
+<div ng-init="data={}" ng-cloak class="row">
+    <dvi class="columns large-12 ">
+        <div ng-if="!user.username">
+            <input type="text" ng-model="data.username"/>
+            <input type="password" ng-model="data.password">
+            <button ng-click="login(data);"> login </button>
+        </div>
+        <div ng-if="user.username">
+            Вы вошли как {{user.username}} <br/>
+            <button ng-click="logout()" class="button tiny"> Взять и выйти </button>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 'use strict';
 
+
 Array.prototype.filter = function (key,value,childKey){
         var keys = Object.keys(this);
         var walk = function(data) {
@@ -18,6 +19,7 @@ Array.prototype.last = function () {
     return this[this.length];
 }
 
+var arr = [1,2,3];
 
 Array.prototype.clearEmpty = function () {
   for( var i=0; i<=this.length; i++){
@@ -58,3 +60,4 @@ Object.defineProperty(Object.prototype, "$$hasDefined", {enumerable: false})
 String.prototype.fromJson = function(){
    return angular.fromJson(this);
 }
+

@@ -1,0 +1,9 @@
+<ul>
+        <li has-dropdown ng-class="{'has-dropdown':block.subitems.length}">
+            <a ng-href="{{ (!!block.subitems.length ? '' : block.data.url )}}"> {{block.data.title}} </a>
+            <ul z-top-bar-dropdown class="dropdown" ng-if="block.subitems">
+                <ng-include ng-repeat="block in block.subitems" src="'views/renderers/ul_block_holder.html'"> </ng-include>
+            </ul>
+    </li>
+</ul>
+

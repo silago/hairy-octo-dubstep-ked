@@ -1,0 +1,40 @@
+        <ul ng-init="stack = itemsStack" class="right">
+                    <!--
+                    <li ng-show="!!i.type" ng-repeat="i in stack track by $index">
+                        <span  class=""
+                             data-drag="true"
+                             style="display:block; background-color:#f4f4f4; padding:4px; margin-right:10px;"
+                             data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}"
+                             ng-model="i"
+                             jqyoui-draggable="{animate:true}"
+                             >
+                         {{ i.data[i.data.$$keys()[0]] }}
+                        </span>
+                    </li>
+                    -->
+            <li><a ng-href="/#/users"> Users </a></li>
+            <li><a ng-click="createElement();" >ADD <i class="fi-plus small"> </i> </a>   </li>
+            <li><a href="#"> Search </a></li>
+            <!--
+            <li class="has-form">
+                        <div ng-show="!showTopSearch">
+                                <a ng-click="showTopSearch=!showTopSearch">
+                                    <img src="images/search.png" />
+                                </a>
+                        </div>
+                        <div ng-show="!!showTopSearch" class="row collapse">
+                            <div class="large-8 small-8 columns">
+                               <input style="" type="text" placeholder="Find Stuff">
+                            </div>
+                            <div class="large-4 small-4 columns">
+                                <a href="#">
+                                    <img src="images/search.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+            -->
+            <li>
+                        <img class="keddo_club" alt="" src="images/keddo_club.png" />
+                    </li>
+        </ul>
