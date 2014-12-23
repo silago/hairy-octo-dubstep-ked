@@ -39,20 +39,18 @@
                 </ul>
 
                 <top-bar-section>
-                    <div style="float:left" ui-view="topMenu"> </div>
+                    <div class="top-menu-left" ui-view="topMenu"> </div>
+                    <div ui-view="rightMenu"> </div>
                     <!--
                     <ng-include style="float:left;" src="getTemplate('ul_block.html')"> </ng-include>
                     -->
-                    <div ui-view="rightMenu"> </div>
                     <!--
                     <ng-include src="'views/adm/menu.html'"> </ng-include>
                     -->
                 </top-bar-section>
               </top-bar>
       </div>
-
       <div ui-view="content">
-
       </div>
 
 
@@ -79,14 +77,17 @@
                   </div>
         </div>
         <div class="columns large-5">
+                    <!--
                     <div ng-controller="MainCtrl" ng-init="init('::bottomRight')">
                         <ng-include style="float:left;" src="'views/block.html'"> </ng-include>
                     </div>
+                    -->
         </div>
         <hr class="separator columns" />
-        <div class="row">
-                        <div ng-controller="MainCtrl" ng-init="init('::bottomRight')">
-                            <ng-include style="float:left;" src="'views/block.html'"> </ng-include>
+        <div class="footer-menu ">
+                        <div class="columns" ng-controller="MainCtrl" ng-init="init('::bottomMenu')">
+                            <div z-style="border:1px solid red; min-height:20px;" ui-view="bottomMenu"> </div>
+                            <!-- <ng-include style="float:left;" src="'views/block.html'"> </ng-include>-->
                         </div>
         </div>
         <div style="clear:both;"> </div>

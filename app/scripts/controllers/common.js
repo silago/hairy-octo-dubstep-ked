@@ -7,7 +7,7 @@
  * # CommonCtrl
  * Controller of the keddoApp
  */
-angular.module('keddoApp')
+angular.module('frontendApp')
   .controller('CommonCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

@@ -13,7 +13,7 @@ angular.module('frontendApp')
     return {
       scope:{item:'=item', type:'@itemType'},
       replace:true,
-      templateUrl: 'views/adm/createElementForm.html',
+      templateUrl: 'editable/adm/createElementForm.html',
       controller: ["$scope","blocksFactory", function($scope,blocksFactory){
 
 

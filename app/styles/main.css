@@ -3,7 +3,28 @@
 }
 
 
+.foot div.page-content {
+   -moz-column-count: 4;
+}
+.foot .footer-menu .page-content > div >   .block-type-html {
+  display:inline-block;
+  padding-right:10px;
+}
 
+nothing > .foot .footer-menu > div > div > div > .ui-droppable > div > div {
+  display:inline-block;
+}
+
+.footer-menu .page-content > div {
+   width:100%;
+}
+
+.foot .footer-menu a  { color:#fff;}
+.foot .footer-menu { color:#fff;}
+.top-bar .block-controls > a {
+  float:left;
+  height:8px;
+}
 .top-bar .block-controls {
     top:-10px;
     position: absolute;
@@ -23,7 +44,7 @@
       top: -30px;
       z-index: 1049;
 }
-.ui-droppable {min-width:20px; min-height:20px; float:left;}
+.ui-droppable {min-width:20px; min-height:20px; zfloat:left;}
 
 div.block-type-menu div > div {
   margin-left:10px;

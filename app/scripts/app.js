@@ -35,6 +35,7 @@ angular
         views: {
           'content':   {templateUrl:   'views/main.html',controller:'MainCtrl'},
           'topMenu':   {templateUrl:   'views/ul_block.html',controller:'MainCtrl'},
+          'bottomMenu':{templateUrl:   'views/block.html',   controller:'MainCtrl'}
         }
       })
     .state('editpages', {
@@ -42,6 +43,7 @@ angular
         views: {
           'content':   {templateUrl:   'editable/main.html',controller:'EditablemainCtrl'},
           'topMenu':   {templateUrl:   'editable/ul_block.html',controller:'EditablemainCtrl'},
+          'bottomMenu':{templateUrl:   'editable/block.html',   controller:'EditablemainCtrl'},
           'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
         }
       }).
@@ -52,8 +54,11 @@ angular
     }).
       state('auth',{
         url:'/auth',
-        templateUrl:'views/auth.html',
-        controller: 'AuthCtrl'
+        views: {
+          'content': {
+            templateUrl:'views/auth.html',
+            controller: 'AuthCtrl'
+          }}
       }).
     state('catalog',{
       url:'/:group',

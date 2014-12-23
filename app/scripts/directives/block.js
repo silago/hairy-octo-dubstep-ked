@@ -10,8 +10,10 @@ angular.module('frontendApp')
   .directive('block', function () {
     return {
       templateUrl: function(elem,attrs){
+        console.log(attrs);
         var prefix = attrs.template || 'views/';
-        return attrs.template || prefix+'renderers/block_holder.html'
+        var result = attrs.template || prefix+'renderers/block_holder.html'
+        return result;
       },
       replace:true,
       restrict: 'E',
@@ -21,7 +23,7 @@ angular.module('frontendApp')
       //controller:['$scope','ngDialog',function(){
       controller: ["$scope","ngDialog",function($scope,ngDialog,ngQuill){
         $scope.updateElement = function (params){
-          ngDialog.open({template:'views/adm/updateElement.html',data:params});
+          ngDialog.open({template:'editable/adm/updateElement.html',data:params});
         }
       }]
     };

@@ -15,7 +15,7 @@ angular.module('frontendApp')
    $scope.pageRes =  pageRes;
    $scope.blockRes = blockRes;
    $scope.createElement = function (){
-      ngDialog.open({template:'views/adm/createElement.html'});
+      ngDialog.open({template:'editable/adm/createElement.html'});
     }
 
     $scope.savePageData = function(data){
@@ -26,7 +26,7 @@ angular.module('frontendApp')
 
     $scope.savePage = function(data){
             if ($scope.page.id == undefined){
-            var dialog = ngDialog.open({template:'views/adm/pageCreate.html'});
+            var dialog = ngDialog.open({template:'editable/adm/pageCreate.html'});
               dialog.closePromise.then(function(d) {
                 var new_page_data = d.value;
                 pageRes.PUT({url:$scope.path,data:new_page_data}).$promise.then(function(a){
@@ -42,6 +42,6 @@ angular.module('frontendApp')
     $scope.getTemplate = templates.getTemplate;
     $scope.init = function(page_path){
         if (page_path==undefined){  $scope.path = $stateParams.url;    } else {  $scope.path = page_path; }
-        pageRes.get({'url':$scope.path}).$promise.then(function(data){ $scope.page = (!!data.id ? data : {}); });
+        pageRes.get({'url':$scope.path}).$promise.then(function(data){ $scope.page = (!!data.id ? data : {subitems:[]}); });
     };
 });

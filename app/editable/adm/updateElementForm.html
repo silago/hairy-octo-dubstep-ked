@@ -1,8 +1,22 @@
 <div>
         <div  ng-init="item = ngDialogData">
+
+                <div ng-switch="item.type">
+                    <div ng-switch-when="html">
+                        <div ng-include="'editable/forms/html.html'"> </div> </div>
+                    <div ng-switch-default>
+                        <span ng-repeat="(key,param) in item.data">
+                            <input type="text" placeholder="{{key}}"  ng-model="item.data[key]" />
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--
                 <span ng-repeat="(key,param) in item.data">
                     <input type="text" placeholder="{{key}}"  ng-model="item.data[key]" />
                 </span>
+                -->
                 {{ngDialogData}}
                 <button class="button tiny" ng-click="closeThisDialog()">
                         OK
