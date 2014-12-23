@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: EditablemainCtrl', function () {
 
   // load the controller's module
   beforeEach(module('keddoApp'));
 
-  var MainCtrl,
+  var EditablemainCtrl,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,$authRes) {
+  beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    EditablemainCtrl = $controller('EditablemainCtrl', {
       $scope: scope
     });
   }));

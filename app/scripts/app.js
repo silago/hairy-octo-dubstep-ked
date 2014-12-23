@@ -26,12 +26,24 @@ angular
     'mm.foundation'
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
+
+
     $urlRouterProvider.otherwise('/page/index');
     $stateProvider
     .state('pages', {
         url:'/page/:url',
-        templateUrl: function(){ return ( true ? 'views' : 'extended_views')+'/main.html';},
-        controller:  ( true ?  'MainCtrl' : 'ExtendedmainCtrl' )
+        views: {
+          'content':   {templateUrl:   'views/main.html',controller:'MainCtrl'},
+          'topMenu':   {templateUrl:   'views/ul_block.html',controller:'MainCtrl'},
+        }
+      })
+    .state('editpages', {
+        url:'/page/:url/edit',
+        views: {
+          'content':   {templateUrl:   'editable/main.html',controller:'EditablemainCtrl'},
+          'topMenu':   {templateUrl:   'editable/ul_block.html',controller:'EditablemainCtrl'},
+          'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
+        }
       }).
     state('users',{
       url:'/users',

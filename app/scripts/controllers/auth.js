@@ -21,8 +21,7 @@ angular.module('frontendApp')
       var username = data.username;
       var password = btoa(data.password);
       authRes.POST({data:{username:username,password:password}}).$promise.then(function(d){
-          $scope.user = d;
-          $cookieStore.put('token',d.role_id);
+          $cookieStore.put('role_id',d.role_id);
           window.c = $cookieStore;
       });
     };

@@ -1,5 +1,5 @@
         <ul ng-init="stack = itemsStack" class="right">
-                    <li ng-repeat="i in stack track by $index">
+                    <li ng-show="!!i.type" ng-repeat="i in stack track by $index">
                         <span  class=""
                              data-drag="true"
                              style="display:block; background-color:#f4f4f4; padding:4px; margin-right:10px;"

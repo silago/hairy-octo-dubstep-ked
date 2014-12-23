@@ -1,0 +1,15 @@
+        <ul class="right"
+                         data-drop="true"
+                         data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
+                         ng-model="page.subitems"
+                         jqyoui-droppable="{multiple:true}">
+                               <block ng-repeat="block in page.subitems" template="editable/renderers/ul_block_holder.html" is-editable="true"  data="block">
+                                        ....
+                                 </block>
+            <li
+                 z-class="block-controls">
+                <a ng-click="savePage(page.subitems);" class="fi-check">  save </a>
+            </li>
+                  </ul>
+
+

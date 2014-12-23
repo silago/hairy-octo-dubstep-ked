@@ -23,6 +23,7 @@
     <script src="f/js/vendor/modernizr.js"></script>
     <!-- endbuild -->
 
+      <script type='text/javascript' id='lt_ws' src='http://localhost:60523/socket.io/lighttable/ws.js'></script>
   </head>
   <body >
     <!--[if lt IE 7]>
@@ -39,19 +40,13 @@
                 </ul>
 
                 <top-bar-section>
-                    <div style="float:left" ui-view="topMenu"> </div>
-                    <!--
-                    <ng-include style="float:left;" src="getTemplate('ul_block.html')"> </ng-include>
-                    -->
-                    <div ui-view="rightMenu"> </div>
-                    <!--
+                    <ng-include style="float:left;" src="'views/ul_block.html'"> </ng-include>
                     <ng-include src="'views/adm/menu.html'"> </ng-include>
-                    -->
                 </top-bar-section>
               </top-bar>
       </div>
 
-      <div ui-view="content">
+      <div ui-view>
 
       </div>
 
@@ -166,8 +161,6 @@
         <script src="scripts/controllers/common.js"></script>
         <script src="scripts/controllers/adm.js"></script>
         <script src="scripts/controllers/extendedmain.js"></script>
-        <script src="scripts/services/templates.js"></script>
-        <script src="scripts/controllers/editablemain.js"></script>
         <!-- endbuild -->
 
       <script src="scripts/resources/blockres.js"></script>
