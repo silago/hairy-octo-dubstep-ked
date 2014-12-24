@@ -7,8 +7,12 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('EditablemainCtrl', function ($scope,$location,$stateParams,blockRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
+  .controller('EditablemainCtrl', function ($scope,$location,$stateParams,$cookieStore,blockRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
 
+   var role_id = $cookieStore.get('role_id');
+   if (!role_id || role_id == 0) {
+        $location.path("page/index")
+   }
 
    $scope.itemsStack = blocksFactory.get();
    window.stack = $scope.itemsStack;

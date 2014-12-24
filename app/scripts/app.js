@@ -33,9 +33,9 @@ angular
     .state('pages', {
         url:'/page/:url',
         views: {
-          'content':   {templateUrl:   'views/main.html',controller:'MainCtrl'},
-          'topMenu':   {templateUrl:   'views/ul_block.html',controller:'MainCtrl'},
-          'bottomMenu':{templateUrl:   'views/block.html',   controller:'MainCtrl'}
+          'content':   {templateUrl:   'views/main.html',     controller:'MainCtrl'},
+          'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
+          'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
         }
       })
     .state('editpages', {
