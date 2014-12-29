@@ -1,0 +1,12 @@
+                        <span ng-repeat="(key,param) in item.data">
+                            <input type="text" placeholder="{{key}}"  ng-model="item.data[key]" />
+                        </span>
+
+
+                        <input type="file" oi-file="options">
+
+                        <ul oi-file="options">
+                          <li ng-repeat="item in items">
+                            <img ng-src="{{item.thumb}}">
+                          </li>
+                        </ul>

@@ -11,8 +11,8 @@ angular.module('frontendApp')
     return {
       templateUrl: function(elem,attrs){
         console.log(attrs);
-        var prefix = attrs.template || 'views/';
-        var result = attrs.template || prefix+'renderers/block_holder.html'
+        var prefix = attrs.prefix || 'views';
+        var result = attrs.template || prefix+'/renderers/block_holder.html'
         return result;
       },
       replace:true,
@@ -21,7 +21,9 @@ angular.module('frontendApp')
         block: "=data", isEditable:"=isEditable"
       },
       //controller:['$scope','ngDialog',function(){
-      controller: ["$scope","ngDialog",function($scope,ngDialog,ngQuill){
+      controller: ["$scope","ngDialog","$sce",function($scope,ngDialog,$sce,ngQuill){
+
+        $scope.trust = $sce.trustAsHtml;
         $scope.updateElement = function (params){
           ngDialog.open({template:'editable/adm/updateElement.html',data:params});
         }

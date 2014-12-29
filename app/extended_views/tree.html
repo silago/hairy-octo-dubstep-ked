@@ -1,8 +1,0 @@
-        <li ng-repeat="i in data track by i.id"> 
-            <a href="#" ng-click="i.$$show = !i.$$show"  ng-href="{{  (i.subitems.length ? 'javascript:void(0);' : i.url )}}"> 
-            {{i.title}} </a>
-            <ul ng-show="$parent.i.$$show"ng-if="i.subitems.length" ng-include="'views/tree.html'" class='absolute' ng-init="data=i.subitems">
-                {{i.title}} -> {{$parent.i.id}}
-            </ul>
-
-        </li>

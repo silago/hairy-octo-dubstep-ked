@@ -23,7 +23,9 @@ angular
     'ngDialog',
     'ngQuill',
     'ui.sortable',
-    'mm.foundation'
+    'mm.foundation',
+    'infinite-scroll',
+    'oi.file'
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
 

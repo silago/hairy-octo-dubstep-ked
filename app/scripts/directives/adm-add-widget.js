@@ -16,6 +16,13 @@ angular.module('frontendApp')
       templateUrl: 'editable/adm/createElementForm.html',
       controller: ["$scope","blocksFactory", function($scope,blocksFactory){
 
+        $scope.file = {}
+        $scope.options = {
+          change: function (file) {
+            file.$upload('http://localhost:5000/api/files', $scope.file)
+            }
+          }
+
 
         console.log('init controller');
         $scope.addBlock = function(i){

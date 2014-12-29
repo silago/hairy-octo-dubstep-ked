@@ -1,9 +1,0 @@
-        <div ng-show="block.type" class="has-block-controls block-type-{{block.type}}">
-            <div ng-include="'views/renderers/'+block.type+'.html'">
-                    ....
-            </div>
-
-            <div>
-                <ng-include class="block-type-subitems"  src="'views/renderers/block_holder.html'"  ng-repeat="block in block.subitems | orderBy:order"> ... </ng-include>
-            </div>
-        </div>

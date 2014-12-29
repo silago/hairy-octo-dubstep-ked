@@ -8,6 +8,10 @@
  */
 angular.module('frontendApp')
   .controller('MainCtrl', function ($scope,$cookieStore,$location,$stateParams,blockRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
+    $scope.limit = 0;
+    $scope.scroll = function(){
+      $scope.limit++;
+    }
 
     $scope.getTemplate = function(template) {
       var role_id = $cookieStore.get('role_id') || 0;
@@ -25,6 +29,6 @@ angular.module('frontendApp')
     $scope.init = function(page_path){
         if (page_path==undefined){  $scope.path = $stateParams.url;    } else {  $scope.path = page_path; }
 
-        pageRes.get({'url':$scope.path}).$promise.then(function(data){ $scope.page = (!!data.id ? data : {}); });
+      pageRes.get({'url':$scope.path}).$promise.then(function(data){ $scope.page = (!!data.id ? data : {}); });
     };
 });

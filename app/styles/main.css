@@ -2,6 +2,18 @@
    color:#fff;
 }
 
+.block-type-whitepanel {
+    min-height:20px;
+    background-color: #fff;
+    width: 100%;
+    padding: 0.9375rem;
+    box-sizing: content-box;
+    margin-left: -0.9375rem;
+}
+
+.page-content > div[data-drop] {
+   padding-bottom:20px;
+}
 
 .foot div.page-content {
    -moz-column-count: 4;
@@ -9,6 +21,12 @@
 .foot .footer-menu .page-content > div >   .block-type-html {
   display:inline-block;
   padding-right:10px;
+}
+
+.foot .footer-menu .page-content > .block-type-html {
+  display:inline-block;
+  padding-right:10px;
+  width:auto;
 }
 
 nothing > .foot .footer-menu > div > div > div > .ui-droppable > div > div {

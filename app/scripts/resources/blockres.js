@@ -11,9 +11,11 @@ angular.module('frontendApp')
                          method:'GET'
                        },
                        POST:{
+                         withCredentials:true,
                          method:'POST'
                         },
                        PUT:{
+                         withCredentials:true,
                          method:'PUT'
                         }
                      }

@@ -21,6 +21,7 @@ angular.module('frontendApp')
                          withCredentials:true
                         },
                        PUT:{
+                         withCredentials:true,
                          method:'PUT'
                         }
                      }

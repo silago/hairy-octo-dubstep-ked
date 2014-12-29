@@ -7,7 +7,7 @@
             href="#" ng-href="{{  (i.subitems.length ? 'javascript:void(0);' : i.url )}}">
             {{i.title}} </a>
 
-            <ng-include src="'views/adm/adm-links-tree.html'" ng-init="data=i.subitems">
+            <ng-include src="'editable/adm/adm-links-tree.html'" ng-init="data=i.subitems">
             </ng-include>
         </li>
         <li style=""
