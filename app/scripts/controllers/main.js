@@ -8,7 +8,7 @@
  */
 angular.module('frontendApp')
   .controller('MainCtrl', function ($scope,$cookieStore,$location,$stateParams,blockRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
-    $scope.limit = 0;
+    $scope.limit = 2;
     $scope.scroll = function(){
       $scope.limit++;
     }

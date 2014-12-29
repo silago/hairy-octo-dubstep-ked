@@ -1,0 +1,13 @@
+<div ng-init="">
+<h1>  this is map </h1>
+
+<span ng-repeat="g in markets">
+    <span class="button tiny" ng-click="moveMapTo(g.center);" ng-bind-html="g.name"> </span>
+</span>
+
+
+<ul class='map-menu'>
+</ul>
+<div id="YMapsID" style="width:600px;height:400px"></div>
+
+</div>

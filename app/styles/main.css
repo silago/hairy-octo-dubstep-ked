@@ -2,6 +2,10 @@
    color:#fff;
 }
 
+.YMaps img {
+   max-width:initial;
+}
+
 .block-type-whitepanel {
     min-height:20px;
     background-color: #fff;
@@ -188,7 +192,7 @@ a {cursor:pointer;}
 }
 video#bgvid {
 
-    position: fixed; right: 0; bottom: 0;
+    position: fixed; right: 0; top: 0;
     min-width: 100%; zmin-height: 100%;
     width: auto; height: auto; z-index: -100;
     background: url(../images/bgwebm.jpg) no-repeat;

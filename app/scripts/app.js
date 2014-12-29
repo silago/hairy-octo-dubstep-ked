@@ -25,7 +25,7 @@ angular
     'ui.sortable',
     'mm.foundation',
     'infinite-scroll',
-    'oi.file'
+    'oi.file',
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
 
@@ -48,8 +48,16 @@ angular
           'bottomMenu':{templateUrl:   'editable/block.html',   controller:'EditablemainCtrl'},
           'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
         }
-      }).
-    state('users',{
+      })
+    .state('map', {
+        url:'/map',
+        views:{
+          'content':   {templateUrl:   'views/map.html',     controller:'MapCtrl'},
+          'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
+          'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
+        }
+    })
+    .state('users',{
       url:'/users',
       templateUrl:'views/users.html',
       controller: 'UserCtrl'
