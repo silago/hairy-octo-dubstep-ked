@@ -1,10 +1,24 @@
 
+* {
+    z-index:initial;
+}
+
+.top-bar {
+    z-index:2;
+}
+
 .anchorControls a {display:none;}
 
 @media only screen and (min-width: 40.063em) {
   *:hover {
 
   }
+
+
+.footer-menu span.as-sortable-item {
+    display:inline-block;
+    margin-right:10px;
+}
 
 .anchorControls a {display:block;}
   .anchorControls {
@@ -286,11 +300,10 @@
   .bottom-center {
       background-color:#656565;
   }
-  video#bgvid {
-
+  video.bgvid {
       position: fixed; right: 0; top: 0;
       min-width: 100%; zmin-height: 100%;
-      width: auto; height: auto; z-index: -100;
+      width: auto; height: auto; z-index: -10;
       background: url(../images/bgwebm.jpg) no-repeat;
       background-size: cover;
   }
