@@ -1,25 +1,31 @@
-        <div style="{{block-data-style}}"
+        <div style="{{block-data-style || ''}}"
             ng-show="block.type"
              class="has-block-controls block-type-{{block.type}} {{block.data.class}}">
             <div
+
                  z-ng-click="block.open=!block.open" ng-class="{opened:block.open}"
                  class="block"
                  data-drop="isEditable"
                  data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
                  ng-model="block.subitems"
                  jqyoui-droppable="{multiple:true}"
-
                  z-ng-init="block = block">
 
-                <ng-include src="'editable/renderers/'+block.type+'.html'"> </ng-include>
+                <ng-include
+                      as-sortable-item-handle
+                            src="'editable/renderers/'+block.type+'.html'"> </ng-include>
                <div class="block-controls"  ng-show="isEditable && !!block && block.type &&  block.type!='deleted'" >
                     <a class="fi-x      small" ng-click="block.type = 'deleted'">  </a>
                     <a class="fi-pencil      small" ng-click="updateElement(block);">  </a>
                 </div>
             </div>
-            <div class="block-subitems" z-ui-sortable z-model="block.subitems">
-                <ng-include class="block-type-subitems"  src="'editable/renderers/block_holder.html'"  ng-repeat="block in block.subitems | orderBy:order"> ... </ng-include>
+            <div as-sortable ng-model="block.subitems" class="block-subitems">
+                <span  class="block-type-subitems" as-sortable-item ng-repeat="block in block.subitems">
+                   <span style='color:#008cba;' as-sortable-item-handle> <b> >> </b> </span>
+                   <ng-include  src="'editable/renderers/block_holder.html'"> ... </ng-include>
+                </span>
             </div>
 
 
         </div>
+

@@ -1,16 +1,22 @@
-        <div class="page-content">
+        <div class="page-content" ng-if="page.subitems">
             <div
                          data-drop="true"
                          data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
                          ng-model="page.subitems"
+                         as-sortable
+
                          jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
-                             <block prefix="editable" ng-repeat="block in page.subitems" is-editable="true"  data="block">
+                         <span  as-sortable-item ng-repeat="block in page.subitems">
+                             <block prefix="editable" is-editable="true"  data="block">
                                      ....
                              </block>
+                             <span style='color:#008cba;' as-sortable-item-handle> <b> >> </b> </span>
+                        </span>
             </div>
             <div
                   z-class="block-controls">
-                <a ng-click="savePage(page.subitems);" class="fi-check"> save </a>
+                <a ng-click="savePage(page.subitems);" class="fi-check"> <small>Применить </small></a>
             </div>
-                <div style="clear:both;"> </div>
+                <div style="clear:both;">
+            </div>
         </div>

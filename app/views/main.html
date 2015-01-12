@@ -1,4 +1,11 @@
-<div ng-init="init()" class="">
+<div  class="">
+    <div z-ng-init="findScrollAnchors();" class="anchorControls">
+        <div ng-repeat="a in anchors track by $index">
+                <a href ng-click="scrollTo($index);">
+                    <i class="fi-record large"></i>
+                </a>
+        </div>
+    </div>
     <ng-include src="'views/block.html'"> </ng-include>
     <div style="display: none !important;"> </div>
 </div>

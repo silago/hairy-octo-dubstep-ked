@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js"  ng-app="frontendApp">
-  <head ng-controller="MetaCtrl" ng-cloack>
+  <head >
     <meta charset="utf-8">
       <title>{{meta.title || 'Keddo' }}</title>
     <meta name="description" content="{{meta.description || 'Keddo' }}">
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="bower_components/angular-bootstrap-colorpicker/css/colorpicker.css" />
     <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog.css" />
     <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog-theme-default.css" />
+    <link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -23,36 +24,51 @@
     <script src="f/js/vendor/modernizr.js"></script>
     <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <!-- endbuild -->
-
+  <meta name="fragment" content="!" />
   </head>
   <body >
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="">
-      <div ng-controller="MainCtrl" ng-init="init('::topMenu')">
+      <div>
             <top-bar>
                 <ul class="title-area">
                   <li class="name">
-                    <h1><a href="#">KEDDO </a></h1>
+                    <h1><a href="/">
+                        <img src="static/logo.png" />
+                        </a></h1>
                   </li>
-                  <li toggle-top-bar class="menu-icon"><a href="">Menu</a></li>
+                  <li toggle-top-bar class="menu-icon"><a href="">Keddo</a></li>
                 </ul>
 
                 <top-bar-section>
-                    <div class="top-menu-left" ui-view="topMenu"> </div>
-                    <div ui-view="rightMenu"> </div>
+                    <div class="top-menu-left" onload="init('::topMenu')" ui-view="topMenu"> </div>
                     <!--
                     <ng-include style="float:left;" src="getTemplate('ul_block.html')"> </ng-include>
                     -->
                     <!--
                     <ng-include src="'views/adm/menu.html'"> </ng-include>
                     -->
+                    <ul class="right">
+                        <li> <input type="text" ng-model="q" /> </li>
+                        <li>
+                            <a
+                               href="/#/search/{{q.$$encodeURI()}}"
+                               ng-sref="search({queryString:q});"
+                               style="cursor:pointer; font-size:27px; margin-left:10px;"
+                               class="fi-magnifying-glass "> </a>
+                        </li>
+                        <li> &nbsp; </li>
+                        <li> &nbsp;</li>
+                    </ul>
                 </top-bar-section>
               </top-bar>
       </div>
       <div class="zrow">
-          <div class="columns large-12" ui-view="content">
+          <div class="columns large-12"
+               onload="init()"
+               ui-view="content">
           </div>
       </div>
         <div style="clear:both;"> </div>
@@ -68,7 +84,7 @@
             <h2 class="uppercase"> Новости </h2>
             <p>
                 Подпишитесь на нашу рассылку новостей и при новых поступлениях
-                мы будем оповещать вас о приходящих новинках.
+                мы будем друзьями навсегда.
 
             </p>
                   <div class="row collapse subscribe">
@@ -89,12 +105,19 @@
         </div>
         <hr class="separator columns" />
         <div class="footer-menu ">
-                        <div class="columns" ng-controller="MainCtrl" ng-init="init('::bottomMenu')">
-                            <div z-style="border:1px solid red; min-height:20px;" ui-view="bottomMenu"> </div>
+                        <div class="columns" >
+                            <div z-style="border:1px solid red; min-height:20px;"
+                                 onload="init('::bottomMenu')"
+                                 ui-view="bottomMenu"> </div>
                             <!-- <ng-include style="float:left;" src="'views/block.html'"> </ng-include>-->
                         </div>
         </div>
-        <div style="clear:both;"> </div>
+        <div style="clear:both;">
+
+            <br/>
+            <br/>
+
+        </div>
         <br/>
     </div>
     <div class="columns large-3 small-3">
@@ -107,6 +130,9 @@
 
 
     </div>
+                    <div
+                         class="bottom-adm"
+                         ui-view="rightMenu"> </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -146,12 +172,14 @@
     <script src="bower_components/ngDialog/js/ngDialog.js"></script>
     <script src="bower_components/quill/dist/quill.js"></script>
     <script src="bower_components/ng-quill/src/ng-quill.min.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
-    <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+    <script src="bower_components/ng-sortable/dist/ng-sortable.js"></script>
     <script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/nginfinitescroll/build/ng-infinite-scroll.js"></script>
     <script src="bower_components/oi.file/oi.file.js"></script>
+    <script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
+    <script src="bower_components/angular-seo/angular-seo.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -176,12 +204,21 @@
         <script src="scripts/services/templates.js"></script>
         <script src="scripts/controllers/editablemain.js"></script>
         <script src="scripts/controllers/map.js"></script>
+        <script src="scripts/controllers/file.js"></script>
+        <script src="scripts/controllers/mapeditable.js"></script>
+        <script src="scripts/directives/fm.js"></script>
+        <script src="scripts/controllers/editablemap.js"></script>
+        <script src="scripts/controllers/search.js"></script>
         <!-- endbuild -->
 
       <script src="scripts/resources/blockres.js"></script>
       <script src="scripts/resources/pageres.js"></script>
       <script src="scripts/resources/userres.js"></script>
+      <script src="scripts/resources/rightsres.js"></script>
       <script src="scripts/resources/authres.js"></script>
+      <script src="scripts/resources/cityres.js"></script>
+      <script src="scripts/resources/mapres.js"></script>
+      <script src="scripts/resources/fileres.js"></script>
 
     <script src="bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
 

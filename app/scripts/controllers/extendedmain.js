@@ -9,7 +9,7 @@
  */
 angular.module('frontendApp')
   .controller('ExtendedmainCtrl', function ($scope,$location,$stateParams,blockRes,pageRes,ngDialog,blocksFactory) {
-
+    /*
     $scope.itemsStack = blocksFactory.get();
     $scope.pageRes =  pageRes;
     $scope.blockRes = blockRes;
@@ -52,5 +52,5 @@ angular.module('frontendApp')
         if (page_path==undefined){  $scope.path = $stateParams.url;    } else {  $scope.path = page_path; }
         pageRes.get({'url':$scope.path}).$promise.then(function(data){ $scope.page = (!!data.id ? data : {}); });
     };
-
+  */
 });

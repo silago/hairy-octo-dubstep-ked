@@ -1,0 +1,9 @@
+<div ng-init="init()">
+    <h1> Here are files </h1>
+    <input type="file" oi-file="options">
+    <ul oi-file="options">
+      <li ng-repeat="item in items">
+          <img style="height:200px;" ng-src="{{item}}" />
+      </li>
+    </ul>
+</div>

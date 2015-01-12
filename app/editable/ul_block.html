@@ -1,15 +1,28 @@
-        <ul
+<UL
+    ng-if="page.subitems"
+    style="z-border:1px solid red; display:inline-block;"
+                         as-sortable
                          data-drop="true"
                          data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
                          ng-model="page.subitems"
                          jqyoui-droppable="{multiple:true}">
-                               <block atata="1" ng-repeat="block in page.subitems" template="editable/renderers/ul_block_holder.html" is-editable="true"  data="block">
-                                        ....
-                                 </block>
+            <li
+                   as-sortable-item
+                   ng-repeat="block in page.subitems">
+                    <span as-sortable-item-handle> <b> >> </b> </span>
+
+                    <block
+                           prefix="editable"
+                           template="editable/renderers/ul_block_holder.html"
+                           is-editable="true"
+                           data="block">
+                              ...
+                    </block>
+            </li>
             <li
                  z-class="block-controls">
-                <a ng-click="savePage(page.subitems);" class="fi-check">  save </a>
+                <a ng-click="savePage(page.subitems);" class="fi-check">  Применить </a>
             </li>
-                  </ul>
+</ul>
 
 

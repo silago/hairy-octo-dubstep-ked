@@ -8,62 +8,39 @@
  * Controller of the keddoApp
  */
 angular.module('frontendApp')
-  .controller('MapCtrl', function ($scope,$filter,ngDialog) {
+  .controller('MapCtrl', function ($scope,$filter,ngDialog,mapRes,cityRes) {
 
-   $scope.moveMapTo = function(coords){
-      $scope.map.setCenter(coords);
-   }
+    $scope.init = function(){
+       mapRes.GET({}).$promise.then(function(d){$scope.markets = d.data; $scope.makeMap();},function(d){});
+       cityRes.GET({}).$promise.then(function(d){$scope.cities  = d.data;},function(d){});
+    }
 
-
-  $scope.init = function(){
-  $scope.markets = [
-                {
-                    center: [50.426472, 30.563022],
-                    name: "Монумент &quot;Родина-Мать&quot;"
-                },
-                {
-                    center: [50.50955, 30.60791],
-                    name: "Ресторан &quot;Калинка-Малинка&quot;"
-                },
-    ];
+    $scope.focusToLocation = function(){
+        $scope.map.setCenter($scope.location);
+        $scope.map.setZoom(12);
+      }
 
 
-
-    function createMark (item, collection) {
-            var placemark = new ymaps.Placemark(item.center, { balloonContent: item.name });
-            collection.add(placemark);
+  $scope.makeMap = function(){
+    function deleteMark (e,o){
+         var deleteMark = confirm('Удалить отметку?');
+         if (deleteMark) {
+             var objToFind = {
+               position: e.get('target').geometry.getCoordinates(),
+               name:     e.get('target').properties.get('hintContent')
+               };
+             var idInScopeMarkets = searchInMarketsByCoords(objToFind.position);
+             $scope.markets.splice(idInScopeMarkets,1);
+             $scope.map.geoObjects.remove(e.get('target'));
+         }
+         e.stopPropagation();
     }
 
     $scope.map = new ymaps.Map('YMapsID', {
-            center: [50.443705, 30.530946],
-            zoom: 14
+            center: $scope.markets[0].position || [50,50955,30.60891],
+            zoom: 12
     });
-
-    $scope.map.events.add('dblclick',function(e){
-        var pos = e.get('coords');
-        var name = prompt('Введите имя новой метки');
-        var i = {
-           center:pos,
-           name:name
-        }
-        $scope.map.geoObjects.add(new ymaps.Placemark(i.center,{balloonContent:i.name}));
-        $scope.markets.push(i);
-        return false;
-    });
-
-
-
-   var collection = new ymaps.GeoObjectCollection(null, { preset: 'island#redIcon' });
-   $scope.map.geoObjects.add(collection);
-   for (var i = 0, l = $scope.markets.length; i < l; i++) {
-       createMark($scope.markets[i],collection);
-    }
-
-
-
-  window.mm = $scope.map;
 
   };
   ymaps.ready($scope.init);
-  window.z = $scope.init;
   });

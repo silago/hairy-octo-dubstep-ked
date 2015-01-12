@@ -1,6 +1,6 @@
 <div>
-                {{item}}
-                <input type="text" ng-model="item.type" />
+
+                <input type="hidden" ng-model="item.type" />
 
                 <div ng-switch="item.type">
                     <div ng-switch-when="photo">
@@ -8,7 +8,21 @@
                     <div ng-switch-when="html">
                         <div ng-include="'editable/forms/html.html'"> </div> </div>
                     <div ng-switch-default>
-                        <span ng-repeat="(key,param) in item.data">
+                            <div class="row collapse subscribe">
+                                <div class="small-10 columns">
+                                  <select ng-model="item.data['class']" type="text" placeholder="style">
+                                      <option value="'large-centered'"> По центру </option>
+                                      <option value="'large-3'"> 1/4 </option>
+                                      <option value="'large-4'"> 1/3 </option>
+                                      <option value="'large-6'"> 1/2 </option>
+                                      <option value="'large-12'"> 100% </option>
+                                  </select>
+                                </div>
+                                <div class="small-2 columns">
+                                  <label class="postfix" href="#">CSS класс</label>
+                                </div>
+                            </div>
+                        <span ng-if="key!='class'" ng-repeat="(key,param) in item.data">
                             <input type="text" placeholder="{{key}}"  ng-model="item.data[key]" />
                         </span>
                     </div>
@@ -16,8 +30,8 @@
 
 
 
-                <button ng-click="addBlock(item);" z-ng-show="model.data.$$hasDefined()">
-                        save
+                <button class="button tiny" ng-click="addBlock(item);" z-ng-show="model.data.$$hasDefined()">
+                    Создать
                 </button>
             <!---
             <div class="btn btn-primary"

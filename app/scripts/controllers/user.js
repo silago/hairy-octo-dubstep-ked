@@ -8,7 +8,13 @@
  * Controller of the keddoApp
  */
 angular.module('frontendApp')
-  .controller('UserCtrl', function ($scope,userRes) {
+  .controller('UserCtrl', function ($scope,userRes,rightsRes,$cookieStore) {
+
+   var role_id = $cookieStore.get('role_id');
+   if (!role_id || role_id == 0) {
+        $location.path("page/index")
+   }
+
     $scope.addUser = function(u){
       userRes.PUT(u).$promise.then(function(data){
         $scope.data = data;
@@ -16,20 +22,18 @@ angular.module('frontendApp')
       u = undefined;
     }
 
+    $scope.saveModRights = function() {
+      rightsRes.POST({'id':1,'data':$scope.rights}).$promise.then(function(data){ if (data){  $scope.rights = data; } },function(data){ });
+    }
+
     $scope.updateUser = function(u){
       userRes.POST(u).$promise.then(function(d){$scope.data=d; u = undefined;},function(d){u = undefined;});
     }
 
     $scope.init = function(){
-        userRes.get({}).$promise.then(function(data){
-          if (data){
-              $scope.data = data;
-          } else {
-              //$scope.data = {'url':pageRes, subitems : [], meta:[{'description':''},{'keywords':''}] };
-          }
-        },function(data){
-            //$scope.data = {'url':pageRes, subitems : [], meta:[{'description':''},{'keywords':''}] };
-          });
+      /* magic number (1) : ---moderator */
+      userRes.get({}).$promise.then(function(data){ if (data){  $scope.data = data; } },function(data){ });
+      rightsRes.get({id:1}).$promise.then(function(data){ if (data){  $scope.rights = data; } },function(data){ });
     };
     //userRes.POST({url:$scope.path,data:data}).$promise.then(function(data){
     //

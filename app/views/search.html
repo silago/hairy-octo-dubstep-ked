@@ -1,0 +1,13 @@
+<h1>  Результаты поиска </h1>
+<div ng-if="!data.data">
+    По вашему запросу ничего не найдено
+</div>
+<div ng-repeat="r in data.data">
+    <a href="/#/page/{{r.url}}" ng-sref="pages">
+            {{r.meta.fromJson().title || r.url}}
+    </a>
+    <p>
+        {{r.$$searchInTree(search_query).$$stripTags(' ').substr(0,100)}}....
+    </p>
+</data>
+

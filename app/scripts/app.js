@@ -26,12 +26,32 @@ angular
     'mm.foundation',
     'infinite-scroll',
     'oi.file',
+    'youtube-embed',
+    'ng',
+    'seo',
+    'duScroll'
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
 
 
     $urlRouterProvider.otherwise('/page/index');
     $stateProvider
+    .state('search',{
+      url:'/search/:queryString',
+      views: {
+        'content':   {templateUrl:   'views/search.html',   controller:'SearchCtrl'},
+        'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
+        'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
+      }
+    })
+    .state('fm',{
+      url:'/fm',
+      views: {
+        'content':   {templateUrl:   'editable/files.html',     controller:'FileCtrl'},
+        'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'MainCtrl'},
+        'bottomMenu':{templateUrl:   'editable/block.html',    controller:'MainCtrl'}
+      }
+    })
     .state('pages', {
         url:'/page/:url',
         views: {
@@ -57,10 +77,21 @@ angular
           'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
         }
     })
+    .state('editmap', {
+        url:'/map/edit',
+        views:{
+          'content':   {templateUrl:   'editable/map.html',      controller:'MapCtrl'},
+          'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
+          'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
+        }
+    })
     .state('users',{
       url:'/users',
-      templateUrl:'views/users.html',
-      controller: 'UserCtrl'
+        views:{
+          'content':   {templateUrl:   'editable/users.html',      controller:'UserCtrl'},
+          'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
+          'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
+        }
     }).
       state('auth',{
         url:'/auth',

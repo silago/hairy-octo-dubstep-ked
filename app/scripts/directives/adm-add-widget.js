@@ -14,17 +14,21 @@ angular.module('frontendApp')
       scope:{item:'=item', type:'@itemType'},
       replace:true,
       templateUrl: 'editable/adm/createElementForm.html',
-      controller: ["$scope","blocksFactory", function($scope,blocksFactory){
+      controller: ["$scope","blocksFactory","fileRes", function($scope,blocksFactory,fileRes){
 
-        $scope.file = {}
-        $scope.options = {
-          change: function (file) {
-            file.$upload('http://localhost:5000/api/files', $scope.file)
-            }
+
+      $scope.file = {} //Модель
+      $scope.options = {
+        change: function (file) {
+            var u = window.RESTurl+'/api/files';
+            file.$upload(u, $scope.file).then(function(d){ $scope.getStaticFiles();},function(d){});
           }
+        }
 
+      $scope.getStaticFiles = function(){
+        fileRes.get({}).$promise.then(function(data){ $scope.staticFiles = data.data; });
+      };
 
-        console.log('init controller');
         $scope.addBlock = function(i){
           var i_local = {}
           i_local.data = {};

@@ -3,6 +3,16 @@
     <div class="columns large-12 large-centered">
         <div ng-init="">
         <h1>  Наши магазины  </h1>
+            <button class="button tiny" ng-click="save();"> Сохранить </button>
+            <button class="button tiny" ng-show="location" ng-click="deleteCity();"> Удалить выбранный город </button>
+
+        <!--
+        <span ng-repeat="g in markets">
+            <span class="button tiny" ng-click="moveMapTo(g.center);" ng-bind-html="g.name"> </span>
+        </span>
+        <ul class='map-menu'>
+        </ul>
+        -->
 
              <div class="row collapse">
             <div class="small-3 large-2 columns">

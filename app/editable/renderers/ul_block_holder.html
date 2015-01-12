@@ -1,16 +1,37 @@
-<ul>
-        <li ng-if="block.type!='deleted'" has-dropdown ng-class="{'has-dropdown':block.subitems.length}">
+<span ng-show="block.type && block.type!='deleted'" nohas-dropdown="rr" ng-class="{'has-dropdown':block.subitems.length}">
+           <span
+                 z-ng-click="block.open=!block.open" ng-class="{opened:block.open}"
+                 class="block"
+                 data-drop="isEditable"
+                 data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
+                 ng-model="block.subitems"
+                 style="z-border:1px solid red; display:inline-block;"
+                 jqyoui-droppable="{multiple:true}"
+                 z-ng-init="block = block">
+
             <a ng-href="{{ (!!block.subitems.length ? '' : block.data.url )}}"> {{block.data.title}} </a>
+            <span class="block-controls"  ng-show="isEditable && !!block && block.type &&  block.type!='deleted'" >
+                <a class="fi-x      small" ng-click="block.type = 'deleted'">  </a>
+                <a class="fi-pencil      small" ng-click="updateElement(block);">  </a>
+            </span>
+            </span>
 
-
-               <span class="block-controls"  ng-show="isEditable && !!block && block.type &&  block.type!='deleted'" >
-                    <a class="fi-x      small" ng-click="block.type = 'deleted'">  </a>
-                    <a class="fi-pencil      small" ng-click="updateElement(block);">  </a>
-                </span>
-
-            <ul ng-if="block.type!='deleted'" class="dropdown" ng-if="block.subitems">
-                <ng-include ng-repeat="block in block.subitems" src="'editable/renderers/ul_block_holder.html'"> </ng-include>
+            <ul as-sortable ng-model="block.subitems" ng-if="block.subitems.length" class="dropdown">
+               <li
+                   ng-if="!!block"
+                   as-sortable-item ng-repeat="block in block.subitems">
+                   <span as-sortable-item-handle> <b> >> </b> </span>
+                          <!--
+                        <block
+                               ng-if="block.type"
+                               prefix="editable"
+                               template="editable/renderers/ul_block_holder.html"
+                               z-is-editable="true"
+                               data="block">
+                                  ...
+                        </block>
+                           -->
+                       <ng-include src="'editable/renderers/ul_block_holder.html'"> </ng-include>
+                    </li>
             </ul>
-    </li>
-</ul>
-
+</span>

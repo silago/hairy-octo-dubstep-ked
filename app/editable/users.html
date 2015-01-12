@@ -1,5 +1,8 @@
 <div class="row">
 <div ng-init="init()" class="columns-12">
+    <p>
+        &nbsp;
+    </p>
     <table>
         <tr>
             <th colspan=2> Пользователи</th>
@@ -14,8 +17,14 @@
         </tr>
         <tr ng-show="editUser">
             <td><input type="text"     ng-model="editUser.username"     ng-value="editUser.username" /> </td>
-            <td><input type="text"     ng-model="editUser.role_id"      ng-value="editUser.role_id"  /> </td>
-            <td><input type="password" ng-model="editUser.password" placeholder="Leave empty to leave unchanged" /> </td>
+            <td>
+                <!--
+                    <input type="text"     ng-model="editUser.role_id"      ng-value="editUser.role_id"  />
+                -->
+                <input type="radio" name="user_{{editUser.username}}_group" ng-checked="editUser.role_id==1" ng-model="editUser.role_id"  ng-value="1" /> mod
+                <input type="radio" name="user_{{editUser.username}}_group" ng-checked="editUser.role_id==2" ng-model="editUser.role_id"  ng-value="2" /> ad
+            </td>
+            <td><input type="password" ng-model="editUser.password" placeholder="***" /> </td>
             <td> <a ng-click="updateUser(editUser); editUser=undefined;"> Save </a> </td>
         </tr>
         <tr ng-if="newUser">
@@ -26,6 +35,28 @@
             <td> <a ng-click="addUser(newUser);"> Сохранить </a> </td>
         </tr>
 
+    </table>
+    <h2> Данные доступные модераторам </h2>
+    <table>
+    <tr ng-repeat=" (k,v) in rights">
+        <td>
+            {{k}}
+        <td>
+        <td>
+            <span ng-repeat = "_v in ['post','get','put']">
+                 {{_v}}
+                <button class="tiny warning" ng-show="v.indexOf(_v)!=-1" ng-click="v.splice(v.indexOf(_v),1);">  - </button>
+                <button class="tiny" ng-show="v.indexOf(_v)==-1" ng-click="v.push(_v)"> + </button>
+            </span>
+
+            {{v}}
+        </td>
+    </tr>
+    <tr> <td colspan="100%">
+        <button ng-click="saveModRights();">
+                Применить
+        </button>
+    </td> </tr>
     </table>
 </div>
 </div>

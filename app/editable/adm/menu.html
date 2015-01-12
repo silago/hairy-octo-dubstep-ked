@@ -1,19 +1,48 @@
-        <ul ng-init="stack = itemsStack" class="right">
-                    <li ng-show="!!i.type" ng-repeat="i in stack track by $index">
+        <ul  ng-init="stack = itemsStack" class="right">
+                    <li class="adm-menu-stack-item" ng-show="!!i.type" ng-repeat="i in stack track by $index">
                         <span  class=""
                              data-drag="true"
                              style="display:block; background-color:#f4f4f4; padding:4px; margin-right:10px;"
                              data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}"
                              ng-model="i"
                              jqyoui-draggable="{animate:true}"
+                             ng-switch="i.type"
                              >
-                         {{ i.data[i.data.$$keys()[0]] }}
+
+                         <span ng-switch-when="photo">
+                             <img  width=20px src="{{i.data.src}}" />
+                         </span>
+
+                         <span ng-switch-when="menu">
+                             {{ i.data.title }}
+                         </span>
+
+                         <span ng-switch-when="top_menu">
+                             {{ i.data.title }}
+                         </span>
+
+                         <span ng-switch-when="html">
+                             {{ i.data.text.$$stripTags().substring(0,10) }}
+                         </span>
+
+                         <span ng-switch-when="bgvideo">
+                             {{ i.data.url }}
+                         </span>
+
+
+                         <span ng-switch-when="whitepanel">
+                             [    ]
+                         </span>
+
+                         <span ng-switch-default>
+                             {{ i.data[i.data.$$keys()[0]] }}
+                         </span>
                         </span>
                     </li>
-            <li><a ng-href="/#/users"> Users </a></li>
-            <li><a ng-click="createElement();" >ADD <i class="fi-plus small"> </i> </a>   </li>
-            <li><a href="#"> Search </a></li>
+            <li><a ng-href="/#/users"> Пользователи </a></li>
+            <li><a ng-click="createElement();" > Добавить <i class="fi-plus small"> </i> </a>   </li>
             <!--
+            <li><a href="#"> Search </a></li>
             <li class="has-form">
                         <div ng-show="!showTopSearch">
                                 <a ng-click="showTopSearch=!showTopSearch">
@@ -31,8 +60,8 @@
                             </div>
                         </div>
                     </li>
-            -->
             <li>
                         <img class="keddo_club" alt="" src="images/keddo_club.png" />
                     </li>
+            -->
         </ul>

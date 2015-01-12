@@ -14,6 +14,10 @@ angular.module('frontendApp')
         $location.path("page/index")
    }
 
+  $scope.sortableOptions = {
+    containment: '#sortable-container'
+  };
+
    $scope.itemsStack = blocksFactory.get();
    window.stack = $scope.itemsStack;
    $scope.pageRes =  pageRes;
