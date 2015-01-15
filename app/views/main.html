@@ -1,4 +1,11 @@
 <div  class="">
+   <!-- 
+    <div>
+            <h1> AATATA@!!! </h1>
+            <img angular-crop ng-src="http://localhost:9000/static/2.jpg" />
+            <img src="http://localhost:9000/static/2.jpg" />
+    </div>
+    -->
     <div z-ng-init="findScrollAnchors();" class="anchorControls">
         <div ng-repeat="a in anchors track by $index">
                 <a href ng-click="scrollTo($index);">
@@ -7,7 +14,7 @@
         </div>
     </div>
     <ng-include src="'views/block.html'"> </ng-include>
-    <div style="display: none !important;"> </div>
+   <div style="display: none !important;"> </div>
 </div>
 
 

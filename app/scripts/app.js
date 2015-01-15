@@ -29,7 +29,8 @@ angular
     'youtube-embed',
     'ng',
     'seo',
-    'duScroll'
+    'duScroll',
+    'angular-crop'
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
 

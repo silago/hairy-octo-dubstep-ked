@@ -18,10 +18,15 @@ angular.module('frontendApp')
 
 
       $scope.file = {} //Модель
+      $scope.filePreview = {}
+      //$scope.saveFiles = function() {
+
+      //}
       $scope.options = {
         change: function (file) {
             var u = window.RESTurl+'/api/files';
-            file.$upload(u, $scope.file).then(function(d){ $scope.getStaticFiles();},function(d){});
+            file.$preview({}).then(function(d) { $scope.filePreview = d; console.log(d); });
+            //file.$upload(u, $scope.file).then(function(d){ $scope.getStaticFiles();},function(d){});
           }
         }
 

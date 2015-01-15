@@ -1,6 +1,6 @@
 
 * {
-    z-index:initial;
+    z-index:inherit;
 }
 
 .top-bar {
@@ -174,7 +174,7 @@
         left: 0;
         position: relative;
         top: -30px;
-        z-index: 1049;
+        z-index: 149;
   }
   .ui-droppable {min-width:20px; min-height:20px; zfloat:left;}
 

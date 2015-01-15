@@ -30,9 +30,17 @@
                         </span>
                         -->
                         <input type="file" oi-file="options">
+                        <div ng-if="!!filePreview.response.thumb">
+                            <img style="z-index:1;" angular-crop ng-src="{{filePreview.response.thumb}}" />
+                            <button class="tyny"> Загрузить </button>
+                            <!--
+                            <img angular-crop ng-src="http://localhost:9000/static/2.jpg" />
+                            -->
+                        </div>
 
                         <div class="row" oi-file="options">
-                          <div class="large-3 columns" ng-repeat="sf in staticFiles">
+                            <div class="large-3 columns" ng-repeat="sf in staticFiles">
+                            {{sf}}
                             <img ng-click="item.data['src']=sf;"
                                  class="nd-{{ (sf==item.data['src'] ? 'selected' : '0') }}"
                                  style="max-width:100px; max-height:100px;" ng-src="{{sf}}" />
