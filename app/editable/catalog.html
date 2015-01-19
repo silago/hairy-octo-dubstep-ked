@@ -6,11 +6,28 @@
 <div class="row">
         <br />
         <input oi-file="options" type="file" />
+        <hr/>
+        <div>
+            <input ng-show="tmpGroup.length" placeholder="Описание группы" type="text" ng-model="tmpInfo" /><br/> 
+            {{tmpGroup}} <button ng-click="groupItems();" class="tiny"> [ GROUP ] </button>
+        </div>
+        <div class="columns large-12"> 
+            <div ng-show="groups.data"> 
+                <div class="columns large-2" ng-repeat="i in groups.data"class="large-3">
+                    <br> {{ i.info }} </b> <br />    
+                    {{i.items}}
+                </div>
+            </div>
+        </div>
 
-        <div ng-show="data.data"> 
-            <div class="columns large-2" ng-repeat="i in data.data"class="large-3">
-                <br> {{ i.sku }} </b> <br />    
-                <i>  {{i.item_type}} {{i.segment}} {{}}                </i>
+
+        <div class="columns large-12"> 
+            <div ng-show="data.data"> 
+                <div class="columns large-2" ng-repeat="i in data.data"class="large-3">
+                    <br> {{ i.sku }} </b> <br />    
+                    <i>  {{i.item_type}} {{i.segment}} {{}}                </i>
+                    <button class="tiny" ng-click="tmpGroup.push(i.id);"> + </button> 
+                </div>
             </div>
         </div>
         
