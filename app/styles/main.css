@@ -6,7 +6,9 @@
 .top-bar {
     z-index:2;
 }
-
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    width:90%!important;
+}
 .anchorControls a {display:none;}
 
 @media only screen and (min-width: 40.063em) {

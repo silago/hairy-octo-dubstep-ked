@@ -30,10 +30,17 @@
                         </span>
                         -->
                         <input type="file" oi-file="options">
-                        <div ng-if="!!filePreview.response.thumb">
-                            <img style="z-index:1;" angular-crop ng-src="{{filePreview.response.thumb}}" />
-                            <button class="tyny"> Загрузить </button>
-                            <!--
+                        <div ng-if="!!filePreview.thumb">
+                            <img  on-select="cropStop" style="z-index:1;" angular-crop ng-src="{{filePreview.thumb}}" />
+                            <br/>
+                            <div ng-show="previewData">
+                                <button class="tiny" ng-click="resizeImage(1)"> + </button>
+                                <button class="tiny" ng-click="resizeImage(-1)"> - </button>
+                                <button class="tiny" ng-click="saveFile()"> Загрузить </button>
+                                </br>
+                                <img id="foo" src="" />
+                            </div>
+                            <!--1
                             <img angular-crop ng-src="http://localhost:9000/static/2.jpg" />
                             -->
                         </div>

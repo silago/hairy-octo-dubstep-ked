@@ -1,5 +1,25 @@
+
+
+
+
+
 <div class="row">
-        <div ng-repeat="g in data" class="columns large-4">
-            <h4> <a href="/#/catalog/{{g.alias}}"> {{g.title}}  </a>  </h4>
+        <br />
+        <input oi-file="options" type="file" />
+
+        <div ng-show="data.data"> 
+            <div class="columns large-2" ng-repeat="i in data.data"class="large-3">
+                <br> {{ i.sku }} </b> <br />    
+                <i>  {{i.item_type}} {{i.segment}} {{}}                </i>
+            </div>
         </div>
+        
+
+        
+
+        <!--
+            <div ng-repeat="g in data" class="columns large-4">
+                <h4> <a href="/#/catalog/{{g.alias}}"> {{g.title}}  </a>  </h4>
+            </div>
+        -->
 </div>
