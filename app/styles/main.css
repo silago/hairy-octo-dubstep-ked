@@ -1,3 +1,4 @@
+ul.title-area { z-index:99;}
 
 * {
     z-index:inherit;

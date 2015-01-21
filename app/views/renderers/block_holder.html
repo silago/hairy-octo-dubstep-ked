@@ -1,5 +1,5 @@
         <div
-            style="{{block.data.style}}"
+            z-style="{{block.data.style}}"
              class="has-block-controls block-type-{{block.type}} {{block.data.class}}">
             <div
                  z-ng-click="block.open=!block.open" ng-class="{opened:block.open}"
@@ -12,10 +12,6 @@
                  z-ng-init="block = block">
 
                 <ng-include src="'views/renderers/'+block.type+'.html'"> </ng-include>
-               <div class="block-controls"  ng-show="isEditable && !!block && block.type &&  block.type!='deleted'" >
-                    <a class="fi-x      small" ng-click="block.type = 'deleted'">  </a>
-                    <a class="fi-pencil      small" ng-click="updateElement(block);">  </a>
-                </div>
             </div>
             <div class="block-subitems" z-ui-sortable z-model="block.subitems">
                 <ng-include class="block-type-subitems"  src="'views/renderers/block_holder.html'"  ng-repeat="block in block.subitems | orderBy:order"> ... </ng-include>

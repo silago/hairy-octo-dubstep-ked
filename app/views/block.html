@@ -1,12 +1,5 @@
 
     <div class="page-content">
-            <!--
-            <div
-                         data-drop="isEditable"
-                         data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
-                         ng-model="page.subitems"
-                         jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
-            -->
                              <block ng-if="(page.url[0]===':') || limit>$index "
                                     data-f="{{$index}}"
                                     ng-repeat="block in page.subitems"
@@ -14,14 +7,5 @@
                                      ....
                              </block>
     <div infinite-scroll="scroll()" ng-if="page.url[0]!=':'" infinite-scroll-distance="1"></div>
-            <!--
-            </div>
-
-            <span
-                  ng-if="isEditable"
-                  style="display:block; margin-left:-10px; margin-bottom:10px"  class="block-controls">
-                <a ng-click="savePage(page.subitems);" class="fi-check">  </a>
-            </span>
-            -->
                 <div style="clear:both;"> </div>
         </div>
