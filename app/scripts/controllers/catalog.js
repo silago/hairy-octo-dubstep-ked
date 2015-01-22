@@ -9,6 +9,7 @@
  */
 angular.module('frontendApp')
   .controller('CatalogCtrl', function ($scope) {
+     console.log('init ctrl');
      $scope.data = [
        {'id':0,'alias':'man','title':'Мужская коллекция'},
        {'id':1,'alias':'woman','title':'Женская коллекция'},

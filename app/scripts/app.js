@@ -101,24 +101,44 @@ angular
           'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
           'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
         }
-    }).
-      state('auth',{
+    })
+
+.state('catalog',{
+      url:'/catalog/',
+        views:{
+          'content':   {templateUrl:   'views/catalog/catalog.html',      controller:'CatalogCtrl'},
+          'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
+          'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
+        }
+})
+.state('catalog.collection',{
+      url:':collection/',
+      templateUrl:   'views/catalog/collection.html',
+      controller:'CatalogCtrl'
+})
+.state('catalog.collection.section', {
+    url:':section/',
+    templateUrl: 'views/catalog/section.html',
+    controller:  'CatalogCtrl'
+})
+.state('catalog.collection.section.group', {
+    url:':group/',
+    templateUrl: 'views/catalog/group.html',
+    controller:  'CatalogCtrl'
+})
+.state('catalog.collection.section.group.item', {
+    url:':item/',
+    templateUrl: 'views/catalog/item.html',
+    controller:  'CatalogCtrl'
+})
+.state('auth',{
         url:'/auth',
         views: {
           'content': {
             templateUrl:'views/auth.html',
             controller: 'AuthCtrl'
           }}
-      }).
-    state('catalog',{
-      url:'/:group',
-      templateUrl:'views/catalog.html',
-      controller: 'CatalogCtrl'}).
-    state('catalog.item',{
-      url:'/:item',
-      templateUrl: 'views/catalog.html',
-      controller: function($scope){
-    }})
+      })
 
   }).config(function($compileProvider) {
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|javascript|mailto|file):/);

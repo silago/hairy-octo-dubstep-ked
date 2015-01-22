@@ -14,8 +14,8 @@
         <div class="columns large-12"> 
             <div ng-show="groups.data"> 
                 <div class="columns large-2" ng-repeat="i in groups.data"class="large-3">
-                    <br> {{ i.info }} </b> <br />    
-                    {{i.items}}
+                    <br> {{ i.info }} {{ i.items.length }}</b> <br />    
+                    <span ng-repeat="sub in i.items"> {{sub.sku}} </span>
                 </div>
             </div>
         </div>
