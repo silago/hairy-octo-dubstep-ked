@@ -13,8 +13,10 @@ angular.module('frontendApp')
       if (!role_id || role_id == 0) 
             $location.path("page/index")
       $scope.data =  {} 
-      i
       $scope.getCollections = function() {catalogRes.get({'target':'collection'}).$promise.then(function(d){$scope.collections = d;})};
+      $scope.deleteCollection = function(name) {catalogRes.delete({'target':'collections','collection':name}).$promise.then(function(d){$scope.getCollections();})};
+      $scope.activateCollection = function(name) {
+          catalogRes.POST({'target':'collection','collection':name,'set':'active'}).$promise.then(function(d){ })};
       
       catalogRes.get({}).$promise.then(function(d){$scope.data = d;});
       gcatalogRes.get({}).$promise.then(function(d){$scope.groups = d;});

@@ -5,7 +5,8 @@ angular.module('frontendApp')
     return $resource(window.RESTurl+'/api/catalog/:target/:collection/:segment/:group_id/',
                      {
                        id:'@id',
-                       target:'@target'
+                       target:'@target',
+                       collection:'@collection'
                      },
                      {
                        collections:{
