@@ -1,0 +1,15 @@
+
+<span>/ {{stateParams.segment}} </span>
+
+<span ui-view>    
+    <div ng-if="data.data" class="columns large-12">
+            <div class="columns large-12" ng-repeat="i in data.data">
+                <a ui-sref="catalog.section.collection.group({'collection':i.season})"> {{i.season}} </a>
+            </div>
+            <!--
+            <div ng-repeat="g in data" class="columns large-4">
+                <h4> <a href="/#/catalog/{{g.alias}}"> {{g.title}}  </a>  </h4>
+            </div>
+            -->
+    </div>
+</span>
