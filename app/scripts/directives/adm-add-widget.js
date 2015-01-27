@@ -16,15 +16,27 @@ angular.module('frontendApp')
       scope:{item:'=item', type:'@itemType'},
       replace:true,
       templateUrl: 'editable/adm/createElementForm.html',
-      controller: ["$scope","blocksFactory","fileRes","$document",function($scope,blocksFactory,fileRes,$document){
-
+      controller: ["$scope","blocksFactory","fileRes","catalogRes","$document",function($scope,blocksFactory,fileRes,catalogRes,$document){
+      $scope.catalogRes = catalogRes;
 
       $scope.cropStop = function(data) {
             //$scope.fileOpts = data;
             var originalImage = $scope.filePreview.thumb;
             $scope.previewData = $scope.cropImage(data);
       } 
-        
+      $scope.appendResult = function(d,t) {
+            console.log(d);
+            console.log(t);
+      }
+
+      // catalog section
+      $scope.possibleSegments = {};
+      $scope.possibleCollections = {};
+      $scope.getPossibleSegments = function() {$scope.possibleSegments =catalogRes.collections({});}
+      $scope.getPossibleCollections = function(segment) { $scope.possibleCollections = catalogRes.collections({'segment':segment})};
+     // end catalog section
+
+
       $scope.previewData = false;
 
       $scope.resizeImage = function(dir) {

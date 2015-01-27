@@ -1,6 +1,9 @@
-        <div style="{{block-data-style || ''}}"
+        <div style="z-margin-left:120px; {{block-data-style || ''}}"
             ng-show="block.type"
              class="has-block-controls block-type-{{block.type}} {{block.data.class}}">
+                    <a class="fi-x      small" ng-click="block.type = 'deleted'">  </a>
+                    <a class="fi-pencil      small" ng-click="updateElement(block);">  </a>
+                    <span ng-if="sortableScope" style='margin-top:8px; color:#008cba;' as-sortable-item-handle> <b> >> </b> </span>
             <div
 
                  z-ng-click="block.open=!block.open" ng-class="{opened:block.open}"
@@ -11,18 +14,13 @@
                  jqyoui-droppable="{multiple:true}"
                  z-ng-init="block = block">
 
-                <ng-include
-                      as-sortable-item-handle
+                <ng-include no-no-as-sortable-item-handle
                             src="'editable/renderers/'+block.type+'.html'"> </ng-include>
-               <div class="block-controls"  ng-show="isEditable && !!block && block.type &&  block.type!='deleted'" >
-                    <a class="fi-x      small" ng-click="block.type = 'deleted'">  </a>
-                    <a class="fi-pencil      small" ng-click="updateElement(block);">  </a>
-                </div>
             </div>
             <div as-sortable ng-model="block.subitems" class="block-subitems">
-                <span  class="block-type-subitems" as-sortable-item ng-repeat="block in block.subitems">
-                   <span style='color:#008cba;' as-sortable-item-handle> <b> >> </b> </span>
+               <span  class="block-type-subitems" as-sortable-item ng-repeat="block in block.subitems">
                    <ng-include  src="'editable/renderers/block_holder.html'"> ... </ng-include>
+
                 </span>
             </div>
 

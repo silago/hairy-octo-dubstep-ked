@@ -106,27 +106,30 @@ angular
 .state('catalog',{
       url:'/catalog/',
         views:{
-          'content':   {templateUrl:   'views/catalog/catalog.html',      controller:'CatalogCtrl'},
+          'content':   {
+                            templateUrl:   'views/catalog/catalog.html',
+                            controller:'CatalogCtrl',
+                        },
           'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
           'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
         }
 })
-.state('catalog.collection',{
+.state('catalog.segment.collection',{
       url:':collection/',
       templateUrl:   'views/catalog/collection.html',
       controller:'CatalogCtrl'
 })
-.state('catalog.collection.section', {
-    url:':section/',
-    templateUrl: 'views/catalog/section.html',
+.state('catalog.segment', {
+    url:':segment/',
+    templateUrl: 'views/catalog/segment.html',
     controller:  'CatalogCtrl'
 })
-.state('catalog.collection.section.group', {
-    url:':group/',
+.state('catalog.segment.collection.group', {
+    url:':group_id/',
     templateUrl: 'views/catalog/group.html',
     controller:  'CatalogCtrl'
 })
-.state('catalog.collection.section.group.item', {
+.state('catalog.segment.collection.group.item', {
     url:':item/',
     templateUrl: 'views/catalog/item.html',
     controller:  'CatalogCtrl'

@@ -8,7 +8,7 @@
  */
 angular.module('frontendApp')
   .controller('EditablemainCtrl', function ($scope,$location,$stateParams,$cookieStore,blockRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
-
+   document.body.style.MozUserSelect="none";
    var role_id = $cookieStore.get('role_id');
    if (!role_id || role_id == 0) {
         $location.path("page/index")

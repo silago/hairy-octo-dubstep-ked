@@ -13,6 +13,9 @@ angular.module('frontendApp')
       if (!role_id || role_id == 0) 
             $location.path("page/index")
       $scope.data =  {} 
+      i
+      $scope.getCollections = function() {catalogRes.get({'target':'collection'}).$promise.then(function(d){$scope.collections = d;})};
+      
       catalogRes.get({}).$promise.then(function(d){$scope.data = d;});
       gcatalogRes.get({}).$promise.then(function(d){$scope.groups = d;});
       $scope.groups = {};
@@ -21,20 +24,16 @@ angular.module('frontendApp')
       $scope.tmpGroup = []; // item indexciest
     
       $scope.groupItems = function() {
-            //var tmp = [];
-            //for (var i = 0; i<tmpGroup.length; i++) {
-                    gcatalogRes.PUT({data:{info:$scope.tmpInfo,items:$scope.tmpGroup}}).$promise.then(function(d){$scope.groups = d}); 
+            gcatalogRes.PUT({data:{info:$scope.tmpInfo,items:$scope.tmpGroup}}).$promise.then(function(d){$scope.groups = d}); 
             $scope.tmpGroup = [];
-            //    var index = tmpGroup[i];
-            //}
       }
 
+      $scope.getCollections();
 
       $scope.options = {
         change: function (file) {
             $scope.file = file;
             var u = window.RESTurl+'/api/catalog';
-            //file.$preview({}).then(function(d) { /*$scope.filePreview = d;*/ console.log($scope.filePreview); });
             file.$upload(u, {}).then(function(d){$scope.data = d },function(d){});
           }
       }

@@ -1,4 +1,8 @@
+
 <div ng-init="data={}; init();" ng-cloak class="row">
+            <br />
+            <br />
+            <br />
     <br/>
     <dvi class="columns large-12 ">
         <p>
@@ -10,8 +14,15 @@
             <button ng-click="login(data);" class="button tiny"> Войти </button>
         </div>
         <div ng-if="user.username">
-            Вы вошли как {{user.username}} <br/>
-            <button ng-click="logout()" class="button tiny"> Взять и выйти </button>
+            Вы вошли как {{user.username}}. Вы можете <a href="#/page/index/edit"> перейти </a> в режим редактирования или 
+            <a href ng-click="logout()"  > выйти </a>.
         </div>
     </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
 </div>

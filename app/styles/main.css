@@ -1,3 +1,6 @@
+
+
+
 ul.title-area { z-index:99;}
 
 * {
@@ -13,6 +16,12 @@ ul.title-area { z-index:99;}
 .anchorControls a {display:none;}
 
 @media only screen and (min-width: 40.063em) {
+
+.as-sortable-placeholder {
+     min-width:10px; min-height:10px; border:3px solid red;
+}
+div .top-bar-section .dropdown li .dropdown { left:20px;} 
+
   *:hover {
 
   }
