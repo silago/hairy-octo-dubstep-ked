@@ -15,6 +15,7 @@
     </div>
     <ng-include src="'views/block.html'"> </ng-include>
    <div style="display: none !important;"> </div>
+    <a ng-if="isLoggined" ng-href="{{'/#/page/'+path+'/edit'}}"> Режим редактирования </a>
 </div>
 
 

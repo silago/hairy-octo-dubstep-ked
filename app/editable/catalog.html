@@ -1,27 +1,41 @@
-
-
-
-
-
-<div class="row">
+<div class="row" ng-init="current_tab=0">
         <br />
+        <h4> Загрузка каталога </h4>
         <input oi-file="options" type="file" />
-        <hr/>
+        <h4> Существующие коллекции </h4>
+
         <div>
-            <input ng-show="tmpGroup.length" placeholder="Описание группы" type="text" ng-model="tmpInfo" /><br/> 
-            {{tmpGroup}} <button ng-click="groupItems();" class="tiny"> [ GROUP ] </button>
+             <ul> 
+                 <li ng-repeat="c in collections.data"> {{c.segment}} <a href ng-click="deleteCollection(c.id);">[x]</a></li>
+             </ul>
         </div>
-        <div class="columns large-12"> 
+
+
+
+
+
+
+        <hr/>
+        <a href ng-click="current_tab=1"> Сгруппированные элементы </a> 
+        |
+        <a href ng-click="current_tab=0"> Несгрупиированные элементы </a> 
+        <div ng-show="current_tab==1">
+            <div class="columns large-12"> 
             <div ng-show="groups.data"> 
                 <div class="columns large-2" ng-repeat="i in groups.data"class="large-3">
                     <br> {{ i.info }} {{ i.items.length }}</b> <br />    
                     <span ng-repeat="sub in i.items"> {{sub.sku}} </span>
                 </div>
             </div>
+            </div>
         </div>
 
+        
+        <div ng-show="current_tab==0">
+            <input ng-show="tmpGroup.length" placeholder="Описание группы" type="text" ng-model="tmpInfo" /><br/> 
+            {{tmpGroup}} <button ng-click="groupItems();" class="tiny"> [ GROUP ] </button>
 
-        <div class="columns large-12"> 
+            <div class="columns large-12"> 
             <div ng-show="data.data"> 
                 <div class="columns large-2" ng-repeat="i in data.data"class="large-3">
                     <br> {{ i.sku }} </b> <br />    
@@ -29,11 +43,8 @@
                     <button class="tiny" ng-click="tmpGroup.push(i.id);"> + </button> 
                 </div>
             </div>
+            </div>
         </div>
-        
-
-        
-
         <!--
             <div ng-repeat="g in data" class="columns large-4">
                 <h4> <a href="/#/catalog/{{g.alias}}"> {{g.title}}  </a>  </h4>

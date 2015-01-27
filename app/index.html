@@ -2,7 +2,7 @@
 <html class="no-js"  ng-app="frontendApp">
   <head >
     <meta charset="utf-8">
-      <title>{{meta.title || 'Keddo' }}</title>
+      <title ng-bing="meta.title">Keddo</title>
     <meta name="description" content="{{meta.description || 'Keddo' }}">
     <meta name="keywords" content="{{meta.keywords || 'Keddo' }}">
     <meta name="viewport" content="width=device-width">
@@ -36,7 +36,7 @@
             <top-bar>
                 <ul class="title-area">
                   <li class="name">
-                    <h1><a href="/">
+                    <h1><a href="/#/page/index">
                         <img src="static/logo.png" />
                         </a></h1>
                   </li>

@@ -3,6 +3,8 @@
                 <input type="hidden" ng-model="item.type" />
 
                 <div ng-switch="item.type">
+                    <div ng-switch-when="top_menu">
+                        <div ng-include="'editable/forms/link.html'"> </div> </div>
                     <div ng-switch-when="photo">
                         <div ng-include="'editable/forms/photo.html'"> </div> </div>
                     <div ng-switch-when="html">
@@ -11,11 +13,11 @@
                             <div class="row collapse subscribe">
                                 <div class="small-10 columns">
                                   <select ng-model="item.data['class']" type="text" placeholder="style">
-                                      <option value="'large-centered'"> По центру </option>
-                                      <option value="'large-3'"> 1/4 </option>
-                                      <option value="'large-4'"> 1/3 </option>
-                                      <option value="'large-6'"> 1/2 </option>
-                                      <option value="'large-12'"> 100% </option>
+                                      <option value="large-centered"> По центру </option>
+                                      <option value="large-3"> 1/4 </option>
+                                      <option value="large-4"> 1/3 </option>
+                                      <option value="large-6"> 1/2 </option>
+                                      <option value="large-12"> 100% </option>
                                   </select>
                                 </div>
                                 <div class="small-2 columns">

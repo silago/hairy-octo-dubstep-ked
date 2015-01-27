@@ -9,6 +9,11 @@
 angular.module('frontendApp')
   .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
 
+       var role_id = $cookieStore.get('role_id');
+       if (role_id && role_id != 0) {
+           $scope.isLoggined = true;
+       }
+
     function isDone(){
       window.$$ctrlInited--;
       if (window.$$ctrlInited<=0) {
@@ -42,20 +47,13 @@ angular.module('frontendApp')
       $scope.limit++;
     }
 
-
+    //выпилить
     $scope.search=function(q){
     }
 
-
+    //выпилить
     $scope.getTemplate = function(template) {
-      //var role_id = $cookieStore.get('role_id') || 0;
-      //var folder_prefix='';
-      //if (role_id) {
-      //  folder_prefix='editable/';
-      //} else {
       var  folder_prefix='views/';
-      //}
-
       var result = folder_prefix+=template;
       return result;
     };

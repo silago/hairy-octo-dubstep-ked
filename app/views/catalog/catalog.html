@@ -1,13 +1,12 @@
+<div class="row">
+    <br/>
+    <span> Каталог </span>
 
-<h1> this is catalog </h1>
-<div ui-view>    
-    <div class="row">
-            <a ui-sref="catalog.collection({'collection':'winter'})">winter</a>
-            <a ui-sref="catalog.collection({'collection':'summer'})">summer</a>
-            <!--
-            <div ng-repeat="g in data" class="columns large-4">
-                <h4> <a href="/#/catalog/{{g.alias}}"> {{g.title}}  </a>  </h4>
-            </div>
-            -->
-    </div>
+    <span ui-view>    
+        <div ng-if="data.data" class="row">
+                <div ng-repeat="i in data.data">
+                    <a ui-sref="catalog.segment({'target':'sections','segment':i.segment})">{{i.season}}</a>
+                </div> 
+        </div>
+    </span>
 </div>

@@ -1,10 +1,42 @@
 
-<h1> this is item (group) </h1>
+    
+    <div ng-if="data.data"ng-init="item_index = 0" >
+        <div class="columns large-5">
+            <h3>{{data.data.info}} </h3>
+            <ul>
+                <li> Цвета:
+                    <ul>
+                        <li ng-repeat="i in data.data.items">
+                            <a href ng-click="$parent.item_index=$index"> {{i.color}} </a>
+                        </li>
+                    </ul>
+                 </li>
+                <li> Размеры:{{data.data.items[item_index].analpa_size}}</li>
+                <li> description </li>
+            </ul>
+        <ul ng-init="current_img=data.data.items[item_index].files[0]">
+            <li ng-repeat="img in data.data.items[item_index].files">
+                <a href ng-click="$parent.current_img=img"> <img width="100px" ng-src="{{img}}" alt="" />  </a>
+            </li>
+        </ul>
+        </div>
 
-    <div class="row">:
-            <a ui-sref="catalog.collection.section.group.item({'item':'1'})"> Item 1 </a>
-            <a ui-sref="catalog.collection.section.group.item({'item':'2'})"> Item 2</a>
+        <div class="large-7 columns">
+            <img ng-src="{{current_img}}" alt="" />
+            {{current_img}}
+        </div>
+    </div>
+    <!--
+    {{data.data}}
+    
+    <div ng-if="data.data" class="row">:
+        <div class="columns large-3" ng-repeat="i in data.data.items">
+            <a href='#'> {{i.sku}} </a>
+            <i> {{i.info}} </i>
+            
+        <div>
     <div ui-view>    
         
     </div>
+    -->
 </div>
