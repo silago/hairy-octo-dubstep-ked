@@ -13,15 +13,18 @@ angular.module('frontendApp')
       if (!role_id || role_id == 0) 
             $location.path("page/index")
       $scope.data =  {} 
-      $scope.getCollections = function() {catalogRes.get({'target':'collection'}).$promise.then(function(d){$scope.collections = d;})};
-      $scope.deleteCollection = function(name) {catalogRes.delete({'target':'collections','collection':name}).$promise.then(function(d){$scope.getCollections();})};
+      $scope.getCollections = function() {catalogRes.get({'all':1,'target':'collection'}).$promise.then(function(d){$scope.collections = d;})};
+      $scope.deleteCollection = function(name) {
+          catalogRes.DELETE({'target':'collection','collection':name}).$promise.then(function(d){$scope.getCollections();})};
       $scope.activateCollection = function(name) {
           catalogRes.POST({'target':'collection','collection':name,'set':'active'}).$promise.then(function(d){ })};
       
-      catalogRes.get({}).$promise.then(function(d){$scope.data = d;});
-      gcatalogRes.get({}).$promise.then(function(d){$scope.groups = d;});
+      $scope.getGroups = function() { gcatalogRes.get({}).$promise.then(function(d){$scope.groups = d;}); }
+      $scope.getItems  = function() {  catalogRes.get({}).$promise.then(function(d){$scope.data = d;}); }
       $scope.groups = {};
     
+      $scope.getGroups();
+      $scope.getItems();
       $scope.tmpInfo  = '';
       $scope.tmpGroup = []; // item indexciest
     

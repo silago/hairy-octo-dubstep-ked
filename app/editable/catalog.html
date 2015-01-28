@@ -7,9 +7,9 @@
         <div>
              <ul> 
                  <li ng-repeat="c in collections.data"> {{c.season}} 
-                    <a href ng-click="deleteCollection(c.season);">[x]</a> ,
-                    <a href ng-click="activateCollection(c.season);">Активировать</a>, 
-                    <a href ng-click="chooseCollection(c.season);">  Редактировать</a>
+                        <a href ng-click="deleteCollection(c.season);"> Удалить </a> ,
+                        <a href ng-click="activateCollection(c.season);">Активировать</a>, 
+                        <a href ng-click="chooseCollection(c.season);">  Редактировать</a>
                  </li>
              </ul>
         </div>

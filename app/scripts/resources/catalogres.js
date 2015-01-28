@@ -19,6 +19,9 @@ angular.module('frontendApp')
                          method:'GET',
                           
                        },
+                       DELETE:{
+                         method:'DELETE'
+                       },
                        GET:{
                          method:'GET'
                        },
