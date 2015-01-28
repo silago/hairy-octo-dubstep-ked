@@ -17,7 +17,10 @@ angular.module('frontendApp')
       $scope.deleteCollection = function(name) {
           catalogRes.DELETE({'target':'collection','collection':name}).$promise.then(function(d){$scope.getCollections();})};
       $scope.activateCollection = function(name) {
-          catalogRes.POST({'target':'collection','collection':name,'set':'active'}).$promise.then(function(d){ })};
+          catalogRes.POST({'target':'collection','collection':name,'set':'active'}).$promise.then(function(d){
+            $scope.getGroups();
+            $scope.getItems();
+          })};
       
       $scope.getGroups = function() { gcatalogRes.get({}).$promise.then(function(d){$scope.groups = d;}); }
       $scope.getItems  = function() {  catalogRes.get({}).$promise.then(function(d){$scope.data = d;}); }
