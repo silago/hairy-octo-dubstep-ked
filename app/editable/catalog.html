@@ -1,4 +1,4 @@
-<div class="row" ng-init="current_tab=0">
+<div class="row">
         <br />
         <h4> Загрузка каталога </h4>
         <input oi-file="options" type="file" />
@@ -14,41 +14,48 @@
              </ul>
         </div>
 
-
-
-
-
-
         <hr/>
-        <a href ng-click="current_tab=1"> Сгруппированные элементы </a> 
-        |
-        <a href ng-click="current_tab=0"> Несгрупиированные элементы </a> 
-        <div ng-show="current_tab==1">
+        <div class="panel">
+        <div class="columns large-6">
             <div class="columns large-12"> 
             <div ng-show="groups.data"> 
-                <div class="columns large-2" ng-repeat="i in groups.data"class="large-3">
-                    <br> {{ i.info }} {{ i.items.length }}</b> <br />    
-                    <span ng-repeat="sub in i.items"> {{sub.sku}} </span>
+                <div ng-repeat="i in groups.data" class="columns large-4">
+                    <img ng-src="{{'/static/catalog/'+i.items[0].thumbnail}}" />  
+                    <span ng-repeat="sub in i.items">
+                        {{sub.sku}}&nbsp;<a href ng-click="i.items.splice($index,1);">[x]</a>
+                    </span>
+                    <hr />
+                    <label> Similar: </label>
+                    <div class="columns large-6" ng-repeat="sim in i.similar">
+                         <img ng-src="{{'/static/catalog/'+sim[0].thumbnail}}" />  
+                         {{sim[0].sku}}... <a href ng-click="i.similar.splice($index,1);">[x]</a>
+                    </div>
+                    <a href ng-click="$parent.similarModel=i"> <small> Добавить подобные </small> </a>
+                    <a href ng-click="saveGroup(i);" > <small> Сохранить </small> </a>
+                    <a href ng-if="similarModel && $parent.similarModel!=i" ng-click="addToSimilar(i)"> <small>Добавить к подобным</small> </a>
                 </div>
             </div>
             </div>
         </div>
 
         
-        <div ng-show="current_tab==0">
-            <input ng-show="tmpGroup.length" placeholder="Описание группы" type="text" ng-model="tmpInfo" /><br/> 
+        <div class="columns large-6"> 
+            <!--
+                <input ng-show="tmpGroup.length" placeholder="Описание группы" type="text" ng-model="tmpInfo" /><br/> 
+            -->
             {{tmpGroup}} <button ng-click="groupItems();" class="tiny"> [ GROUP ] </button>
 
-            <div class="columns large-12"> 
             <div ng-show="data.data"> 
-                <div class="columns large-2" ng-repeat="i in data.data"class="large-3">
-                    <br> {{ i.sku }} </b> <br />    
-                    <i>  {{i.item_type}} {{i.segment}} {{}}                </i>
-                    <button class="tiny" ng-click="tmpGroup.push(i.id);"> + </button> 
+                <div ng-if="i.group_catalog_id!='none'" class="columns large-4" ng-repeat="i in data.data">
+                    {{ i.sku }} </b> <br />    
+                    <i>{{i.item_type}} {{i.segment}}</i>
+                    <br/>
+                    <a href class="tiny" ng-click="tmpGroup.push(i.id);"> В группу </a> 
                 </div>
             </div>
-            </div>
         </div>
+<div style="clear:both;"> </div>"
+</div>
         <!--
             <div ng-repeat="g in data" class="columns large-4">
                 <h4> <a href="/#/catalog/{{g.alias}}"> {{g.title}}  </a>  </h4>

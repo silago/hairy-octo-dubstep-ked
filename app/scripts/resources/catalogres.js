@@ -2,7 +2,7 @@
 
 angular.module('frontendApp')
   .factory('catalogRes', function ($resource) {
-    return $resource(window.RESTurl+'/api/catalog/:target/:collection/:segment/:group_id/',
+    return $resource(window.RESTurl+'/api/catalog/:target/:segment/:group_id/',
                      {
                        id:'@id',
                        target:'@target',
@@ -17,7 +17,6 @@ angular.module('frontendApp')
                        },
                        items:{
                          method:'GET',
-                          
                        },
                        DELETE:{
                          method:'DELETE'
