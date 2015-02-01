@@ -20,7 +20,8 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="f/css/foundation.css" />
+    <link rel="stylesheet" href="http://foundation.zurb.com/docs/assets/css/docs.css">
+    <!-- <link rel="stylesheet" href="f/css/foundation.css" />-->
     <link rel="stylesheet" href="icon-font/foundation-icons.css" />
     <script src="f/js/vendor/modernizr.js"></script>
     <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
@@ -54,7 +55,10 @@
                     <ul class="right">
                         <li> <input type="text" ng-model="q" /> </li>
                         <li>
-                            <a
+                            <a ng-show="!q && q==''"
+                               href
+                               class="fi-magnifying-glass "> </a>
+                            <a ng-show="q && q!=''"
                                href="/#/search/{{q.$$encodeURI()}}"
                                ng-sref="search({queryString:q});"
                                style="cursor:pointer; font-size:27px; margin-left:10px;"

@@ -114,17 +114,17 @@ angular
           'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
         }
 })
-.state('catalog.segment.collection',{
-      url:':collection/',
-      templateUrl:   'views/catalog/collection.html',
-      controller:'CatalogCtrl'
-})
 .state('catalog.segment', {
     url:':segment/',
     templateUrl: 'views/catalog/segment.html',
-    controller:  'CatalogCtrl'
+    controller:  'CatalogCtrl',
 })
-.state('catalog.segment.collection.group', {
+.state('catalog.segment.type',{
+      url:':type/',
+      templateUrl:   'views/catalog/type.html',
+      controller:'CatalogCtrl'
+})
+.state('catalog.segment.type.group', {
     url:':group_id/',
     templateUrl: 'views/catalog/group.html',
     controller:  'CatalogCtrl'

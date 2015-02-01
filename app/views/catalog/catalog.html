@@ -1,11 +1,10 @@
 <div class="row">
     <br/>
-    <span> Каталог </span>
 
     <span ui-view>    
-        <div ng-if="data.data" class="row">
-                <div ng-repeat="i in data.data">
-                    <a ui-sref="catalog.segment({'target':'sections','segment':i.segment})">{{i.season}}</a>
+        <div ng-if="data.data" class="columns large-12">
+                <div class="columns large-{{12/data.data.length}} panel text-center white-border-20" ng-repeat="i in data.data">
+                    <a ui-sref="catalog.segment({'target':'sections','segment':i.segment})">{{i.segment}}</a>
                 </div> 
         </div>
     </span>

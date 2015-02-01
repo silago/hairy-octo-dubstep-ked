@@ -1,4 +1,29 @@
+div .large-4-padding {
+     border: 5px solid white;
+    margin: 1%;
+    padding-top: 15px;
+    width: 31.3333%;
+}
 
+div .large-6-padding {
+     border: 5px solid white;
+    margin: 1%;
+    padding-top: 15px;
+    width: 48%;
+}
+
+.break-all {
+    word-break:break-all;
+}
+
+
+.top-menu-left ul li, .top-menu-left ul {
+    border-radius: 5px; 
+}
+
+.white-border-20 {
+    border:20px solid white;
+}
 
 
 ul.title-area { z-index:99;}
@@ -94,7 +119,7 @@ div .top-bar-section .dropdown li .dropdown { left:20px;}
   }
   .top-bar {
     height:98px!important;
-    background-color:#e6e6e6;
+    background-color:#e6e6e6!important;
     padding-top:23px!important;
   }
   .top-bar-section ul li span > a:hover {
@@ -360,7 +385,6 @@ div .top-bar-section .dropdown li .dropdown { left:20px;}
 
 
   body {
-    padding-top: 20px;
     padding-bottom: 20px;
   }
 

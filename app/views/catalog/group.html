@@ -1,29 +1,54 @@
 
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+    <li role="menuitem"><a href="#/page/index">KEDDO</a></li>
+    <li class="unavailable"  role="menuitem"><a href="#">Каталог</a></li>
+    <li role="menuitem">
+        <a  ui-sref="catalog.segment.type({'target':'sections','segment':stateParams.segment,'type':'*'})"> {{stateParams.segment}}</a>
+        <a  ng-show="stateParams.type!='*'" ui-sref="catalog.segment.type({'type':stateParams.type})"> {{stateParams.type}} </a>
+    </li>
+</nav> 
     
     <div ng-if="data.data"ng-init="item_index = 0" >
-        <div class="columns large-5">
+        <div class="columns large-3">
             <h3>{{data.data.info}} </h3>
-            <ul>
-                <li> Цвета:
-                    <ul>
-                        <li ng-repeat="i in data.data.items">
-                            <a href ng-click="$parent.item_index=$index"> {{i.color}} </a>
-                        </li>
-                    </ul>
-                 </li>
-                <li> Размеры:{{data.data.items[item_index].analpa_size}}</li>
+                Цвета:
+                        <a  ng-click="$parent.item_index=$index;
+                                      $parent.current_img='/static/catalog/'+i.base_image;
+                                     " href ng-repeat="i in data.data.items">
+                                <img style="border:1px solid gray;" ng-src="{{'/static/colors/'+i.color.translit()+'.png'}}" />
+                        </a>
+                <br/>
+                <div> Размеры: {{data.data.items[item_index].analpa_size}}</div>
+                <div> Материал верха: {{data.data.items[item_index].material_top}}</div>
+                <div> Подкладка: {{data.data.items[item_index].lining}}</div>
+                <div> Стелька: {{data.data.items[item_index].insole}}</div>
+                <!--
                 <li> description </li>
+                -->
             </ul>
+        <div ng-init="current_img=data.data.items[item_index].files[0]"> </div>
+        <!--
         <ul ng-init="current_img=data.data.items[item_index].files[0]">
             <li ng-repeat="img in data.data.items[item_index].files">
-                <a href ng-click="$parent.current_img=img"> <img width="100px" ng-src="{{img}}" alt="" />  </a>
+                <a href ng-click="$parent.current_img=img"> <img width="100px" src="{{img}}" alt="" />  </a>
             </li>
         </ul>
+        -->
+        <hr/>
+        <h5 ng-if="data.data.similar.length>0"> Похожие товары </h5>
+        <ul class="columns large-12 side-nav">
+            <li class="columns large-6-padding" ng-repeat="sim in data.data.similar">
+                <img src="{{'/static/catalog/'+sim[0].base_image}}" alt="" />
+                <center>
+                    <a ui-sref="catalog.segment.type.group({'group_id':sim[0].group_catalog_id})">{{sim[0].sku}} </a>
+                </center>
+            </li>
         </div>
-
-        <div class="large-7 columns">
+        <div class="columns large-1"> &nbsp; </div>
+        <div class="large-7 columns left">
             <img ng-src="{{current_img}}" alt="" />
-            {{current_img}}
         </div>
     </div>
     <!--

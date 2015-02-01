@@ -13,6 +13,7 @@ angular.module('frontendApp')
       if (!role_id || role_id == 0) 
             $location.path("page/index")
       $scope.data =  {} 
+      $scope.collectionToEdit = false;
       $scope.getCollections = function() {catalogRes.get({'all':1}).$promise.then(function(d){$scope.collections = d;})};
       $scope.deleteCollection = function(name) {
           catalogRes.DELETE({'collection':name}).$promise.then(function(d){$scope.getCollections();})};
@@ -23,9 +24,10 @@ angular.module('frontendApp')
           })};
       $scope.similarModel = false; 
       $scope.getGroups = function(p) {if(p==undefined)p={}; gcatalogRes.get(p).$promise.then(function(d){$scope.groups = d;}); }
-
       $scope.getItems  = function(p) {if(p==undefined)p={}; gcatalogRes.get(p).$promise.then(function(d){$scope.data = d;}); }
+
       $scope.chooseCollection = function(v) {
+          $scope.collectionToEdit = v;
           $scope.getGroups({collection:v});
           $scope.getItems({collection:v,state:'items'});
       }
@@ -47,7 +49,9 @@ $scope.groups = {};
       $scope.tmpGroup = []; // item indexciest
     
       $scope.groupItems = function() {
-            gcatalogRes.PUT({data:{info:$scope.tmpInfo,items:$scope.tmpGroup}}).$promise.then(function(d){$scope.groups = d}); 
+            gcatalogRes.PUT({data:{info:$scope.tmpInfo,items:$scope.tmpGroup}}).$promise.then(function(d){
+                $scope.chooseCollection($scope.collectionToEdit);
+            }); 
             $scope.tmpGroup = [];
       }
 

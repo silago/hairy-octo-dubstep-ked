@@ -1,13 +1,21 @@
 <h1>  Результаты поиска </h1>
-<div ng-if="!data.data">
+<div ng-if="!data.data || (!data.data.pages && !data.data.items)">
     По вашему запросу ничего не найдено
 </div>
-<div ng-repeat="r in data.data">
+<div ng-repeat="r in data.data.pages">
     <a href="/#/page/{{r.url}}" ng-sref="pages">
             {{r.meta.fromJson().title || r.url}}
     </a>
     <p>
         {{r.$$searchInTree(search_query).$$stripTags(' ').substr(0,100)}}....
     </p>
-</data>
+</div>
+
+
+<div ng-repeat="r in data.data.items" class="columns large-2">
+    <a ui-sref="catalog.segment.type.group({'segment':r.items[0].segment,'type':r.items[0].item_type,'group':r.id">
+            <img ng-src="/static/catalog/{{r.items[0].small_image}}" alt="" width="300px" />
+            {{r.items[0].segment}} {{r.items[0].item_type}} 
+    </a>
+</div>
 

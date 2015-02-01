@@ -9,7 +9,18 @@
  */
 angular.module('frontendApp')
   .controller('CatalogCtrl', function ($scope,catalogRes,$stateParams,$state) {
-     $stateParams.target = 'collection';
-     $scope.stateParams = $stateParams;
-     $scope.data = catalogRes.collections($stateParams); 
+     $scope.init= function(params){
+        if (params!=undefined) 
+        if (params.stateParams!=undefined){
+            $stateParams=params.stateParams;
+        }
+     }
+            if (!index) {
+                var index = 3;
+                $stateParams.target = 'collection';
+                $scope.stateParams = $stateParams;
+                $scope.data = catalogRes.collections($stateParams); 
+                $scope.catalogRes = catalogRes;
+            } 
+
   });

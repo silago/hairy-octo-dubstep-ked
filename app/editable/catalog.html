@@ -8,18 +8,17 @@
              <ul> 
                  <li ng-repeat="c in collections.data"> {{c.season}} 
                         <a href ng-click="deleteCollection(c.season);"> Удалить </a> ,
-                        <a href ng-click="activateCollection(c.season);">Активировать</a>, 
+                        <span ng-show="c.coll_status!=1;">  <a href ng-click="activateCollection(c.season);">Активировать</a>, </span>
                         <a href ng-click="chooseCollection(c.season);">  Редактировать</a>
                  </li>
              </ul>
         </div>
 
-        <hr/>
         <div class="panel">
         <div class="columns large-6">
             <div class="columns large-12"> 
             <div ng-show="groups.data"> 
-                <div ng-repeat="i in groups.data" class="columns large-4">
+                <div ng-repeat="i in groups.data" class="columns large-4-padding">
                     <img ng-src="{{'/static/catalog/'+i.items[0].thumbnail}}" />  
                     <span ng-repeat="sub in i.items">
                         {{sub.sku}}&nbsp;<a href ng-click="i.items.splice($index,1);">[x]</a>
@@ -28,11 +27,13 @@
                     <label> Similar: </label>
                     <div class="columns large-6" ng-repeat="sim in i.similar">
                          <img ng-src="{{'/static/catalog/'+sim[0].thumbnail}}" />  
-                         {{sim[0].sku}}... <a href ng-click="i.similar.splice($index,1);">[x]</a>
+                         <div class="break-all"><small>{{sim[0].sku}}</small></div>
+                         <a href ng-click="i.similar.splice($index,1);">[x]</a>
                     </div>
                     <a href ng-click="$parent.similarModel=i"> <small> Добавить подобные </small> </a>
                     <a href ng-click="saveGroup(i);" > <small> Сохранить </small> </a>
                     <a href ng-if="similarModel && $parent.similarModel!=i" ng-click="addToSimilar(i)"> <small>Добавить к подобным</small> </a>
+                <hr/>
                 </div>
             </div>
             </div>
@@ -46,9 +47,10 @@
             {{tmpGroup}} <button ng-click="groupItems();" class="tiny"> [ GROUP ] </button>
 
             <div ng-show="data.data"> 
-                <div ng-if="i.group_catalog_id!='none'" class="columns large-4" ng-repeat="i in data.data">
-                    {{ i.sku }} </b> <br />    
-                    <i>{{i.item_type}} {{i.segment}}</i>
+                <div ng-if="i.group_catalog_id!='none'" class="columns large-3" ng-repeat="i in data.data">
+                    <img ng-src="{{'/static/catalog/'+i.thumbnail}}" />  
+                    {{ i.sku }} <br />    
+                    <i><small>{{i.item_type}}<br/>{{i.segment}}</small></i>
                     <br/>
                     <a href class="tiny" ng-click="tmpGroup.push(i.id);"> В группу </a> 
                 </div>

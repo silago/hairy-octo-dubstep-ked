@@ -32,9 +32,10 @@ angular.module('frontendApp')
       // catalog section
       $scope.possibleSegments = {};
       $scope.possibleCollections = {};
-      $scope.getPossibleSegments = function() {$scope.possibleSegments =catalogRes.collections({});}
-      $scope.getPossibleCollections = function(segment) { $scope.possibleCollections = catalogRes.collections({'segment':segment})};
-     // end catalog section
+      $scope.getPossibleSegments = function() {$scope.possibleSegments =catalogRes.GET({'target':'collection'});}
+     //$scope.getPossibleCollections = function(segment) { $scope.possibleCollections = catalogRes.collections({'segment':segment})};
+    
+ // end catalog section
 
 
       $scope.previewData = false;

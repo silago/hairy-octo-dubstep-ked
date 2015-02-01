@@ -2,10 +2,11 @@
 
 angular.module('frontendApp')
   .factory('catalogRes', function ($resource) {
-    return $resource(window.RESTurl+'/api/catalog/:target/:segment/:group_id/',
+    return $resource(window.RESTurl+'/api/catalog/:target/:segment/:type/:group_id/',
                      {
                        id:'@id',
                        target:'@target',
+                       type:'@type',
                        collection:'@collection'
                      },
                      {
