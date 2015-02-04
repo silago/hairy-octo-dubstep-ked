@@ -7,9 +7,9 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
+  .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,catalogRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
 
-       var role_id = $cookieStore.get('role_id');
+     var role_id = $cookieStore.get('role_id');
        if (role_id && role_id != 0) {
            $scope.isLoggined = true;
        }
@@ -25,27 +25,26 @@ angular.module('frontendApp')
     $scope.findScrollAnchors = function() {
        var anchors = document. getElementsByClassName('scrollAnchor');
        $scope.anchors = anchors;
-       window.aa = anchors;
        console.log(anchors);
     }
 
     $scope.scrollTo = function(index) {
            var someElement = document.getElementsByClassName('scrollAnchor')[index];
-           //var someElement = angular.element(document.getElementById('scroll'));
            $document.scrollToElement(someElement);
 
     }
 
     if (window.$$ctrlInited == undefined) {
-      window.$$ctrlInited = 1;
+          window.$$ctrlInited = 1;
     } else {
-      window.$$ctrlInited++;
+          window.$$ctrlInited++;
     }
 
     $scope.limit = 2;
     $scope.scroll = function(){
       $scope.limit++;
     }
+
 
     //выпилить
     $scope.search=function(q){
@@ -67,4 +66,9 @@ angular.module('frontendApp')
                             $scope.findScrollAnchors();
                           });
     };
+
+    $scope.ff = function() {
+        return 'qwe';
+    }
+
 });

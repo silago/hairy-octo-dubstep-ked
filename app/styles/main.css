@@ -1,3 +1,14 @@
+
+div .top-bar-section .dropdown {
+    width:auto;
+}
+
+div .top-bar-section .dropdown li {
+    clear:both;
+    width:auto;
+
+}
+
 div .large-4-padding {
      border: 5px solid white;
     margin: 1%;
@@ -80,9 +91,12 @@ div .top-bar-section .dropdown li .dropdown { left:20px;}
 
 }
 
+li.has-dropdown:hover .top-bar-section .dropdown {
+    clip:inherit;
+}
   .has-dropdown:hover > .dropdown {
      clip:inherit;
-     position:relative!IMPORTANT;
+   z-position:relative!IMPORTANT;
     z-index:999;
   }
 

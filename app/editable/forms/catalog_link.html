@@ -1,0 +1,31 @@
+
+
+<div 
+    class="">
+       <label> Заголовок</label>
+       <input type="text" ng-model="item.data['title']" />
+
+      <div >
+      <label> Сегмент </label>
+          <span ng-init="getPossibleSegments()">
+              <select 
+                    ng-change="getPossibleCollections($parent.segment); item.data.url=segment;"
+                    ng-if="possibleSegments.data" 
+                    ng-model="$parent.segment" >
+                    <option></option>
+                    <option ng-repeat="i in possibleSegments.data" ng-value="i.segment">{{i.segment}}</option>
+              </select>
+          </span>
+      <!-- 
+      <label> Коллекция </label>
+          <span ng-if="possibleCollections.data">
+              <select
+                    ng-change="item.data.url=pageTarget+segment+collection+'/'"
+                    ng-model="$parent.collection" >
+                    <option></option>
+                    <option ng-repeat="i in possibleCollections.data" ng-value="'/'+i.season">{{i.season}}</option>
+              </select>
+          </span>
+        -->
+      </div>
+</div>

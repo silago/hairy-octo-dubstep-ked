@@ -7,7 +7,7 @@
  * # block
  */
 angular.module('frontendApp')
-  .directive('block', function () {
+  .directive('block', ["$compile","catalogRes",function ($compile,catalogRes) {
     return {
       templateUrl: function(elem,attrs){
         /* compile funct mus hel me*/
@@ -22,11 +22,14 @@ angular.module('frontendApp')
       },
       //controller:['$scope','ngDialog',function(){
       controller: ["$scope","ngDialog","$sce",function($scope,ngDialog,$sce,ngQuill){
-
         $scope.trust = $sce.trustAsHtml;
         $scope.updateElement = function (params){
           ngDialog.open({template:'editable/adm/updateElement.html',data:params});
         }
-      }]
+      }],
+      link: function(scope,elem,attrs){
+            scope.catalogRes = catalogRes;
+            scope.f = 'fpp';
+        }
     };
-  });
+  }]);
