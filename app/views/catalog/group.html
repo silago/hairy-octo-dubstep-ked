@@ -2,12 +2,15 @@
 
 
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-    <li role="menuitem"><a href="#/page/index">KEDDO</a></li>
-    <li class="unavailable"  role="menuitem"><a href="#">Каталог</a></li>
+    <!-- <li role="menuitem"><a href="#/page/index">KEDDO</a></li> -->
+    <li class="current"  role="menuitem"><a href="#">Каталог</a></li>
     <li role="menuitem">
-        <a  ui-sref="catalog.segment.type({'target':'sections','segment':stateParams.segment,'type':'*'})"> {{stateParams.segment}}</a>
+        <a  ui-sref="catalog.segment.type({'target':'sections','segment':stateParams.segment,'type':'*'})"> {{catalogCollectionTranslate(stateParams.segment)}}</a>
+    </li>
+    <li role="menuitem">
         <a  ng-show="stateParams.type!='*'" ui-sref="catalog.segment.type({'type':stateParams.type})"> {{stateParams.type}} </a>
     </li>
+
 </nav> 
     
     <div ng-if="data.data"ng-init="item_index = 0" >

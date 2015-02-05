@@ -55,7 +55,7 @@
                     <ul class="right">
                         <li> <input type="text" ng-model="q" /> </li>
                         <li>
-                            <a ng-show="!q && q==''"
+                            <a ng-show="!q || q==''"
                                href
                                class="fi-magnifying-glass "> </a>
                             <a ng-show="q && q!=''"

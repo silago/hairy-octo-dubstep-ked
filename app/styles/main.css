@@ -1,3 +1,43 @@
+.top-bar-section li a {
+    text-transform:uppercase!important;
+}
+
+
+
+.catalog-menu-item:hover+.catalog-menu-image{
+    display:block!important;
+}
+
+.catalog-menu-holder:last-child {
+    display:block;
+}
+
+div div .dropdown.catalog-menu-holder {
+    background-color: #e6e6e6!important; width: auto;
+    overflow:visible;
+}
+
+
+div div .dropdown.catalog-menu-holder li:hover div {
+    display:block;
+}
+div div .dropdown.catalog-menu-holder li div img {
+    border:1px solid lightgray;
+}
+div div .dropdown.catalog-menu-holder li div {
+    background-color: #e6e6e6;
+    border-left: 20px solid #e6e6e6;
+    border-spacing: initial;
+    box-shadow: 1px 0 0 0 lightgray inset;
+    display: none;
+    height: 100%;
+    padding: 10px 10px 10px 20px;
+    position: absolute;
+    right: -50%;
+    text-align: center;
+    top: 10px;
+    width: 100%;
+}
 
 div .top-bar-section .dropdown {
     width:auto;
@@ -84,7 +124,7 @@ div .top-bar-section .dropdown li .dropdown { left:20px;}
   div .top-bar-section .has-dropdown > a:after {
      border: 0 none !important;
     content: "»";
-    display: inline !important;
+    display: none!important;
     float: right !important;
     right: 15px;
     top: 2px;
@@ -153,8 +193,12 @@ li.has-dropdown:hover .top-bar-section .dropdown {
   .top-bar-section ul li > a {
      background-color:#e6e6e6!important;
      color:#000!important;
+    text-transform:uppercase !important
 
   }
+.top-bar-section > .top-menu-left  a {
+    font-size:12px!important;
+}
   .top-bar a {
      color:#fff;
   }

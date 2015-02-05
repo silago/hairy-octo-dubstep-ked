@@ -9,6 +9,7 @@
  */
 angular.module('frontendApp')
   .controller('CatalogCtrl', function ($scope,catalogRes,$stateParams,$state) {
+     $scope.catalogCollectionTranslate = window.catalogCollectionTranslate;
      $scope.init= function(params){
         if (params!=undefined) 
         if (params.stateParams!=undefined){

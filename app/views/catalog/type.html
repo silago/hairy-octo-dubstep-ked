@@ -1,5 +1,11 @@
 
 <span ui-view>    
+    <ul class="breadcrumbs"> 
+        <li class="current"><a href >Каталог</a></li>
+        <li ><a ui-sref='catalog.segment.type({"target":"collections","segment":stateParams.segment,"type":"*"})' href >{{catalogCollectionTranslate(stateParams.segment)}}</a></li>
+        <li class="current" ng-show="stateParams.type!='*'">    <a href >{{stateParams.type}}</a></li>
+    </ul>
+
     <div ng-if="data.data" class="columns large-9">
         <div  ng-repeat="i in data.data" class="columns large-4">
             <img ng-src="/static/catalog/{{i.items[0].small_image}}" alt="" width="300px" />

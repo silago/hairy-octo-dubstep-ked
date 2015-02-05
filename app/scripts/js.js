@@ -1,4 +1,16 @@
-'use strict';
+    function catalogCollectionTranslate(val) {
+        val = val.toLowerCase();
+        var keys =  {'женские':'Женщины','мужские':'Мужчины','детские':'Дети'};
+         
+        if (keys[val]!=undefined)  {
+            return keys[val];
+        }
+        else return val;
+    }
+
+
+
+    'use strict';
     String.prototype.translit = (function(){
         var L = {
     '.':'_','/':'_','\\':'_','А':'A','а':'a','Б':'B','б':'b','В':'V','в':'v','Г':'G','г':'g',

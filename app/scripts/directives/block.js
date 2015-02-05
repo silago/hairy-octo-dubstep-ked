@@ -28,6 +28,7 @@ angular.module('frontendApp')
         }
       }],
       link: function(scope,elem,attrs){
+            scope.catalogCollectionTranslate = window.catalogCollectionTranslate;
             scope.catalogRes = catalogRes;
             scope.f = 'fpp';
         }

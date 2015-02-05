@@ -81,7 +81,7 @@ angular
     .state('editmap', {
         url:'/map/edit',
         views:{
-          'content':   {templateUrl:   'editable/map.html',      controller:'MapCtrl'},
+          'content':   {templateUrl:   'editable/map.html',      controller:'EditablemapCtrl'},
           'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
           'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
         }
