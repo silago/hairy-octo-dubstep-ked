@@ -5,21 +5,12 @@
         <h1>  Наши магазины  </h1>
             <button class="button tiny" ng-click="save();"> Сохранить </button>
             <button class="button tiny" ng-show="location" ng-click="deleteCity();"> Удалить выбранный город </button>
-
-        <!--
-        <span ng-repeat="g in markets">
-            <span class="button tiny" ng-click="moveMapTo(g.center);" ng-bind-html="g.name"> </span>
-        </span>
-        <ul class='map-menu'>
-        </ul>
-        -->
-
              <div class="row collapse">
             <div class="small-3 large-2 columns">
               <span class="prefix">Выбрать город</span>
             </div>
             <div class="small-9 large-10 columns">
-                <select ng-options="c.position as c.name for c in cities" ng-model="location" ng-change="focusToLocation();">
+                <select ng-options="c as c.name for c in cities" ng-model="location" ng-change="focusToLocation(location);">
                 </select>
             </div>
           </div>
@@ -28,5 +19,12 @@
 
         </div>
     </div>
+    <div style="clear:both;"> </div>
+    <div ng-show="location" class="large-12 columns"> 
+        <div class="large-3 columns"  ng-repeat="m in markets">
+            <a href ng-show="m.city_id==location.id" ng-click="focusToLocation(m)"> {{m.name}} </a>
+        </div>
+
+    </diV>
     <p> &nbsp; </p>
 </div>

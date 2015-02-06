@@ -28,9 +28,10 @@ angular.module('frontendApp')
       cityRes.GET({}).$promise.then(function(d){$scope.cities  = d.data;},function(d){});
     }
 
-    $scope.focusToLocation = function(){
-        $scope.map.setCenter($scope.location);
+    $scope.focusToLocation = function(location){
+        $scope.map.setCenter(location);
         $scope.map.setZoom(12);
+        
       }
 
     function searchInMarketsByCoords(coords){
@@ -45,25 +46,22 @@ angular.module('frontendApp')
     }
 
     function mapDialog(pos){
-            var dialog = ngDialog.open({template:'editable/adm/mapDialog.html'});
+            var dialog = ngDialog.open({template:'editable/adm/mapDialog.html',scope:$scope});
             dialog.closePromise.then(function(d) {
               var mark_data = d.value;
               console.log(mark_data);
               if (mark_data.type=='city') {
                  createCityMark(pos,mark_data.label);
               } else if (mark_data.type == 'market') {
-                 createMarketMark(pos,mark_data.label);
+                 createMarketMark(pos,mark_data.label,mark_data.city_id);
               }
               //var new_page_data = d.value;
             });
     }
 
     $scope.deleteCity = function() {
-      console.log($scope.location);
-      window.p = $scope.location;
-      window.c = $scope.cities;
       for (var i=0; i<$scope.cities.length; i++) {
-        if ($scope.cities[i].position == $scope.location) {
+        if ($scope.cities[i].position == $scope.location.position) {
           $scope.cities.splice(i,1);
           return i;
         }
@@ -71,8 +69,8 @@ angular.module('frontendApp')
       return -1;
     }
 
-    function createMarketMark(position,label) {
-      var i = {position:position,name:label};
+    function createMarketMark(position,label,city_id) {
+      var i = {position:position,name:label,city_id};
       $scope.map.geoObjects.add(new ymaps.Placemark(i.position,{balloonContent:i.name}));
       $scope.markets.push(i);
     }
@@ -105,12 +103,10 @@ angular.module('frontendApp')
     }
   $scope.makeMap = function(){
 
-
-    $scope.map = new ymaps.Map('YMapsID', {
-            center: $scope.markets[0].position || [50,50955,30.60891],
-            zoom: 12
-    });
-
+        $scope.map = new ymaps.Map('YMapsID', {
+                center: ($scope.markets[0] ? $scope.markets[0].position : [50,50955,30.60891]),
+                zoom: 12
+        });
 
     $scope.map.events.add('dblclick',function(e){
         e.stopPropagation();

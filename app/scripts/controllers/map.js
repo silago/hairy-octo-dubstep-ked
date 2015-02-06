@@ -15,9 +15,10 @@ angular.module('frontendApp')
        cityRes.GET({}).$promise.then(function(d){$scope.cities  = d.data;},function(d){});
     }
 
-    $scope.focusToLocation = function(){
-        $scope.map.setCenter($scope.location);
+    $scope.focusToLocation = function(location){
+        $scope.map.setCenter(location);
         $scope.map.setZoom(12);
+        
       }
 
 

@@ -5,7 +5,7 @@
                 <li> <h4> {{stateParams.segment}} </h4> <li> 
                 
                 <li ng-repeat="i in data.data">
-                    <a ui-sref="catalog.segment.type({'type':i.item_type})"> {{i.item_type}} </a>
+                    <a ui-sref="catalog.segment.type({'type':i.item_type.replace('/','---')})"> {{i.item_type}} </a>
                 </li>
             </ul>
     </div>

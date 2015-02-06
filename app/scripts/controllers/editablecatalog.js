@@ -43,7 +43,7 @@ angular.module('frontendApp')
             item.similar.splice(item.similar.indexOf(sim),1);
       }
     
-$scope.groups = {};
+      $scope.groups = {};
     
       $scope.tmpInfo  = '';
       $scope.tmpGroup = []; // item indexciest
