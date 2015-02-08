@@ -23,13 +23,17 @@ angular.module('frontendApp')
         },function(data){ alert('something go wrong');});
     }
 
-    $scope.init = function(){
-       mapRes.GET({}).$promise.then(function(d){$scope.markets = d.data; $scope.makeMap();},function(d){});
-      cityRes.GET({}).$promise.then(function(d){$scope.cities  = d.data;},function(d){});
+    $scope.prepare= function(){
+       mapRes.GET({}).$promise.then(function(d){
+            $scope.markets = d.data; 
+            cityRes.GET({}).$promise.then(function(d){$scope.cities  = d.data;
+                $scope.makeMap();
+            },function(d){});
+        },function(d){});
     }
 
     $scope.focusToLocation = function(location){
-        $scope.map.setCenter(location);
+        $scope.map.setCenter(location.position);
         $scope.map.setZoom(12);
         
       }
@@ -111,7 +115,10 @@ angular.module('frontendApp')
     $scope.map.events.add('dblclick',function(e){
         e.stopPropagation();
         var pos = e.get('coords');
+        console.log(pos);;
         mapDialog(pos);
+        e.stopPropagation();
+
     });
 
 
@@ -121,5 +128,5 @@ angular.module('frontendApp')
     }
 
   };
-  ymaps.ready($scope.init);
+  ymaps.ready($scope.prepare);
   });

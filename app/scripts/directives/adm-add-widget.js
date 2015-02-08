@@ -102,7 +102,10 @@ angular.module('frontendApp')
       $scope.saveFile = function() {
             var u = window.RESTurl+'/api/files';
             $scope.file._file = str2blob();
-            $scope.file.$upload(u, {}).then(function(d){ $scope.getStaticFiles();},function(d){});
+            $scope.file.$upload(u, {}).then(function(d){
+                $scope.file = {};
+                $scope.filePreview = {};
+                $scope.getStaticFiles();},function(d){});
 
       }
 

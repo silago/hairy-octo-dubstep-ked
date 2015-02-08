@@ -10,13 +10,22 @@
 angular.module('frontendApp')
   .controller('MapCtrl', function ($scope,$filter,ngDialog,mapRes,cityRes) {
 
-    $scope.init = function(){
-       mapRes.GET({}).$promise.then(function(d){$scope.markets = d.data; $scope.makeMap();},function(d){});
-       cityRes.GET({}).$promise.then(function(d){$scope.cities  = d.data;},function(d){});
+    $scope.prepare = function(){
+       mapRes.GET({}).$promise.then(function(d){
+            $scope.markets = d.data;
+            cityRes.GET({}).$promise.then(function(d){
+                $scope.cities  = d.data;
+                    $scope.map = new ymaps.Map('YMapsID', {
+                            center: $scope.markets[0].position || [50,50955,30.60891],
+                            zoom: 12
+                    });
+                    $scope.makeMap();
+            },function(d){});
+        },function(d){});
     }
 
     $scope.focusToLocation = function(location){
-        $scope.map.setCenter(location);
+        $scope.map.setCenter(location.position);
         $scope.map.setZoom(12);
         
       }
@@ -37,11 +46,17 @@ angular.module('frontendApp')
          e.stopPropagation();
     }
 
-    $scope.map = new ymaps.Map('YMapsID', {
-            center: $scope.markets[0].position || [50,50955,30.60891],
-            zoom: 12
-    });
+
+    function createMark (item) {
+            var placemark = new ymaps.Placemark(item.position, { hintContent:item.name, showHintOnHover:true });
+            $scope.map.geoObjects.add(placemark);//new ymaps.Placemark(i.position,{balloonContent:i.name}));
+    }
+
+    for (var i = 0, l = $scope.markets.length; i < l; i++) {
+         createMark($scope.markets[i]);
+    }
 
   };
-  ymaps.ready($scope.init);
+  ymaps.ready($scope.prepare);
+  // $scope.makeMap();
   });

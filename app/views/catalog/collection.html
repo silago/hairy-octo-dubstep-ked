@@ -3,7 +3,7 @@
     <div ng-if="data.data" class="columns large-12">
         <div  ng-repeat="i in data.data" class="columns large-2">
             {{i.items[0].item_type}}    
-            <img ng-src="/static/catalog/{{i.items[0].small_image}}" alt="" width="300px" />
+            <img ng-src="/static/catalog/{{i.items[0].base_image}}" alt="" width="300px" />
             {{i.items[0].small_image}}
             <a ui-sref="catalog.segment.collection.group({'group_id':i.id})"> Подробнее </a>
         </div>

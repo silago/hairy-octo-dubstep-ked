@@ -1,7 +1,11 @@
 <div class="row">
         <br />
         <h4> Загрузка каталога </h4>
-        <input oi-file="options" type="file" />
+        <input type="text" ng-model="catalogUploadSeason" placeholder="Введите название коллекции"/>
+        <div ng-show="catalogUploadSeason">
+            <input oi-file="options" type="file" />
+            {{catalogUploadStatus}}
+        </div>
         <h4> Существующие коллекции </h4>
 
         <div>
@@ -19,14 +23,14 @@
             <div class="columns large-12"> 
             <div ng-show="groups.data"> 
                 <div ng-repeat="i in groups.data" class="columns large-4-padding">
-                    <img ng-src="{{'/static/catalog/'+i.items[0].thumbnail}}" />  
+                    <img ng-src="{{'/static/catalog/'+i.items[0].base_image}}" />  
                     <span ng-repeat="sub in i.items">
                         {{sub.sku}}&nbsp;<a href ng-click="i.items.splice($index,1);">[x]</a>
                     </span>
                     <hr />
                     <label> Similar: </label>
                     <div class="columns large-6" ng-repeat="sim in i.similar">
-                         <img ng-src="{{'/static/catalog/'+sim[0].thumbnail}}" />  
+                         <img ng-src="{{'/static/catalog/'+sim[0].base_image}}" />  
                          <div class="break-all"><small>{{sim[0].sku}}</small></div>
                          <a href ng-click="i.similar.splice($index,1);">[x]</a>
                     </div>
@@ -44,11 +48,13 @@
             <!--
                 <input ng-show="tmpGroup.length" placeholder="Описание группы" type="text" ng-model="tmpInfo" /><br/> 
             -->
-            {{tmpGroup}} <button ng-click="groupItems();" class="tiny"> [ GROUP ] </button>
+            <span ng-show="tmpGroup.length">
+                {{tmpGroup}} <a href ng-click="tmpGroup=[]"> [x]</a> <button ng-click="groupItems();" class="tiny"> [ Сгруппировать ] </button>
+            </span>
 
             <div ng-show="data.data"> 
                 <div ng-if="i.group_catalog_id!='none'" class="columns large-3" ng-repeat="i in data.data">
-                    <img ng-src="{{'/static/catalog/'+i.thumbnail}}" />  
+                    <img ng-src="{{'/static/catalog/'+i.base_image}}" />  
                     {{ i.sku }} <br />    
                     <i><small>{{i.item_type}}<br/>{{i.segment}}</small></i>
                     <br/>
@@ -56,7 +62,7 @@
                 </div>
             </div>
         </div>
-<div style="clear:both;"> </div>"
+<div style="clear:both;"> </div>
 </div>
         <!--
             <div ng-repeat="g in data" class="columns large-4">

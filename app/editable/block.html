@@ -7,7 +7,7 @@
 
                          jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
                          <span class="{{block.data.class}} zz`" as-sortable-item ng-repeat="block in page.subitems">
-                         <span style='color:#008cba;' as-sortable-item-handle> <b> >> </b> </span>
+                         <span style='color:#008cba; position:relative; display:block; z-index:999999; left:33px; top:37px;' class="foo" as-sortable-item-handle> <b> >> </b> </span>
                              <block prefix="editable" is-editable="true"  data="block">
                                      ....
                              </block>

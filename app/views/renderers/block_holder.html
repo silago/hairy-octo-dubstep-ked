@@ -1,6 +1,6 @@
         <div
             z-style="{{block.data.style}}"
-             class="has-block-controls block-type-{{block.type}} {{block.data.class}}">
+             class="has-block-controls block-type-{{block.type}} column {{block.data.class}}">
             <div
                  z-ng-click="block.open=!block.open" ng-class="{opened:block.open}"
                  class="block"
@@ -13,8 +13,10 @@
 
                 <ng-include src="'views/renderers/'+block.type+'.html'"> </ng-include>
             </div>
-            <div class="block-subitems" z-ui-sortable z-model="block.subitems">
-                <ng-include class="block-type-subitems"  src="'views/renderers/block_holder.html'"  ng-repeat="block in block.subitems | orderBy:order"> ... </ng-include>
+            <div z-ui-sortable z-model="block.subitems">
+                <span  class="" ng-repeat="block in block.subitems | orderBy:order"> 
+                <ng-include class="block-type-subitems"  src="'views/renderers/block_holder.html'"  > ... </ng-include>
+                </span>
             </div>
 
 

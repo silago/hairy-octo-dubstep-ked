@@ -19,6 +19,7 @@ angular.module('frontendApp')
           catalogRes.DELETE({'collection':name}).$promise.then(function(d){$scope.getCollections();})};
       $scope.activateCollection = function(name) {
           catalogRes.PUT({'collection':name,'set':'active'}).$promise.then(function(d){
+            $scope.getCollections();
           //  $scope.getGroups();
           //  $scope.getItems();
           })};
@@ -54,14 +55,17 @@ angular.module('frontendApp')
             }); 
             $scope.tmpGroup = [];
       }
-
       $scope.getCollections();
-
+      $scope.catalogUploadStatus = '';
       $scope.options = {
         change: function (file) {
             $scope.file = file;
-            var u = window.RESTurl+'/api/catalog';
-            file.$upload(u, {}).then(function(d){$scope.data = d },function(d){});
+            var u = window.RESTurl+'/api/catalog?season='+$scope.catalogUploadSeason;
+            file.$upload(u, {}).then(function(d){
+                    /*$scope.data = d;*/
+                    $scope.getCollections();
+                    $scope.catalogUploadStatus = 'Файл успешно загружен';
+                },function(d){$scope.catalogUploadStatus = 'Произошла ошибка при загрузке файла каталога';});
           }
       }
   });

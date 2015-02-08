@@ -40,7 +40,7 @@ angular.module('frontendApp')
           window.$$ctrlInited++;
     }
 
-    $scope.limit = 2;
+    $scope.limit = 10;
     $scope.scroll = function(){
       $scope.limit++;
     }
