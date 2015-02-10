@@ -1,7 +1,35 @@
+
+
+
+  div.foot {
+      background-color:#656565;
+  }
+
+@media only screen and (max-width: 640px) {
+    .top-menu-left ul li, .top-menu-left ul {
+        border-radius: 0px; 
+    }
+}
+@media only screen and (max-width: 768px) {
+    .title-area h1 img{
+        display:none;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .block-type-bgvideo { display:none;}
+   .top-bar-section > ul.right {
+        display:none;
+    }  
+}
+
+
+
 .breadcrumbs {
 margin-bottom:40px;
 }
-
+.top-bar-section li.has-dropdown > a {
+    padding-right: 0.9375rem !important;
+}
 .top-bar-section li a {
     text-transform:uppercase!important;
 }
@@ -372,9 +400,6 @@ li.has-dropdown:hover .top-bar-section .dropdown {
       z-display:inline;
   }
 
-  div.foot {
-      background-color:#656565;
-  }
 
   div.foot div.bottom-center h2  {
       color: #e5e5e5;

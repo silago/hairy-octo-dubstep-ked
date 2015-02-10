@@ -1,7 +1,7 @@
 
 
     <div  class="columns large-2">
-            <ul class="side-nav">
+            <ul class="side-nav show-for-medium-up">
                 <li> <h4> {{stateParams.segment}} </h4> <li> 
                 
                 <li ng-repeat="i in data.data">
@@ -9,7 +9,7 @@
                 </li>
             </ul>
     </div>
-    <div ui-view class="columns large-10">
+    <div ui-view class="columns large-10 small-12">
          <div   ng-init="s = stateParams; s['type']='*'; data=[]; data.data=catalogRes.GET(s);"
                 ng-include="'views/catalog/type.html'">
          </div>
