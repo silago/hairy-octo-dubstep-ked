@@ -17,14 +17,24 @@
                         <a href >{{catalogCollectionTranslate(cs.segment)}}</a>
                         <ul 
                             ng-init="catalogTypes = catalogRes.GET({'target':'collection','segment':cs.segment});" class="dropdown catalog-menu-holder">
-                            <span ng-repeat="ct in catalogTypes.data">
-                            <li class="catalog-menu-item">  <a ui-sref="catalog.segment.type({'segment':ct.segment,'type':ct.item_type.replace('/','---')})" href>{{ct.item_type}}</a>  </li>
-                            <li class="catalog-menu-image" style="display:none;position: absolute; width:8888%; left:100%; background-color:transparent!important; height: 100%; z-index: 999; overflow: visible; border-left:1px solid gray;">
+                            <!--
+                                <span ng-repeat="ct in catalogTypes.data">
+                            -->
+                            <li 
+                                ng-repeat="ct in catalogTypes.data"
+                                class="catalog-menu-item">
+
+                                    <a ui-sref="catalog.segment.type({'segment':ct.segment,'type':ct.item_type.replace('/','---')})" href>{{ct.item_type}}</a>
+                            <!--</li>-->
+                            <div class="catalog-menu-image" style="">
                                                         <img ng-src="{{'/static/catalog'+ct.base_image}}"
-                                                            style="height: 100%; border:40px solid #e6e6e6;">
+                                                            style="" />
+                                </div>
                             </li>
+                            <!--
                             </span>
-                            <li class="catalog-menu-image" style="display:block;position: absolute; left:100%; background-color:transparent!important; height: 100%; z-index: 998; overflow: visible; border-left:1px solid gray;">
+                                <li class="catalog-menu-image" style="display:block;position: absolute; left:100%; background-color:transparent!important; height: 100%; z-index: 998; overflow: visible; border-left:1px solid gray;">
+                            -->
                             </li>
                         </ul>
                 </li>
