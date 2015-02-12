@@ -94,11 +94,18 @@ margin-bottom:40px;
 }
 
 div div .dropdown.catalog-menu-holder {
-    background-color: #e6e6e6!important; width: auto;
+    background-color: #242424!important; width: auto;
     overflow:visible;
 }
 
-
+div div .dropdown.catalog-menu-holder li > a {
+    color:#fff!important;
+    border-radius:5px;
+    background-color: #242424!important; width: auto;
+}
+div div .dropdown.catalog-menu-holder li {
+    background-color: #242424!important; width: auto;
+}
 div div .dropdown.catalog-menu-holder li:hover div {
     display:block;
 }

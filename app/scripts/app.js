@@ -53,6 +53,14 @@ angular
         'bottomMenu':{templateUrl:   'editable/block.html',    controller:'MainCtrl'}
       }
     })
+    .state('subscribe',{
+      url:'/subscribe',
+      views: {
+        'content':   {templateUrl:   'views/subscribe.html',     controller:'SubscribeCtrl'},
+        'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
+        'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
+      }
+    })
     .state('pages', {
         url:'/page/:url',
         views: {
