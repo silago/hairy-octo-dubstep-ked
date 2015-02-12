@@ -31,16 +31,33 @@ angular.module('frontendApp')
                $scope.page = data;
         },function(data){ alert('something go wrong');});
     }
+    $scope.editMeta = function(prom){
+            $scope.path = $stateParams.url;
+
+            pageRes.get({'url':$scope.path}).$promise.then(function(data){
+                if(!!data.id) {
+                    $scope.page = data;
+                     var dialog = ngDialog.open({template:'editable/adm/pageCreate.html',scope:$scope});
+                     dialog.closePromise.then(function(d) {
+                       var new_page_data = d.value;
+                       $scope.savePageData($scope.page);
+                     });
+                }
+            
+            });
+
+    }
 
     $scope.savePage = function(data){
             if ($scope.page.id == undefined){
-            var dialog = ngDialog.open({template:'editable/adm/pageCreate.html'});
-              dialog.closePromise.then(function(d) {
-                var new_page_data = d.value;
+              //
+              var spf = function(){
                 pageRes.PUT({url:$scope.path,data:new_page_data}).$promise.then(function(a){
-                  $scope.savePageData(data);
-                });
-              });
+                });}
+             $scope.editMeta(spf);
+
+            
+              //});
             } else {
                $scope.savePageData(data);
             }

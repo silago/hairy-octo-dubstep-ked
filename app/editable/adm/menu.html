@@ -42,6 +42,9 @@
             <li><a ng-href="/#/users"> Пользователи </a></li>
             <li><a ng-href="/#/catalog/edit"> Каталог </a></li>
             <li><a ng-click="createElement();" > Добавить <i class="fi-plus small"> </i> </a>   </li>
+            <li nf-if="editMeta">
+                    <a ng-click="editMeta();" > Редактировать meta</a>
+             </li>
             <!--
             <li><a href="#"> Search </a></li>
             <li class="has-form">

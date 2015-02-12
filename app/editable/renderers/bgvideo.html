@@ -1,16 +1,5 @@
-
-
-
-    <div ng-if="block.type=='bgvideo'">
+    <div style="{{block.data.style}}" ng-if="block.type=='bgvideo'">
         <video class="bgvid" autoplay loop poster="{{block.data.placeholder}}" class="{{block.data.class}}">
             <source src="{{block.data.url}}" type="video/webm">
         </video>
-
-
-    <!--        <div
-
-             zstyle="width:200px; height:200px; border:1px solid red;"
-
-             >
-    -->
-</div>
+    </div>
