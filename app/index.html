@@ -37,7 +37,7 @@
             <top-bar>
                 <ul class="title-area">
                   <li class="name">
-                    <h1><a href="/#/page/index">
+                    <h1><a href="/#/page/indexindex">
                         <img src="static/logo.png" />
                         </a></h1>
                   </li>
@@ -84,18 +84,18 @@
         <img src="images/footer_left.png" />
     </div>
     <div class="columns bottom-center large-6 small-12">
-        <div class="columns large-7">
+        <div class="columns large-12">
             <br/>
             <h2 class="uppercase"> Новости </h2>
             <p>
                 Подпишись на наши новости.
             </p>
                   <div class="row collapse subscribe">
-                    <div class="small-10 columns">
-                      <input type="text" placeholder="Адрес электронной почты">
+                    <div class="small-11 columns">
+                      <input ng-model="email" type="text" placeholder="Адрес электронной почты">
                     </div>
-                    <div class="small-2 columns">
-                      <a href="#" class="button postfix">OK</a>
+                    <div class="small-1 columns">
+                      <a ui-sref="subscribe({'email':email})" class="button postfix">OK</a>
                     </div>
                   </div>
         </div>
@@ -113,6 +113,13 @@
                                  onload="init('::bottomMenu')"
                                  ui-view="bottomMenu"> </div>
                             <!-- <ng-include style="float:left;" src="'views/block.html'"> </ng-include>-->
+        <br/>
+        <div class="jumbotron columns large-12">
+             <img style="width:40px;" src="/images/vk.png" /> 
+             <img style="width:40px;" src="/images/fb.png" /> 
+             <img style="width:40px;" src="/images/ig.png" /> 
+             <img style="width:40px;" src="/images/yt.png" /> 
+         </div>
                         </div>
         </div>
         <div style="clear:both;">

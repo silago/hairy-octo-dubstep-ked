@@ -1,25 +1,35 @@
-<h1> подписаться на новости </h1>
 
 <div class="row">
-    <div class="large-6 columns">
-        <input type="text" placeholder="email" />
+<div class="columns large-12">
+    <h1> Подписаться на новости </h1>
+</div>
+    <div ui-view>    
+    <div class="large-6 columns" ng-init="birthday={}">
+        <input ng-class="" ng-model="email" type="text" placeholder="email" />
         <small> Только для новых подписчиков </small>
         <h5>Дата рождения</h5>
         
-        <select class="columns large-4">  <option> 01 </option> </select>
-        <select class="columns large-4">  <option> 01 </option> </select>
-        <select class="columns large-4">  <option> 01 </option> </select>
-        <button class="columns large-5"> Мужчины </button> 
-        <div class="columns large-1"> </div>
-        <button class="columns large-5"> Женщины </button> 
+        <select ng-model="birthday.y" class="columns large-4" ng-options="y for y in years();">
+            <option value=""> Год </option>
+        </select>
+    
+        <select ng-model="birthday.m" class="columns large-4" ng-options="m for m in [1,2,3,4,5,6,7,8,9,10,11,12]">  <option value=""> Месяц</option> </select>
+        <select ng-model="birthday.d" class="columns large-4" ng-options="d for d in days(birthday.y,birthday.m)">  <option value=""> День</option> </select>
+        <div class="no-padding large-12 columns subscribe-gender-buttons">
+            <button ng-class="{'success':gender=='m'}"ng-click="gender='m'" class="secondary columns large-5"> Мужчины </button> 
+            <button ng-class="{'success':gender=='f'}"ng-click="gender='f'" class="secondary columns large-5"> Женщины </button> 
+            <button ng-class="{'disabled':!isFormValid()}" class="columns large-2"> OK </button> 
+            
+        </div>
     </div>
     <div class="large-6 columns">
-        <p>
-        Подпишись на новостную рассылку adidas и получи купон на скидку 15%!* <br/>
-        Ты станешь частью команды adidas <br/>
-        Ты первым будешь узнавать о специальных предложениях и акциях на сайте <br/>
-        Ты всегда будешь в курсе последних новинок и ярких коллекций <br/>
-        <br/>
-        *Купон действителен в течение 14 дней с момента его получения. Скидка по купону не суммируется с другими скидками и акциями на сайте. Купон может быть использован только 1 раз.
+<p>
+Подписываясь на новости, я соглашаюсь получать рассылки рекламно-информационного
+характера от ООО «Дизайн Бюро «Обувь – Стиль» по сетям электросвязи, в том числе, но не 
+
+ограничиваясь, посредством телефона и почтовых сообщений; также настоящим я соглашаюсь с
+qwe
+</p>
     </div>
+</div>
 </div>

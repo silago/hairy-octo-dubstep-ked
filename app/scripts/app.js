@@ -54,12 +54,17 @@ angular
       }
     })
     .state('subscribe',{
-      url:'/subscribe',
+      url:'/subscribe/:email',
       views: {
-        'content':   {templateUrl:   'views/subscribe.html',     controller:'SubscribeCtrl'},
+        'content':   {templateUrl:   'views/subscribe/subscribe.html',     controller:'SubscribeCtrl'},
         'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
         'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
       }
+    })
+    .state('subscribe.policy',{
+        url:'/help-topics-privacy_policy.html',
+        templateUrl:   'views/subscribe/info.html',
+        controller:'SubscribeCtrl'
     })
     .state('pages', {
         url:'/page/:url',

@@ -8,10 +8,49 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('SubscribeCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('SubscribeCtrl', function ($scope,$stateParams) {
+    $scope.birthday = {};
+    $scope.email =  ''; 
+    $scope.gender = '';
+    $scope.email = $stateParams.email;        
+    $scope.isFormValid = function(data) {
+
+       
+        if ( (data.birthday) && 
+             ($scope.isEmailValid(data.email)) &&
+             (data.email) && 
+             (data.gender)
+            )
+            return true;
+        return false;
+    }
+
+    $scope.isEmailValid = function(email) { 
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    } 
+
+    $scope.days = function(Y,M) {
+                var result=[1,2,3];
+                if (!Y || !M) return result;
+                var days = 32 - new Date(Y, M, 32).getDate();
+                for (var i=1; i<=days; i++)
+                  result.push(i);
+                return result;
+    }
+
+    $scope.years = function(){
+        var curr_year = (new Date()).getFullYear();
+        var max_year = curr_year - 10;
+        var min_year = curr_year - 90;
+        var result = [];
+        for (var i = min_year; i<=max_year; i++) {
+            result.push(i);
+        } 
+        return result;
+    }
+    
+
+
+    
   });
