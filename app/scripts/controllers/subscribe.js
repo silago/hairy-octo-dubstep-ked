@@ -12,6 +12,7 @@ angular.module('frontendApp')
     $scope.birthday = {};
     $scope.email =  ''; 
     $scope.gender = '';
+    $scope.city= '';
     $scope.email = $stateParams.email;        
     $scope.isFormValid = function(data) {
 
@@ -19,7 +20,8 @@ angular.module('frontendApp')
         if ( (data.birthday) && 
              ($scope.isEmailValid(data.email)) &&
              (data.email) && 
-             (data.gender)
+             (data.gender) &&
+             (data.city)
             )
             return true;
         return false;

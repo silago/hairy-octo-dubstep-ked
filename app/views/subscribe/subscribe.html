@@ -7,6 +7,7 @@
                     <div class="large-6 columns" ng-init="birthday={};">
                         <input ng-class="" ng-model="email" type="text" placeholder="email" />
                         <small> Только для новых подписчиков </small>
+                        <input ng-class="" ng-model="city" type="text" placeholder="Город" />
                         <h5>Дата рождения</h5>
                         
                         <select ng-model="birthday.y" class="columns large-4" ng-options="y for y in years();">
@@ -16,8 +17,8 @@
                         <select ng-model="birthday.m" class="columns large-4" ng-options="m for m in [1,2,3,4,5,6,7,8,9,10,11,12]">  <option value=""> Месяц</option> </select>
                         <select ng-model="birthday.d" class="columns large-4" ng-options="d for d in days(birthday.y,birthday.m)">  <option value=""> День</option> </select>
                         <div class="no-padding large-12 columns subscribe-gender-buttons">
-                            <button ng-class="{'success':gender=='m'}"ng-click="gender='m'" class="secondary columns large-5"> Мужчины </button> 
-                            <button ng-class="{'success':gender=='f'}"ng-click="gender='f'" class="secondary columns large-5"> Женщины </button> 
+                            <button ng-class="{'success':gender=='m'}"ng-click="gender='m'" class="secondary columns large-5"> Мужчина </button> 
+                            <button ng-class="{'success':gender=='f'}"ng-click="gender='f'" class="secondary columns large-5"> Женщина </button> 
                             <button ng-click="subscribed = (isFormValid({'birthday':birthday,gender:gender,email:email}) ? true: false)" ng-class="{'disabled':!isFormValid({'birthday':birthday,gender:gender,email:email})}" class="columns large-2"> OK </button> 
                         </div>
                     </div>
@@ -27,7 +28,7 @@
                             характера от ООО «Дизайн Бюро «Обувь – Стиль» по сетям электросвязи, в том числе, но не 
 
                             ограничиваясь, посредством телефона и почтовых сообщений; также настоящим я соглашаюсь с
-                                                <a ui-sref="subscribe.policy()">политикой конфиденциальности</a>
+                            <a href="/#/page/help-topics-privacy_policy.html">политикой конфиденциальности</a>
                             </p>
                     </div>
             </div>

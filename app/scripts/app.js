@@ -30,7 +30,8 @@ angular
     'ng',
     'seo',
     'duScroll',
-    'angular-crop'
+    'angular-crop',
+    'angular-flexslider'
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
 
@@ -61,10 +62,13 @@ angular
         'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
       }
     })
-    .state('subscribe.policy',{
-        url:'/help-topics-privacy_policy.html',
-        templateUrl:   'views/subscribe/info.html',
-        controller:'SubscribeCtrl'
+    .state('policy',{
+    url:'/help-topics-privacy_policy.html',
+      views: {
+        'content':   {templateUrl:   'views/subscribe/info.html',     controller:'SubscribeCtrl'},
+        'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
+        'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
+      }
     })
     .state('pages', {
         url:'/page/:url',
