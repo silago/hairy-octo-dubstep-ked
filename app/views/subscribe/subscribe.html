@@ -19,7 +19,7 @@
                         <div class="no-padding large-12 columns subscribe-gender-buttons">
                             <button ng-class="{'success':gender=='m'}"ng-click="gender='m'" class="secondary columns large-5"> Мужчина </button> 
                             <button ng-class="{'success':gender=='f'}"ng-click="gender='f'" class="secondary columns large-5"> Женщина </button> 
-                            <button ng-click="subscribed = (isFormValid({'birthday':birthday,gender:gender,email:email}) ? true: false)" ng-class="{'disabled':!isFormValid({'birthday':birthday,gender:gender,email:email})}" class="columns large-2"> OK </button> 
+                            <button ng-click="subscribed = (isFormValid({'birthday':birthday,gender:gender,email:email,city:city}) ? subscribe({'birthday':birthday.y+'.'+birthday.m+'.'+birthday.d+'.',gender:gender,email:email,city:city}): false)" ng-class="{'disabled':!isFormValid({'birthday':birthday,gender:gender,email:email,city:city})}" class="columns large-2"> OK </button> 
                         </div>
                     </div>
                     <div class="large-6 columns">

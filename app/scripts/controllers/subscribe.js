@@ -8,15 +8,24 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('SubscribeCtrl', function ($scope,$stateParams) {
+  .controller('SubscribeCtrl', function ($scope,$stateParams,subscribeRes) {
     $scope.birthday = {};
     $scope.email =  ''; 
     $scope.gender = '';
     $scope.city= '';
     $scope.email = $stateParams.email;        
+    $scope.subscribe = function(data){
+        subscribeRes.PUT({'data':data});
+        return true;
+    }
     $scope.isFormValid = function(data) {
 
-       
+         console.log(data.birthday) 
+         console.log($scope.isEmailValid(data.email))
+         console.log(data.email)
+         console.log(data.gender)
+         console.log(data.city)
+
         if ( (data.birthday) && 
              ($scope.isEmailValid(data.email)) &&
              (data.email) && 
