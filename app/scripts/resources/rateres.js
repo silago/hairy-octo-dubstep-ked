@@ -1,10 +1,10 @@
 'use strict'
 
 angular.module('frontendApp')
-  .factory('pageRes', function ($resource) {
+  .factory('rateRes', function ($resource) {
     return $resource(window.RESTurl+'/api/rate/:id/:rating',
                      {
-                       id:'@url',
+                       id:'@id',
                        rating:'@rating'
                      },
                      {

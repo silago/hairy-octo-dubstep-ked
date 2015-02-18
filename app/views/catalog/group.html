@@ -16,6 +16,19 @@
     <div ng-if="data.data"ng-init="item_index = 0" >
         <div class="columns large-3">
             <h3>{{data.data.info}} </h3>
+                {{data.data.items[item_index].rating}}
+                <div class="large-12 colums" >
+                    <div ng-show="!data.data.items[item_index].rated">
+                    <a style="(data.data.items[item_index].rating<$index ? 'color: #fff; text-shadow: black 0px 0px 2px;' : '')"
+                         ng-click="data.data.items[item_index].rated = rate(data.data.items[item_index].sku,$index)"
+                         ng-repeat="i in [1,2,3,4,5]" href class="fi-star small"></a>
+                    </div>
+                    <div ng-show="data.data.items[item_index].rated">
+                        Спасибо, ваш голос учтен.
+                    </div>
+                </div>
+
+                <br/>
                 Цвета:
                         <a  ng-click="$parent.item_index=$index;
                                       $parent.current_img='/static/catalog/'+i.base_image;
