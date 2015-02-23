@@ -14,17 +14,35 @@
         <span  ng-init="catalogSegments = catalogRes.GET({'target':'collection'});"
             ng-if="block.type=='catalog_link'">
                 <li class="has-dropdown" has-dropdown ng-repeat="cs in catalogSegments.data"> 
-                        <a href >{{catalogCollectionTranslate(cs.segment)}}</a>
+                        <a ui-sref="catalog.segment.type({'segment':cs.segment,'type':'*'})">{{catalogCollectionTranslate(cs.segment)}}</a>
                         <ul 
                             ng-init="catalogTypes = catalogRes.GET({'target':'collection','segment':cs.segment});" class="dropdown catalog-menu-holder">
                             <!--
                                 <span ng-repeat="ct in catalogTypes.data">
+i
+                            <li
+
+                                style="
+   border: 20px solid #242424;
+    display: inline-block;
+    float: none;
+    height: 100%;
+    left: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+"
+                                >
+                                <img 
+style="position:relative; height:100%;"
+src="{{catalogTypes.rand_item.data.image_url}}" />
+                                
+                            </li>
                             -->
                             <li 
                                 ng-repeat="ct in catalogTypes.data"
                                 class="catalog-menu-item">
-
-                                    <a ui-sref="catalog.segment.type({'segment':ct.segment,'type':ct.item_type.replace('/','---')})" href>{{ct.item_type}}</a>
+                                    <a ui-sref="catalog.segment.type({'segment':cs.segment,'type':ct.item_type.replace('/','---')})" href>{{ct.item_type}}</a>
                             <!--</li>-->
                             <!--
                             <div class="catalog-menu-image" style="">

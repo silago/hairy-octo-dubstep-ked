@@ -1,3 +1,7 @@
+
+<div>
+        <a href ng-click="page.subitems.push({'subitems':[]})"> Добавить блок </a>
+          <div ng-repeat="page in page.subitems">
         <div class="page-content" ng-if="page.subitems">
             <div
                          data-drop="true"
@@ -12,11 +16,18 @@
                                      ....
                              </block>
                         </span>
-            </div>
-            <div
-                  z-class="block-controls">
-                <a ng-click="savePage(page);" class="fi-check"> <small>Применить </small></a>
+            <a href ng-click="$parent.$parent.$parent.page.subitems.splice($index,1)" > удалить блок </a>
             </div>
                 <div style="clear:both;">
             </div>
         </div>
+
+
+          </div>
+
+
+            <div
+                  z-class="block-controls">
+                <a ng-click="savePage(page);" class="fi-check"> <small>Применить </small></a>
+            </div>
+</div>

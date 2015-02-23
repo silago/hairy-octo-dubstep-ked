@@ -2,6 +2,20 @@
     height:57px!important;
 }
 
+.moveHolder {
+    color:#008cba!important;
+}
+
+.blog-side-nav li a, .blog-side-nav li strong {
+    font-size:18px;
+    text-transform:uppercase;
+    font-weight:normal;
+}
+
+.blog-section {
+    color:#fff;
+    background-color:#242424;
+}
 
 .as-sortable-placeholder {
 float: left;
@@ -122,11 +136,10 @@ margin-bottom:40px;
 .catalog-menu-holder:before {
     content:"▲";
     color:#242424;
-  content: "▲";
     font-size: 20px;
     font-weight: bold;
-    left: -41%;
-    position: relative;
+    left: 30px;
+    position: absolute;
     top: -20px;
 }
   .block-type-whitepanel {
@@ -158,15 +171,20 @@ margin-bottom:40px;
 div div .dropdown.catalog-menu-holder {
     background-color: #242424!important; width: auto;
     overflow:visible;
+    -moz-columns:4;
+    columns:4;
+    
 }
 
 div div .dropdown.catalog-menu-holder li > a {
     color:#fff!important;
     border-radius:5px;
     background-color: #242424!important; width: auto;
+    font-weight:bold;
 }
 div div .dropdown.catalog-menu-holder li {
     background-color: #242424!important; width: auto;
+    float:none!important;
 }
 div div .dropdown.catalog-menu-holder li:hover div {
     display:block;

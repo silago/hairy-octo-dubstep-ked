@@ -8,7 +8,8 @@
  * Controller of the keddoApp
  */
 angular.module('frontendApp')
-  .controller('CatalogCtrl', function ($scope,catalogRes,$stateParams,$state,rateRes) {
+  .controller('CatalogCtrl', function ($scope,catalogRes,$stateParams,$state,rateRes,$sce) {
+        $scope.trust = $sce.trustAsHtml;
      $scope.catalogCollectionTranslate = window.catalogCollectionTranslate;
      $scope.init= function(params){
         if (params!=undefined) 
@@ -16,8 +17,11 @@ angular.module('frontendApp')
             $stateParams=params.stateParams;
         }
      }
+    $scope.encodeTwice = function(data) {
+       return encodeURIComponent(encodeURIComponent(data));
+    }
     $scope.rate = function(sku,rate) {
-            sku = encodeURIComponent(encodeURIComponent(sku));
+            sku = $scope.encodeTwice(sku);
             rateRes.PUT({id:sku,rating:rate});
             return true;
     }

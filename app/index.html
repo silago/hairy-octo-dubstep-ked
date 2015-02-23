@@ -27,6 +27,12 @@
     <script src="f/js/vendor/modernizr.js"></script>
     <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <!-- endbuild -->
+
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 4797904, onlyWidgets: true});
+</script>
   <meta name="fragment" content="!" />
   </head>
   <body >
@@ -89,7 +95,7 @@
             <br/>
             <h2 class="uppercase"> Новости </h2>
             <p>
-                Подпишись на наши новости.
+                Подпишитесь на наши новости.
             </p>
                   <div class="row collapse subscribe">
                     <div class="small-11 columns">
@@ -116,10 +122,13 @@
                             <!-- <ng-include style="float:left;" src="'views/block.html'"> </ng-include>-->
         <br/>
         <div class="jumbotron columns large-12">
-             <img style="width:40px;" src="/images/vk.png" /> 
-             <img style="width:40px;" src="/images/fb.png" /> 
-             <img style="width:40px;" src="/images/ig.png" /> 
-             <img style="width:40px;" src="/images/yt.png" /> 
+            <center>
+               <span style="color:lightgray;">Присоединяйтесь к нам</span>
+            </center>
+           <a href="http://vk.com/keddo_ru/"><img style="width:40px;" src="/images/vk.png" /></a> 
+           <a href="http://facebook.com/keddo.ru"><img style="width:40px;" src="/images/fb.png" /></a> 
+           <a href="http://youtube.com/user/Analpic"><img style="width:40px;" src="/images/ig.png" /></a> 
+           <a href="http://instagram.com/keddo_shoes"><img style="width:40px;" src="/images/yt.png" /></a> 
          </div>
                         </div>
         </div>
@@ -222,9 +231,12 @@
         <script src="scripts/controllers/search.js"></script>
         <script src="scripts/controllers/editablecatalog.js"></script>
         <script src="scripts/controllers/subscribe.js"></script>
+        <script src="scripts/controllers/blog.js"></script>
+        <script src="scripts/controllers/editableblog.js"></script>
         <!-- endbuild -->
 
       <script src="scripts/resources/catalogres.js"></script>
+      <script src="scripts/resources/blogres.js"></script>
       <script src="scripts/resources/blockres.js"></script>
       <script src="scripts/resources/pageres.js"></script>
       <script src="scripts/resources/userres.js"></script>

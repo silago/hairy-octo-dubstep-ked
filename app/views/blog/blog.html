@@ -1,0 +1,19 @@
+<div class="blog-section columns large-12" style="background-color:#242424;">
+<div class="row">
+<br/>
+    <ul class="blog-side-nav side-nav columns large-2">
+        <li><strong style="color:#fff;">Вдохновение keddo</strong></li>
+        <li ng-repeat="c in categories.data"> 
+                <a ui-sref="blog.category({'category':c.name})">{{c.name}} </a>
+        </li>
+    </ul>
+
+    <div class="columns large-10">
+        <div ui-view>
+            <div ng-repeat="i in data.data">
+                <a href>{{i.name}} </a>
+            </div>
+        </div>
+    </div>
+</div> 
+</div> 

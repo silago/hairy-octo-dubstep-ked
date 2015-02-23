@@ -1,24 +1,19 @@
 'use strict'
 
 angular.module('frontendApp')
-  .factory('catalogRes', function ($resource) {
-    return $resource(window.RESTurl+'/api/catalog/:target/:segment/:type/:sku',
+  .factory('blogRes', function ($resource) {
+    return $resource(window.RESTurl+'/api/blog/:category/:alias/:id',
                      {
-                       id:'@id',
-                       target:'@target',
-                       type:'@type',
-                       collection:'@collection'
+                       category:'@category', 
+                       alias:'@alias',
+                       id:'@id'
                      },
                      {
-                       collections:{
+                       categories:{
                          method:'GET',
-                         withCredentials:true,
-                       },
-                       sections:{
-                         method:'GET',
-                       },
-                       items:{
-                         method:'GET',
+                         data:{
+                            categories:'*'
+                         }
                        },
                        DELETE:{
                          method:'DELETE'
@@ -27,6 +22,7 @@ angular.module('frontendApp')
                          method:'GET'
                        },
                        POST:{
+                         category:'@category', 
                          withCredentials:true,
                          method:'POST'
                         },

@@ -8,7 +8,13 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('EditablecatalogCtrl', function ($scope,$location,$stateParams,$cookieStore,catalogRes,gcatalogRes) {
+  .controller('EditablecatalogCtrl', function ($scope,$location,$stateParams,$cookieStore,catalogRes,gcatalogRes,$sce) {
+        $scope.saveCollection = function(data){
+           catalogRes.POST({'target':'collection',data:data}); 
+        }
+
+
+        $scope.trust = $sce.trustAsHtml;
       var role_id = $cookieStore.get('role_id');
       if (!role_id || role_id == 0) 
             $location.path("page/index")
@@ -68,4 +74,8 @@ angular.module('frontendApp')
                 },function(d){$scope.catalogUploadStatus = 'Произошла ошибка при загрузке файла каталога';});
           }
       }
+
+      $scope.data = catalogRes.collections({'target':'collection'}); 
+
+
   });

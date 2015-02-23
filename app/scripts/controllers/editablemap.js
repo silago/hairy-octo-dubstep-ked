@@ -74,7 +74,7 @@ angular.module('frontendApp')
     }
 
     function createMarketMark(position,label,city_id) {
-      var i = {position:position,name:label,city_id};
+      var i = {position:position,name:label,city_id:city_id};
       $scope.map.geoObjects.add(new ymaps.Placemark(i.position,{balloonContent:i.name}));
       $scope.markets.push(i);
     }

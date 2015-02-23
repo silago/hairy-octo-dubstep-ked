@@ -1,0 +1,39 @@
+
+<div  ng-init="editableForm=-1" class="columns large-12">
+    <h1> Коллекции </h1>
+    <div  ng-repeat="i in data.data">
+    <div ng-show="editableForm==-1" class="columns large-4">
+        <center> {{ i.segment}}
+            <br/>
+            ------
+            <br/>
+                <small>
+                    <a ng-click="$parent.editableForm=$index" href> Редактировать описание</a>
+                </small>
+            <br/>
+        </center>
+            <div ng-if="i.description" ng-bind-html="trust(i.description)"> 
+            </div>
+            <div ng-if="!i.description">
+                <center>
+                <small>
+                    <i> Описание отсутствует </i>
+                </small>
+                </center> 
+            </div>
+    </div>
+        <div ng-if="$parent.editableForm==$index" class="columns large-12">
+            <ng-quill-editor
+                             ng-model="i.description"
+                             toolbar="true"
+                             link-tooltip="true"
+                             image-tooltip="true"
+                             toolbar-entries="font size bold list bullet italic underline strike align color background link image"
+                             editor-required="true"
+                             required=""
+                             error-class="input-error">
+            </ng-quill-editor>
+            <a href ng-click="$parent.$parent.editableForm=-1; saveCollection(i)">Сохранить</a>
+        </div>
+    </div>
+</div>

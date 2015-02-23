@@ -1,0 +1,33 @@
+
+<div class="columns large-12 blog-section">
+    <div class="columns large-2 side-menu" ng-init="editForm=-1">
+        <div ng-repeat="c in categories.data"> 
+            <div ng-if="$parent.editForm!=$index">
+                <a ui-sref="editableblog.category({'category':c.name})">{{c.name}} </a>
+                <a href ng-click="$parent.$parent.editForm=$index" class="fi-pencil"></a>
+                <a href ng-click="categories.data.splice($index,1)" class="fi-x"></a>
+            </div>
+            <div ng-if="$parent.editForm==$index">
+                <input type="text" ng-model="categories.data[$parent.editForm].name" />
+                <a href ng-click="$parent.$parent.editForm=-1" class="fi-check"></a>
+            </div>
+        </div>
+        <div> 
+            <a href ng-click="categories.data.push({'name':'new_item'})" class="fi-plus"></a> 
+            <a href ng-click="saveCategories(categories)" class="fi-check"></a>
+        </div>
+    </div>
+
+    <div class="columns large-10">
+        <div style="clear:both;"> </div>
+        <div ui-view="">
+            <!--
+            <div ng-repeat="page  in data.data">
+                <ng-include src="'editable/blog/category.html'"> </ng-include>
+            </div>
+            -->
+        </div>
+        <div style="clear:both;"> </div>
+        <div style="clear:both;"> </div>
+    </div>
+</div> 

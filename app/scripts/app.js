@@ -112,14 +112,21 @@ angular
         }
     })
     .state('editcatalog',{
-      url:'/catalog/edit',
+      url:'/catalog/edit/',
         views:{
-          'content':   {templateUrl:   'editable/catalog.html',      controller:'EditablecatalogCtrl'},
+          'content':   {templateUrl:   'editable/catalog/catalog.html',      controller:'EditablecatalogCtrl'},
           'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
           'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
         }
     })
-
+    .state('editcataloggroup',{
+      url:'/cataloggroup/edit/',
+        views:{
+          'content':   {templateUrl:   'editable/catalog/segment.html',      controller:'EditablecatalogCtrl'},
+          'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
+          'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
+        }
+    })
 .state('catalog',{
       url:'/catalog/',
         views:{
@@ -142,7 +149,7 @@ angular
       controller:'CatalogCtrl'
 })
 .state('catalog.segment.type.group', {
-    url:':group_id/',
+    url:':sku/',
     templateUrl: 'views/catalog/group.html',
     controller:  'CatalogCtrl'
 })
@@ -150,6 +157,45 @@ angular
     url:':item/',
     templateUrl: 'views/catalog/item.html',
     controller:  'CatalogCtrl'
+})
+
+.state('editableblog',{
+      url:'/blog/edit',
+        views:{
+          'content':   {
+                            templateUrl:   'editable/blog/blog.html',
+                            controller:'EditableblogCtrl',
+                        },
+          'topMenu':   {templateUrl:   'views/ul_block.html', controller:'EditablemainCtrl'},
+          'bottomMenu':{templateUrl:   'views/block.html',    controller:'EditablemainCtrl'},
+          'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
+        }
+})
+.state('editableblog.category', {
+    url:'/:category/',
+    templateUrl: 'editable/blog/category.html',
+    controller:  'EditableblogCtrl'
+})
+.state('blog',{
+      url:'/blog/',
+        views:{
+          'content':   {
+                            templateUrl:   'views/blog/blog.html',
+                            controller:'BlogCtrl',
+                        },
+          'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
+          'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
+        }
+})
+.state('blog.category', {
+    url:':category/',
+    templateUrl:'views/blog/category.html',
+    controller:'BlogCtrl'
+})
+.state('blog.category.block', {
+    url:':alias/:id/',
+    templateUrl:'views/blog/block.html',
+    controller:'BlogCtrl'
 })
 .state('auth',{
         url:'/auth',

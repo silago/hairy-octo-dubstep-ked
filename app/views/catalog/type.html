@@ -7,14 +7,18 @@
     </ul>
 
     <div ng-if="data.data" class="columns large-9">
+        <div ng-if="stateParams.type=='*'">
+            <div ng-bind-html="trust(data.description)"> 
+            </div>
+        </div>
         <div  ng-repeat="i in data.data" class="columns large-4">
-            <img ng-src="/static/catalog/{{i.items[0].base_image}}" alt="" width="300px" />
+            <img ng-src="{{i.data.image_url}}" alt="" width="300px" />
             <!-- 
                 {{i.items[0].small_image}}
             -->
             <center>
-                <div>{{i.items[0].sku}}</div> 
-                <a ui-sref="catalog.segment.type.group({'group_id':i.id})"> <small> Подробнее </small> </a>
+                <div>{{i.data.name}}</div> 
+                <a ui-sref="catalog.segment.type.group({'sku':encodeTwice(i.id)})"> <small> Подробнее </small> </a>
             </center>
             <br/>
         </div>
