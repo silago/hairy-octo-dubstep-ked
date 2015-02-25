@@ -1,1 +1,6 @@
-    <img style="width:{{block.data.width}};" src="{{block.data.src}}" alt="" />
+<span>
+    <a ng-href="{{block.data.href}}" ng-if="block.data.href"> 
+        <img style="width:{{block.data.width}};" src="{{block.data.src}}" alt="" />
+    </a>
+    <img ng-if="!block.data.href" style="width:{{block.data.width}};" src="{{block.data.src}}" alt="" />
+</span>

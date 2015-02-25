@@ -1,8 +1,8 @@
 
-<div  ng-init="editableForm=-1" class="columns large-12">
+<div  ng-init="editableForm=-1; editableForm_t=-1;" class="columns large-12">
     <h1> Коллекции </h1>
     <div  ng-repeat="i in data.data">
-    <div ng-show="editableForm==-1" class="columns large-4">
+    <div ng-show="editableForm==-1 && editableForm_t==-1;" class="columns large-4">
         <center> {{ i.segment}}
             <br/>
             ------
@@ -21,6 +21,14 @@
                 </small>
                 </center> 
             </div>
+<center>
+     <a ng-click="$parent.editableForm_t=$index" href> Редактировать текст в меню</a>
+</center>
+            <div ng-if="i.after_menu" ng-bind-html="trust(i.after_menu)"> 
+            </div>
+    <br/>
+
+
     </div>
         <div ng-if="$parent.editableForm==$index" class="columns large-12">
             <ng-quill-editor
@@ -34,6 +42,20 @@
                              error-class="input-error">
             </ng-quill-editor>
             <a href ng-click="$parent.$parent.editableForm=-1; saveCollection(i)">Сохранить</a>
+        </div>
+
+        <div ng-if="$parent.editableForm_t==$index" class="columns large-12">
+            <ng-quill-editor
+                             ng-model="i.after_menu"
+                             toolbar="true"
+                             link-tooltip="true"
+                             image-tooltip="true"
+                             toolbar-entries="font size bold list bullet italic underline strike align color background link image"
+                             editor-required="true"
+                             required=""
+                             error-class="input-error">
+            </ng-quill-editor>
+            <a href ng-click="$parent.$parent.editableForm_t=-1; saveCollection(i)">Сохранить</a>
         </div>
     </div>
 </div>

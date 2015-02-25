@@ -1,13 +1,47 @@
 .flex-direction-nav a {
     height:57px!important;
 }
+.menu-catalog-after {
+    border: 20px solid #242424;
+    display: inline-block;
+    float: none;
+    height: 100%!important;
+    left: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    margin-left:-5px;
+    padding-left:10px;
+
+}
+
+.menu-catalog-after >  * {
+    display:block!important;
+    max-width:120px!important;
+}
+.menu-catalog-after  * {
+   position:static!important;
+   padding:0px!important;
+   margin:0px!important;
+}
+.menu-catalog-after img {
+    max-height:100%;
+}
+
+.columns {
+    box-sizing:border-box;
+}
+
+.block-type-photo > .block > * > span > a > img , .block-type-photo > .block > * > span > img , 
+.block-type-photo > .block > * > a > img , .block-type-photo > .block > * > img {
+}
 
 .moveHolder {
     color:#008cba!important;
 }
 
 .blog-side-nav li a, .blog-side-nav li strong {
-    font-size:18px;
+    font-size:16px;
     text-transform:uppercase;
     font-weight:normal;
 }
@@ -133,15 +167,6 @@ margin-bottom:40px;
     display: block;
 }
 
-.catalog-menu-holder:before {
-    content:"▲";
-    color:#242424;
-    font-size: 20px;
-    font-weight: bold;
-    left: 30px;
-    position: absolute;
-    top: -20px;
-}
   .block-type-whitepanel {
       min-height:20px;
       background-color: #fff;
@@ -168,6 +193,25 @@ margin-bottom:40px;
     display:block;
 }
 
+
+.catalog-menu-holder:before {
+    content:"▲";
+    color:#242424;
+    font-size: 20px;
+    font-weight: bold;
+    left: 30px;
+    position: absolute;
+    top: -20px;
+}
+
+ul li:nth-child(2) .catalog-menu-holder:before, ul li:nth-child(3) .catalog-menu-holder:before {
+   left:25%; 
+}
+ul li:nth-child(2) .catalog-menu-holder, ul li:nth-child(3) .catalog-menu-holder {
+    margin-left:-100%
+}
+
+
 div div .dropdown.catalog-menu-holder {
     background-color: #242424!important; width: auto;
     overflow:visible;
@@ -180,8 +224,8 @@ div div .dropdown.catalog-menu-holder li > a {
     color:#fff!important;
     border-radius:5px;
     background-color: #242424!important; width: auto;
-    font-weight:bold;
 }
+
 div div .dropdown.catalog-menu-holder li {
     background-color: #242424!important; width: auto;
     float:none!important;
@@ -488,9 +532,11 @@ color:lightgray!important;
      float:left;
   }
 
-  .block-type-photo {
-     Z-Z-margin:10px;
-     display:inline-block;
+    .block-type-photo {
+    margin-bottom:20px;
+}
+  .block-type-subitems > * > .block-type-photo {
+    padding:0px!important;
   }
 
   .hover-droppable-place{

@@ -9,6 +9,15 @@
                     </div>
 
 
+                    <div class="row collapse">
+                        <div class="small-10 columns">
+                          <input ng-model="item.data['href']" type="text" placeholder="href">
+                        </div>
+                        <div class="small-2 columns">
+                          <label class="postfix" > Вставить ссылку</label>
+                        </div>
+                    </div>
+
                     <div class="row collapse subscribe">
                         <div class="small-10 columns">
                           <select ng-model="item.data['class']" type="text" placeholder="style">
@@ -48,7 +57,9 @@
 
                         <div class="row" oi-file="options">
                             <div class="large-3 columns" ng-repeat="sf in staticFiles">
-                            {{sf}}
+                            <!--
+                                {{sf}}
+                            -->
                             <img ng-click="item.data['src']=sf;"
                                  class="nd-{{ (sf==item.data['src'] ? 'selected' : '0') }}"
                                  style="max-width:100px; max-height:100px;" ng-src="{{sf}}" />

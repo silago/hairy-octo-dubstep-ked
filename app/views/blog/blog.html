@@ -3,7 +3,7 @@
 <br/>
     <ul class="blog-side-nav side-nav columns large-2">
         <li><strong style="color:#fff;">Вдохновение keddo</strong></li>
-        <li ng-repeat="c in categories.data"> 
+        <li ng-repeat="c in categories.data" ng-show="c.visible!=0"> 
                 <a ui-sref="blog.category({'category':c.name})">{{c.name}} </a>
         </li>
     </ul>

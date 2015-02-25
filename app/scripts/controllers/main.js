@@ -7,8 +7,9 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,catalogRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
+  .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,catalogRes,pageRes,ngDialog,blocksFactory,authRes,templates,$sce) {
 
+        $scope.trust = $sce.trustAsHtml;
      var role_id = $cookieStore.get('role_id');
        if (role_id && role_id != 0) {
            $scope.isLoggined = true;

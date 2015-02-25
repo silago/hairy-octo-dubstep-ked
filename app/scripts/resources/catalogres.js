@@ -12,7 +12,6 @@ angular.module('frontendApp')
                      {
                        collections:{
                          method:'GET',
-                         withCredentials:true,
                        },
                        sections:{
                          method:'GET',
