@@ -2,13 +2,12 @@
                     <li class="adm-menu-stack-item" ng-show="!!i.type" ng-repeat="i in stack track by $index">
                         <span  class=""
                              data-drag="true"
-                             style="display:block; background-color:#f4f4f4; padding:4px; margin-right:10px;"
+                             style="background-color:#f4f4f4; padding:4px; margin-right:10px;"
                              data-jqyoui-options="{revert: 'invalid',cursorAt:{top:15},cursor:'walt',snap:'.ui-droppable',snapMode:'inner'}"
-                             ng-model="i"
+                             ng-model="stack[$index]"
                              jqyoui-draggable="{animate:true}"
                              ng-switch="i.type"
                              >
-
                          <span ng-switch-when="photo">
                              <img  width=20px src="{{i.data.src}}" />
                          </span>
@@ -26,21 +25,28 @@
                          </span>
 
                          <span ng-switch-when="bgvideo">
-                             {{ i.data.url }}
+                            [ VIDEO ]
                          </span>
 
 
+                         <span ng-switch-when="darkpanel">
+                             [ dark ]
+                         </span>
+
                          <span ng-switch-when="whitepanel">
-                             [    ]
+                             [ light ]
                          </span>
 
                          <span ng-switch-default>
-                             {{ i.data[i.data.$$keys()[0]] }}
+                             {{ i.type }}
                          </span>
                         </span>
                     </li>
-            <li><a ng-href="/#/users"> Пользователи </a></li>
-            <li><a ng-href="/#/catalog/edit"> Каталог </a></li>
+            <li><a ng-href="/#/users">Пользователи</a></li>
+            <li><a ng-href="/#/catalog/edit">Каталог</a></li>
+            <li><a ng-href="/#/map/edit">Карта</a></li>
+            <li><a ng-href="/#/blog/edit">Блог</a></li>
+            <li><a ng-href="/#/catalog/edit">Каталог </a></li>
             <li><a ng-click="createElement();" > Добавить <i class="fi-plus small"> </i> </a>   </li>
             <li nf-if="editMeta">
                     <a ng-click="editMeta();" > Редактировать meta</a>

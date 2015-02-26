@@ -238,7 +238,7 @@ div div .dropdown.catalog-menu-holder li div img {
 }
 div div .dropdown.catalog-menu-holder li div:not(.catalog-menu-image) {
     background-color: #e6e6e6;
-    border-left: 20px solid #e6e6e6;
+    no-no-border-left: 20px solid #e6e6e6;
     border-spacing: initial;
     box-shadow: 1px 0 0 0 lightgray inset;
     display: none;
