@@ -7,16 +7,18 @@
 
                          jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
                          <span class="{{block.data.class || 'columns large-12' }}" as-sortable-item ng-repeat="block in page.subitems">
-                         <span class="moveHolder" as-sortable-item-handle > <b> >> </b> </span>
+                         <!--
+                             <span class="moveHolder" as-sortable-item-handle > <b> >> </b> </span>
+                         -->
                              <block prefix="editable" is-editable="true"  data="block">
                                      ....
                              </block>
                         </span>
             </div>
+                <div style="clear:both;"></div>
             <div
-                  z-class="block-controls">
-                <a ng-click="savePage(page);" class="fi-check"> <small>Применить </small></a>
-            </div>
-                <div style="clear:both;">
+                class="apply-n-meta">
+                <a ng-click="editMeta();" ng-show="page.url[0]!=':'"> Редактировать meta</a>
+                <a ng-click="savePage(page);" class="fi-check"> Применить </a>
             </div>
         </div>

@@ -9,7 +9,8 @@
 angular.module('frontendApp')
   .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,catalogRes,pageRes,ngDialog,blocksFactory,authRes,templates,$sce) {
 
-        $scope.trust = $sce.trustAsHtml;
+    $scope.meta = {};
+    $scope.trust = $sce.trustAsHtml;
      var role_id = $cookieStore.get('role_id');
        if (role_id && role_id != 0) {
            $scope.isLoggined = true;
@@ -58,18 +59,17 @@ angular.module('frontendApp')
       return result;
     };
 
+    $scope.title = 'qweqwe';
     $scope.init = function(page_path){
         if (page_path==undefined){  $scope.path = $stateParams.url;    } else {  $scope.path = page_path; }
 
       pageRes.get({'url':$scope.path}).$promise
       .finally(function(){isDone();})
       .then(function(data){ $scope.page = (!!data.id ? data : {});
-                            $scope.findScrollAnchors();
+                            //$scope.findScrollAnchors();
+                            $scope.meta = data.meta;
                           });
     };
 
-    $scope.ff = function() {
-        return 'qwe';
-    }
 
 });

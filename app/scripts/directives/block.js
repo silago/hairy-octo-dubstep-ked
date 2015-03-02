@@ -17,9 +17,7 @@ angular.module('frontendApp')
       },
       replace:true,
       restrict: 'E',
-      scope: {
-        block: "=data", isEditable:"=isEditable"
-      },
+      scope: true,
       //controller:['$scope','ngDialog',function(){
       controller: ["$scope","ngDialog","$sce",function($scope,ngDialog,$sce,ngQuill){
         $scope.trust = $sce.trustAsHtml;

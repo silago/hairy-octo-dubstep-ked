@@ -90,6 +90,7 @@ Array.prototype.filter = function (key,value,childKey){
 Array.prototype.last = function () {
     return this[this.length];
 }
+Object.defineProperty(Array.prototype,"last",{enumerable:false});
 
 Array.prototype.$$swap = function(i1,i2) {
    var tmp_item_1 = this[i1];
@@ -98,6 +99,8 @@ Array.prototype.$$swap = function(i1,i2) {
    this[i2] = tmp_item_1;
    return this;
 }
+
+
 Object.defineProperty(Array.prototype,"$$swap",{enumerable:false});
 
 var arr = [1,2,3];
@@ -110,12 +113,19 @@ Array.prototype.clearEmpty = function () {
     }
   return this;
 }
+Object.defineProperty(Array.prototype,"clearEmpty",{enumerable:false});
 
 Object.prototype.$$keys = function(){
    return Object.keys(this);
 }
 Object.defineProperty(Object.prototype, "$$keys", {enumerable: false})
 
+
+Object.prototype.$$init = function(key){
+   if (typeof(this[key])==undefined)
+       {this[key]=""};
+}
+Object.defineProperty(Object.prototype, "$$init", {enumerable: false})
 
 String.prototype.$$encodeURI = function(){
       return encodeURI(this);

@@ -1,10 +1,10 @@
         <div style="{{block-data-style}}"
             ng-show="block.type && block.type!='deleted'"
              class="has-block-controls block-type-{{block.type}} column"> 
-             <span >
+             <span class="sub_block_controls">
                     <a class="fi-x      small" ng-click="block.type = 'deleted'">  </a>
                     <a class="fi-pencil      small" ng-click="updateElement(block);">  </a>
-                    <span ng-if="sortableScope" style='margin-top:8px; color:#008cba;' as-sortable-item-handle> <b> >> </b> </span>
+                    <span no-no-ng-if="sortableScope" style='margin-top:8px; color:#008cba;' as-sortable-item-handle> <b> >> </b> </span>
              </span>
             <div
 

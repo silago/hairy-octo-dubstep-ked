@@ -2,9 +2,9 @@
 <html class="no-js"  ng-app="frontendApp">
   <head >
     <meta charset="utf-8">
-      <title ng-bing="meta.title">Keddo</title>
-    <meta name="description" content="{{meta.description || 'Keddo' }}">
-    <meta name="keywords" content="{{meta.keywords || 'Keddo' }}">
+    <!--  <title ng-bing="meta.title">Keddo</title>
+    -->
+    <title ng-bind-template="{{viewTitle}}">KEDDO</title>
     <meta name="viewport" content="width=device-width">
       <link rel="stylesheet" href="bower_components/quill/dist/quill.snow.css" />
     <link rel="stylesheet" href="bower_components/jcrop/css/jquery.Jcrop.css"></script>
@@ -86,7 +86,7 @@
         <div style="clear:both;"> </div>
 
 
-<div class="large-12 collapse foot">
+<div class="large-12 collapse  columns no-padding  foot">
     <div class="columns large-3 show-for-large-up">
         <img src="images/footer_left.png" />
     </div>
@@ -127,8 +127,8 @@
             </center>
            <a target="_blank" href="http://vk.com/keddo_ru"><img style="width:40px;" src="/images/vk.png" /></a> 
            <a target="_blank" href="http://facebook.com/keddo.ru"><img style="width:40px;" src="/images/fb.png" /></a> 
-           <a target="_blank" href="http://youtube.com/user/Analpainc"><img style="width:40px;" src="/images/ig.png" /></a> 
-           <a target="_blank" href="http://instagram.com/keddo_shoes"><img style="width:40px;" src="/images/yt.png" /></a> 
+           <a target="_blank" href="http://youtube.com/user/Analpainc"><img style="width:40px;" src="/images/yt.png" /></a> 
+           <a target="_blank" href="http://instagram.com/keddo_shoes"><img style="width:40px;" src="/images/ig.png" /></a> 
          </div>
                         </div>
         </div>
@@ -200,6 +200,7 @@
     <script src="bower_components/angular-scroll/angular-scroll.js"></script>
     <script src="bower_components/angular-crop/src/angular-crop.js"></script>
     <script src="bower_components/angular-flexslider/angular-flexslider.js"></script>
+    <script src="bower_components/angularjs-viewhead/angularjs-viewhead.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

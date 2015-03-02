@@ -1,11 +1,9 @@
 <div  class="">
-   <!-- 
-    <div>
-            <h1> AATATA@!!! </h1>
-            <img angular-crop ng-src="http://localhost:9000/static/2.jpg" />
-            <img src="http://localhost:9000/static/2.jpg" />
-    </div>
-    -->
+
+<view-title>{{meta.title}}</view-title>
+<meta view-head name="description" content="{{meta.description}}">
+<meta view-head name="keywords" content="{{meta.keywords}}">
+
     <div z-ng-init="findScrollAnchors();" class="anchorControls">
         <div ng-repeat="a in anchors track by $index">
                 <a href ng-click="scrollTo($index);">
@@ -17,7 +15,7 @@
    <div style="
     display: none !important;"> </div>
     <a
-    style="display:block; background-color:#232323; color:#fff; padding-left:10px; text-decoration:underline; font-weight:bold;"
+    style="display:block; background-color:#232323; color:#fff; padding-left:10px; text-decoration:underline; font-weight:bold; position:relative;"
     ng-if="isLoggined" ng-href="{{'/#/page/'+path+'/edit'}}"> Режим редактирования </a>
 </div>
 

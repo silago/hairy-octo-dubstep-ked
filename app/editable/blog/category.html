@@ -1,6 +1,8 @@
 
 <div>
-        <a href ng-click="page.subitems.push({'subitems':[]})"> Добавить блок </a>
+        <div class="columns" style="margin:14px;">
+            <a class="tiny button" href ng-click="page.subitems.push({'subitems':[]})"> Добавить блок </a>
+        </div>
           <div ng-repeat="page in page.subitems">
         <div class="page-content" ng-if="page.subitems">
             <div
@@ -11,12 +13,14 @@
 
                          jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
                          <span class="{{block.data.class || 'columns large-12' }}" as-sortable-item ng-repeat="block in page.subitems">
-                         <span class="moveHolder" as-sortable-item-handle > <b> >> </b> </span>
                              <block prefix="editable" is-editable="true"  data="block">
                                      ....
                              </block>
                         </span>
-            <a href ng-click="$parent.$parent.$parent.page.subitems.splice($index,1)" > удалить блок </a>
+            <span>
+                <a href class="button tiny" ng-click="$parent.$parent.$parent.page.subitems.splice($index,1)" > Сменить категорию</a>
+            </span>
+            <a href class="button tiny  warning" ng-click="$parent.$parent.$parent.page.subitems.splice($index,1)" > Удалить блок </a>
             </div>
                 <div style="clear:both;">
             </div>

@@ -8,6 +8,7 @@
  */
 angular.module('frontendApp')
   .controller('EditablemainCtrl', function ($scope,$location,$stateParams,$cookieStore,blockRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
+   $scope.RESTurl = window.RESTurl;
    document.body.style.MozUserSelect="none";
    var role_id = $cookieStore.get('role_id');
    if (!role_id || role_id == 0) {
@@ -27,7 +28,7 @@ angular.module('frontendApp')
     }
 
     $scope.savePageData = function(data){
-            data.subitems = $scope.page.subitems;
+            //$scope.page.subitems  = data.subitems;
             pageRes.POST({url:$scope.path,data:data}).$promise.then(function(data){
                $scope.page = data;
         },function(data){ alert('something go wrong');});
@@ -69,7 +70,7 @@ angular.module('frontendApp')
     $scope.getTemplate = templates.getTemplate;
     $scope.init = function(page_path){
         if (page_path==undefined){  $scope.path = $stateParams.url;    } else {  $scope.path = page_path; }
-        pageRes.get({'url':$scope.path}).$promise.then(function(data){ $scope.page = (!!data.id ? data : {subitems:[]});
+        pageRes.get({'url':$scope.path}).$promise.then(function(data){console.log(data);  $scope.page = (!!data.id ? data : {subitems:[]});
         if (!!$scope.page.meta) {$scope.page.meta = angular.fromJson($scope.page.meta);}
 
  });

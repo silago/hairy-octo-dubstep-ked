@@ -31,7 +31,8 @@ angular
     'seo',
     'duScroll',
     'angular-crop',
-    'angular-flexslider'
+    'angular-flexslider',
+    'viewhead'
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
 
@@ -52,6 +53,7 @@ angular
         'content':   {templateUrl:   'editable/files.html',     controller:'FileCtrl'},
         'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'MainCtrl'},
         'bottomMenu':{templateUrl:   'editable/block.html',    controller:'MainCtrl'}
+        ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
       }
     })
     .state('subscribe',{
@@ -101,6 +103,7 @@ angular
           'content':   {templateUrl:   'editable/map.html',      controller:'EditablemapCtrl'},
           'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
           'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
+        ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
         }
     })
     .state('users',{
@@ -109,6 +112,7 @@ angular
           'content':   {templateUrl:   'editable/users.html',      controller:'UserCtrl'},
           'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
           'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
+        ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
         }
     })
     .state('editcatalog',{
@@ -117,6 +121,7 @@ angular
           'content':   {templateUrl:   'editable/catalog/catalog.html',      controller:'EditablecatalogCtrl'},
           'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
           'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
+        ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
         }
     })
     .state('editcataloggroup',{
@@ -125,6 +130,7 @@ angular
           'content':   {templateUrl:   'editable/catalog/segment.html',      controller:'EditablecatalogCtrl'},
           'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
           'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
+        ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
         }
     })
 .state('catalog',{

@@ -21,11 +21,12 @@
                 <!--
                     <input type="text"     ng-model="editUser.role_id"      ng-value="editUser.role_id"  />
                 -->
-                <input type="radio" name="user_{{editUser.username}}_group" ng-checked="editUser.role_id==1" ng-model="editUser.role_id"  ng-value="1" /> mod
-                <input type="radio" name="user_{{editUser.username}}_group" ng-checked="editUser.role_id==2" ng-model="editUser.role_id"  ng-value="2" /> ad
+                <input type="radio" name="user_{{editUser.username}}_group" ng-checked="editUser.role_id==1" ng-model="editUser.role_id"  ng-value="1" /> Модератор 
+                <input type="radio" name="user_{{editUser.username}}_group" ng-checked="editUser.role_id==2" ng-model="editUser.role_id"  ng-value="2" /> Администратор
+                <input type="radio" name="user_{{editUser.username}}_group" ng-checked="editUser.role_id==0" ng-model="editUser.role_id"  ng-value="0" /> Вне груп
             </td>
             <td><input type="password" ng-model="editUser.password" placeholder="***" /> </td>
-            <td> <a ng-click="updateUser(editUser); editUser=undefined;"> Save </a> </td>
+            <td> <a ng-click="updateUser(editUser); editUser=undefined;"> Применить </a> </td>
         </tr>
         <tr ng-if="newUser">
             {{newUser}}
@@ -36,24 +37,28 @@
         </tr>
 
     </table>
-    <h2> Данные доступные модераторам </h2>
+    <h4> Данные доступные модераторам </h4>
     <table>
     <tr ng-repeat=" (k,v) in rights">
         <td>
             {{k}}
         <td>
         <td>
-            <span ng-repeat = "_v in ['post','get','put']">
-                 {{_v}}
-                <button class="tiny warning" ng-show="v.indexOf(_v)!=-1" ng-click="v.splice(v.indexOf(_v),1);">  - </button>
-                <button class="tiny" ng-show="v.indexOf(_v)==-1" ng-click="v.push(_v)"> + </button>
+            <span ng-repeat = "_v in ['post','get','put','delete']">
+               <span ng-switch on="_v">
+                    <span ng-switch-when="post">    Редактирование  </span>
+                    <span ng-switch-when="put">     Создание</span>
+                    <span ng-switch-when="get">    Просмотр  </span>
+                    <span ng-switch-when="delete">  удаление  </span>
+                </span>
+                <a class="fi-x" ng-show="v.indexOf(_v)!=-1" ng-click="v.splice(v.indexOf(_v),1);"> </a>
+                <a class="fi-plus" ng-show="v.indexOf(_v)==-1" ng-click="v.push(_v)"> </a>
             </span>
 
-            {{v}}
         </td>
     </tr>
     <tr> <td colspan="100%">
-        <button ng-click="saveModRights();">
+        <button class="tiny" ng-click="saveModRights();">
                 Применить
         </button>
     </td> </tr>
