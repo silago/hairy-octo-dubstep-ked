@@ -1,3 +1,11 @@
+
+.edit-mode-link {
+    display:none;
+}
+.edit-mode-link a {
+    display:block; background-color:#232323; color:#fff; padding-left:10px; text-decoration:underline; font-weight:bold; position:relative;
+}
+
 .apply-n-meta {
     position: relative; background-color: #656565; color: #fff!important;
 background-color: #656565;
