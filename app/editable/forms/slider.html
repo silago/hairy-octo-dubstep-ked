@@ -8,7 +8,6 @@
                         </div>
                     </div>
 
-
                     <div class="row collapse subscribe">
                         <div class="small-10 columns">
                           <select ng-model="item.data['class']" type="text" placeholder="style">
@@ -37,13 +36,18 @@
                             </div>
                         </div>
                         <div ng-show="item.data.images.length>-1">
-                            {{item.data.images}}
+                            <div class=" large-12 columns">
+                                <div ng-repeat="_img in item.data.images" class="large-2 columns left">
+                                    <img ng-src="{{_img.src}}" />
+                                    <center> <input type="text" placeholder="ссылка" ng-model="_img.href"/> </center> 
+                                    <a href ng-click="item.data.images.splice($index,1)"> x </a> 
+                                </div>
+                            </div>
                         </div>
                         <br/>
                         <div class="row" oi-file="options">
-                            <div class="large-3 columns" ng-repeat="sf in staticFiles">
-                            <img ng-click="r=(item.data.images.indexOf(sf)==-1 ? item.data['images'].push(sf) : item.data['images'].splice(item.data['images'].indexOf(sf),1))"
-                                 class="nd-{{ (item.data['images'].indexOf(sf)!=-1 ? 'selected' : '0') }}"
+                            <div class="large-3 columns" style="padding:10px;" ng-repeat="sf in staticFiles">
+                            <img ng-click="item.data['images'].push({'src':sf,'href':''})"
                                  style="max-width:100px; max-height:100px;" ng-src="{{sf}}" />
                           </div>
                         </div>

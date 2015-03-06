@@ -1,5 +1,12 @@
-<flex-slider slide="s in block.data.images">
-    <li>
-        <img ng-src="{{s}}">
-    </li>
-</flex-slider>
+
+
+<div style="{{block.data.style}}">
+    <flex-slider slide="s in block.data.images track by $index">
+        <li>
+            <a ng-href="{{ (!!s.href ? s.href : 'javascript:void(0);') }}"> 
+                <img ng-src="{{s.src}}">
+            </a>
+        </li>
+    </flex-slider>
+</div<
+
