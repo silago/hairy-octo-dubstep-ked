@@ -13,12 +13,13 @@ angular.module('frontendApp')
     //model = something;
     //hint  = something;
     return {
-      scope:{item:'=item', type:'@itemType'},
-      replace:true,
-      templateUrl: 'editable/adm/createElementForm.html',
+        scope:true,
+      templateUrl: function(elem,attrs){
+         var prefix = attrs.m || 'create';
+         return 'editable/adm/'+prefix+'ElementForm.html';
+      },
       controller: ["$scope","blocksFactory","fileRes","catalogRes","$document",function($scope,blocksFactory,fileRes,catalogRes,$document){
       $scope.catalogRes = catalogRes;
-
       $scope.cropStop = function(data) {
             //$scope.fileOpts = data;
             var originalImage = $scope.filePreview.thumb;
@@ -34,8 +35,7 @@ angular.module('frontendApp')
       $scope.possibleCollections = {};
       $scope.getPossibleSegments = function() {$scope.possibleSegments =catalogRes.GET({'target':'collection'});}
      //$scope.getPossibleCollections = function(segment) { $scope.possibleCollections = catalogRes.collections({'segment':segment})};
-    
- // end catalog section
+     // end catalog section
 
 
       $scope.previewData = false;

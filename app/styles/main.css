@@ -1,4 +1,21 @@
 
+
+div .flexslider .flex-direction-nav .flex-prev {
+  opacity: 0.7;
+  left: 10px;
+}
+div .flexslider .flex-direction-nav .flex-prev:hover {
+  opacity: 1;
+}
+div .flexslider  .flex-direction-nav .flex-next {
+  opacity: 0.7;
+  right: 10px;
+}
+div .flexslider  .flex-direction-nav .flex-next:hover {
+  opacity: 1;
+}
+
+
 .edit-mode-link {
     display:none;
 }
@@ -194,6 +211,12 @@ margin-bottom:40px;
     display: block;
 }
 
+.flexslider-container {
+    border:0px!important;
+    margin:0px!important;
+    padding:0px!important;
+}
+
   .block-type-darkpanel {
       min-height:20px;
       background-color: #242424;
@@ -212,9 +235,9 @@ margin-bottom:40px;
       min-height:20px;
       background-color: #fff;
       width: 100%;
-      padding: 0.9375rem;
-      box-sizing: content-box;
-      margin-left: -0.9375rem;
+      zz-padding: 0.9375rem;
+      zz-box-sizing: content-box;
+      zz-margin-left: -0.9375rem;
   }
 .no-margin{
     margin:0px!important;
