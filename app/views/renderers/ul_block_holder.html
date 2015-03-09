@@ -1,9 +1,14 @@
 <span>
         <span>
             <li 
-                ng-if="block.type=='top_menu' || block.type=='menu'"
+                ng-if="block.type=='top_menu' || block.type=='menu' || block.type=='photo'"
                 has-not-down ng-class="{'has-dropdown':(block.subitems.length>0)}">
-                <a ng-href="{{ (!!block.subitems.length ? '' : block.data.url )}}"> {{block.data.title}} </a>
+
+                <a style="{{block.data.style}}"  ng-if="!!block.data.title" ng-href="{{ (!!block.subitems.length ? '' : block.data.url )}}"> {{block.data.title}} </a>
+                <a   ng-if="!!block.data.src" ng-href="{{block.data.href}}"> 
+                    <img style="{{block.data.style}}" ng-src="{{block.data.src}}" />
+                </a>
+
                 <ul ng-if="block.type=='top_menu'"  z-top-bar-dropdown class="dropdown" ng-if="block.subitems">
                     <ng-include ng-repeat="block in block.subitems" src="'views/renderers/ul_block_holder.html'"> </ng-include>
                 </ul>
@@ -13,7 +18,9 @@
 
         <span  ng-init="catalogSegments = catalogRes.GET({'target':'collection'});"
             ng-if="block.type=='catalog_link'">
-                <li class="has-dropdown" has-dropdown ng-repeat="cs in catalogSegments.data"> 
+                <li class="has-dropdown not-click" has-dropdown> <a href=""> Коллекция </a>
+                <ul class="dropdown" >
+                <li class="has-dropdown not-click" has-dropdown ng-repeat="cs in catalogSegments.data"> 
                         <a ui-sref="catalog.segment.type({'segment':cs.segment,'type':'*'})">{{catalogCollectionTranslate(cs.segment)}}</a>
                         <ul 
                             ng-init="catalogTypes = catalogRes.GET({'target':'collection','segment':cs.segment});" class="dropdown catalog-menu-holder">
@@ -52,5 +59,7 @@ ng-bind-html="trust(cs.after_menu)"
 
                         </ul>
                 </li>
+            </ul>
+            </li>
         </span>
 </span>

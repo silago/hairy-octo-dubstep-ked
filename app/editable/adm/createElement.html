@@ -1,7 +1,7 @@
 <div class="row">
     <div ng-init="
                   possibleElements=[
-                      {title:'Ссылка',type:'menu',data:{'title':'','url':'#/page/...'}},
+                      {title:'Ссылка',type:'menu',data:{'title':'','url':'#/page/...','style':''}},
                       {title:'Пункт меню',type:'top_menu',data:{'title':'','url':''}},
                       {title:'HTML',type:'html',data:{'text':''}},
                       {title:'Фото',type:'photo',data:{'href':'','src':'','width':'100%','class':'','style':''}},
@@ -16,14 +16,17 @@
 
                   elementNumber=False; " class="large-12 columns">
       <label>Тип элемента
-        <select ng-model="elementNumber"
-                ng-options="idx as data.title for (idx,data) in possibleElements">
+        <select ng-model="item"
+                ng-options="data as data.title for (idx,data) in possibleElements">
 
         </select>
 
       </label>
-          <div ng-show="elementNumber>=0" item="possibleElements[elementNumber]" adm-widget item-type="item.type" m="create">
+          <div>
 
+            <div  adm-widget item-type="item.type" m="create">
+
+          </div>
           </div>
     </div>
 </div>
