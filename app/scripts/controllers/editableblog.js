@@ -17,10 +17,14 @@ angular.module('frontendApp')
            blogRes.POST(data); 
         }
 
+        $scope.changeCategory - function(){
+
+        }
+
         $scope.savePage = function(indata){
                 var data= indata;
                 blogRes.POST({category:$stateParams.category,data:data}).$promise.then(function(data){
-                 //  $scope.page = data;
+                 $scope.page = data;
             },function(data){ alert('something go wrong');});
         }
   });

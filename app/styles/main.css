@@ -1,15 +1,33 @@
 
 
+.flex-direction-nav a:before {
+    display:none;
+}
+
+
 div .flexslider .flex-direction-nav .flex-prev {
-  opacity: 0.7;
-  left: 10px;
+
+    background-image: url("/images/arrow_left.jpg");
+    color: #000 !important;
+    height: 76px !important;
+    left: 0 !important;
+    opacity: 1 !important;
+    text-shadow: none;
+
+
 }
 div .flexslider .flex-direction-nav .flex-prev:hover {
   opacity: 1;
 }
 div .flexslider  .flex-direction-nav .flex-next {
-  opacity: 0.7;
-  right: 10px;
+
+    background-image: url("/images/arrow_right.jpg");
+    color: #000 !important;
+    height: 76px !important;
+    right: 0 !important;
+    opacity: 1 !important;
+    text-shadow: none;
+
 }
 div .flexslider  .flex-direction-nav .flex-next:hover {
   opacity: 1;

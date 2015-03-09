@@ -17,13 +17,16 @@
                                      ....
                              </block>
                         </span>
-            <span>
-                <a href class="button tiny" ng-click="$parent.$parent.$parent.page.subitems.splice($index,1)" > Сменить категорию</a>
+            </div>
+            <span ng-init="category_form=-1">
+                <a   ng-show="category_form==-1" href class="button tiny" ng-click="category_form=$index" > Сменить категорию</a>
+                <div ng-show="category_form>=0" class="category_form"> 
+                     <a href ng-repeat="c in categories.data" ng-click="page.category_id=c.id; $parent.category_form=-1"> {{c.name}} </a>
+                </div>
             </span>
-            <a href class="button tiny  warning" ng-click="$parent.$parent.$parent.page.subitems.splice($index,1)" > Удалить блок </a>
+            <a href class="button tiny  warning" ng-click="$parent.$parent.page.subitems.splice($index,1)" > Удалить блок</a>
             </div>
                 <div style="clear:both;">
-            </div>
         </div>
 
 
