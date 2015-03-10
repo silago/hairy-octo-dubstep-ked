@@ -60,9 +60,13 @@
                             <!--
                                 {{sf}}
                             -->
+                            <center>
                             <img ng-click="item.data['src']=sf;"
                                  class="nd-{{ (sf==item.data['src'] ? 'selected' : '0') }}"
                                  style="max-width:100px; max-height:100px;" ng-src="{{sf}}" />
+                                 <br/>
+                            <small> {{sf.split('/').reverse()[0]}} </small>
+                            </center>
                           </div>
                         </div>
                 </div>
