@@ -2,9 +2,10 @@
 
 angular.module('frontendApp')
   .factory('pageRes', function ($resource) {
-    return $resource(window.RESTurl+'/api/page/:url',
+    return $resource(window.RESTurl+'/api/page/:url/',
                      {
-                       url:'@url'
+                       url:'@url',
+                       lang:'@lang'
        //alert(1);
                      },
                      {

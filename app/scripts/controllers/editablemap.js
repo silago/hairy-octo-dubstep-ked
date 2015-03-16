@@ -8,7 +8,21 @@
  * Controller of the keddoApp
  */
 angular.module('frontendApp')
-  .controller('EditablemapCtrl', function ($scope,$filter,ngDialog,mapRes,cityRes,$cookieStore) {
+  .controller('EditablemapCtrl', function ($scope,$filter,ngDialog,mapRes,cityRes,$cookieStore,$window) {
+    var parts = window.location.hash.split('?');
+    if (parts.length == 2) {
+        parts = parts[1].split("&");
+        var $_GET = {};
+        for (var i = 0; i < parts.length; i++) {
+            var temp = parts[i].split("=");
+            $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+        }
+        var lang = $_GET['lang'];
+    } else {
+        var lang = 'ru';
+    }
+    console.log(lang);
+
 
    var role_id = $cookieStore.get('role_id');
    if (!role_id || role_id == 0) {
@@ -57,7 +71,7 @@ angular.module('frontendApp')
               if (mark_data.type=='city') {
                  createCityMark(pos,mark_data.label);
               } else if (mark_data.type == 'market') {
-                 createMarketMark(pos,mark_data.label,mark_data.city_id);
+                 createMarketMark(pos,mark_data.label,mark_data.address,mark_data.city_id);
               }
               //var new_page_data = d.value;
             });
@@ -74,8 +88,8 @@ angular.module('frontendApp')
     }
 
     function createMarketMark(position,label,city_id) {
-      var i = {position:position,name:label,city_id:city_id};
-      $scope.map.geoObjects.add(new ymaps.Placemark(i.position,{balloonContent:i.name}));
+      var i = {position:position,name:label,address:address,city_id:city_id};
+      $scope.map.geoObjects.add(new ymaps.Placemark(i.position,{balloonContent:i.address,hintContent:i.name}));
       $scope.markets.push(i);
     }
 
@@ -88,17 +102,23 @@ angular.module('frontendApp')
          if (dm) {
              var objToFind = {
                position: e.get('target').geometry.getCoordinates(),
-               name:     e.get('target').properties.get('hintContent')
                };
              var idInScopeMarkets = searchInMarketsByCoords(objToFind.position);
+             console.log(idInScopeMarkets);
              $scope.markets.splice(idInScopeMarkets,1);
              $scope.map.geoObjects.remove(e.get('target'));
          }
+         window.__e = e;
+         window.__m = $scope.map;
          e.stopPropagation();
     }
 
     function createMark (item) {
-            var placemark = new ymaps.Placemark(item.position, { hintContent:item.name, showHintOnHover:true });
+            var placemark = new ymaps.Placemark(item.position, { 
+                    // hintContent:item.name, showHintOnHover:true
+                    balloonContent: item.address,
+                    hintContent: item.name, 
+             });
             placemark.events.add('click', function(e,o){
               deleteMark(e,o);
             });

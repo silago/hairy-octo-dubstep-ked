@@ -8,7 +8,21 @@
  */
 angular.module('frontendApp')
   .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,catalogRes,pageRes,ngDialog,blocksFactory,authRes,templates,$sce) {
+    var parts = window.location.hash.split('?');
+    if (parts.length == 2) {
+        parts = parts[1].split("&");
+        var $_GET = {};
+        for (var i = 0; i < parts.length; i++) {
+            var temp = parts[i].split("=");
+            $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+        }
+        var lang = $_GET['lang'];
+    } else {
+        var lang = 'ru';
+    }
+    console.log(lang);
 
+    
     $scope.meta = {};
     $scope.trust = $sce.trustAsHtml;
      var role_id = $cookieStore.get('role_id');
@@ -63,7 +77,7 @@ angular.module('frontendApp')
     $scope.init = function(page_path){
         if (page_path==undefined){  $scope.path = $stateParams.url;    } else {  $scope.path = page_path; }
 
-      pageRes.get({'url':$scope.path}).$promise
+      pageRes.get({'url':$scope.path,lang:lang}).$promise
       .finally(function(){isDone();})
       .then(function(data){ $scope.page = (!!data.id ? data : {});
                             //$scope.findScrollAnchors();
