@@ -8,18 +8,20 @@
  */
 angular.module('frontendApp')
   .controller('EditablemainCtrl', function ($scope,$location,$stateParams,$cookieStore,blockRes,pageRes,ngDialog,blocksFactory,authRes,templates) {
-    var parts = window.location.hash.split('?');
-    if (parts.length == 2) {
-        parts = parts[1].split("&");
-        var $_GET = {};
-        for (var i = 0; i < parts.length; i++) {
-            var temp = parts[i].split("=");
-            $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
-        }
-        var lang = $_GET['lang'];
-    } else {
-        var lang = 'ru';
-    }
+    var lang = $stateParams.lang;
+    if (lang=='') lang = 'ru';
+    //var parts = window.location.hash.split('?');
+    //if (parts.length == 2) {
+    //    parts = parts[1].split("&");
+    //    var $_GET = {};
+    //    for (var i = 0; i < parts.length; i++) {
+    //        var temp = parts[i].split("=");
+    //        $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+    //    }
+    //    var lang = $_GET['lang'];
+    //} else {
+    //    var lang = 'ru';
+    //}
 
    $scope.RESTurl = window.RESTurl;
    document.body.style.MozUserSelect="none";

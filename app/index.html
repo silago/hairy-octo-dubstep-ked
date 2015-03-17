@@ -27,11 +27,13 @@
     <script src="f/js/vendor/modernizr.js"></script>
     <!-- endbuild -->
 
+<!--
 <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
 
 <script type="text/javascript">
   VK.init({apiId: 4797904, onlyWidgets: true});
 </script>
+-->
   <meta name="fragment" content="!" />
   </head>
   <body >
@@ -88,10 +90,8 @@
     <div class="columns bottom-center large-6 small-12">
         <div class="columns large-12">
             <br/>
-            <h2 class="uppercase"> Новости </h2>
-            <p>
-                Подпишитесь на наши новости
-            </p>
+            <h2 class="uppercase _translate">Новости</h2>
+            <p class="_translate">Подпишитесь на наши новости</p>
                   <div class="row collapse subscribe">
                     <div class="small-11 columns">
                       <input ng-model="email" type="text" placeholder="Адрес электронной почты">
@@ -118,7 +118,7 @@
         <br/>
         <div class="jumbotron columns large-12">
             <center>
-               <div style="font-size:14px; margin-bottom:20px; color:lightgray;">Присоединяйтесь к нам</div>
+               <div style="font-size:14px; margin-bottom:20px; color:lightgray;" class="_translate">Присоединяйтесь к нам</div>
             </center>
            <a target="_blank" href="http://vk.com/keddo_ru"><img style="width:40px;" src="/images/vk.png" /></a> 
            <a target="_blank" href="http://facebook.com/keddo.ru"><img style="width:40px;" src="/images/fb.png" /></a> 
@@ -138,7 +138,7 @@
 
     <div style="clear:both;"> <br/></div>
     <div style="font-size:14px; color:lightgray; text-align:center;"> 
-        &copy; ООО «Дизайн Бюро «Обувь – Стиль». Все права защищены.
+        &copy; ООО «Дизайн Бюро «Обувь – Стиль». <span class="_translate">Все права защищены.</span>
         <br/>
     </div>
         <
@@ -257,5 +257,10 @@
           $(document).foundation();
         </script>
     <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+   //     $(document).ready( function() {
+   //         translate();
+   //     });
+    </script>
 </body>
 </html>

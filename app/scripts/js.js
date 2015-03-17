@@ -184,3 +184,26 @@ String.prototype.fromJson = function(){
    return angular.fromJson(this);
 }
 
+
+function translate() {
+    // finda all blocks 
+    if (window.$$translated == true) return 0;
+    var dict = {
+        "Все права защищены":"all rights reserved.",
+        "Присоединяйтесь к нам":"Join us",
+        "Подпишитесь на наши новости":"Subscrive us",
+        "Новости":"News",
+    };
+
+    var toTranslate = $('._translate');
+    
+    for (var i = 0; i<toTranslate.length; i++) {
+        var $item = $(toTranslate[i]);
+        $item.html(dict[$item.html()]);
+    };
+    window.$$translated = true;
+
+
+
+}
+

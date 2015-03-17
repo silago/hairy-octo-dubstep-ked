@@ -37,7 +37,7 @@ angular
   .config(function ($stateProvider,$urlRouterProvider) {
 
 
-    $urlRouterProvider.otherwise('/page/index');
+    $urlRouterProvider.otherwise('/ru/page/index');
     $stateProvider
     .state('search',{
       url:'/search/:queryString',
@@ -73,7 +73,7 @@ angular
       }
     })
     .state('pages', {
-        url:'/page/:url',
+        url:'/{lang}/page/:url',
         views: {
           'content':   {templateUrl:   'views/main.html',     controller:'MainCtrl'},
           'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
@@ -81,7 +81,7 @@ angular
         }
       })
     .state('editpages', {
-        url:'/page/:url/edit',
+        url:'/{lang}/page/:url/edit',
         views: {
           'content':   {templateUrl:   'editable/main.html',controller:'EditablemainCtrl'},
           'topMenu':   {templateUrl:   'editable/ul_block.html',controller:'EditablemainCtrl'},

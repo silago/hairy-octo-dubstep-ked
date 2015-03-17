@@ -8,19 +8,23 @@
  */
 angular.module('frontendApp')
   .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,catalogRes,pageRes,ngDialog,blocksFactory,authRes,templates,$sce) {
-    var parts = window.location.hash.split('?');
-    if (parts.length == 2) {
-        parts = parts[1].split("&");
-        var $_GET = {};
-        for (var i = 0; i < parts.length; i++) {
-            var temp = parts[i].split("=");
-            $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
-        }
-        var lang = $_GET['lang'];
-    } else {
-        var lang = 'ru';
-    }
-    console.log(lang);
+    var lang = $stateParams.lang;
+    if (lang=='') lang = 'ru';
+    if (lang!='ru')
+        window.translate(); 
+    //var parts = window.location.hash.split('?');
+    //if (parts.length == 2) {
+    //    parts = parts[1].split("&");
+    //    var $_GET = {};
+    //    for (var i = 0; i < parts.length; i++) {
+    //        var temp = parts[i].split("=");
+    //        $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+    //    }
+    //    var lang = $_GET['lang'];
+    //} else {
+    //    var lang = 'ru';
+    //}
+    //console.log(lang);
 
     
     $scope.meta = {};
