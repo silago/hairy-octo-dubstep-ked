@@ -1,0 +1,55 @@
+
+
+
+
+<div >
+    <div class="columns large-4">
+            <div ng-switch="block.data.map_type">
+                <div ng-swith-when="firm">
+                    <h4>Где купить KEDDO </h4>
+                    <h5> В России </h5>
+                    <select ng-model="selected_country">
+                        <option> Выберите город </option>
+                        <option> Москва</option>
+                        <option> Санкт-Петербург </option>
+                    </select>
+                        
+                    <h5> В мире </h5>
+                    <select ng-model="selected_country">
+                        <option> Выберите город </option>
+                        <option> Москва</option>
+                        <option> Санкт-Петербург </option>
+                    </select>
+                    
+                    <ul> 
+                        <li> <label> Города в городе </label> </li>
+                        <li> <a href ng-click="focus_to_city_maybe">Moscow</a> </li>
+                    </ul>
+                </div>
+
+                <div ng-swith-when="partner">
+                    <h4>Поиск магазинов </h4>
+                    <small>Введите адресные данные и блаблабла</small>
+                    <label> Страна </label>
+                    <select >
+                        <option>Россия </option>
+                        <option>Украина </option>
+                    </select>
+                        
+                    <label>Адрес</label>
+                    <input type="text" placeholder="" />
+                    <button> Найти магазины </button>
+                    <strong> Результаты </strong>  
+                    <ul> 
+                        <li> <label> Города в городе </label> </li>
+                        <li> <a href ng-click="focus_to_city_maybe">Moscow</a> </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+
+    <div class="columns large-8">
+         the map will be here
+    </div>
+
+</div>

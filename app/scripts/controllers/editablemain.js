@@ -86,6 +86,7 @@ angular.module('frontendApp')
 
     $scope.getTemplate = templates.getTemplate;
     $scope.init = function(page_path){
+        console.log('init');
         if (page_path==undefined){  $scope.path = $stateParams.url;    } else {  $scope.path = page_path; }
         pageRes.get({'url':$scope.path,lang:lang}).$promise.then(function(data){console.log(data);  $scope.page = (!!data.id ? data : {subitems:[]});
         if (!!$scope.page.meta) {$scope.page.meta = angular.fromJson($scope.page.meta);}

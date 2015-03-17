@@ -77,7 +77,6 @@ angular.module('frontendApp')
       return result;
     };
 
-    $scope.title = 'qweqwe';
     $scope.init = function(page_path){
         if (page_path==undefined){  $scope.path = $stateParams.url;    } else {  $scope.path = page_path; }
 

@@ -1,39 +1,218 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', '-g' ]
-2 info using npm@2.1.18
-3 info using node@v0.10.35
-4 silly cache add args [ '.', null ]
-5 verbose cache add spec .
-6 silly cache add parsed spec { raw: '.',
-6 silly cache add   scope: null,
-6 silly cache add   name: null,
-6 silly cache add   rawSpec: '.',
-6 silly cache add   spec: '/home/silago/work/keddo/application/frontend',
-6 silly cache add   type: 'directory' }
-7 verbose addLocalDirectory /home/silago/.npm/frontend/0.0.0/package.tgz not in flight; packing
-8 verbose tar pack [ '/home/silago/.npm/frontend/0.0.0/package.tgz',
-8 verbose tar pack   '/home/silago/work/keddo/application/frontend' ]
-9 verbose tarball /home/silago/.npm/frontend/0.0.0/package.tgz
-10 verbose folder /home/silago/work/keddo/application/frontend
-11 info prepublish frontend@0.0.0
-12 error tar pack Error reading /home/silago/work/keddo/application/frontend
-13 error addLocalDirectory Could not pack /home/silago/work/keddo/application/frontend to /home/silago/.npm/frontend/0.0.0/package.tgz
-14 error addLocal Could not install /home/silago/work/keddo/application/frontend
-15 verbose fstream_path /home/silago/work/keddo/application/frontend/app/static/catalog/KEDDO.RU/KEDDO.RU
-16 verbose fstream_type Directory
-17 verbose fstream_class Packer
-18 verbose stack Error: ENOENT, lstat '/home/silago/work/keddo/application/frontend/app/static/catalog/KEDDO.RU/KEDDO.RU/Keddo (���������� ��������).pdf'
-19 verbose fstream_stack /usr/lib/node_modules/npm/node_modules/fstream/lib/dir-reader.js:98:23
-19 verbose fstream_stack Object.oncomplete (evalmachine.<anonymous>:108:15)
-20 verbose cwd /home/silago/work/keddo/application/frontend
-21 error Linux 3.17.6-1-ARCH
-22 error argv "/usr/bin/node" "/usr/bin/npm" "install" "-g"
-23 error node v0.10.35
-24 error npm  v2.1.18
-25 error path /home/silago/work/keddo/application/frontend/app/static/catalog/KEDDO.RU/KEDDO.RU/Keddo (���������� ��������).pdf
-26 error code ENOENT
-27 error errno 34
-28 error enoent ENOENT, lstat '/home/silago/work/keddo/application/frontend/app/static/catalog/KEDDO.RU/KEDDO.RU/Keddo (���������� ��������).pdf'
-28 error enoent This is most likely not a problem with npm itself
-28 error enoent and is related to npm not being able to find a file.
-29 verbose exit [ 34, true ]
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'update', '-g', 'yo' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 verbose cache add [ 'yo', '*' ]
+5 verbose cache add name="yo" spec="*" args=["yo","*"]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: '*',
+6 verbose parsed url   path: '*',
+6 verbose parsed url   href: '*' }
+7 verbose addNamed [ 'yo', '*' ]
+8 verbose addNamed [ null, '*' ]
+9 silly lockFile ec8b77ae-yo yo@*
+10 verbose lock yo@* /home/aovchinnikov/.npm/ec8b77ae-yo.lock
+11 silly addNameRange { name: 'yo', range: '*', hasData: false }
+12 verbose url raw yo
+13 verbose url resolving [ 'https://registry.npmjs.org/', './yo' ]
+14 verbose url resolved https://registry.npmjs.org/yo
+15 info trying registry request attempt 1 at 21:04:21
+16 verbose etag "AL8H0AFKR1UKOTGJ8EDIZUSO7"
+17 http GET https://registry.npmjs.org/yo
+18 http 304 https://registry.npmjs.org/yo
+19 silly registry.get cb [ 304,
+19 silly registry.get   { date: 'Tue, 17 Mar 2015 18:04:20 GMT',
+19 silly registry.get     server: 'Apache',
+19 silly registry.get     via: '1.1 varnish',
+19 silly registry.get     'last-modified': 'Tue, 17 Mar 2015 18:04:20 GMT',
+19 silly registry.get     'cache-control': 'max-age=60',
+19 silly registry.get     etag: '"AL8H0AFKR1UKOTGJ8EDIZUSO7"',
+19 silly registry.get     age: '18',
+19 silly registry.get     'x-served-by': 'cache-ams4131-AMS',
+19 silly registry.get     'x-cache': 'HIT',
+19 silly registry.get     'x-cache-hits': '1',
+19 silly registry.get     'x-timer': 'S1426615460.653595,VS0,VE0',
+19 silly registry.get     vary: 'Accept',
+19 silly registry.get     'content-length': '0',
+19 silly registry.get     'keep-alive': 'timeout=10, max=50',
+19 silly registry.get     connection: 'Keep-Alive' } ]
+20 verbose etag yo from cache
+21 silly addNameRange number 2 { name: 'yo', range: '*', hasData: true }
+22 silly addNameRange versions [ 'yo', [ '1.1.0', '1.1.1', '1.1.2', '1.4.6' ] ]
+23 verbose addNamed [ 'yo', '1.4.6' ]
+24 verbose addNamed [ '1.4.6', '1.4.6' ]
+25 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+26 verbose lock yo@1.4.6 /home/aovchinnikov/.npm/10fcef76-yo-1-4-6.lock
+27 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+28 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+29 silly lockFile ec8b77ae-yo yo@*
+30 silly lockFile ec8b77ae-yo yo@*
+31 info outdated updating [ [ '/usr/local/lib', 'yo', '1.1.2', '1.4.6', '*' ] ]
+32 verbose install where,what [ '/usr/local/lib', [ 'yo@1.4.6' ] ]
+33 verbose cache add [ 'yo@1.4.6', null ]
+34 verbose cache add name=undefined spec="yo@1.4.6" args=["yo@1.4.6",null]
+35 verbose parsed url { protocol: null,
+35 verbose parsed url   slashes: null,
+35 verbose parsed url   auth: null,
+35 verbose parsed url   host: null,
+35 verbose parsed url   port: null,
+35 verbose parsed url   hostname: null,
+35 verbose parsed url   hash: null,
+35 verbose parsed url   search: null,
+35 verbose parsed url   query: null,
+35 verbose parsed url   pathname: 'yo@1.4.6',
+35 verbose parsed url   path: 'yo@1.4.6',
+35 verbose parsed url   href: 'yo@1.4.6' }
+36 verbose cache add name="yo" spec="1.4.6" args=["yo","1.4.6"]
+37 verbose parsed url { protocol: null,
+37 verbose parsed url   slashes: null,
+37 verbose parsed url   auth: null,
+37 verbose parsed url   host: null,
+37 verbose parsed url   port: null,
+37 verbose parsed url   hostname: null,
+37 verbose parsed url   hash: null,
+37 verbose parsed url   search: null,
+37 verbose parsed url   query: null,
+37 verbose parsed url   pathname: '1.4.6',
+37 verbose parsed url   path: '1.4.6',
+37 verbose parsed url   href: '1.4.6' }
+38 verbose addNamed [ 'yo', '1.4.6' ]
+39 verbose addNamed [ '1.4.6', '1.4.6' ]
+40 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+41 verbose lock yo@1.4.6 /home/aovchinnikov/.npm/10fcef76-yo-1-4-6.lock
+42 verbose url raw yo/1.4.6
+43 verbose url resolving [ 'https://registry.npmjs.org/', './yo/1.4.6' ]
+44 verbose url resolved https://registry.npmjs.org/yo/1.4.6
+45 info trying registry request attempt 1 at 21:04:22
+46 verbose etag "AL8H0AFKR1UKOTGJ8EDIZUSO7"
+47 http GET https://registry.npmjs.org/yo/1.4.6
+48 http 304 https://registry.npmjs.org/yo/1.4.6
+49 silly registry.get cb [ 304,
+49 silly registry.get   { date: 'Tue, 17 Mar 2015 18:04:20 GMT',
+49 silly registry.get     server: 'Apache',
+49 silly registry.get     via: '1.1 varnish',
+49 silly registry.get     'last-modified': 'Tue, 17 Mar 2015 18:04:21 GMT',
+49 silly registry.get     'cache-control': 'max-age=60',
+49 silly registry.get     etag: '"AL8H0AFKR1UKOTGJ8EDIZUSO7"',
+49 silly registry.get     age: '0',
+49 silly registry.get     'x-served-by': 'cache-ams4146-AMS',
+49 silly registry.get     'x-cache': 'MISS',
+49 silly registry.get     'x-cache-hits': '0',
+49 silly registry.get     'x-timer': 'S1426615460.896057,VS0,VE105',
+49 silly registry.get     vary: 'Accept',
+49 silly registry.get     'content-length': '0',
+49 silly registry.get     'keep-alive': 'timeout=10, max=50',
+49 silly registry.get     connection: 'Keep-Alive' } ]
+50 verbose etag yo/1.4.6 from cache
+51 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+52 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+53 silly resolved [ { name: 'yo',
+53 silly resolved     version: '1.4.6',
+53 silly resolved     description: 'CLI tool for running Yeoman generators',
+53 silly resolved     license: 'BSD',
+53 silly resolved     bin: { yo: 'lib/cli.js' },
+53 silly resolved     author: { name: 'Yeoman team' },
+53 silly resolved     repository: { type: 'git', url: 'git://github.com/yeoman/yo' },
+53 silly resolved     engines: { node: '>=0.10.0', npm: '>=2.1.0' },
+53 silly resolved     scripts:
+53 silly resolved      { test: 'jshint . && mocha test/**/*.js',
+53 silly resolved        postinstall: 'yodoctor',
+53 silly resolved        postupdate: 'yodoctor',
+53 silly resolved        prepublish: 'nsp audit-package' },
+53 silly resolved     files: [ 'lib' ],
+53 silly resolved     keywords:
+53 silly resolved      [ 'cli-app',
+53 silly resolved        'cli',
+53 silly resolved        'bin',
+53 silly resolved        'front-end',
+53 silly resolved        'development',
+53 silly resolved        'dev',
+53 silly resolved        'build',
+53 silly resolved        'web',
+53 silly resolved        'tool',
+53 silly resolved        'scaffold',
+53 silly resolved        'stack',
+53 silly resolved        'yeoman',
+53 silly resolved        'generator',
+53 silly resolved        'generate',
+53 silly resolved        'app',
+53 silly resolved        'boilerplate' ],
+53 silly resolved     dependencies:
+53 silly resolved      { 'array-uniq': '^1.0.2',
+53 silly resolved        async: '^0.9.0',
+53 silly resolved        chalk: '^1.0.0',
+53 silly resolved        configstore: '^0.3.1',
+53 silly resolved        'cross-spawn': '^0.2.3',
+53 silly resolved        figures: '^1.3.5',
+53 silly resolved        findup: '^0.1.5',
+53 silly resolved        fullname: '^1.0.0',
+53 silly resolved        got: '^2.4.0',
+53 silly resolved        'humanize-string': '^1.0.0',
+53 silly resolved        inquirer: '^0.8.0',
+53 silly resolved        insight: '^0.5.0',
+53 silly resolved        lodash: '^3.2.0',
+53 silly resolved        meow: '^3.0.0',
+53 silly resolved        'npm-keyword': '^1.1.1',
+53 silly resolved        opn: '^1.0.0',
+53 silly resolved        'package-json': '^1.1.0',
+53 silly resolved        'root-check': '^1.0.0',
+53 silly resolved        'sort-on': '^1.0.0',
+53 silly resolved        'string-length': '^1.0.0',
+53 silly resolved        titleize: '^1.0.0',
+53 silly resolved        'update-notifier': '^0.3.0',
+53 silly resolved        'user-home': '^1.1.0',
+53 silly resolved        'yeoman-character': '^1.0.0',
+53 silly resolved        'yeoman-doctor': '^1.0.0',
+53 silly resolved        'yeoman-environment': '^1.0.1',
+53 silly resolved        yosay: '^1.0.0' },
+53 silly resolved     devDependencies:
+53 silly resolved      { jshint: '^2.5.11',
+53 silly resolved        mocha: '^2.1.0',
+53 silly resolved        mockery: '^1.4.0',
+53 silly resolved        nock: '^0.59.1',
+53 silly resolved        nsp: '*',
+53 silly resolved        proxyquire: '^1.0.1',
+53 silly resolved        'registry-url': '^3.0.0',
+53 silly resolved        sinon: '^1.12.1' },
+53 silly resolved     preferGlobal: true,
+53 silly resolved     readme: '▂▂╱▔▔▔▔▔▔▔▔▔▔╲  \n╲▂┈╭╮╱╱╭┳━━━╮▕  \n┈┈▏┃╰╮╭╯┃╭━╮┃▕  \n┈┈▏╰╮╰╯╭┫┃╱┃┃▕  \n┈┈▏╱╰╮╭╯┃┃╱┃┃▕  \n┈┈▏╱╱┃┃╱┃╰━╯┃▕  \n┈┈▏╱╱╰╯╱╰━━━╯▕  \n┈┈╲▂▂▂▂▂▂▂▂▂▂╱\n\n\n[![Build Status](https://travis-ci.org/yeoman/yo.svg?branch=master)](https://travis-ci.org/yeoman/yo) ![](http://img.shields.io/badge/unicorn-approved-ff69b4.svg)\n\n> CLI tool for running Yeoman [generators](http://yeoman.io/generators/)\n\n<img src="screenshot.png" width="569">\n\n\n## [Documentation](https://github.com/yeoman/yeoman/wiki)\n\n\n## Options\n\n- `--no-color` flag to disable colors.\n- `--version` Print the current `yo` version.\n- `--help` Print `yo` help menu with the list of found generators\n- `--[no-]insight` to toggle anonymous [Insight](https://github.com/yeoman/insight) tracking which helps us improve Yeoman. Using either of these flags on the first run will prevent you from being prompted about it interactively. The flags can also be used to change it later on.\n- `--generators` will output the available generators\n\n\n## Troubleshooting\n\nRunning `yo doctor` command can help you troubleshoot common issues.\n\nIf `doctor` doesn\'t help, then check opened issues for a similar problem. Open a new issue if your problem haven\'t been reported yet. Make sure to always include the version of `yo` (`yo --version`) and Node.js (`node --version`) you use.\n\nIf your issue only occur using a generator, please report the issues on the generator\'s repository.\n\n\n## Contribute\n\nSee the [contributing docs](https://github.com/yeoman/yeoman/blob/master/contributing.md).\n\n\n## Changelog\n\nSee the [release page](https://github.com/yeoman/yo/releases).\n\n\n## License\n\n[BSD license](http://opensource.org/licenses/bsd-license.php) and copyright Google.\n',
+53 silly resolved     readmeFilename: 'readme.md',
+53 silly resolved     bugs: { url: 'https://github.com/yeoman/yo/issues' },
+53 silly resolved     _id: 'yo@1.4.6',
+53 silly resolved     _from: 'yo@1.4.6' } ]
+54 info install yo@1.4.6 into /usr/local/lib
+55 info installOne yo@1.4.6
+56 warn engine yo@1.4.6: wanted: {"node":">=0.10.0","npm":">=2.1.0"} (current: {"node":"v0.10.25","npm":"1.3.10"})
+57 info /usr/local/lib/node_modules/yo unbuild
+58 info preuninstall yo@1.1.2
+59 info uninstall yo@1.1.2
+60 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild yo@1.1.2
+61 verbose /usr/local/bin,[object Object] binRoot
+62 info /usr/local/lib/node_modules/yo unbuild
+63 info preuninstall yo@1.1.2
+64 info uninstall yo@1.1.2
+65 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild yo@1.1.2
+66 verbose /usr/local/bin,[object Object] binRoot
+67 error error rolling back Error: EACCES, unlink '/usr/local/bin/yo'
+67 error error rolling back  yo@1.4.6 { [Error: EACCES, unlink '/usr/local/bin/yo'] errno: 3, code: 'EACCES', path: '/usr/local/bin/yo' }
+68 error Error: EACCES, unlink '/usr/local/bin/yo'
+68 error  { [Error: EACCES, unlink '/usr/local/bin/yo'] errno: 3, code: 'EACCES', path: '/usr/local/bin/yo' }
+69 error Please try running this command again as root/Administrator.
+70 error System Linux 3.13.0-24-generic
+71 error command "/usr/bin/nodejs" "/usr/bin/npm" "update" "-g" "yo"
+72 error cwd /home/aovchinnikov/work/keddo/frontend
+73 error node -v v0.10.25
+74 error npm -v 1.3.10
+75 error path /usr/local/bin/yo
+76 error code EACCES
+77 error errno 3
+78 error stack Error: EACCES, unlink '/usr/local/bin/yo'
+79 verbose exit [ 3, true ]

@@ -32,7 +32,8 @@ angular
     'duScroll',
     'angular-crop',
     'angular-flexslider',
-    'viewhead'
+    'viewhead',
+    'xeditable'
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
 

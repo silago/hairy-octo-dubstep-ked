@@ -1,0 +1,46 @@
+<div>
+    <div class="row collapse subscribe">
+        <div class="small-10 columns">
+          <select ng-model="item.data['class']" type="text" placeholder="style">
+              <option value="large-centered"> По центру </option>
+              <option value="large-3 columns"> 1/4 </option>
+              <option value="large-4 columns"> 1/3 </option>
+              <option value="large-6 columns"> 1/2 </option>
+              <option value="large-8 columns"> 2/3 </option>
+              <option value="large-12 columns"> 100% </option>
+          </select>
+        </div>
+        <div class="small-2 columns">
+          <label class="postfix" href="#">CSS класс</label>
+        </div>
+    </div>
+    </div>
+        <ul>  
+            <li ng-repeat="country in item.data.countries">
+                   <a href editable-text="country.name">{{ country.name || "empty" }}</a>
+                   <a href> x </a>
+                   <ul> 
+                        <li ng-repeat="city in country.cities"> 
+                            <a editable-text="city.name" href>{{city.name}}</a>
+                            <a href> x </a>
+                            <ul> 
+                                <li ng-repeat="shop in city.shops">
+                                        <ul>
+                                            <li><a href editable-text="shop.name"> {{shop.name} </a></li>
+                                                <li><a href editable-text="shop.description"> {{shop.description}}</a> </li>
+                                                <li><a href editable-text="shop.coords"> {{shop.coords}}</a> </li>
+                                            <li> x </li>
+                                        </ul>
+                                </li>
+                                <li><a href ng-click="city.shops.push({name:'Terra',description:'Incognita',coords:'0.0000 0.0000'})"> New Shop </a> </li>
+                            </ul>
+                        </li>
+                        <li><a href ng-click="country.cities.push({name:'Terra Incognita',shops:[]})"> New City </a> </li>
+                   </ul>
+            </li>
+            <li><a href ng-click="item.data.countries.push({name:'Terra Incognita',cities:[]})"> New Country </a> </li>
+        </ul>
+
+
+
+</div>

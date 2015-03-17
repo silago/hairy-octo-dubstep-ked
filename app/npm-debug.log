@@ -1,0 +1,371 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'update', '-g', 'yo' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 verbose cache add [ 'yo', '*' ]
+5 verbose cache add name="yo" spec="*" args=["yo","*"]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: '*',
+6 verbose parsed url   path: '*',
+6 verbose parsed url   href: '*' }
+7 verbose addNamed [ 'yo', '*' ]
+8 verbose addNamed [ null, '*' ]
+9 silly lockFile ec8b77ae-yo yo@*
+10 verbose lock yo@* /home/aovchinnikov/.npm/ec8b77ae-yo.lock
+11 silly addNameRange { name: 'yo', range: '*', hasData: false }
+12 verbose url raw yo
+13 verbose url resolving [ 'https://registry.npmjs.org/', './yo' ]
+14 verbose url resolved https://registry.npmjs.org/yo
+15 info trying registry request attempt 1 at 21:02:53
+16 verbose etag "DCCB8PPACB63A6PKXL18LPDYZ"
+17 http GET https://registry.npmjs.org/yo
+18 http 200 https://registry.npmjs.org/yo
+19 silly registry.get cb [ 200,
+19 silly registry.get   { date: 'Tue, 17 Mar 2015 18:02:52 GMT',
+19 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+19 silly registry.get     etag: '"AL8H0AFKR1UKOTGJ8EDIZUSO7"',
+19 silly registry.get     'content-type': 'application/json',
+19 silly registry.get     'cache-control': 'max-age=60',
+19 silly registry.get     'content-length': '30623',
+19 silly registry.get     'accept-ranges': 'bytes',
+19 silly registry.get     via: '1.1 varnish',
+19 silly registry.get     age: '12',
+19 silly registry.get     'x-served-by': 'cache-ams4138-AMS',
+19 silly registry.get     'x-cache': 'HIT',
+19 silly registry.get     'x-cache-hits': '2',
+19 silly registry.get     'x-timer': 'S1426615372.577038,VS0,VE0',
+19 silly registry.get     vary: 'Accept',
+19 silly registry.get     'keep-alive': 'timeout=10, max=50',
+19 silly registry.get     connection: 'Keep-Alive' } ]
+20 silly addNameRange number 2 { name: 'yo', range: '*', hasData: true }
+21 silly addNameRange versions [ 'yo', [ '1.1.0', '1.1.1', '1.1.2', '1.4.6' ] ]
+22 verbose addNamed [ 'yo', '1.4.6' ]
+23 verbose addNamed [ '1.4.6', '1.4.6' ]
+24 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+25 verbose lock yo@1.4.6 /home/aovchinnikov/.npm/10fcef76-yo-1-4-6.lock
+26 silly lockFile 5ba8706e-gistry-npmjs-org-yo-yo-1-4-6-tgz https://registry.npmjs.org/yo/-/yo-1.4.6.tgz
+27 verbose lock https://registry.npmjs.org/yo/-/yo-1.4.6.tgz /home/aovchinnikov/.npm/5ba8706e-gistry-npmjs-org-yo-yo-1-4-6-tgz.lock
+28 verbose addRemoteTarball [ 'https://registry.npmjs.org/yo/-/yo-1.4.6.tgz',
+28 verbose addRemoteTarball   '16e03e9af7be4805ef6142cdbb1d15f33504b37b' ]
+29 info retry fetch attempt 1 at 21:02:56
+30 verbose fetch to= /home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/tmp.tgz
+31 http GET https://registry.npmjs.org/yo/-/yo-1.4.6.tgz
+32 http 200 https://registry.npmjs.org/yo/-/yo-1.4.6.tgz
+33 verbose tar unpack /home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/tmp.tgz
+34 silly lockFile 6708c266-75678-0-9921927617397159-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/package
+35 verbose lock tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/package /home/aovchinnikov/.npm/6708c266-75678-0-9921927617397159-package.lock
+36 silly lockFile bf7e4518-75678-0-9921927617397159-tmp-tgz tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/tmp.tgz
+37 verbose lock tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/tmp.tgz /home/aovchinnikov/.npm/bf7e4518-75678-0-9921927617397159-tmp-tgz.lock
+38 silly gunzTarPerm modes [ '755', '644' ]
+39 silly gunzTarPerm extractEntry package.json
+40 silly gunzTarPerm extractEntry lib/cli.js
+41 silly gunzTarPerm extractEntry lib/router.js
+42 silly gunzTarPerm extractEntry lib/routes/clear-config.js
+43 silly gunzTarPerm extractEntry lib/routes/exit.js
+44 silly gunzTarPerm extractEntry lib/routes/help.js
+45 silly gunzTarPerm extractEntry lib/routes/home.js
+46 silly gunzTarPerm extractEntry lib/routes/install.js
+47 silly gunzTarPerm extractEntry lib/routes/run.js
+48 silly gunzTarPerm extractEntry lib/routes/update.js
+49 silly gunzTarPerm extractEntry lib/usage.txt
+50 silly gunzTarPerm extractEntry lib/utils/global-config.js
+51 silly gunzTarPerm extractEntry lib/utils/index.js
+52 silly gunzTarPerm extractEntry readme.md
+53 silly lockFile 6708c266-75678-0-9921927617397159-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/package
+54 silly lockFile 6708c266-75678-0-9921927617397159-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/package
+55 silly lockFile bf7e4518-75678-0-9921927617397159-tmp-tgz tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/tmp.tgz
+56 silly lockFile bf7e4518-75678-0-9921927617397159-tmp-tgz tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/tmp.tgz
+57 verbose tar pack [ '/home/aovchinnikov/.npm/yo/1.4.6/package.tgz',
+57 verbose tar pack   '/home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/package' ]
+58 verbose tarball /home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+59 verbose folder /home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/package
+60 silly lockFile 6708c266-75678-0-9921927617397159-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/package
+61 verbose lock tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/package /home/aovchinnikov/.npm/6708c266-75678-0-9921927617397159-package.lock
+62 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+63 verbose lock tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz /home/aovchinnikov/.npm/6f05587c-innikov-npm-yo-1-4-6-package-tgz.lock
+64 silly lockFile 6708c266-75678-0-9921927617397159-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/package
+65 silly lockFile 6708c266-75678-0-9921927617397159-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615375678-0.9921927617397159/package
+66 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+67 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+68 silly lockFile 33c29fd0-ovchinnikov-npm-yo-1-4-6-package /home/aovchinnikov/.npm/yo/1.4.6/package
+69 verbose lock /home/aovchinnikov/.npm/yo/1.4.6/package /home/aovchinnikov/.npm/33c29fd0-ovchinnikov-npm-yo-1-4-6-package.lock
+70 silly lockFile 33c29fd0-ovchinnikov-npm-yo-1-4-6-package /home/aovchinnikov/.npm/yo/1.4.6/package
+71 silly lockFile 33c29fd0-ovchinnikov-npm-yo-1-4-6-package /home/aovchinnikov/.npm/yo/1.4.6/package
+72 verbose tar unpack /home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+73 silly lockFile 81226a2a-ovchinnikov-npm-yo-1-4-6-package tar:///home/aovchinnikov/.npm/yo/1.4.6/package
+74 verbose lock tar:///home/aovchinnikov/.npm/yo/1.4.6/package /home/aovchinnikov/.npm/81226a2a-ovchinnikov-npm-yo-1-4-6-package.lock
+75 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+76 verbose lock tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz /home/aovchinnikov/.npm/6f05587c-innikov-npm-yo-1-4-6-package-tgz.lock
+77 silly gunzTarPerm modes [ '755', '644' ]
+78 silly gunzTarPerm extractEntry package.json
+79 silly gunzTarPerm extractEntry lib/cli.js
+80 silly gunzTarPerm extractEntry lib/router.js
+81 silly gunzTarPerm extractEntry lib/routes/clear-config.js
+82 silly gunzTarPerm extractEntry lib/routes/exit.js
+83 silly gunzTarPerm extractEntry lib/routes/help.js
+84 silly gunzTarPerm extractEntry lib/routes/home.js
+85 silly gunzTarPerm extractEntry lib/routes/install.js
+86 silly gunzTarPerm extractEntry lib/routes/run.js
+87 silly gunzTarPerm extractEntry lib/routes/update.js
+88 silly gunzTarPerm extractEntry lib/usage.txt
+89 silly gunzTarPerm extractEntry lib/utils/global-config.js
+90 silly gunzTarPerm extractEntry lib/utils/index.js
+91 silly gunzTarPerm extractEntry readme.md
+92 silly lockFile 81226a2a-ovchinnikov-npm-yo-1-4-6-package tar:///home/aovchinnikov/.npm/yo/1.4.6/package
+93 silly lockFile 81226a2a-ovchinnikov-npm-yo-1-4-6-package tar:///home/aovchinnikov/.npm/yo/1.4.6/package
+94 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+95 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+96 verbose chmod /home/aovchinnikov/.npm/yo/1.4.6/package.tgz 644
+97 verbose chown /home/aovchinnikov/.npm/yo/1.4.6/package.tgz [ 1000, 1000 ]
+98 silly lockFile 5ba8706e-gistry-npmjs-org-yo-yo-1-4-6-tgz https://registry.npmjs.org/yo/-/yo-1.4.6.tgz
+99 silly lockFile 5ba8706e-gistry-npmjs-org-yo-yo-1-4-6-tgz https://registry.npmjs.org/yo/-/yo-1.4.6.tgz
+100 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+101 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+102 silly lockFile ec8b77ae-yo yo@*
+103 silly lockFile ec8b77ae-yo yo@*
+104 info outdated updating [ [ '/usr/local/lib', 'yo', '1.1.2', '1.4.6', '*' ] ]
+105 verbose install where,what [ '/usr/local/lib', [ 'yo@1.4.6' ] ]
+106 verbose cache add [ 'yo@1.4.6', null ]
+107 verbose cache add name=undefined spec="yo@1.4.6" args=["yo@1.4.6",null]
+108 verbose parsed url { protocol: null,
+108 verbose parsed url   slashes: null,
+108 verbose parsed url   auth: null,
+108 verbose parsed url   host: null,
+108 verbose parsed url   port: null,
+108 verbose parsed url   hostname: null,
+108 verbose parsed url   hash: null,
+108 verbose parsed url   search: null,
+108 verbose parsed url   query: null,
+108 verbose parsed url   pathname: 'yo@1.4.6',
+108 verbose parsed url   path: 'yo@1.4.6',
+108 verbose parsed url   href: 'yo@1.4.6' }
+109 verbose cache add name="yo" spec="1.4.6" args=["yo","1.4.6"]
+110 verbose parsed url { protocol: null,
+110 verbose parsed url   slashes: null,
+110 verbose parsed url   auth: null,
+110 verbose parsed url   host: null,
+110 verbose parsed url   port: null,
+110 verbose parsed url   hostname: null,
+110 verbose parsed url   hash: null,
+110 verbose parsed url   search: null,
+110 verbose parsed url   query: null,
+110 verbose parsed url   pathname: '1.4.6',
+110 verbose parsed url   path: '1.4.6',
+110 verbose parsed url   href: '1.4.6' }
+111 verbose addNamed [ 'yo', '1.4.6' ]
+112 verbose addNamed [ '1.4.6', '1.4.6' ]
+113 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+114 verbose lock yo@1.4.6 /home/aovchinnikov/.npm/10fcef76-yo-1-4-6.lock
+115 verbose url raw yo/1.4.6
+116 verbose url resolving [ 'https://registry.npmjs.org/', './yo/1.4.6' ]
+117 verbose url resolved https://registry.npmjs.org/yo/1.4.6
+118 info trying registry request attempt 1 at 21:02:57
+119 http GET https://registry.npmjs.org/yo/1.4.6
+120 http 200 https://registry.npmjs.org/yo/1.4.6
+121 silly registry.get cb [ 200,
+121 silly registry.get   { date: 'Tue, 17 Mar 2015 18:02:55 GMT',
+121 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+121 silly registry.get     etag: '"AL8H0AFKR1UKOTGJ8EDIZUSO7"',
+121 silly registry.get     'content-type': 'application/json',
+121 silly registry.get     'cache-control': 'max-age=60',
+121 silly registry.get     'content-length': '2143',
+121 silly registry.get     'accept-ranges': 'bytes',
+121 silly registry.get     via: '1.1 varnish',
+121 silly registry.get     age: '0',
+121 silly registry.get     'x-served-by': 'cache-ams4145-AMS',
+121 silly registry.get     'x-cache': 'MISS',
+121 silly registry.get     'x-cache-hits': '0',
+121 silly registry.get     'x-timer': 'S1426615375.725441,VS0,VE114',
+121 silly registry.get     vary: 'Accept',
+121 silly registry.get     'keep-alive': 'timeout=10, max=50',
+121 silly registry.get     connection: 'Keep-Alive' } ]
+122 silly lockFile 5ba8706e-gistry-npmjs-org-yo-yo-1-4-6-tgz https://registry.npmjs.org/yo/-/yo-1.4.6.tgz
+123 verbose lock https://registry.npmjs.org/yo/-/yo-1.4.6.tgz /home/aovchinnikov/.npm/5ba8706e-gistry-npmjs-org-yo-yo-1-4-6-tgz.lock
+124 verbose addRemoteTarball [ 'https://registry.npmjs.org/yo/-/yo-1.4.6.tgz',
+124 verbose addRemoteTarball   '16e03e9af7be4805ef6142cdbb1d15f33504b37b' ]
+125 info retry fetch attempt 1 at 21:02:57
+126 verbose fetch to= /home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/tmp.tgz
+127 http GET https://registry.npmjs.org/yo/-/yo-1.4.6.tgz
+128 http 200 https://registry.npmjs.org/yo/-/yo-1.4.6.tgz
+129 verbose tar unpack /home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/tmp.tgz
+130 silly lockFile 3060910d-7356-0-46163254138082266-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/package
+131 verbose lock tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/package /home/aovchinnikov/.npm/3060910d-7356-0-46163254138082266-package.lock
+132 silly lockFile a4f4ae85-7356-0-46163254138082266-tmp-tgz tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/tmp.tgz
+133 verbose lock tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/tmp.tgz /home/aovchinnikov/.npm/a4f4ae85-7356-0-46163254138082266-tmp-tgz.lock
+134 silly gunzTarPerm modes [ '755', '644' ]
+135 silly gunzTarPerm extractEntry package.json
+136 silly gunzTarPerm extractEntry lib/cli.js
+137 silly gunzTarPerm extractEntry lib/router.js
+138 silly gunzTarPerm extractEntry lib/routes/clear-config.js
+139 silly gunzTarPerm extractEntry lib/routes/exit.js
+140 silly gunzTarPerm extractEntry lib/routes/help.js
+141 silly gunzTarPerm extractEntry lib/routes/home.js
+142 silly gunzTarPerm extractEntry lib/routes/install.js
+143 silly gunzTarPerm extractEntry lib/routes/run.js
+144 silly gunzTarPerm extractEntry lib/routes/update.js
+145 silly gunzTarPerm extractEntry lib/usage.txt
+146 silly gunzTarPerm extractEntry lib/utils/global-config.js
+147 silly gunzTarPerm extractEntry lib/utils/index.js
+148 silly gunzTarPerm extractEntry readme.md
+149 silly lockFile 3060910d-7356-0-46163254138082266-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/package
+150 silly lockFile 3060910d-7356-0-46163254138082266-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/package
+151 silly lockFile a4f4ae85-7356-0-46163254138082266-tmp-tgz tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/tmp.tgz
+152 silly lockFile a4f4ae85-7356-0-46163254138082266-tmp-tgz tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/tmp.tgz
+153 verbose tar pack [ '/home/aovchinnikov/.npm/yo/1.4.6/package.tgz',
+153 verbose tar pack   '/home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/package' ]
+154 verbose tarball /home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+155 verbose folder /home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/package
+156 silly lockFile 3060910d-7356-0-46163254138082266-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/package
+157 verbose lock tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/package /home/aovchinnikov/.npm/3060910d-7356-0-46163254138082266-package.lock
+158 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+159 verbose lock tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz /home/aovchinnikov/.npm/6f05587c-innikov-npm-yo-1-4-6-package-tgz.lock
+160 silly lockFile 3060910d-7356-0-46163254138082266-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/package
+161 silly lockFile 3060910d-7356-0-46163254138082266-package tar:///home/aovchinnikov/tmp/npm-13789-F2-wRVuI/1426615377356-0.46163254138082266/package
+162 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+163 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+164 silly lockFile 33c29fd0-ovchinnikov-npm-yo-1-4-6-package /home/aovchinnikov/.npm/yo/1.4.6/package
+165 verbose lock /home/aovchinnikov/.npm/yo/1.4.6/package /home/aovchinnikov/.npm/33c29fd0-ovchinnikov-npm-yo-1-4-6-package.lock
+166 silly lockFile 33c29fd0-ovchinnikov-npm-yo-1-4-6-package /home/aovchinnikov/.npm/yo/1.4.6/package
+167 silly lockFile 33c29fd0-ovchinnikov-npm-yo-1-4-6-package /home/aovchinnikov/.npm/yo/1.4.6/package
+168 verbose tar unpack /home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+169 silly lockFile 81226a2a-ovchinnikov-npm-yo-1-4-6-package tar:///home/aovchinnikov/.npm/yo/1.4.6/package
+170 verbose lock tar:///home/aovchinnikov/.npm/yo/1.4.6/package /home/aovchinnikov/.npm/81226a2a-ovchinnikov-npm-yo-1-4-6-package.lock
+171 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+172 verbose lock tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz /home/aovchinnikov/.npm/6f05587c-innikov-npm-yo-1-4-6-package-tgz.lock
+173 silly gunzTarPerm modes [ '755', '644' ]
+174 silly gunzTarPerm extractEntry package.json
+175 silly gunzTarPerm extractEntry lib/cli.js
+176 silly gunzTarPerm extractEntry lib/router.js
+177 silly gunzTarPerm extractEntry lib/routes/clear-config.js
+178 silly gunzTarPerm extractEntry lib/routes/exit.js
+179 silly gunzTarPerm extractEntry lib/routes/help.js
+180 silly gunzTarPerm extractEntry lib/routes/home.js
+181 silly gunzTarPerm extractEntry lib/routes/install.js
+182 silly gunzTarPerm extractEntry lib/routes/run.js
+183 silly gunzTarPerm extractEntry lib/routes/update.js
+184 silly gunzTarPerm extractEntry lib/usage.txt
+185 silly gunzTarPerm extractEntry lib/utils/global-config.js
+186 silly gunzTarPerm extractEntry lib/utils/index.js
+187 silly gunzTarPerm extractEntry readme.md
+188 silly lockFile 81226a2a-ovchinnikov-npm-yo-1-4-6-package tar:///home/aovchinnikov/.npm/yo/1.4.6/package
+189 silly lockFile 81226a2a-ovchinnikov-npm-yo-1-4-6-package tar:///home/aovchinnikov/.npm/yo/1.4.6/package
+190 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+191 silly lockFile 6f05587c-innikov-npm-yo-1-4-6-package-tgz tar:///home/aovchinnikov/.npm/yo/1.4.6/package.tgz
+192 verbose chmod /home/aovchinnikov/.npm/yo/1.4.6/package.tgz 644
+193 verbose chown /home/aovchinnikov/.npm/yo/1.4.6/package.tgz [ 1000, 1000 ]
+194 silly lockFile 5ba8706e-gistry-npmjs-org-yo-yo-1-4-6-tgz https://registry.npmjs.org/yo/-/yo-1.4.6.tgz
+195 silly lockFile 5ba8706e-gistry-npmjs-org-yo-yo-1-4-6-tgz https://registry.npmjs.org/yo/-/yo-1.4.6.tgz
+196 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+197 silly lockFile 10fcef76-yo-1-4-6 yo@1.4.6
+198 silly resolved [ { name: 'yo',
+198 silly resolved     version: '1.4.6',
+198 silly resolved     description: 'CLI tool for running Yeoman generators',
+198 silly resolved     license: 'BSD',
+198 silly resolved     bin: { yo: 'lib/cli.js' },
+198 silly resolved     author: { name: 'Yeoman team' },
+198 silly resolved     repository: { type: 'git', url: 'git://github.com/yeoman/yo' },
+198 silly resolved     engines: { node: '>=0.10.0', npm: '>=2.1.0' },
+198 silly resolved     scripts:
+198 silly resolved      { test: 'jshint . && mocha test/**/*.js',
+198 silly resolved        postinstall: 'yodoctor',
+198 silly resolved        postupdate: 'yodoctor',
+198 silly resolved        prepublish: 'nsp audit-package' },
+198 silly resolved     files: [ 'lib' ],
+198 silly resolved     keywords:
+198 silly resolved      [ 'cli-app',
+198 silly resolved        'cli',
+198 silly resolved        'bin',
+198 silly resolved        'front-end',
+198 silly resolved        'development',
+198 silly resolved        'dev',
+198 silly resolved        'build',
+198 silly resolved        'web',
+198 silly resolved        'tool',
+198 silly resolved        'scaffold',
+198 silly resolved        'stack',
+198 silly resolved        'yeoman',
+198 silly resolved        'generator',
+198 silly resolved        'generate',
+198 silly resolved        'app',
+198 silly resolved        'boilerplate' ],
+198 silly resolved     dependencies:
+198 silly resolved      { 'array-uniq': '^1.0.2',
+198 silly resolved        async: '^0.9.0',
+198 silly resolved        chalk: '^1.0.0',
+198 silly resolved        configstore: '^0.3.1',
+198 silly resolved        'cross-spawn': '^0.2.3',
+198 silly resolved        figures: '^1.3.5',
+198 silly resolved        findup: '^0.1.5',
+198 silly resolved        fullname: '^1.0.0',
+198 silly resolved        got: '^2.4.0',
+198 silly resolved        'humanize-string': '^1.0.0',
+198 silly resolved        inquirer: '^0.8.0',
+198 silly resolved        insight: '^0.5.0',
+198 silly resolved        lodash: '^3.2.0',
+198 silly resolved        meow: '^3.0.0',
+198 silly resolved        'npm-keyword': '^1.1.1',
+198 silly resolved        opn: '^1.0.0',
+198 silly resolved        'package-json': '^1.1.0',
+198 silly resolved        'root-check': '^1.0.0',
+198 silly resolved        'sort-on': '^1.0.0',
+198 silly resolved        'string-length': '^1.0.0',
+198 silly resolved        titleize: '^1.0.0',
+198 silly resolved        'update-notifier': '^0.3.0',
+198 silly resolved        'user-home': '^1.1.0',
+198 silly resolved        'yeoman-character': '^1.0.0',
+198 silly resolved        'yeoman-doctor': '^1.0.0',
+198 silly resolved        'yeoman-environment': '^1.0.1',
+198 silly resolved        yosay: '^1.0.0' },
+198 silly resolved     devDependencies:
+198 silly resolved      { jshint: '^2.5.11',
+198 silly resolved        mocha: '^2.1.0',
+198 silly resolved        mockery: '^1.4.0',
+198 silly resolved        nock: '^0.59.1',
+198 silly resolved        nsp: '*',
+198 silly resolved        proxyquire: '^1.0.1',
+198 silly resolved        'registry-url': '^3.0.0',
+198 silly resolved        sinon: '^1.12.1' },
+198 silly resolved     preferGlobal: true,
+198 silly resolved     readme: '▂▂╱▔▔▔▔▔▔▔▔▔▔╲  \n╲▂┈╭╮╱╱╭┳━━━╮▕  \n┈┈▏┃╰╮╭╯┃╭━╮┃▕  \n┈┈▏╰╮╰╯╭┫┃╱┃┃▕  \n┈┈▏╱╰╮╭╯┃┃╱┃┃▕  \n┈┈▏╱╱┃┃╱┃╰━╯┃▕  \n┈┈▏╱╱╰╯╱╰━━━╯▕  \n┈┈╲▂▂▂▂▂▂▂▂▂▂╱\n\n\n[![Build Status](https://travis-ci.org/yeoman/yo.svg?branch=master)](https://travis-ci.org/yeoman/yo) ![](http://img.shields.io/badge/unicorn-approved-ff69b4.svg)\n\n> CLI tool for running Yeoman [generators](http://yeoman.io/generators/)\n\n<img src="screenshot.png" width="569">\n\n\n## [Documentation](https://github.com/yeoman/yeoman/wiki)\n\n\n## Options\n\n- `--no-color` flag to disable colors.\n- `--version` Print the current `yo` version.\n- `--help` Print `yo` help menu with the list of found generators\n- `--[no-]insight` to toggle anonymous [Insight](https://github.com/yeoman/insight) tracking which helps us improve Yeoman. Using either of these flags on the first run will prevent you from being prompted about it interactively. The flags can also be used to change it later on.\n- `--generators` will output the available generators\n\n\n## Troubleshooting\n\nRunning `yo doctor` command can help you troubleshoot common issues.\n\nIf `doctor` doesn\'t help, then check opened issues for a similar problem. Open a new issue if your problem haven\'t been reported yet. Make sure to always include the version of `yo` (`yo --version`) and Node.js (`node --version`) you use.\n\nIf your issue only occur using a generator, please report the issues on the generator\'s repository.\n\n\n## Contribute\n\nSee the [contributing docs](https://github.com/yeoman/yeoman/blob/master/contributing.md).\n\n\n## Changelog\n\nSee the [release page](https://github.com/yeoman/yo/releases).\n\n\n## License\n\n[BSD license](http://opensource.org/licenses/bsd-license.php) and copyright Google.\n',
+198 silly resolved     readmeFilename: 'readme.md',
+198 silly resolved     bugs: { url: 'https://github.com/yeoman/yo/issues' },
+198 silly resolved     _id: 'yo@1.4.6',
+198 silly resolved     dist: { shasum: '60a1fb742f24d47745c7dd15fbc4235c130832f1' },
+198 silly resolved     _from: 'yo@1.4.6',
+198 silly resolved     _resolved: 'https://registry.npmjs.org/yo/-/yo-1.4.6.tgz' } ]
+199 info install yo@1.4.6 into /usr/local/lib
+200 info installOne yo@1.4.6
+201 warn engine yo@1.4.6: wanted: {"node":">=0.10.0","npm":">=2.1.0"} (current: {"node":"v0.10.25","npm":"1.3.10"})
+202 info /usr/local/lib/node_modules/yo unbuild
+203 info preuninstall yo@1.1.2
+204 info uninstall yo@1.1.2
+205 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild yo@1.1.2
+206 verbose /usr/local/bin,[object Object] binRoot
+207 info /usr/local/lib/node_modules/yo unbuild
+208 info preuninstall yo@1.1.2
+209 info uninstall yo@1.1.2
+210 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild yo@1.1.2
+211 verbose /usr/local/bin,[object Object] binRoot
+212 error error rolling back Error: EACCES, unlink '/usr/local/bin/yo'
+212 error error rolling back  yo@1.4.6 { [Error: EACCES, unlink '/usr/local/bin/yo'] errno: 3, code: 'EACCES', path: '/usr/local/bin/yo' }
+213 error Error: EACCES, unlink '/usr/local/bin/yo'
+213 error  { [Error: EACCES, unlink '/usr/local/bin/yo'] errno: 3, code: 'EACCES', path: '/usr/local/bin/yo' }
+214 error Please try running this command again as root/Administrator.
+215 error System Linux 3.13.0-24-generic
+216 error command "/usr/bin/nodejs" "/usr/bin/npm" "update" "-g" "yo"
+217 error cwd /home/aovchinnikov/work/keddo/frontend/app
+218 error node -v v0.10.25
+219 error npm -v 1.3.10
+220 error path /usr/local/bin/yo
+221 error code EACCES
+222 error errno 3
+223 error stack Error: EACCES, unlink '/usr/local/bin/yo'
+224 verbose exit [ 3, true ]

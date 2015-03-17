@@ -32,7 +32,6 @@ angular.module('frontendApp')
       var username = data.username;
       var password = btoa(data.password);
 
-      window.l = $location;
       authRes.POST({data:{username:username,password:password}})
       .$promise
       .then(
