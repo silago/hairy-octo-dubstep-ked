@@ -1,34 +1,26 @@
+:)
 <div >
     <div class="columns large-4">
-            {{block.data.countries[0].name}}
             <div ng-switch="block.data.map_type">
-                <div ng-swith-when="firm" ng-init="selected_city=-1">
+                <div ng-swith-when="firm">
                     <h4>Где купить KEDDO </h4>
                     <h5> В России </h5>
-                    <select ng-if="block.data.countries" ng-model="selected_city">
-                        <optgroup style="border:1px solid red;" ng-repeat="country in block.data.countries" ng-show="country.name=='Россия'">
-                            <option ng-value="{{4}}" ng-repeat="city in country.cities">
-                            {{city.name}}
-                            </option>
-                        <optgroup>
-                        </span>
+                    <select ng-model="selected_country">
+                        <option> Выберите город </option>
+                        <option> Москва</option>
+                        <option> Санкт-Петербург </option>
                     </select>
                         
                     <h5> В мире </h5>
-                    <select ng-if="block.data.countries" ng-model="selected_city">
-                        <optgroup style="border:1px solid red;" ng-repeat="country in block.data.countries" ng-show="country.name!=='Россия'">
-                            <option ng-repeat="city in country.cities">
-                            {{city.name}}
-                            </option>
-                        <optgroup>
-                        </span>
+                    <select ng-model="selected_country">
+                        <option> Выберите город </option>
+                        <option> Москва</option>
+                        <option> Санкт-Петербург </option>
                     </select>
-
-                    {{selected_city}}
-                    <ul ng-if="selected_city"> 
+                    
+                    <ul> 
                         <li> <label> Города в городе </label> </li>
-                        <li ng-repeat="shop in selected_city.shops"> <a href ng-click="focus_to_city_maybe">{{shop.name}} </a> </li>
-                        
+                        <li> <a href ng-click="focus_to_city_maybe">Moscow</a> </li>
                     </ul>
                 </div>
 

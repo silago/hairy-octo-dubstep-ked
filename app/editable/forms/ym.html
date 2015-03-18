@@ -1,6 +1,17 @@
 <div>
     <div class="row collapse subscribe">
         <div class="small-10 columns">
+          <select ng-model="item.data['map_type']" type="text" placeholder="style">
+              <option value="firm"> Фирменные магазины </option>
+              <option value="partner"> Партнерские магазины </option>
+          </select>
+        </div>
+        <div class="small-2 columns">
+          <label class="postfix" href="#">Тип карты</label>
+        </div>
+    </div>
+    <div class="row collapse subscribe">
+        <div class="small-10 columns">
           <select ng-model="item.data['class']" type="text" placeholder="style">
               <option value="large-centered"> По центру </option>
               <option value="large-3 columns"> 1/4 </option>
@@ -18,18 +29,18 @@
         <ul>  
             <li ng-repeat="country in item.data.countries">
                    <a href editable-text="country.name">{{ country.name || "empty" }}</a>
-                   <a href> x </a>
+                   <a ng-click="item.data.countries.splice($index,1)"> x </a>
                    <ul> 
                         <li ng-repeat="city in country.cities"> 
                             <a editable-text="city.name" href>{{city.name}}</a>
-                            <a href> x </a>
+                            <a href ng-click="country.cities.splice($index,1)"> x </a>
                             <ul> 
                                 <li ng-repeat="shop in city.shops">
                                         <ul>
-                                            <li><a href editable-text="shop.name"> {{shop.name} </a></li>
+                                            <li><a href editable-text="shop.name"> {{shop.name}} </a></li>
                                                 <li><a href editable-text="shop.description"> {{shop.description}}</a> </li>
                                                 <li><a href editable-text="shop.coords"> {{shop.coords}}</a> </li>
-                                            <li> x </li>
+                                                <li><a href ng-click="city.shops.splice($index,1)"> x </a></li>
                                         </ul>
                                 </li>
                                 <li><a href ng-click="city.shops.push({name:'Terra',description:'Incognita',coords:'0.0000 0.0000'})"> New Shop </a> </li>
@@ -40,7 +51,7 @@
             </li>
             <li><a href ng-click="item.data.countries.push({name:'Terra Incognita',cities:[]})"> New Country </a> </li>
         </ul>
-
+    <div> 
 
 
 </div>
