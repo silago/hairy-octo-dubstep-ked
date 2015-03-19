@@ -1,38 +1,33 @@
 <div >
     <div class="columns large-4">
-            {{block.data.countries[0].name}}
-            <div ng-switch="block.data.map_type">
-                <div ng-swith-when="firm" ng-init="selected_city=-1">
+            <div>
+                <div ng-if="block.data.map_type=='firm'" ng-init="selected_city=-1">
                     <h4>Где купить KEDDO </h4>
                     <h5> В России </h5>
-                    <select ng-if="block.data.countries" ng-model="selected_city">
+                    <select ng-if="block.data.countries" ng-model="$parent.selected_city">
                         <optgroup style="border:1px solid red;" ng-repeat="country in block.data.countries" ng-show="country.name=='Россия'">
-                            <option ng-value="{{4}}" ng-repeat="city in country.cities">
+                            <option ng-value="[$parent.$index,$index]" value ng-repeat="city in country.cities">
                             {{city.name}}
                             </option>
                         <optgroup>
-                        </span>
                     </select>
                         
                     <h5> В мире </h5>
-                    <select ng-if="block.data.countries" ng-model="selected_city">
-                        <optgroup style="border:1px solid red;" ng-repeat="country in block.data.countries" ng-show="country.name!=='Россия'">
-                            <option ng-repeat="city in country.cities">
+                    <select ng-if="block.data.countries" ng-model="$parent.selected_city">
+                        <optgroup style="border:1px solid red;" ng-repeat="country in block.data.countries" ng-show="country.name!='Россия'">
+                            <option ng-value="[$parent.$index,$index]" value ng-repeat="city in country.cities">
                             {{city.name}}
                             </option>
                         <optgroup>
-                        </span>
                     </select>
 
-                    {{selected_city}}
                     <ul ng-if="selected_city"> 
                         <li> <label> Города в городе </label> </li>
-                        <li ng-repeat="shop in selected_city.shops"> <a href ng-click="focus_to_city_maybe">{{shop.name}} </a> </li>
-                        
+                        <li ng-repeat="shop in block.data.countries[selected_city.split(',')[0]].cities[selected_city.split(',')[1]].shops"> <a href ng-click="focus_to_city_maybe">{{shop.name}} </a> </li>
                     </ul>
                 </div>
 
-                <div ng-swith-when="partner">
+                <div ng-if="block.data.map_type=='partner'">
                     <h4>Поиск магазинов </h4>
                     <small>Введите адресные данные и блаблабла</small>
                     <label> Страна </label>
@@ -54,7 +49,9 @@
     </div>
 
     <div class="columns large-8">
-         the map will be here
+        <div id="YMapsID" style="zwidth:600px;height:400px"></div>
+
+        </div>
     </div>
 
 </div>
