@@ -6,7 +6,7 @@
                          as-sortable
 
                          jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
-                         <span class="{{block.data.class || 'columns large-12' }}" as-sortable-item ng-repeat="block in page.subitems">
+                         <span class="{{block.data.class || '' }}" as-sortable-item ng-repeat="block in page.subitems">
                          <!--
                              <span class="moveHolder" as-sortable-item-handle > <b> >> </b> </span>
                          -->
