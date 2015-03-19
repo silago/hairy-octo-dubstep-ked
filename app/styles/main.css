@@ -1,5 +1,27 @@
 
 
+
+
+div .flex-control-nav {
+    width: 20px;
+    position: absolute;
+    top: 10%;
+    text-align: center;
+    z-index: 99;
+    right: 0%; 
+    height:1px;
+    margin-right: 40px;
+}
+
+div .flex-control-nav li {
+    margin: 0 6px;
+    display: block;
+    zoom: 1;
+    margin-bottom: 10px;
+}
+
+
+
 .flex-direction-nav a:before {
     display:none;
 }
