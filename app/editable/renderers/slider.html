@@ -3,7 +3,7 @@
         <li>
             <a
              style=" height:{{innerHeight-98 || '0'}}px; display:block; overflow:hidden; width:100%; background-image:url('{{s.src}}'); background-position:50% 0%;
-                {{ (width>1600 ? 'background-size:100%;' : '') }} 
+             {{ (innerWidth>1900 ? 'background-size:100%;' : '') }} 
             "
              ng-href="{{ (!!s.href ? s.href : 'javascript:void(0);') }}"> 
                 <!--
