@@ -1,4 +1,18 @@
-
+div .block-type-slider.column {
+    padding:0px!important;
+}
+div .block-type-slider.column .sub_block_controls {
+  z-index: 4;
+  background-color: #242424;
+  margin-top: -5px!important;
+  position: absolute;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+}
+.flexslider {
+    border:0px!important;
+}
 
 
 
