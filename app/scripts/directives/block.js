@@ -29,6 +29,7 @@ angular.module('frontendApp')
             scope.catalogCollectionTranslate = window.catalogCollectionTranslate;
             scope.catalogRes = catalogRes;
             scope.innerHeight = angular.element(window).height();
+            scope.innerWidth = angular.element(window).width();
             scope.f = 'fpp';
         }
     };
