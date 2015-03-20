@@ -803,6 +803,9 @@ color:lightgray!important;
 
 
   @media (min-width: 768px) {
+ .block-type-rw {
+    padding:0px 120px;
+ }
 
 .top-menu-left ul li, .top-menu-left ul {
     border-radius: 5px; 
