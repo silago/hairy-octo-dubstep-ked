@@ -4,7 +4,7 @@ div .block-type-slider.column {
 div .block-type-slider.column .sub_block_controls {
   z-index: 4;
   background-color: #242424;
-  margin-top:35px!important;
+  z-margin-top:35px!important;
   position: absolute;
   border-radius: 5px;
   padding: 5px;
@@ -12,6 +12,7 @@ div .block-type-slider.column .sub_block_controls {
 }
 .flexslider {
     border:0px!important;
+    margin: 0 0 0px!important;
 }
 
 
