@@ -167,8 +167,15 @@ background-color: #656565;
 div .row {
     max-width: 75rem;
 }
+
+.internet-shops .as_li > a {
+    font-size: 24px !important;
+}
 .top-bar .as-sortable-item-handle b {
     color:#fff!important;
+}
+.top-bar ul.dropdown {
+    background-color:#000;
 }
 .as-sortable-placeholder {
 float: left;

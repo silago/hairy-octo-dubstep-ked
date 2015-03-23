@@ -9,7 +9,7 @@
                     <img style="{{block.data.style}}" ng-src="{{block.data.src}}" />
                 </a>
 
-                <ul ng-if="block.type=='top_menu'"  z-top-bar-dropdown class="dropdown" ng-if="block.subitems">
+                <ul ng-if="block.subitems" z-top-bar-dropdown class="dropdown">
                     <ng-include ng-repeat="block in block.subitems" src="'views/renderers/ul_block_holder.html'"> </ng-include>
                 </ul>
             </li>   
@@ -47,10 +47,10 @@ i
                             </li>
 
                             <li
-class="menu-catalog-after"
-ng-if="cs.after_menu"
-ng-bind-html="trust(cs.after_menu)"
-                         >
+                                class="menu-catalog-after"
+                                ng-if="cs.after_menu"
+                                ng-bind-html="trust(cs.after_menu)"
+                             >
                             </li>
 <!--
 <li style="display: inline-block;">
