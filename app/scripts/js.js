@@ -73,19 +73,19 @@ function CSVToArray(strData, strDelimiter) {
 }
 
 
-Array.prototype.filter = function (key,value,childKey){
-        var keys = Object.keys(this);
-        var walk = function(data) {
-            for (var i=0; i<data.length; i++){
-                if (data[i][key]===value)
-                    return data[i];
-                var inChild = walk(key,value,this[childKey]);
-                if (inChild) return inChild;
-            }
-        }
-        return walk(this);
-
-    }
+//Array.prototype.filter = function (key,value,childKey){
+//        var keys = Object.keys(this);
+//        var walk = function(data) {
+//            for (var i=0; i<data.length; i++){
+//                if (data[i][key]===value)
+//                    return data[i];
+//                var inChild = walk(key,value,this[childKey]);
+//                if (inChild) return inChild;
+//            }
+//        }
+//        return walk(this);
+//
+//    }
 
 Array.prototype.last = function () {
     return this[this.length];
@@ -183,7 +183,76 @@ Object.defineProperty(Object.prototype, "$$hasDefined", {enumerable: false})
 String.prototype.fromJson = function(){
    return angular.fromJson(this);
 }
+//Array.prototype.$$inSub = function(key,f,method){
+//    if (method=='plus') {
+//        var result=[];
+//        this.forEach(function($item,$index) {
+//            result+=eval('$item.'+f);
+//        });
+//        return result;
+//    }
+//}
 
+
+Array.prototype.$$inSub = function(key,f,method){
+    if (method=='plus') {
+        var result=[];
+        this.forEach(function($item,$index) {
+          eval('result.push($item.'+key+'.'+f+')');
+        });
+        var t = [];
+        result.forEach(function($item,$index) {
+            $item.forEach(function($sitem,$sindex) {
+                t.push($sitem);
+            });
+        });
+        return t;;
+        
+    }
+}
+
+Object.defineProperty(Array.prototype, "$$inSub", {enumerable: false})
+
+Array.prototype.$$search = function(key,words){
+   var result = [];
+   var wordsArray = words.replace(',',' ').split(' ');
+   this.forEach(function($item,$index) {
+        var count = 0;
+        wordsArray.forEach(function($witem,$windex) {
+            if ($item[key].toLowerCase().indexOf($witem.toLowerCase())!=-1) {
+                count++;
+            }
+        });       
+        result[$index]=[$item,count]; 
+   });
+   //console.log(result);
+   result = result.filter(function(el){return el[1]>0;})
+   .sort(function(a,b){return -(a[1]-b[1]);});
+   result.forEach(function($item,$index){
+        result[$index]=$item[0];
+   });
+   return result;
+}
+
+//Array.prototype.$$search = function(key,words){
+//   var result = [];
+//   var wordsArray = words.replace(',',' ').split(' ');
+//   this.forEach(function($item,$index) {
+//        var count = 0;
+//        words.forEach(function($witem,$windex) {
+//            if ($item[key].indexOf($windex)!=-1) {
+//                count++;
+//            }
+//        });       
+//        result[$index]=[$item,count]; 
+//   });
+//   result = result.filter(function(el){el[1]>0}).sort(function(a,b){return a[1]-b[1];});
+//   result.forEach(function($item,$index){
+//        result[$index]=$item[0];
+//   });
+//   return result;
+//}
+Object.defineProperty(Array.prototype, "$$search", {enumerable: false})
 
 function translate() {
     // finda all blocks 

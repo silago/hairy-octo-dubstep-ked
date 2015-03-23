@@ -5,7 +5,7 @@
                     <h4>Где купить KEDDO </h4>
                     <h5> В России </h5>
                     <select ng-if="block.data.countries" ng-model="$parent.selected_city">
-                        <optgroup style="border:1px solid red;" ng-repeat="country in block.data.countries" ng-show="country.name=='Россия'">
+                        <optgroup ng-repeat="country in block.data.countries" ng-show="country.name=='Россия'">
                             <option ng-value="[$parent.$index,$index]" value ng-repeat="city in country.cities">
                             {{city.name}}
                             </option>
@@ -14,35 +14,42 @@
                         
                     <h5> В мире </h5>
                     <select ng-if="block.data.countries" ng-model="$parent.selected_city">
-                        <optgroup style="border:1px solid red;" ng-repeat="country in block.data.countries" ng-show="country.name!='Россия'">
+                        <optgroup  ng-repeat="country in block.data.countries" ng-show="country.name!='Россия'">
                             <option ng-value="[$parent.$index,$index]" value ng-repeat="city in country.cities">
-                            {{city.name}}
+                            {{city.name}} 
                             </option>
                         <optgroup>
                     </select>
 
-                    <ul ng-if="selected_city"> 
-                        <li> <label> Города в городе </label> </li>
-                        <li ng-repeat="shop in block.data.countries[selected_city.split(',')[0]].cities[selected_city.split(',')[1]].shops"> <a href ng-click="focus_to_city_maybe">{{shop.name}} </a> </li>
+                    <ul class="no-bullet" ng-if="selected_city"> 
+                        <li ng-repeat="shop in block.data.countries[selected_city.split(',')[0]].cities[selected_city.split(',')[1]].shops">
+                            <a href ng-click="focusToLocation(shop.coords);">{{shop.name}} </a>
+                        </li>
                     </ul>
                 </div>
 
-                <div ng-if="block.data.map_type=='partner'">
+                <div ng-if="block.data.map_type=='partner'" ng-init="selected_city=-1">
                     <h4>Поиск магазинов </h4>
-                    <small>Введите адресные данные и блаблабла</small>
+                    <small>Введите адресные данные (например: почтовый индекс город, улица, ...), и мы покажем Вам ближайшие магазины</small>
                     <label> Страна </label>
-                    <select >
-                        <option>Россия </option>
-                        <option>Украина </option>
+                    <select ng-if="block.data.countries" ng-model="$parent.selected_country">
+                        <option ng-value="$index"  ng-repeat="country in block.data.countries">
+                            {{country.name}} 
+                        </option>
                     </select>
                         
                     <label>Адрес</label>
-                    <input type="text" placeholder="" />
-                    <button> Найти магазины </button>
-                    <strong> Результаты </strong>  
-                    <ul> 
-                        <li> <label> Города в городе </label> </li>
-                        <li> <a href ng-click="focus_to_city_maybe">Moscow</a> </li>
+                    <input ng-model="s" type="text" placeholder="" />
+                    <button ng-show="s" ng-click="_result=block.data.countries[selected_country].cities.$$inSub('shops','$$search(\'description\',\''+s+'\')','plus');"> Найти магазины </button>
+                    <hr/>
+                    <strong ng-if="_result!==undefined"> Результаты </strong>  
+                    <p ng-if="_result===[]">Ничего не найдено </p>
+                    <ul ng-if="_result!==[]" class="no-bullet"> 
+                            <li ng-repeat="c in _result">
+                <a href ng-click="focusToLocation(c.coords)">{{c.name}} </a> <br/>
+                <small> {{c.description}}
+                </li>
+                        </div>
                     </ul>
                 </div>
             </div>

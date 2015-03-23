@@ -19,14 +19,11 @@ angular.module('frontendApp')
                 }
                 
                 function setPosition(position) {
-                    var target = {}
-                    target.position = [55.7522200,37.6155600];
-                    $scope.focusToLocation(target);
-                    var target = {};
+                    var coords = [55.7522200,37.6155600];
                     if(position) {
-                        target.position = [position.coords.latitude, position.coords.longitude];
-                        $scope.focusToLocation(target);
+                       coords = [position.coords.latitude, position.coords.longitude];
                     } else { }
+                    $scope.focusToLocation(coords);
                  }
 
                 $scope.prepare = function(){
@@ -53,11 +50,11 @@ angular.module('frontendApp')
                                   geo();
                     });}
 
-                $scope.focusToLocation = function(location){
-                    if (typeof(location.position!='object')) {
-                        location.position=angular.fromJson(location.position);
+                $scope.focusToLocation = function(coords){
+                    if (typeof(coords!='object')) {
+                        coords=angular.fromJson(coords);
                     }
-                    $scope.map.setCenter(location.position);
+                    $scope.map.setCenter(coords);
                     $scope.map.setZoom(12);
                     
                   }
