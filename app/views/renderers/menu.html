@@ -1,3 +1,9 @@
     <div  class="as_li" >
-        <a href="{{block.data.url}}">{{block.data.title}}</a>
+        <span ng-if="block.data.url[0]=='#'">
+            <a href="{{block.data.url}}">{{block.data.title}}</a>
+        </span>
+
+        <span ng-if="block.data.url[0]!='#'">
+            <a href="http://{{block.data.url}}">{{block.data.title}}</a>
+        </span>
     </div>
