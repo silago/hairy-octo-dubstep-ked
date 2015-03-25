@@ -32,32 +32,33 @@
 
                 <div style="margin-top:125px;" zzzng-if="block.data.map_type=='partner'" ng-init="selected_city=-1">
                     <span style="font-size:18px;"> МАГАЗИНЫ </span><br/>
-                    <select ng-if="block.data.countries" ng-model="$parent.selected_country">
+                    <select ng-if="block.data.countries" ng-change="_result=undefined" ng-model="$parent.selected_country">
                         <option style="font-size:18px;"  ng-repeat="(n,country) in block.data.countries" ng-value="n">
                             {{country.name}}
                         </option>
                     </select>
-                    <select ng-if="selected_country!=-1" ng-model="$parent.selected_city">
+                    <select ng-if="selected_country!=-1" ng-change="_result=undefined" ng-model="$parent.selected_city">
                         <option style="font-size:18px;"  ng-value="cn" ng-repeat="(cn, city) in block.data.countries[selected_country].cities track by $index">
                             {{city.name}} 
                         </option>
                     </select>
-                        
+                    <!--                        
                     <input ng-show="selected_city" ng-model="s" type="text" placeholder="" />
+                    --<
                     <!--
                         <button ng-show="s" ng-click="_result=block.data.countries[selected_country].cities[selected_city].shops.S$search('description',s);"> Найти магазины </button>
                     -->
                     <center>
-                        <button class="tiny" style="font-size:14px; background-color:#000; color:#fff;" ng-show="s" ng-click="_result=block.data.countries[selected_country].cities[selected_city].shops">
+                        <button class="tiny" style="font-size:14px; background-color:#000; color:#fff;" ng-click="_result=block.data.countries[selected_country].cities[selected_city].shops">
                         НАЙТИ МАГАЗИНЫ</button>
                     </center>
                     <hr/>
                     <span ng-if="_result!==undefined" style="font-size:18px;"> Результаты </span>  
                     <p ng-if="">Ничего не найдено </p>
                     <ul style="list-style:none;" ng-if="_result" class="no-bullet"> 
-                            <li ng-show="c.description.indexOf(s)!=-1" ng-repeat="c in _result">
+                            <li ng-repeat="c in _result">
     
-           <img width=12px src="images/pl.png" /><a style="font-size:14px; color:#000;" href ng-click="focusToLocation(c.coords)">{{ (selected_city +' '+c.name).tuUpperCase() }}  </a><img width=12px ng-show="c.type='firm'" src="/images/crown.png"/> <br/>
+           <img width=12px src="images/pl.png" /><a style="font-size:14px; color:#000;" href ng-click="focusToLocation(c.coords)">{{ (selected_city +' '+c.name).toUpperCase() }}  </a><img width=12px ng-show="c.type='firm'" src="/images/crown.png"/> <br/>
                             </li>
                         </div>
                     </ul>
