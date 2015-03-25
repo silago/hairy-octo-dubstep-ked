@@ -62,15 +62,12 @@ angular.module('frontendApp')
 
               $scope.makeMap = function(){
                 function createMark (item) {
-                    console.log(item);
                     if (typeof(item.coords) =='string') {
                         item.coords = item.coords.split(' ');
                     }
                     if (item.coords.length == 1) {
                         item.coords = item.coords[0].split(',');
                     }
-                    console.log(item);
-                    console.log(item.coords);
                     item.coords[0]=item.coords[0].replace(/[^\d.]/g,'');
                     item.coords[1]=item.coords[1].replace(/[^\d.]/g,'');
                         if (item.type=='firm')
