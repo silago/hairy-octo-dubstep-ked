@@ -62,32 +62,57 @@ angular.module('frontendApp')
 
               $scope.makeMap = function(){
                 function createMark (item) {
-                    console.log(item);
-                    if (typeof(item.coords!='object')) {
+                    if (typeof(item.coords) =='string') {
                     //    item.position=angular.fromJson(item.coords);
-                    item.coords = item.coords.split(' ');
+                        item.coords = item.coords.split(' ');
                     }
                     item.coords[0]=item.coords[0].replace(/[^\d.]/g,'');
                     item.coords[1]=item.coords[1].replace(/[^\d.]/g,'');
-                        var placemark = new ymaps.Placemark(item.coords, {
-                                balloonContent: item.description,
-                                hintContent: item.name, 
-                            });
+                        if (item.type=='firm')
+                            var placemark = new ymaps.Placemark(item.coords, {balloonContent: item.description,hintContent: item.name},{iconImageHref: 'images/crown.png',
+    iconLayout: 'default#image',
+        iconImageSize: [30, 42],
+        iconImageOffset: [-3, -42]
+
+});
+                        else
+                            var placemark = new ymaps.Placemark(item.coords, {balloonContent: item.description,hintContent: item.name},{iconImageHref: 'images/crown.png'});
                         $scope.map.geoObjects.add(placemark);//new ymaps.Placemark(i.position,{balloonContent:i.name}));
                 }
 
-                for (var i = 0, il = $scope.block.data.countries.length; i < il; i++) 
-                    for (var k = 0, kl = $scope.block.data.countries[i].cities.length; k < kl; k++) 
-                        for (var j = 0, jl = $scope.block.data.countries[i].cities[k].shops.length; j < jl; j++) {
-                           
-                            if (typeof($scope.block.data.countries[i].cities[k].shops[j].coords!='object')) {
-                                
-                                //console.log($scope.block.data.countries[i].cities[k].shops[j]);
-                                $scope.block.data.countries[i].cities[k].shops[j].coords=
-                                $scope.block.data.countries[i].cities[k].shops[j].coords.replace(/\[^0-9 ]/g,'');
-                            }
-                           createMark($scope.block.data.countries[i].cities[k].shops[j]);
-                  }
+                angular.forEach($scope.block.data.countries,function($country,$country_key) {
+                    angular.forEach($country.cities,function($city,$city_key) {
+                        angular.forEach($city.shops,function($shop,$shop_key){
+                            //$shop.coords = $shop.coords.replace(/\[^0-9 ]/g,'');
+                            createMark($shop);
+                        });
+                    });
+                });
+              // var ik = Object.keys($scope.block.data.countries); 
+              //  for (var i = 0; i < ik.length; i++) 
+              //  console.log('1__');
+              //      console.log(i<ik.length);
+              //      console.log(i+'<'+ik.length);
+              //      console.log(ik.length);
+              //      console.log(ik);
+              //      console.log(i);
+              //      console.log(ik[i]);
+              //      console.log($scope.block.data.countries[i]);
+              //      console.log($scope.block.data.countries[ik[i]].cities);
+              //      for (var k = 0, kk = Object.keys($scope.block.data.countries[i].cities); k < kk.length; k++) 
+              //  console.log('2__');
+              //          for (var j = 0, jk = Object.keys($scope.block.data.countries[i].cities[k].shops); j < jk; j++) {
+              //  console.log('3__');
+              //             
+              //              if (typeof($scope.block.data.countries[i].cities[k].shops[j].coords!='object')) {
+              //             
+              //                  
+              //                  //console.log($scope.block.data.countries[i].cities[k].shops[j]);
+              //                  $scope.block.data.countries[i].cities[k].shops[j].coords=
+              //                  $scope.block.data.countries[i].cities[k].shops[j].coords.replace(/\[^0-9 ]/g,'');
+              //              }
+              //             createMark($scope.block.data.countries[i].cities[k].shops[j]);
+              //    }
               };
               ymaps.ready($scope.prepare);
       }],

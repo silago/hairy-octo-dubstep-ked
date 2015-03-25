@@ -1,7 +1,8 @@
-<div >
+<div style="margin-top:50px;">
     <div class="columns large-4">
             <div>
-                <div ng-if="block.data.map_type=='firm'" ng-init="selected_city=-1">
+                <!--
+                <div zzng-if="block.data.map_type=='firm'" ng-init="selected_city=-1">
                     <h4>Где купить KEDDO </h4>
                     <h5> В России </h5>
                     <select ng-if="block.data.countries" ng-model="$parent.selected_city">
@@ -27,28 +28,37 @@
                         </li>
                     </ul>
                 </div>
+                -->
 
-                <div ng-if="block.data.map_type=='partner'" ng-init="selected_city=-1">
-                    <h4>Поиск магазинов </h4>
-                    <small>Введите адресные данные (например: почтовый индекс город, улица, ...), и мы покажем Вам ближайшие магазины</small>
-                    <label> Страна </label>
+                <div style="margin-top:125px;" zzzng-if="block.data.map_type=='partner'" ng-init="selected_city=-1">
+                    <span style="font-size:18px;"> МАГАЗИНЫ </span><br/>
                     <select ng-if="block.data.countries" ng-model="$parent.selected_country">
-                        <option ng-value="$index"  ng-repeat="country in block.data.countries">
-                            {{country.name}} 
+                        <option style="font-size:18px;"  ng-repeat="(n,country) in block.data.countries" ng-value="n">
+                            {{country.name}}
+                        </option>
+                    </select>
+                    <select ng-if="selected_country!=-1" ng-model="$parent.selected_city">
+                        <option style="font-size:18px;"  ng-value="cn" ng-repeat="(cn, city) in block.data.countries[selected_country].cities track by $index">
+                            {{city.name}} 
                         </option>
                     </select>
                         
-                    <label>Адрес</label>
-                    <input ng-model="s" type="text" placeholder="" />
-                    <button ng-show="s" ng-click="_result=block.data.countries[selected_country].cities.$$inSub('shops','$$search(\'description\',\''+s+'\')','plus');"> Найти магазины </button>
+                    <input ng-show="selected_city" ng-model="s" type="text" placeholder="" />
+                    <!--
+                        <button ng-show="s" ng-click="_result=block.data.countries[selected_country].cities[selected_city].shops.S$search('description',s);"> Найти магазины </button>
+                    -->
+                    <center>
+                        <button class="tiny" style="font-size:14px; background-color:#000; color:#fff;" ng-show="s" ng-click="_result=block.data.countries[selected_country].cities[selected_city].shops">
+                        НАЙТИ МАГАЗИНЫ</button>
+                    </center>
                     <hr/>
-                    <strong ng-if="_result!==undefined"> Результаты </strong>  
-                    <p ng-if="_result===[]">Ничего не найдено </p>
-                    <ul ng-if="_result!==[]" class="no-bullet"> 
-                            <li ng-repeat="c in _result">
-                <a href ng-click="focusToLocation(c.coords)">{{c.name}} </a> <br/>
-                <small> {{c.description}}
-                </li>
+                    <span ng-if="_result!==undefined" style="font-size:18px;"> Результаты </span>  
+                    <p ng-if="">Ничего не найдено </p>
+                    <ul style="list-style:none;" ng-if="_result" class="no-bullet"> 
+                            <li ng-show="c.description.indexOf(s)!=-1" ng-repeat="c in _result">
+    
+           <img width=12px src="images/pl.png" /><a style="font-size:14px; color:#000;" href ng-click="focusToLocation(c.coords)">{{ (selected_city +' '+c.name).tuUpperCase() }}  </a><img width=12px ng-show="c.type='firm'" src="/images/crown.png"/> <br/>
+                            </li>
                         </div>
                     </ul>
                 </div>
@@ -56,7 +66,7 @@
     </div>
 
     <div class="columns large-8">
-        <div id="YMapsID" style="zwidth:600px;height:400px"></div>
+        <div id="YMapsID" style="height:700px"></div>
 
         </div>
     </div>
