@@ -1,24 +1,36 @@
 
 <div ng-if="block.type!='deleted'">
     <a
-            ng-if="play!=true"
             style=" display:block;
                     text-align:center;
-                    border:1px solid #242424;"
-                    ng-click="$parent.play=true">
-            
+                    position:relative;
+                    "
+                    ng-click="play=true">
+                    <img ng-if="block.data.img" style="width:100%" src='{{block.data.img}}'/>
+                    <img style="width:100%" ng-if="!block.data.img" src="http://img.youtube.com/vi/{{block.data.src.$$replace('.+\?v=','g')}}/maxresdefault.jpg"/>
+                    <!--
                     <img src='http://img.youtube.com/vi/{{block.data.src.$$replace('.+\?v=','g')}}/hqdefault.jpg'/>
-            <i class="fi-play-circle large"> </i>
+                    -->
+            <i class="fi-play large yt_play_icon"> </i>
             
-            <div style="text-align:center; background-color:#242424; padding:10px;">
-                {{block.data.caption}}
+            <div style="position:absolute; bottom:0px; left:0px; text-align:center; width:100%;background-color:#242424; padding:10px;">
+                <span style="color:#fff; font-size:14px;"> {{block.data.title}} </span>
                 <br/>
-                {{block.data.description}}
+                <span style="color:lightgray; font-size:12px;"> {{block.data.description}}</span>
             </div>
-    </a>
-    <div ng-if="play==true">
+    <div ng-if="play==true"
+style="
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 999;
+  left: 0px;
+  height: 100%;
+"
+>
     <youtube-video
         player-vars="{controls:0,autoplay:1,showinfo:0}"
+        player-height="'100%'"
         player-width="'100%'" video-url="block.data.src"></youtube-video>
     </div>
 </div>

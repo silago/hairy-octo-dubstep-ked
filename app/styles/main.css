@@ -1,3 +1,24 @@
+.yt_play_icon {
+  position: absolute;
+  z-index: 80;
+  top: 40%;
+  font-size: 40px;
+  margin-left: -34px;
+  margin-top: -39px;
+  background-color: #fff;
+  color: #000;
+  padding: 0px 20px;
+  border-radius: 7px;
+  opacity: 0.8;
+  line-height: 60px;
+}
+
+.yt_play_icon:hover {
+    background-color:#000;
+    color:#fff;
+}
+
+
 div .block-type-slider.column {
     padding:0px!important;
 }

@@ -9,6 +9,8 @@
                         <div ng-include="'editable/forms/photo.html'"> </div> </div>
                     <div ng-switch-when="ym">
                         <div ng-include="'editable/forms/ym.html'"> </div> </div>
+                    <div ng-switch-when="yt">
+                        <div ng-include="'editable/forms/yt.html'"> </div> </div>
                     <div ng-switch-when="slider">
                         <div ng-include="'editable/forms/slider.html'"> </div> </div>
                     <div ng-switch-when="catalog_link">
@@ -17,6 +19,9 @@
                         <div ng-include="'editable/forms/html.html'"> </div> </div>
                     <div ng-switch-default>
                             <div class="row collapse subscribe">
+                                <div class="small-10 columns">
+                                    <input type="text" ng-model="item.data['class']" />
+                                </div>
                                 <div class="small-10 columns">
                                   <select ng-model="item.data['class']" type="text" placeholder="style">
                                       <option value="large-centered"> По центру </option>

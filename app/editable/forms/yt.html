@@ -11,29 +11,26 @@
 
                     <div class="row collapse">
                         <div class="small-10 columns">
-                          <input ng-model="item.data['src']" type="text" placeholder="href">
+                          <input ng-model="item.data['src']" type="text" placeholder="">
                         </div>
                         <div class="small-2 columns">
-                          <label class="postfix" > Ссылка </label>
+                          <label class="postfix" > Адрес видео </label>
                         </div>
                     </div>
-
-
                     <div class="row collapse">
                         <div class="small-10 columns">
-                          <input ng-model="item.data['title']" type="text" placeholder="href">
+                          <input ng-model="item.data['title']" type="text" placeholder="">
                         </div>
                         <div class="small-2 columns">
                           <label class="postfix" > Заголовок </label>
                         </div>
                     </div>
-
                     <div class="row collapse">
                         <div class="small-10 columns">
-                          <input ng-model="item.data['description']" type="text" placeholder="href">
+                          <input ng-model="item.data['description']" type="text" placeholder="">
                         </div>
                         <div class="small-2 columns">
-                          <label class="postfix" > Описание</label>
+                          <label class="postfix" > Краткое описание</label>
                         </div>
                     </div>
 
@@ -52,12 +49,13 @@
                           <label class="postfix" href="#">CSS класс</label>
                         </div>
                     </div>
-
+                        <strong> Произвольное изображение для превью</strong>
                         <!--
                         <span ng-repeat="(key,param) in item.data">
                             <input ng-show="key!='src'" type="text" placeholder="{{key}}"  ng-model="item.data[key]" />
                         </span>
                         -->
+                        
                         <input type="file" oi-file="options">
                         <div ng-if="!!filePreview.thumb">
                             <img  on-select="cropStop" style="z-index:1;" angular-crop ng-src="{{filePreview.thumb}}" />
@@ -80,8 +78,8 @@
                                 {{sf}}
                             -->
                             <center>
-                            <img ng-click="item.data['src']=sf;"
-                                 class="nd-{{ (sf==item.data['src'] ? 'selected' : '0') }}"
+                            <img ng-click="item.data['img']=sf;"
+                                 class="nd-{{ (sf==item.data['img'] ? 'selected' : '0') }}"
                                  style="max-width:100px; max-height:100px;" ng-src="{{sf}}" />
                                  <br/>
                             <small> {{sf.split('/').reverse()[0]}} </small>
