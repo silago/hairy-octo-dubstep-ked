@@ -1,6 +1,12 @@
 div .block-type-slider.column {
     padding:0px!important;
 }
+
+.block-type-html .block_photo a {
+    color: inherit;
+    text-decoration:inherit;
+}
+
 div .block-type-slider.column .sub_block_controls {
   z-index: 4;
   background-color: #242424;

@@ -30,7 +30,7 @@
                 </div>
                 -->
 
-                <div style="margin-top:125px;" zzzng-if="block.data.map_type=='partner'" ng-init="selected_city=-1">
+                <div style="margin-top:90px;" zzzng-if="block.data.map_type=='partner'" ng-init="selected_city=-1">
                     <span style="font-size:18px;"> МАГАЗИНЫ </span><br/>
                     <select ng-if="block.data.countries" ng-change="_result=undefined" ng-model="$parent.selected_country">
                         <option style="font-size:18px;"  ng-repeat="(n,country) in block.data.countries" ng-value="n">
@@ -49,16 +49,15 @@
                         <button ng-show="s" ng-click="_result=block.data.countries[selected_country].cities[selected_city].shops.S$search('description',s);"> Найти магазины </button>
                     -->
                     <center>
-                        <button class="tiny" style="font-size:14px; background-color:#000; color:#fff;" ng-click="_result=block.data.countries[selected_country].cities[selected_city].shops">
+                        <button class="tiny" style="font-size:14px; background-color:#000; color:#fff;" ng-click="_result=[block.data.countries[selected_country].cities[selected_city].shops,selected_city]">
                         НАЙТИ МАГАЗИНЫ</button>
                     </center>
-                    <hr/>
-                    <span ng-if="_result!==undefined" style="font-size:18px;"> Результаты </span>  
+                    <span ng-if="_result!==undefined" style="font-size:18px;"> РЕЗУЛЬТАТЫ </span>  
                     <p ng-if="">Ничего не найдено </p>
                     <ul style="list-style:none;" ng-if="_result" class="no-bullet"> 
-                            <li ng-repeat="c in _result">
+                            <li ng-repeat="c in _result[0]">
     
-           <img width=12px src="images/pl.png" /><a style="font-size:14px; color:#000;" href ng-click="focusToLocation(c.coords)">{{ (selected_city +' '+c.name).toUpperCase() }}  </a><img width=12px ng-show="c.type='firm'" src="/images/crown.png"/> <br/>
+           <img width=12px src="images/pl.png" /> <a style="font-size:14px; color:#000;" href ng-click="focusToLocation(c.coords)">{{ (_result[1]+' '+c.name).toUpperCase() }}  </a><img width=12px ng-show="c.type='firm'" src="/images/crown.png"/> <br/>
                             </li>
                         </div>
                     </ul>

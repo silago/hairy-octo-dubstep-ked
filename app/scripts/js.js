@@ -132,6 +132,18 @@ String.prototype.$$encodeURI = function(){
 }
 Object.defineProperty(String.prototype,"$$encodeURI", {enumerable:false});
 
+String.prototype.$$parseInt = function(){
+      return parseInt(this);
+}
+Object.defineProperty(String.prototype,"$$parseInt", {enumerable:false});
+
+
+String.prototype.$$replace = function(pattern,flag){
+      var result = this.replace(RegExp(pattern,flag),'');
+      return result;
+}
+Object.defineProperty(String.prototype,"$$replace", {enumerable:false});
+
 String.prototype.$$stripTags = function(space){
       if (space==undefined) space='';
       return this.replace(/<\/?[^>]+>/gi, space);

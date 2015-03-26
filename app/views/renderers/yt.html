@@ -1,3 +1,21 @@
 <div ng-if="block.type!='deleted'">
-    <youtube-video player-width="block.data.width" player-height="block.data.height" video-url="block.data.src"></youtube-video>
+    <a
+            ng-if="play!=true"
+            style=" display:block;
+                    height:{{ block.data.height }};
+                    width:{{block.data.width}};
+                    font-size:100px;
+                    text-align:center;
+                    padding-top:{{block.data.height.$$parseInt()/2-75}}px;
+                    border:1px solid #242424;
+                    background-size:100% 100%;
+                    background-image:url('http://img.youtube.com/vi/{{block.data.src.$$replace('.+\?v=','g')}}/hqdefault.jpg');
+                    " ng-click="$parent.play=true">
+            <i class="fi-play-circle large"> </i>
+    </a>
+    <div ng-if="play==true">
+    <youtube-video
+        player-vars="{controls:0,autoplay:1,showinfo:0}"
+        player-width="block.data.width" player-height="block.data.height" video-url="block.data.src"></youtube-video>
+    </div>
 </div>
