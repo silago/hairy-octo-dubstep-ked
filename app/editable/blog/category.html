@@ -1,40 +1,55 @@
 
 <div>
-        <div class="columns" style="margin:14px;">
-            <a class="tiny button" href ng-click="page.subitems.push({'subitems':[]})"> Добавить блок </a>
+    <ul style="margin-left:-15px;" class="button-group round">
+      <li>
+        <a class="tiny button" href ng-click="page.subitems.unshift({'subitems':[]})"> Добавить страницу </a>
+      </li>
+      <li>
+        <a ng-click="savePage(page);" class="tiny button" href> 
+            Применить
+        </a>
+      </li>
+    </ul>
+</div>
+          <!-- pages in category -->
+<div ng-repeat="page in page.subitems" class="row" style="background-color:#fafafa; padding:10px; margin-top:10px; border-radius:5px">
+    <div class=""> Url:
+            {{page.url}}
+            <a class="fi-pencil" editable-text="page.url"></a>
+            <a class="fi-widget" editable-select="page.category_id" href e-ng-options="c.id as c.name for c in categories.data"> </a>
+            <a href class="fi-x" ng-click="$parent.page.subitems.splice($index,1)" ></a>
+    </div>
+    <div class="">
+        <h5> Preview </h5>
+        <div
+                     data-drop="true"
+                     data-jqyoiui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
+                     ng-model="page.preview"
+                     as-sortable
+                     jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
+                     <span class="{{block.data.class || 'columns large-12' }}" as-sortable-item ng-repeat="block in page.preview">
+                         <block prefix="editable" is-editable="true"  data="block">
+                                 ....
+                         </block>
+                    </span>
         </div>
-          <div ng-repeat="page in page.subitems">
-        <div class="page-content" ng-if="page.subitems">
-            <div
-                         data-drop="true"
-                         data-jqyoui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
-                         ng-model="page.subitems"
-                         as-sortable
-
-                         jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
-                         <span class="{{block.data.class || 'columns large-12' }}" as-sortable-item ng-repeat="block in page.subitems">
-                             <block prefix="editable" is-editable="true"  data="block">
-                                     ....
-                             </block>
-                        </span>
-            </div>
-            <span ng-init="category_form=-1">
-                <a   ng-show="category_form==-1" href class="button tiny" ng-click="category_form=$index" > Сменить категорию</a>
-                <div ng-show="category_form>=0" class="category_form"> 
-                     <a href ng-repeat="c in categories.data" ng-click="page.category_id=c.id; $parent.category_form=-1"> {{c.name}} </a>
-                </div>
-            </span>
-            <a href class="button tiny  warning" ng-click="$parent.$parent.page.subitems.splice($index,1)" > Удалить блок</a>
-            </div>
-                <div style="clear:both;">
+    </div>
+    <div class="">
+        <h5> Content </h5>
+        <div
+                     data-drop="true"
+                     data-jqyoiui-options="{greedy:true, hoverClass:'hover-droppable-place'}"
+                     ng-model="page.subitems"
+                     as-sortable
+                     jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
+                     <span class="{{block.data.class || 'columns large-12' }}" as-sortable-item ng-repeat="block in page.subitems">
+                         <block prefix="editable" is-editable="true"  data="block">
+                                 ....
+                         </block>
+                    </span>
         </div>
-
-
-          </div>
-
-
-            <div
-                  z-class="block-controls">
-                <a ng-click="savePage(page);" class="fi-check"> <small>Применить </small></a>
-            </div>
+    </div>
+</div>
+<div class="columns large-12">
+    <br/>
 </div>

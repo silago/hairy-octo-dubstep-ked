@@ -1,6 +1,7 @@
 <div>
-    <flex-slider slide="s in block.data.images track by $index">
+    <flex-slider slideshow-speed="3500" slide="s in block.data.images track by $index">
         <li>
+            <!--
             <a
              style=" height:{{innerHeight-98 || '0'}}px; display:block; overflow:hidden; width:100%; background-image:url('{{s.src}}'); background-position:50% 0%;
              {{ (innerWidth>1900 ? 'background-size:100%;' : '') }} 
@@ -9,6 +10,20 @@
                 <!--
                 <img ng-src="{{s.src}}">
                 -->
+            <!--
+            </a>
+            -->
+
+            <a 
+             ng-href="{{ (!!s.href ? s.href : 'javascript:void(0);') }}"> 
+                <img ng-src="{{s.src}}">
+                <a
+                    class="{{s.href_class}}"
+                    style="{{s.href_style}}"
+                    ng-if="s.href_text"
+                    href="{{ (!!s.href ? s.href : 'javascript:void(0);') }}">
+                    <span> {{s.href_text}} </span>
+                </a>
             </a>
         </li>
     </flex-slider>

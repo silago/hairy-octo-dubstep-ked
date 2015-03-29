@@ -52,6 +52,9 @@
                                 <div ng-repeat="_img in item.data.images" class="large-2 columns left">
                                     <img ng-src="{{_img.src}}" />
                                     <center> <input type="text" placeholder="ссылка" ng-model="_img.href"/> </center> 
+                                    <center> <input type="text" placeholder="текст ссылки" ng-model="_img.href_text"/> </center> 
+                                    <center> <input type="text" placeholder="стиль текста ссылки" ng-model="_img.href_style"/> </center> 
+                                    <center> <input type="text" placeholder="css стиль текста ссылки" ng-model="_img.href_class"/> </center> 
                                     <a href ng-click="item.data.images.splice($index,1)"> x </a> 
                                 </div>
                             </div>
