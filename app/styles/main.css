@@ -23,6 +23,7 @@ li.blog-cats > a {color:#fff!important;}
 }
 .slider_main_page_link > span {
     background-color: rgb(255, 255, 255);
+    color:#242424;
     padding: 5px;
 }
 
@@ -52,7 +53,8 @@ div .block-type-slider.column {
     padding:0px!important;
 }
 
-.block-type-html .block_photo a {
+
+.block-type-ym ~ .block-type-whitepanel .block-type-html .block_photo a {
     color: inherit;
     text-decoration:inherit;
 }
