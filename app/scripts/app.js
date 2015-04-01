@@ -200,7 +200,7 @@ angular
     controller:'BlogCtrl'
 })
 .state('blog.category.block', {
-    url:':alias/:id/',
+    url:':alias/',
     templateUrl:'views/blog/block.html',
     controller:'BlogCtrl'
 })

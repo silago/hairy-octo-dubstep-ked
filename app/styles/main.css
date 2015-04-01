@@ -1,4 +1,6 @@
-
+.block {
+    display:block;
+}
 
 .blog-section .large-3 span[style="font-size: 32px;"] {
   font-size: 16px!important;
