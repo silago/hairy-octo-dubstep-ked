@@ -9,20 +9,45 @@
 
 li.blog-cats > a {color:#fff!important;}
 
-.slider_main_page_link:hover  {
+.slider_main_page_link a:hover  {
     color:lightgray;
 }
-.slider_main_page_link  {
-    color:gray;
+
+.slider_main_page_link a:hover  {
+    color:black!important;
+}
+
+.slider_main_page_link.inverse a:hover {
+    color:#fff!important;
+}
+.slider_main_page_link.inverse a {
+    color:#fff!important;
+    background-color:black;
+}
+.slider_main_page_link.inverse {
+    bottom:initial;
+    top:0px;
+}
+.slider_main_page_link {
+    text-transform:uppercase;
+    bottom: 35px;
+    display: block;
     font-family: sans-serif;
     font-size: 10px;
     font-weight: bold;
+    left: 0;
+    padding: 5px;
     position: absolute;
     text-align: center;
-    width: 14%;
+    white-space: nowrap;
+    width: 100%;
     z-index: 999;
-    white-space:nowrap;
 }
+
+.slider_main_page_link a {
+    padding: 5px; background-color: #fff; border-radius: 5px; color:black!important;
+}
+
 .slider_main_page_link > span {
     background-color: rgb(255, 255, 255);
     color:#242424;
@@ -711,7 +736,7 @@ z-index:999;
     z-padding: 10px;
     padding-left: 0;
   }
-  .as_li > a {
+  .footer-menu .as_li > a {
 color:lightgray!important;
 }
  /* .as_li .as_li {margin-left:10px;}
