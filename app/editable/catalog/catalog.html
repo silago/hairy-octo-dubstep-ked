@@ -11,10 +11,10 @@
 
         <div>
              <ul> 
-                 <li ng-repeat="c in collections.data"> {{c.season}} 
-                        <a href ng-click="deleteCollection(c.season);"> Удалить </a> ,
-                        <span ng-show="c.coll_status!=1;">  <a href ng-click="activateCollection(c.season);">Активировать</a>, </span>
-                        <a href ng-click="chooseCollection(c.season);">  Редактировать</a>
+                 <li ng-repeat="c in collections.data"> {{c.name}} 
+                        <a href ng-click="deleteCollection(c.slug);"> Удалить </a> ,
+                        <span ng-show="c.coll_status!=1;">  <a href ng-click="activateCollection(c.slug);">Активировать</a>, </span>
+                        <a href ng-click="chooseCollection(c.slug);">  Редактировать</a>
                  </li>
              </ul>
         </div>
@@ -22,7 +22,17 @@
         <div class="panel">
         <div class="columns large-6">
             <div class="columns large-12"> 
-            <div ng-show="groups.data"> 
+            <div ng-show="segments.data"> 
+                <ul>
+                    <li ng-repeat="i in segments.data">
+                        <a editable-text="segments.data[$index].name">{{i.name}}</a>
+                        <a ng-show="!i.group" href ng-click="segments.data[$index].group=1">Объеденить</a>
+                        <a ng-show="i.group==true" href ng-click="segments.data[$index].group=0">Разобъеденить</a>
+                    </li>
+                </ul>
+                <a href ng-click="saveSegments(segments)">Применить </a> 
+                
+                <!--
                 <div ng-repeat="i in groups.data" class="columns large-4-padding">
                     <img ng-src="{{'/static/catalog/'+i.items[0].base_image}}" />  
                     <span ng-repeat="sub in i.items">
@@ -40,6 +50,7 @@
                     <a href ng-if="similarModel && $parent.similarModel!=i" ng-click="addToSimilar(i)"> <small>Добавить к подобным</small> </a>
                 <hr/>
                 </div>
+                -->
             </div>
             </div>
         </div>

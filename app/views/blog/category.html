@@ -1,7 +1,7 @@
 <div ui-view="">
       
         <div class="columns large-9">
-          <div ng-if="$index<2" ng-repeat="page in page.subitems">
+          <div ng-if="$index<3" ng-repeat="page in page.subitems">
             <div  ng-if="page.subitems">
                 <div> <span class="" ng-repeat="block in page.preview"> <block   data="block"> </block> </span> </div>
             </div>
@@ -16,7 +16,7 @@
                   <div style="width:100%; border-bottom: 1px solid #242424; margin-top:10px;"> </div>
                 </div>
                 </div>
-          <div  ng-if="$index>=2" ng-repeat="page in page.subitems">
+          <div  ng-if="$index>=3" ng-repeat="page in page.subitems">
             <div  ng-if="page.subitems">
                 <div> <span class="" ng-repeat="block in page.preview"> <block   data="block"> </block> </span> </div>
             </div>

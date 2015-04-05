@@ -21,9 +21,9 @@
                 <li class="has-dropdown not-click" has-dropdown> <a href=""> Коллекция </a>
                 <ul class="dropdown" >
                 <li class="has-dropdown not-click" has-dropdown ng-repeat="cs in catalogSegments.data"> 
-                        <a ui-sref="catalog.segment.type({'segment':cs.segment,'type':'*'})">{{catalogCollectionTranslate(cs.segment)}}</a>
+                        <a ui-sref="catalog.segment.type({'segment':cs.slug,'type':'*'})">{{cs.name}}</a>
                         <ul 
-                            ng-init="catalogTypes = catalogRes.GET({'target':'collection','segment':cs.segment});" class="dropdown catalog-menu-holder">
+                            ng-init="catalogTypes = catalogRes.GET({'target':'collection','segment':cs.slug});" class="dropdown catalog-menu-holder">
                             <!--
                                 <span ng-repeat="ct in catalogTypes.data">
 i
@@ -31,7 +31,7 @@ i
                             <li 
                                 ng-repeat="ct in catalogTypes.data"
                                 class="catalog-menu-item">
-                                    <a ui-sref="catalog.segment.type({'segment':cs.segment,'type':ct.item_type.replace('/','---')})" href>{{ct.item_type}}</a>
+                                    <a ui-sref="catalog.segment.type({'segment':cs.slug,'type':ct.slug.replace('/','---')})" href>{{ct.name}}</a>
                             <!--</li>-->
                             <!--
                             <div class="catalog-menu-image" style="">

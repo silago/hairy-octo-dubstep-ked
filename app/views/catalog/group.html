@@ -5,11 +5,18 @@
     <!-- <li role="menuitem"><a href="#/page/index">KEDDO</a></li> -->
     <li class="current"  role="menuitem"><a href="#">Каталог</a></li>
     <li role="menuitem">
-        <a  ui-sref="catalog.segment.type({'target':'sections','segment':stateParams.segment,'type':'*'})"> {{catalogCollectionTranslate(stateParams.segment)}}</a>
+        <a  ui-sref="catalog.segment.type({'target':'sections','segment':stateParams.segment,'type':'*'})"> 
+                    {{$parent.$parent.data.info.name}}
+        </a>
     </li>
     <li role="menuitem">
-        <a  ng-show="stateParams.type!='*'" ui-sref="catalog.segment.type({'type':stateParams.type})"> {{stateParams.type}} </a>
+        <a  ng-show="stateParams.type!='*'" ui-sref="catalog.segment.type({'type':stateParams.type})">
+                    {{$parent.data.info.name}}
+        </a>
     </li>
+    <li class="current"  role="menuitem"><a href="#">
+                    {{data.sku}}
+            </a></li>
 
 </nav> 
     <div ng-if="data.data"ng-init="item_index = 0" >
@@ -18,75 +25,33 @@
 <view-title>{{meta.title}}</view-title>
 <meta view-head name="description" content="{{meta.description}}">
 <meta view-head name="keywords" content="{{meta.keywords}}">
-
-        <div class="columns large-3">
-                <!-- {{data.data.items[item_index].rating}} -->
-                
-                <div class="large-12 colums" >
-            <h3>{{data.data.data.name}} </h3>
-                    <div ng-show="!data.data.rated">
-                    <a style="(data.data.rating<$index ? 'color: #fff; text-shadow: black 0px 0px 2px;' : '')"
-                         ng-click="data.data.rated = rate(data.data.sku,$index)"
-                         ng-repeat="i in [1,2,3,4,5]" href class="fi-star small"></a>
-                    </div>
-                    <div ng-show="data.data.rated">
-                        Спасибо, ваш голос учтен.
-                    </div>
-                </div>
-                <p> 
-                    <small>
-                        {{data.data.data.short_description}}
-                    </small>
-                </p>
-                <!--
-                    Цвета:
-                            <a  ng-click="$parent.item_index=$index;
-                                          $parent.current_img='/static/catalog/'+i.base_image;
-                                         " href ng-repeat="i in data.data.items">
-                                    <img style="border:1px solid gray;" ng-src="{{'/static/colors/'+i.color.translit()+'.png'}}" />
-                            </a>
-                    <br/>
-                <div> Размеры: {{data.data.analpa_size}}</div>
-                <div> Материал верха: {{data.data.material_top}}</div>
-                <div> Подкладка: {{data.data.lining}}</div>
-                <div> Стелька: {{data.data.insole}}</div>
-                -->
-                <!--
-                <li> description </li>
-                -->
-            </ul>
-        <div ng-init="current_img=data.data.data.image_url"> </div>
-        <ul class="large-12 columns side-nav" no-same-ng-init="current_img=data.data.items[item_index].files[0]">
-                <li ng-repeat="img in data.data.images" class="large-4 left columns">
-                    <a href ng-click="$parent.current_img=img"> <img width="100px" src="{{img}}" alt="" />  </a>
-                </li>
-
-            <!--
-            <li class="large-4 columns"><a href ng-click="current_img= '/static/catalog'+data.data.items[item_index].base_image">
-                    <img width="100px" src="{{'/static/catalog'+data.data.items[item_index].base_image}}" alt="" />
-            </a></li>
-            <li class="large-4 columns"><a href ng-click="current_img='/static/catalog'+data.data.items[item_index].image_2">
-                    <img width="100px" src="{{'/static/catalog/'+data.data.items[item_index].image_2}}" alt="" />
-            </a></li>
-            <li class="large-4 columns"><a href ng-click="current_img='/static/catalog'+data.data.items[item_index].image_3">
-                    <img width="100px" src="{{'/static/catalog'+data.data.items[item_index].image_3}}" alt="" />
-            </a></li>-->
+        <div class="large-12 colums" >
+        <strong> {{data.sku}} </strong>
+            <div ng-show="!data.rated">
+                <a style="{{(data.rating<=$index ? 'color: #fff; text-shadow: black 0px 0px 2px;' : '')}}"
+                     ng-click="data.rated = rate(data.sku,$index)"
+                     ng-repeat="i in [1,2,3,4,5]" href class="fi-star small"></a>
+            </div>
+            <div ng-show="data.rated">
+                Спасибо, ваш голос учтен.
+            </div>
+        <br/>
+            <center>
+                <img style="max-width:400px;" src="/static/catalog/{{data.data['base image']}}" alt="{{data.sku}}" />
+            </center>
+        <br/>
+        <br/>
+        <ul>
+            <li><strong> Марка:</strong> {{data.data['Марка']}} </li>
+            <li><strong> Тип обуви:</strong> {{data.data['Тип']}} </li>
+            <li><strong> Артикул:</strong> {{data.sku}} </li>
+            <li><strong> Цвет:</strong> {{data.data['Цвет']}} </li>
+            <li><strong> Материал верха:</strong> {{data.data['Материал верха']}} </li>
+            <li><strong> Подкладка:</strong> {{data.data['Подкладка']}} </li>
+            <li><strong> Стелька:</strong> {{data.data['Стелька']}} </li>
+            <li><strong> Размер:</strong> {{data.data['analpa_razmer'].$$replace('\\(.+','g') }} </li>
         </ul>
-        <hr ng-if="data.data.similar.length>0" />
-        <h5 ng-if="data.data.similar.length>0"> Похожие товары </h5>
-        <ul class="columns large-12 side-nav">
-            <li class="columns large-6-padding" ng-repeat="sim in data.data.similar">
-                <img src="{{'/static/catalog/'+sim[0].base_image}}" alt="" />
-                <center>
-                    <a ui-sref="catalog.segment.type.group({'group_id':sim[0].group_catalog_id})">{{sim[0].sku}} </a>
-                </center>
-            </li>
         </div>
-        <div class="columns large-1"> &nbsp; </div>
-        <div class="large-7 columns left">
-            <img ng-src="{{current_img}}" alt="" />
-        </div>
-    </div>
     <!--
     {{data.data}}
     
@@ -105,8 +70,8 @@
 <!-- Put this div tag to the place, where the Comments block will be -->
 <div class="columns large-12">
 <div id="vk_comments"></div>
-<script type="text/javascript">
-VK.Widgets.Comments("vk_comments", {limit: 10, width: "665", attach: false});
-</script>
+    <script type="text/javascript">
+    VK.Widgets.Comments("vk_comments", {limit: 10, width: "665", attach: false});
+    </script>
 </div>
 </div>

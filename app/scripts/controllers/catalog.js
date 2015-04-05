@@ -23,7 +23,7 @@ angular.module('frontendApp')
     $scope.rate = function(sku,rate) {
             sku = $scope.encodeTwice(sku);
             rateRes.PUT({id:sku,rating:rate});
-            return true;
+            return rate;//true;
     }
     var return_what_exist = function(obj,vals) {
         var result = '';
@@ -44,6 +44,7 @@ angular.module('frontendApp')
                 var index = 3;
                 $stateParams.target = 'collection';
                 $scope.stateParams = $stateParams;
+                console.log($stateParams);
                 catalogRes.collections($stateParams).$promise.then(
                     function(data){
                         $scope.data=data;

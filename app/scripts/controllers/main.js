@@ -8,9 +8,9 @@
  */
 angular.module('frontendApp')
   .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,catalogRes,pageRes,ngDialog,blocksFactory,authRes,templates,$sce) {
-    var lang = $stateParams.lang;
-    if (lang=='') lang = 'ru';
-    if (lang!='ru')
+    var lang = $stateParams.lang || '';
+    if (typeof lang=='undefined' || lang=='') lang = 'ru';
+    if (lang=='en')
         window.translate(); 
     //var parts = window.location.hash.split('?');
     //if (parts.length == 2) {

@@ -20,11 +20,13 @@ angular.module('frontendApp')
             $location.path("page/index")
       $scope.data =  {} 
       $scope.collectionToEdit = false;
-      $scope.getCollections = function() {catalogRes.get({'all':1}).$promise.then(function(d){$scope.collections = d;})};
+
+      $scope.getCollections = function() {catalogRes.get({}).$promise.then(function(d){$scope.collections = d;})};
+
       $scope.deleteCollection = function(name) {
           catalogRes.DELETE({'collection':name}).$promise.then(function(d){$scope.getCollections();})};
       $scope.activateCollection = function(name) {
-          catalogRes.PUT({'collection':name,'set':'active'}).$promise.then(function(d){
+          catalogRes.PUT({'collection':name}).$promise.then(function(d){
             $scope.getCollections();
           //  $scope.getGroups();
           //  $scope.getItems();
@@ -34,17 +36,18 @@ angular.module('frontendApp')
       $scope.getItems  = function(p) {if(p==undefined)p={}; gcatalogRes.get(p).$promise.then(function(d){$scope.data = d;}); }
 
       $scope.chooseCollection = function(v) {
-          $scope.collectionToEdit = v;
-          $scope.getGroups({collection:v});
-          $scope.getItems({collection:v,state:'items'});
+          $scope.segments = catalogRes.get({target:'collection',collection:v}); 
+          $scope.activeCollectionSlug = v;
+          //$scope.getSegments({collection:v});
+          //$scope.getItems({collection:v,state:'items'});
       }
 
       $scope.addToSimilar =function(item) {
             if ($scope.similarModel.similar.indexOf(item)==-1)
                 $scope.similarModel.similar.push (item);
       }  
-      $scope.saveGroup = function (group) {
-        gcatalogRes.POST({data:group});
+      $scope.saveSegments = function (segments) {
+        $scope.segments = catalogRes.POST({'target':'collection',collection:$scope.activeCollectionSlug,data:segments});
       }
       $scope.deleteFromSimilat =function(item,sim){
             item.similar.splice(item.similar.indexOf(sim),1);
@@ -61,7 +64,10 @@ angular.module('frontendApp')
             }); 
             $scope.tmpGroup = [];
       }
+
+
       $scope.getCollections();
+
       $scope.catalogUploadStatus = '';
       $scope.options = {
         change: function (file) {
@@ -75,7 +81,8 @@ angular.module('frontendApp')
           }
       }
 
-      $scope.data = catalogRes.collections({'target':'collection'}); 
-
+      /*
+        $scope.data = catalogRes.collections({'target':'collection'}); 
+      */
 
   });

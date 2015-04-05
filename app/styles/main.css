@@ -45,7 +45,7 @@ li.blog-cats > a {color:#fff!important;}
 }
 
 .slider_main_page_link a {
-    padding: 5px; background-color: #fff; border-radius: 5px; color:black!important;
+    padding: 5px; background-color: #fff; z-border-radius: 5px; color:black!important;
 }
 
 .slider_main_page_link > span {

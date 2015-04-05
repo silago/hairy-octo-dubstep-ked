@@ -5,10 +5,10 @@
 
     <div  class="columns large-2">
             <ul class="side-nav show-for-medium-up">
-                <li> <h4> {{stateParams.segment}} </h4> <li> 
+                <li> <h4> {{data.info.name}} </h4> <li> 
                 
                 <li ng-repeat="i in data.data">
-                    <a ui-sref="catalog.segment.type({'type':i.item_type.replace('/','---')})"> {{i.item_type}} </a>
+                    <a ui-sref="catalog.segment.type({'type':i.slug})"> {{i.name}} </a>
                 </li>
             </ul>
     </div>

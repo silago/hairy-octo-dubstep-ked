@@ -1,12 +1,16 @@
 
 <span ui-view>    
-    <ul class="breadcrumbs"> 
-        <li class="current"><a href >Каталог</a></li>
-        <li ><a ui-sref='catalog.segment.type({"target":"collections","segment":stateParams.segment,"type":"*"})' href >{{catalogCollectionTranslate(stateParams.segment)}}</a></li>
-        <li class="current" ng-show="stateParams.type!='*'">    <a href >{{stateParams.type}}</a></li>
-    </ul>
+        <ul class="breadcrumbs"> 
+            <li class="current"><a href >Каталог</a></li>
+            <li ><a ui-sref='catalog.segment.type({"target":"collections","segment":stateParams.segment,"type":"*"})' href >
+                    {{$parent.$parent.data.info.name}}
+                </a></li>
+            <li class="current" ng-show="stateParams.type!='*'">    <a href >
+                    {{$parent.data.info.name}}
+                </a></li>
+        </ul>
 
-    <div ng-if="data.data" class="columns large-9">
+    <div ng-if="data.data" class="columns large-12">
 
 <view-title>{{meta.title}}</view-title>
 <meta view-head name="description" content="{{meta.description}}">
@@ -16,10 +20,10 @@
             </div>
         </div>
         <div  ng-repeat="i in data.data" class="columns large-4">
-            <img ng-src="{{i.data.image_url}}" alt="" width="300px" />
             <center>
-                <div>{{i.data.name}}</div> 
-                <a ui-sref="catalog.segment.type.group({'sku':encodeTwice(i.id),'name':(i.name)})"> <small> Подробнее </small> </a>
+            <img ng-src="/static/catalog/{{i.data['small image']}}" alt="" height="150px" style="height:150px;" />
+                <div>{{i.sku}}</div> 
+                <a ui-sref="catalog.segment.type.group({'sku':encodeTwice(i.sku)})"> <small> Подробнее </small> </a>
             </center>
             <br/>
         </div>
@@ -28,5 +32,3 @@
     <br/>
     <br/>
 </span>
-
-
