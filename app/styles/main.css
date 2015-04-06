@@ -37,7 +37,7 @@ li.blog-cats > a {color:#fff!important;}
     font-weight: bold;
     left: 0;
     padding: 5px;
-    position: absolute;
+    z-z-position: absolute;
     text-align: center;
     white-space: nowrap;
     width: 100%;
