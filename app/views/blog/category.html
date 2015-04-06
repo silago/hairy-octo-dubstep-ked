@@ -1,21 +1,19 @@
 <div ui-view="">
       
-        <div class="columns large-9">
+    <div class="columns {{((page.subitems.length<3) ? 'large-12' : 'large-3')}} ">
           <div ng-if="$index<3" ng-repeat="page in page.subitems">
             <div  ng-if="page.subitems">
                 <div> <span class="" ng-repeat="block in page.preview"> <block   data="block"> </block> </span> </div>
             </div>
           </div>
-        </div>
+    </div>
 
-        <div class="columns large-3">
-          <br />
-        <div ng-show="page.subitems.length>=2" class="columns large-12">
-                <div style="       font-weight: bold!important;
-                              " class="columns large-12"> Другие тренды: 
-                  <div style="width:100%; border-bottom: 1px solid #242424; margin-top:10px;"> </div>
+        <div ng-if="page.subitems.length>=3" class="columns large-3">
+                <div style="font-weight: bold!important;" 
+                     class="columns large-12"> Другие тренды: 
+                    <div style="width:100%; border-bottom: 1px solid #242424; margin-top:10px;"> </div>
                 </div>
-                </div>
+          <br/>
           <div  ng-if="$index>=3" ng-repeat="page in page.subitems">
             <div  ng-if="page.subitems">
                 <div> <span class="" ng-repeat="block in page.preview"> <block   data="block"> </block> </span> </div>
@@ -24,7 +22,6 @@
         </div>
         
     
-      </div>
     <div class="columns large=12">
         <br/>
     </div>

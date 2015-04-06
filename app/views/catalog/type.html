@@ -19,13 +19,19 @@
             <div ng-bind-html="trust(data.description)"> 
             </div>
         </div>
-        <div  ng-repeat="i in data.data" class="columns large-4">
-            <center>
-            <img ng-src="/static/catalog/{{i.data['small image']}}" alt="" height="150px" style="height:150px;" />
-                <div>{{i.sku}}</div> 
-                <a ui-sref="catalog.segment.type.group({'sku':encodeTwice(i.sku)})"> <small> Подробнее </small> </a>
-            </center>
-            <br/>
+        <div class="catalog_type_list">
+            <table  class="large-12" style="margin:0px; border:0;" ng-repeat="i in data.data">
+                <tr ng-if="$index%4==0" ng-init="_i = $index" > 
+                    <td style="float:none; vertical-align:bottom;" ng-init="i = data.data[_i+_index]" ng-repeat="_index in [0,1,2,3]" class="columns large-3">
+                    <center>
+                    <img ng-src="/static/catalog/{{i.data['small image']}}" alt="" class=""  style="width:100%; padding:0 30px;" />
+                        <div>{{i.sku}}</div> 
+                        <a ui-sref="catalog.segment.type.group({'sku':encodeTwice(i.sku)})">  Подробнее  </a>
+                    </center>
+                    <br/>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <div style="clear:both;"> </div>
