@@ -247,10 +247,6 @@ background-color: #656565;
     white-space:nowrap;
 }
 
-.blog-section {
-    z-color:#fff;
-    z-background-color:#242424;
-}
 
 div .row {
     max-width: 75rem;
@@ -899,6 +895,11 @@ color:lightgray!important;
 
 
   @media (min-width: 768px) {
+
+.blog-section {
+    padding: 0 13%;
+}
+
  .block-type-rw {
     padding:0px 120px;
  }
