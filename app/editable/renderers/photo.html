@@ -1,6 +1,7 @@
 <span>
-    <a ng-href="{{block.data.href}}" ng-if="block.data.href"> 
+    <a ng-href="{{block.data.href}}" ng-if="block.data.href" class="linked-photo"> 
         <img style="width:{{block.data.width}};" src="{{block.data.src}}" alt="" />
+        <span>{{block.data.title}}</span>
     </a>
     <img ng-if="!block.data.href" style="width:{{block.data.width}};" src="{{block.data.src}}" alt="" />
 </span>
