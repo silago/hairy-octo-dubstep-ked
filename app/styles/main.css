@@ -1,26 +1,60 @@
 * {
   }
   
-.block-type-photo .linked-photo span:hover {
+.blog-page-item:not(:last-child):after {
+    content:" ";
+    display:block;
+    width:100%;
+    margin:0 auto;
+    border-bottom:1px solid lightgray;
+    clear:both;
+
+}
+
+.blog-page-item > div {
+    clear:both;
+}
+
+.blog-page-item:nth-last-child {
+    border:0;
+}
+
+.blog-section {
+    margin:3% 0px;
+}
+
+.block-type-photo .linked-photo > span:hover {
     opacity:1;
 }
-.block-type-photo .linked-photo span {
-    height:100%;
-    transition:opacity 0.7s ease-out 0.05s;
-    opacity:0;
-    width:100%;
-    display:inline-block;
-    position:absolute;
-    text-align:center;
-    left:0px; top:0px;
-    padding-top:45%;
-    font-size:80%;
-    background-color:rgba(255,255,255,0.5);
-    text-transform:uppercase;
-    color:#242424; font-weight:bold;
-    
+
+.block-type-photo .linked-photo > span > span{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  left: 00%;
+  line-height: 14px;
+  font-size: 14px;
+  padding: 0px;
+  margin-top: -7px;
+}
+.block-type-photo .linked-photo > span {
+  transition: opacity 0.3s ease-out 0.05s;
+  opacity: 0; 
+  width: 100%;
+  display: block;
+  position: absolute;
+  text-align: center;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  background-color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  color: #242424;
+  font-weight: bold;
+  font-size: 14px;
 }
 .block-type-photo .linked-photo {
+    border:1px solid #efefef;
     display:inline-block;
     position:relative;
 }
@@ -623,9 +657,9 @@ z-index:999;
     font-weight:bold;
   }
   .top-bar {
-    height:98px!important;
+    height:68px!important;
     background-color:#000!important;
-    padding-top:23px!important;
+    padding-top:15px!important;
   }
   .top-bar-section ul li span > a:hover {
     color:#fff!important;
@@ -920,12 +954,16 @@ color:lightgray!important;
     padding-bottom: 19px;
   }
 
+.blog-section .row {
+    background-color:#fafafa;
+}
 
   @media (min-width: 768px) {
 
 .blog-section {
-    padding: 0 13%;
+    padding: 0 15%;
 }
+
 
  .block-type-rw {
     padding:0px 120px;
