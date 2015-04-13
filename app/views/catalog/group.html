@@ -28,7 +28,7 @@
         <div class="large-12 colums" >
         <strong> {{data.sku}} </strong>
             <div ng-show="!data.rated">
-                <a style="{{(data.rating<=$index ? 'color: #fff; text-shadow: black 0px 0px 2px;' : '')}}"
+                <a ng-attr-style="{{(data.rating<=$index ? 'color: #fff; text-shadow: black 0px 0px 2px;' : '')}}"
                      ng-click="data.rated = rate(data.sku,$index)"
                      ng-repeat="i in [1,2,3,4,5]" href class="fi-star small"></a>
             </div>

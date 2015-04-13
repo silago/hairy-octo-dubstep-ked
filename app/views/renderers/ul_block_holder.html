@@ -5,9 +5,9 @@
             <li 
                 has-not-down ng-class="{'has-dropdown':(block.subitems.length>0)}">
 
-                <a style="{{block.data.style}}"  ng-if="!!block.data.title" ng-href="{{ (!!block.subitems.length ? '' : block.data.url )}}"> {{block.data.title}} </a>
+                <a ng-attr-style="{{block.data.style}}"  ng-if="!!block.data.title" ng-href="{{ (!!block.subitems.length ? '' : block.data.url )}}"> {{block.data.title}} </a>
                 <a   ng-if="!!block.data.src" ng-href="{{block.data.href}}"> 
-                    <img style="{{block.data.style}}" ng-src="{{block.data.src}}" />
+                    <img ng-attr-style="{{block.data.style}}" ng-src="{{block.data.src}}" />
                 </a>
 
                 <ul ng-if="block.subitems" z-top-bar-dropdown class="dropdown">

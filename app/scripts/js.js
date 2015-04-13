@@ -132,6 +132,20 @@ String.prototype.$$encodeURI = function(){
 }
 Object.defineProperty(String.prototype,"$$encodeURI", {enumerable:false});
 
+
+String.prototype.$$stringToCssArray = function(){
+    var result = {};
+    var pairs = this.split(';');
+    for (var i = 0; i < pairs.length; i++) {
+        var p = pairs[i].split(':');
+        result[p[0]]=p[1];
+    }
+    alert(result[0]);
+    return result; 
+    //return encodeURI(this);
+}
+Object.defineProperty(String.prototype,"$$stringToCssArray", {enumerable:false});
+
 String.prototype.$$parseInt = function(){
       return parseInt(this);
 }

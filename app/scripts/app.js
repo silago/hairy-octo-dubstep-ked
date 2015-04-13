@@ -1,5 +1,5 @@
 'use strict';
-window.RESTurl = 'http://localhost:5000';
+window.RESTurl = 'http://'+window.location.hostname+':5000';
 
 /**
  * @ngdoc overview

@@ -19,7 +19,7 @@
                 <img ng-src="{{s.src}}">
                 <a
                     class="{{s.href_class}}"
-                    style="{{s.href_style}}"
+                    ng-attr-style="{{s.href_style}}"
                     ng-if="s.href_text"
                     href="{{ (!!s.href ? s.href : 'javascript:void(0);') }}">
                     <span> {{s.href_text}} </span>
