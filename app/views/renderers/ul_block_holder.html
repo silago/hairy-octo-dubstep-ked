@@ -1,7 +1,8 @@
 <span>
-        <span>
-            <li 
+        <span
                 ng-if="block.type=='top_menu' || block.type=='menu' || block.type=='photo'"
+            >
+            <li 
                 has-not-down ng-class="{'has-dropdown':(block.subitems.length>0)}">
 
                 <a style="{{block.data.style}}"  ng-if="!!block.data.title" ng-href="{{ (!!block.subitems.length ? '' : block.data.url )}}"> {{block.data.title}} </a>
@@ -15,35 +16,18 @@
             </li>   
         </span>
 
-
         <span  ng-init="catalogSegments = catalogRes.GET({'target':'collection'});"
             ng-if="block.type=='catalog_link'">
-                <li class="has-dropdown not-click" has-dropdown> <a href=""> Коллекция </a>
+            <li class="has-dropdown not-click" has-dropdown> <a href=""> Коллекция </a>
                 <ul class="dropdown" >
                 <li class="has-dropdown not-click" has-dropdown ng-repeat="cs in catalogSegments.data"> 
                         <a ui-sref="catalog.segment.type({'segment':cs.slug,'type':'*'})">{{cs.name}}</a>
                         <ul 
                             ng-init="catalogTypes = catalogRes.GET({'target':'collection','segment':cs.slug});" class="dropdown catalog-menu-holder">
-                            <!--
-                                <span ng-repeat="ct in catalogTypes.data">
-i
-                            -->
                             <li 
                                 ng-repeat="ct in catalogTypes.data"
                                 class="catalog-menu-item">
                                     <a ui-sref="catalog.segment.type({'segment':cs.slug,'type':ct.slug.replace('/','---')})" href>{{ct.name}}</a>
-                            <!--</li>-->
-                            <!--
-                            <div class="catalog-menu-image" style="">
-                                                        <img ng-src="{{'/static/catalog'+ct.base_image}}"
-                                                            style="" />
-                                </div>
-                            </li>
-                            -->
-                            <!--
-                            </span>
-                                <li class="catalog-menu-image" style="display:block;position: absolute; left:100%; background-color:transparent!important; height: 100%; z-index: 998; overflow: visible; border-left:1px solid gray;">
-                            -->
                             </li>
 
                             <li
@@ -52,14 +36,27 @@ i
                                 ng-bind-html="trust(cs.after_menu)"
                              >
                             </li>
-<!--
-<li style="display: inline-block;">
-  <div class="foo2" style="display:inline-block; top:0px; postitinon:absolute; z-index:-1; left:-2000px; width:20000px; background-color:#242424;">  </div></li>
--->
-
                         </ul>
                 </li>
-            </ul>
+                </ul>
+            </li>
+        </span>
+
+        <span ng-if="block.type=='side_catalog_link'">
+            <li ng-init="buySegments = buyRes.GET({'target':'collection'});"  class="has-dropdown not-click" has-dropdown> <a href=""> {{block.data.title}} </a>
+                <ul class="dropdown" >
+                <li class="has-dropdown not-click" has-dropdown ng-repeat="cs in buySegments.data"> 
+                        <a ui-sref="buy.segment.type({'segment':cs.slug,'type':'*'})">{{cs.name}}</a>
+                        <ul 
+                            ng-init="buyTypes = buyRes.GET({'target':'collection','segment':cs.slug});" class="dropdown catalog-menu-holder">
+                            <li 
+                                ng-repeat="ct in buyTypes.data"
+                                class="catalog-menu-item">
+                                    <a ui-sref="buy.segment.type({'segment':cs.slug,'type':ct.slug.replace('/','---')})" href>{{ct.name}}</a>
+                            </li>
+                        </ul>
+                </li>
+                </ul>
             </li>
         </span>
 </span>

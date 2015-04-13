@@ -1,0 +1,15 @@
+<div class="row">
+<view-title>{{meta.title}}</view-title>
+<meta view-head name="description" content="{{meta.description}}">
+<meta view-head name="keywords" content="{{meta.keywords}}">
+
+    <br/>
+
+    <span ui-view>    
+        <div ng-if="data.data" class="columns large-12">
+                <div class="columns large-{{12/data.data.length}} panel text-center white-border-20" ng-repeat="i in data.data">
+                    <a ui-sref="buy.segment({'target':'sections','segment':i.segment})">{{i.segment}}</a>
+                </div> 
+        </div>
+    </span>
+</div>

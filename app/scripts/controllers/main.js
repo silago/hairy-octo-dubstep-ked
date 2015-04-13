@@ -7,7 +7,7 @@
  * Controller of the frontendApp
  */
 angular.module('frontendApp')
-  .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,catalogRes,pageRes,ngDialog,blocksFactory,authRes,templates,$sce) {
+  .controller('MainCtrl', function ($scope,$document,$cookieStore,$location,$stateParams,blockRes,buyRes,catalogRes,pageRes,ngDialog,blocksFactory,authRes,templates,$sce) {
     var lang = $stateParams.lang || '';
     if (typeof lang=='undefined' || lang=='') lang = 'ru';
     if (lang=='en')

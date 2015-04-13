@@ -1,0 +1,92 @@
+
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+    <!-- <li role="menuitem"><a href="#/page/index">KEDDO</a></li> -->
+    <li class="current"  role="menuitem"><a href="#">Каталог</a></li>
+    <li role="menuitem">
+        <a  ui-sref="buy.segment.type({'target':'sections','segment':stateParams.segment,'type':'*'})"> 
+                    {{$parent.$parent.data.info.name}}
+        </a>
+    </li>
+    <li role="menuitem">
+        <a  ng-show="stateParams.type!='*'" ui-sref="buy.segment.type({'type':stateParams.type})">
+                    {{$parent.data.info.name}}
+        </a>
+    </li>
+    <li class="current"  role="menuitem"><a href="#">
+                    {{data.sku}}
+            </a></li>
+
+</nav> 
+    <div ng-if="data.data"ng-init="item_index = 0" >
+
+
+<view-title>{{meta.title}}</view-title>
+<meta view-head name="description" content="{{meta.description}}">
+<meta view-head name="keywords" content="{{meta.keywords}}">
+        <div class="large-12 colums" ng-if="data.sku" >
+                {{data.data['Фотографии'].split(',')[0]}}
+                <div class="large-5" ng-init="images = data.data['Фотографии'].split(','); img_index=0;">
+                    {{images}}
+                    <img ng-src="{{images[img_index]}}" alt="" class=""  style="width:100%; padding:0 30px;" />
+                
+                    <div ng-repeat="i in images"    class="columns large-3">
+                        <img ng-src="{{i}}" alt="" class=""  style="width:100%; padding:0 30px;" />
+                    </div>
+                </div>
+                
+                <div class="large-7">
+                    <strong style="text-transform:uppercase"> {{data.sku}} </strong>
+                <select>
+                    <option ng-repeat="size in data.data['Размерный ряд'].split('\\');"> 
+                        {{size}}
+                    </option>
+                </select>
+            <ul>
+                <li><strong> Материал верха:</strong> {{data.data['Верх']}} </li>
+                <li><strong> Подкладка:</strong> {{data.data['Подкладка']}} </li>
+                <li><strong> Материал подошвы:</strong> {{data.data['Подошва']}} </li>
+                <li><strong> Сезон:</strong> {{data.data['Подошва']}} </li>
+                <li><strong> Размерность:</strong> {{data.data['Размерный ряд']}} </li>
+            </ul>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    <!--
+    {{data.data}}
+    
+    <div ng-if="data.data" class="row">:
+        <div class="columns large-3" ng-repeat="i in data.data.items">
+            <a href='#'> {{i.sku}} </a>
+            <i> {{i.info}} </i>
+            
+        <div>
+    <div ui-view>    
+        
+    </div>
+    -->
+<!-- Put this script tag to the <head> of your page -->
+
+<!-- Put this div tag to the place, where the Comments block will be -->
+<div class="columns large-12">
+<div id="vk_comments"></div>
+    <script type="text/javascript">
+    VK.Widgets.Comments("vk_comments", {limit: 10, width: "665", attach: false});
+    </script>
+</div>
+</div>

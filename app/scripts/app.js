@@ -134,6 +134,11 @@ angular
         ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
         }
     })
+
+
+
+
+
 .state('catalog',{
       url:'/catalog/',
         views:{
@@ -165,6 +170,51 @@ angular
     templateUrl: 'views/catalog/item.html',
     controller:  'CatalogCtrl'
 })
+
+
+
+
+
+
+
+
+
+
+
+.state('buy',{
+      url:'/buy/',
+        views:{
+          'content':   {
+                            templateUrl:   'views/buy/catalog.html',
+                            controller:'BuyCtrl',
+                        },
+          'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
+          'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
+        }
+})
+.state('buy.segment', {
+    url:':segment/',
+    templateUrl: 'views/buy/segment.html',
+    controller:  'BuyCtrl',
+})
+.state('buy.segment.type',{
+      url:':type/',
+      templateUrl:   'views/buy/type.html',
+      controller:'BuyCtrl'
+})
+.state('buy.segment.type.group', {
+    url:':sku/',
+    templateUrl: 'views/buy/group.html',
+    controller:  'BuyCtrl'
+})
+.state('buy.segment.collection.group.item', {
+    url:':item/',
+    templateUrl: 'views/buy/item.html',
+    controller:  'BuyCtrl'
+})
+
+
+
 
 .state('editableblog',{
       url:'/blog/edit',

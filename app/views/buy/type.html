@@ -1,0 +1,40 @@
+
+<span ui-view>    
+        <ul class="breadcrumbs"> 
+            <li class="current"><a href >Каталог</a></li>
+            <li ><a ui-sref='buy.segment.type({"target":"collections","segment":stateParams.segment,"type":"*"})' href >
+                    {{$parent.$parent.data.info.name}}
+                </a></li>
+            <li class="current" ng-show="stateParams.type!='*'">    <a href >
+                    {{$parent.data.info.name}}
+                </a></li>
+        </ul>
+
+    <div ng-if="data.data" class="columns large-12">
+
+<view-title>{{meta.title}}</view-title>
+<meta view-head name="description" content="{{meta.description}}">
+<meta view-head name="keywords" content="{{meta.keywords}}">
+        <div ng-if="stateParams.type=='*'">
+            <div ng-bind-html="trust(data.description)"> 
+            </div>
+        </div>
+        <div class="catalog_type_list">
+            <table  class="large-12" style="margin:0px; border:0;" ng-repeat="i in data.data">
+                <tr ng-if="$index%4==0" ng-init="_i = $index" > 
+                    <td style="float:none; vertical-align:bottom;" ng-init="i = data.data[_i+_index]" ng-repeat="_index in [0,1,2,3]" class="columns large-3">
+                    <center>
+                    <img ng-src="{{i.data['Фотографии'].split(',')[0]}}" alt="" class=""  style="width:100%; padding:0 30px;" />
+                        <div>{{i.sku}}</div> 
+                        <a ui-sref="buy.segment.type.group({'sku':encodeTwice(i.sku)})">  Подробнее  </a>
+                    </center>
+                    <br/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div style="clear:both;"> </div>
+    <br/>
+    <br/>
+</span>
