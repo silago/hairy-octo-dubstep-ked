@@ -206,6 +206,15 @@ Object.prototype.$$hasDefined = function(){
 }
 Object.defineProperty(Object.prototype, "$$hasDefined", {enumerable: false})
 
+
+
+
+Object.prototype.$$first = function(){
+   var keys = Object.keys(this);
+   return this[keys[0]];
+}
+Object.defineProperty(Object.prototype, "$$first", {enumerable: false})
+
 String.prototype.fromJson = function(){
    return angular.fromJson(this);
 }

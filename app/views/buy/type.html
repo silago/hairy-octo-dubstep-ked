@@ -24,7 +24,7 @@
                 <tr ng-if="$index%4==0" ng-init="_i = $index" > 
                     <td style="float:none; vertical-align:bottom;" ng-init="i = data.data[_i+_index]" ng-repeat="_index in [0,1,2,3]" class="columns large-3">
                     <center>
-                    <img ng-src="{{i.data['Фотографии'].split(',')[0]}}" alt="" class=""  style="width:100%; padding:0 30px;" />
+                    <img ng-src="{{i.data.$$first()['Фотографии'].split(',')[0]}}" alt="" class=""  style="width:100%; padding:0 30px;" />
                         <div>{{i.sku}}</div> 
                         <a ui-sref="buy.segment.type.group({'sku':encodeTwice(i.sku)})">  Подробнее  </a>
                     </center>
