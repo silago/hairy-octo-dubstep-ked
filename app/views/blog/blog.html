@@ -1,9 +1,26 @@
 <div class="blog-section ">
 <div class="row">
+<a id="blogTop"></a>
 
 
 
     <div class="columns large-12">
+        <a
+        style="
+                  position: fixed;
+                  z-index: 9;
+                  font-size: 20px;
+                  top: 70%;
+                  margin-left: -176px;
+                  text-transform: uppercase;
+                  font-family: monospace;
+                  letter-spacing: 5px;
+                "
+            du-smooth-scroll
+            href="#blogTop"
+            ng-show="window.pageYOffset>400">
+            Наверх <i class="fi-arrow-up large"></i>
+        </a>
         <div ui-view>
             <!--
             <div ng-repeat="i in data.data">
@@ -11,6 +28,9 @@
             </div>
             -->
         </div>
+    <!--
+        <a href="#anchor" du-scrollspy>Am i active?</a>
+    -->
     </div>
 
 <!--
