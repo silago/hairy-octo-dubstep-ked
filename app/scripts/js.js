@@ -121,6 +121,19 @@ Object.prototype.$$keys = function(){
 Object.defineProperty(Object.prototype, "$$keys", {enumerable: false})
 
 
+Object.prototype.$$toArray = function(){
+    var result = [];
+    var keys = this.$$keys();
+
+    for (var i = 0; i < keys.length; i++) { 
+        var item  = this[keys[i]];
+        item.$$objectKey = keys[i];
+        result.push(item);
+    }
+    return result;
+}
+Object.defineProperty(Object.prototype, "$$toArray", {enumerable: false})
+
 Object.prototype.$$init = function(key){
    if (typeof(this[key])==undefined)
        {this[key]=""};

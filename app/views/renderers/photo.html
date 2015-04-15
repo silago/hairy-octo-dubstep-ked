@@ -1,11 +1,11 @@
 <span>
     <a ng-href="{{block.data.href}}" ng-if="block.data.href" class="linked-photo"> 
-        <img style="width:{{block.data.width}};" src="{{block.data.src}}" alt="" />
+        <img ng-attr-style="{{'width:'+block.data.width}};" src="{{block.data.src}}" alt="" />
         <span>
             <span>
                 {{block.data.title}}
             </span>
         </span>
     </a>
-    <img ng-if="!block.data.href" style="width:{{block.data.width}};" src="{{block.data.src}}" alt="" />
+    <img ng-if="!block.data.href" ng-attr-style="{{'width:'+block.data.width}};" src="{{block.data.src}}" alt="" />
 </span>

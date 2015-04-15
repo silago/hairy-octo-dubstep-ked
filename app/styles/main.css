@@ -1,6 +1,9 @@
 * {
   }
   
+.ymap.countries > option:nth-first-child(2) {
+   font-weight:bold; 
+}
 .blog-page-item:not(:last-child):after {
     content:" ";
     display:block;

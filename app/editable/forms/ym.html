@@ -36,8 +36,10 @@
     </div>
     </div>
         <ul>  
-            <li ng-repeat="country in item.data.countries">
+            <li ng-repeat="country in item.data.countries|orderBy:'order'">
                    <a href editable-text="country.name">{{ country.name || "empty" }}</a>
+                    <a class="fi-list-thumbnails small"
+                            href editable-text="country.order"> {{ country.order || 0 }} </a>
                    <a ng-click="item.data.countries.splice($index,1)"> x </a>
                    <ul> 
                         <li ng-repeat="city in country.cities"> 

@@ -32,8 +32,9 @@
 
                 <div style="margin-top:90px;" zzzng-if="block.data.map_type=='partner'" ng-init="selected_city=-1">
                     <span style="font-size:18px;"> МАГАЗИНЫ </span><br/>
-                    <select ng-if="block.data.countries" ng-change="_result=undefined; $parent.selected_city=undefined" ng-model="$parent.selected_country">
-                        <option style="font-size:18px;"  ng-repeat="(n,country) in block.data.countries" ng-value="n">
+                    <select  class="ymap countries" ng-if="block.data.countries" ng-change="_result=undefined; $parent.selected_city=undefined" ng-model="$parent.selected_country">
+                        <option style="font-size:18px;"
+                                ng-repeat="country in block.data.countries.$$toArray() | orderBy:'order'" ng-value="country.$$objectKey">
                             {{country.name}}
                         </option>
                     </select>
