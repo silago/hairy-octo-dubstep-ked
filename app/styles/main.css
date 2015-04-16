@@ -23,7 +23,8 @@
 }
 
 .blog-section {
-    margin:3% 0px;
+    margin: 40px 0px;
+    padding: 0 20%;
 }
 
 .block-type-photo .linked-photo > span:hover {
@@ -36,7 +37,7 @@
   width: 100%;
   left: 00%;
   line-height: 14px;
-  font-size: 14px;
+  font-size: 12px;
   padding: 0px;
   margin-top: -7px;
 }
@@ -126,6 +127,7 @@ li.blog-cats > a {color:#fff!important;}
   position: absolute;
   z-index: 80;
   top: 40%;
+  left:0px;
   font-size: 36px!important;
   margin-left: -24px;
   margin-top: -36px;
@@ -960,10 +962,9 @@ color:lightgray!important;
     background-color:#fafafa;
 }
 
-  @media (min-width: 768px) {
+@media screen and (min-width: 600px) {
 
 .blog-section {
-    padding: 0 15%;
 }
 
 
