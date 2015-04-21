@@ -2,6 +2,9 @@
 <div class="row">
 <a id="blogTop"></a>
 
+    <view-title>{{page.data[0].category_name}}</view-title>
+    <meta view-head name="description" content="{{page.data[0].category_name}}">
+    <meta view-head name="keywords" content="{{page.data[0].category_name}}">
 
 
     <div class="columns large-12">
@@ -22,35 +25,7 @@
             Наверх <i class="fi-arrow-up large"></i>
         </a>
         <div ui-view>
-            <!--
-            <div ng-repeat="i in data.data">
-                <a href>{{i.name}} </a>
-            </div>
-            -->
-        </div>
-    <!--
-        <a href="#anchor" du-scrollspy>Am i active?</a>
-    -->
-    </div>
-
-<!--
-<div class="columns large-12" style="background-color:#242424;">
-<br/>
-    <ul class="blog-side-nav side-nav columns large-2">
-        <li><strong style="color:#fff;">Вдохновение keddo</strong></li>
-        <li ng-repeat="c in categories.data" ng-show="c.visible!=0"> 
-                <a ui-sref="blog.category({'category':c.name})">{{c.name}} </a>
-        </li>
-    </ul>
-
-    <div class="columns large-10">
-        <div ui-view>
-            <div ng-repeat="i in data.data">
-                <a href>{{i.name}} </a>
-            </div>
         </div>
     </div>
-</div> 
--->
 </div> 
 </div> 
