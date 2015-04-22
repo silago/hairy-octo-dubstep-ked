@@ -74,7 +74,6 @@ angular.module('frontendApp')
             $scope.file = file;
             var u = window.RESTurl+'/api/catalog?season='+$scope.catalogUploadSeason;
             file.$upload(u, {}).then(function(d){
-                    /*$scope.data = d;*/
                     $scope.getCollections();
                     $scope.catalogUploadStatus = 'Файл успешно загружен';
                 },function(d){$scope.catalogUploadStatus = 'Произошла ошибка при загрузке файла каталога';});
