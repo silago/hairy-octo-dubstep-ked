@@ -48,15 +48,15 @@ angular
         'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
       }
     })
-    .state('fm',{
-      url:'/fm',
-      views: {
-        'content':   {templateUrl:   'editable/files.html',     controller:'FileCtrl'},
-        'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'MainCtrl'},
-        'bottomMenu':{templateUrl:   'editable/block.html',    controller:'MainCtrl'}
-        ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
-      }
-    })
+ //   .state('fm',{
+ //     url:'/fm',
+ //     views: {
+ //       'content':   {templateUrl:   'editable/files.html',     controller:'FileCtrl'},
+ //       'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'MainCtrl'},
+ //       'bottomMenu':{templateUrl:   'editable/block.html',    controller:'MainCtrl'}
+ //       ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
+ //     }
+ //   })
     .state('subscribe',{
       url:'/subscribe/:email',
       views: {
@@ -74,66 +74,30 @@ angular
       }
     })
     .state('pages', {
-        url:'/{lang}/page/:url',
+        url:'/{lang:[a-z]{1,2}}/page/:url',
         views: {
           'content':   {templateUrl:   'views/main.html',     controller:'MainCtrl'},
           'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
           'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
         }
       })
-    .state('editpages', {
-        url:'/{lang}/page/:url/edit',
-        views: {
-          'content':   {templateUrl:   'editable/main.html',controller:'EditablemainCtrl'},
-          'topMenu':   {templateUrl:   'editable/ul_block.html',controller:'EditablemainCtrl'},
-          'bottomMenu':{templateUrl:   'editable/block.html',   controller:'EditablemainCtrl'},
-          'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
-        }
-      })
-    .state('map', {
-        url:'/map',
-        views:{
-          'content':   {templateUrl:   'views/map.html',     controller:'MapCtrl'},
-          'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
-          'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
-        }
-    })
-    .state('editmap', {
-        url:'/map/edit',
-        views:{
-          'content':   {templateUrl:   'editable/map.html',      controller:'EditablemapCtrl'},
-          'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
-          'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
-        ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
-        }
-    })
-    .state('users',{
-      url:'/users',
-        views:{
-          'content':   {templateUrl:   'editable/users.html',      controller:'UserCtrl'},
-          'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
-          'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
-        ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
-        }
-    })
-    .state('editcatalog',{
-      url:'/catalog/edit/',
-        views:{
-          'content':   {templateUrl:   'editable/catalog/catalog.html',      controller:'EditablecatalogCtrl'},
-          'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
-          'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
-        ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
-        }
-    })
-    .state('editcataloggroup',{
-      url:'/cataloggroup/edit/',
-        views:{
-          'content':   {templateUrl:   'editable/catalog/segment.html',      controller:'EditablecatalogCtrl'},
-          'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
-          'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
-        ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
-        }
-    })
+ //   .state('map', {
+ //       url:'/map',
+ //       views:{
+ //         'content':   {templateUrl:   'views/map.html',     controller:'MapCtrl'},
+ //         'topMenu':   {templateUrl:   'views/ul_block.html', controller:'MainCtrl'},
+ //         'bottomMenu':{templateUrl:   'views/block.html',    controller:'MainCtrl'}
+ //       }
+ //   })
+ //   .state('editmap', {
+ //       url:'/map/edit',
+ //       views:{
+ //         'content':   {templateUrl:   'editable/map.html',      controller:'EditablemapCtrl'},
+ //         'topMenu':   {templateUrl:   'editable/ul_block.html', controller:'EditablemainCtrl'},
+ //         'bottomMenu':{templateUrl:   'editable/block.html',    controller:'EditablemainCtrl'}
+ //       ,'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
+ //       }
+ //   })
 
 
 
@@ -216,23 +180,7 @@ angular
 
 
 
-.state('editableblog',{
-      url:'/blog/edit',
-        views:{
-          'content':   {
-                            templateUrl:   'editable/blog/blog.html',
-                            controller:'EditableblogCtrl',
-                        },
-          'topMenu':   {templateUrl:   'views/ul_block.html', controller:'EditablemainCtrl'},
-          'bottomMenu':{templateUrl:   'views/block.html',    controller:'EditablemainCtrl'},
-          'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'}
-        }
-})
-.state('editableblog.category', {
-    url:'/:category/',
-    templateUrl: 'editable/blog/category.html',
-    controller:  'EditableblogCtrl'
-})
+
 .state('blog',{
       url:'/blog/',
         views:{
@@ -254,6 +202,47 @@ angular
     templateUrl:'views/blog/block.html',
     controller:'BlogCtrl'
 })
+
+
+
+    .state('adm', {
+        url:'/adm',
+        views: {
+          'topMenu':   {templateUrl:   'editable/ul_block.html',controller:'EditablemainCtrl'},
+          'bottomMenu':{templateUrl:   'editable/block.html',   controller:'EditablemainCtrl'},
+          'rightMenu': {templateUrl:   'editable/adm/menu.html',controller:'EditablemainCtrl'},
+          'admMenu':   {templateUrl:   'editable/adm/nav.html',controller:'AdmCtrl'}
+        }
+      })
+
+    .state('adm.pages', {
+        url:'/{lang}/page/:url',
+        templateUrl:   'editable/main.html',
+        controller:'EditablemainCtrl',
+      })
+    .state('adm.catalog',{
+      url:'/catalog',
+      templateUrl:   'editable/catalog/catalog.html',
+      controller:'EditablecatalogCtrl',
+    })
+    .state('adm.users',{
+      url:'/users',
+      templateUrl:   'editable/users.html',
+      controller:'UserCtrl',
+    })
+
+
+.state('adm.blog',{
+      url:'/blog',
+      templateUrl:   'editable/blog/blog.html',
+      controller:'EditableblogCtrl',
+})
+.state('adm.blog..category', {
+    url:'/:category',
+    templateUrl: 'editable/blog/category.html',
+    controller:  'EditableblogCtrl'
+})
+
 .state('auth',{
         url:'/auth',
         views: {
@@ -263,6 +252,10 @@ angular
           }}
       })
 
-  }).config(function($compileProvider) {
+  })
+
+
+
+.config(function($compileProvider) {
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|javascript|mailto|file):/);
 });

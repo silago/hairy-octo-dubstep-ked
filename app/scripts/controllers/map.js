@@ -10,7 +10,6 @@
 angular.module('frontendApp')
   .controller('MapCtrl', function ($scope,$filter,ngDialog,mapRes,cityRes,$window) {
     function geo() {
-        console.log('##');
         if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(setPosition);
         } else {

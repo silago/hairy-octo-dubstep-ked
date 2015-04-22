@@ -12,5 +12,4 @@ angular.module('frontendApp')
         $scope.categories = blogRes.categories({'categories':'*'});
         $scope.page = blogRes.GET($stateParams); 
         $scope.window = $window;
-        console.log('!!!!!');
   });

@@ -11,7 +11,7 @@
                 
           </li>
           <li class="blog-cats tiny button success" zzzzng-show="cats"  ng-repeat="c in categories.data"> 
-                <a ui-sref="editableblog.category({'category':c.url})">{{c.name}} </a>
+                <a ui-sref="adm.blog.category({'category':c.url})">{{c.name}} </a>
                 <a href ng-attr-style="{{(!c.visible?'color:gray;':'')}}"ng-click="c.visible=1*(!c.visible)" class="fi-eye"></a>
                 <a href editable-text="categories.data[$index].name"  class="fi-pencil"></a>
                 <a href editable-text="categories.data[$index].url"  class="fi-link"></a>
