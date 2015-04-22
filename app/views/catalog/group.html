@@ -37,19 +37,19 @@
             </div>
         <br/>
             <center>
-                <img style="max-width:400px;" src="/static/catalog/{{data.data['image_1'].replace('/','-')}}" alt="{{data.sku}}" />
+                <img style="max-width:400px;" src="/static/catalog/{{ data.data['image_1'] }}" alt="{{data.sku}}" />
             </center>
         <br/>
         <br/>
         <ul>
             <li><strong> Марка:</strong> {{data.data['Марка']}} </li>
-            <li><strong> Тип обуви:</strong> {{data.data['Тип']}} </li>
+            <li><strong> Тип обуви:</strong> {{data.data['Тип обуви']}} </li>
             <li><strong> Артикул:</strong> {{data.sku}} </li>
             <li><strong> Цвет:</strong> {{data.data['Цвет']}} </li>
             <li><strong> Материал верха:</strong> {{data.data['Материал верха']}} </li>
             <li><strong> Подкладка:</strong> {{data.data['Подкладка']}} </li>
             <li><strong> Стелька:</strong> {{data.data['Стелька']}} </li>
-            <li><strong> Размер:</strong> {{data.data['analpa_razmer'].$$replace('\\(.+','g') }} </li>
+            <li><strong> Размер:</strong> {{data.data['Размер'].$$replace('\\(.+','g') }} </li>
         </ul>
         </div>
     <!--

@@ -1,3 +1,7 @@
+   function delay(v,t) { 
+        setTimeout(eval(v), t);
+   }
+
     function catalogCollectionTranslate(val) {
         val = val.toLowerCase();
         var keys =  {'женские':'Женщины','мужские':'Мужчины','детские':'Дети'};

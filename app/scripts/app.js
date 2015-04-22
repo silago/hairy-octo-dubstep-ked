@@ -237,7 +237,7 @@ angular
       templateUrl:   'editable/blog/blog.html',
       controller:'EditableblogCtrl',
 })
-.state('adm.blog..category', {
+.state('adm.blog.category', {
     url:'/:category',
     templateUrl: 'editable/blog/category.html',
     controller:  'EditableblogCtrl'
