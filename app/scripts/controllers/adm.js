@@ -8,7 +8,9 @@
  * Controller of the keddoApp
  */
 angular.module('frontendApp')
-  .controller('AdmCtrl', function ($scope) {
+  .controller('AdmCtrl', function ($scope,pageRes) {
+    $scope.pages = pageRes.GET({});
+
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

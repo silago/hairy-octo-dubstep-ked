@@ -11,9 +11,17 @@
     <li>
 
         <i class="fi-page"></i>
-        <a 
-          ui-sref="adm.pages({'lang':'ru','url':'index'})">
+        <a  
+                ng-click="showChild=!showChild"
+         >
         Pages</a>
+        <ul ng-show="showChild"> 
+            <li ng-repeat="p in pages.data">
+                <span style="color:#fff;">{{p.url}}</span>
+                <a style="clear:none;" ui-sref="adm.pages({'lang':'ru','url':'index'})">ru</a>&nbsp;
+                <a style="clear:none;" ui-sref="adm.pages({'lang':'en','url':'index'})">en</a>   
+            </li>
+        </ul>
     </li>
 
     <li> <i class="fi-shopping-cart"></i>
@@ -33,6 +41,7 @@
           ui-sref="adm.users({})">
 Users</a>
     </li>
+            <li><i></i><a ng-href="{{RESTurl+'/api/subscribe'}}">Подписчики</a></li>
 </ul>
     <span onload="init()" ui-view>   
     </span> 

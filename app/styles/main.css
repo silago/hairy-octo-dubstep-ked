@@ -3,16 +3,19 @@
 
 
 
-.nav-adm .side-nav li  {
+.nav-adm .side-nav > li  {
     border-bottom: 1px solid gray; opadding:10px 0px;
 }
 
-.nav-adm .side-nav li i {
+.nav-adm .side-nav > li > i {
     color:#fff; font-size:20px; 
     margin-right:10px;
 }
 
-.nav-adm .side-nav li a {
+.nav-adm .side-nav  li  a {
+ display:inline!important;
+}
+.nav-adm .side-nav > li > a {
     color:#fff!important; float:right; margin-left:10px; clear: right;
 }
 
