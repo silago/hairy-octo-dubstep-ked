@@ -6,6 +6,8 @@
                     text-align:center;
                     position:relative;
                     "
+    ng-dialog-data="{{block.data.src}}"    ng-dialog-class="ngdialog-theme-default ng-dialog-full"
+    ng-dialog="views/renderers/ytmodal.html"
                     ng-click="play=true">
 
                     <img ng-if="block.data.img" style="width:100%" src='{{block.data.img}}'/>
@@ -20,6 +22,7 @@
                 <br/>
                 <span style="color:lightgray; font-size:12px;"> {{block.data.description}}</span>
             </div>
+<!-- 
     <div ng-if="play==true"
 style="
   position: absolute;
@@ -35,4 +38,6 @@ style="
         player-height="'100%'"
         player-width="'100%'" video-url="block.data.src"></youtube-video>
     </div>
+-->
+
 </div>

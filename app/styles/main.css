@@ -1,5 +1,19 @@
 * {
   }
+.ngdialog.ngdialog-theme-default.ng-dialog-full .ngdialog-close::before {
+    font-size:50px; 
+    top:-6px;
+    right:2px;
+}
+
+.ng-dialog-full .ngdialog-content {
+    height:100%;
+
+}
+.ngdialog.ngdialog-theme-default {
+    padding-top:30px!important;
+    padding-bottom:30px!important;
+}
 
 
 
