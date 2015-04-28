@@ -25,10 +25,14 @@
 <meta view-head name="description" content="{{meta.description}}">
 <meta view-head name="keywords" content="{{meta.keywords}}">
         <div class="row" ng-if="data.sku" ng-init="selected=data.data.$$keys()[0]">
-                <div ng-show="k==selected || (selected==-1 && $index==1)" ng-repeat="(k,v) in data.data"
+                <div 
+                    ng-show="k==selected || (selected==-1 && $index==1)" ng-repeat="(k,v) in data.data"
                     class="columns large-5"
                     ng-init='images = v["Фотографии"].split(","); img_index=0;'>
-                    <img ng-src="{{images[img_index]}}" alt="" class=""  style="width:100%; padding:0 30px;" />
+                    <img 
+                    ng-elevate-zoom="{{images[img_index]}}" 
+                    data-zoom-image="{{images[img_index]}}" 
+                    ng-src="{{images[img_index]}}" alt="" class=""  style="width:100%; padding:0 30px;" />
                     <div ng-repeat="i in images"    class="columns large-3">
                         <a href ng-click="$parent.img_index=$index">
                             <img ng-src="{{i}}" alt="" class=""  />
@@ -60,8 +64,23 @@
                 </ul>   
                     <div>
                      <span style="vertical-align:bottom; font-size:24px;" class="left">
-                        {{data.data[selected]['"Цена без скидки"']}} руб.&nbsp;
+                        <div ng-if='!data.data[selected]["\"Скидка (%)\""]'>
+                            {{data.data[selected]['"Цена без скидки"']}} руб.&nbsp;
+                        </div>
+                        <div ng-if='data.data[selected]["\"Скидка (%)\""]'>
+                            {{
+                            data.data[selected]['"Цена без скидки"']*
+                            (100-data.data[selected]['"Скидка (%)"'])/100
+                            }} руб.&nbsp;
+                            <small style="text-decoration:line-through;"> {{data.data[selected]['"Цена без скидки"']}} руб.&nbsp;
+                            </small>
+                        </div>
                      </span>
+                        <br/>
+                        <br/>
+                        Покупка производится на сайте интернет-магазина www.yyees.com
+                        <br/>
+                        <br/>
                      <a 
                             style="background-color:#242424;"
                             class="small button" ng-click="redirect=1; window.delay('document.location=\''+data.data[selected]['URL']+'\'',12000);"
