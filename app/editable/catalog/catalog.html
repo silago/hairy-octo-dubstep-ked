@@ -28,8 +28,14 @@
                         <a editable-text="segments.data[$index].name">{{i.name}}</a>
                         <a ng-show="!i.group" href ng-click="segments.data[$index].group=1">Объеденить</a>
                         <a ng-show="i.group==true" href ng-click="segments.data[$index].group=0">Разобъеденить</a>
+                        <a href editable-select="segments.data[$index].parent_id" e-ng-options="s.id as s.name for s in segments.data">
+                           parent_id ({{ i.parent_id}} ) 
+                         </a>
+
                     </li>
+                    <li> <a href ng-click="segments.data.push({'collection_id':segments.data[0].collection_id,name:'Новая группа'})" > + </a> </li>
                 </ul>
+                
                 <a href ng-click="saveSegments(segments)">Применить </a> 
                 
                 <!--
