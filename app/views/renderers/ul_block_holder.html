@@ -21,7 +21,7 @@
             <li  class="has-dropdown not-click" has-dropdown> <a href=""> Коллекция </a>
                 <ul class="dropdown" >
                 <li ng-if="!cs.parent_id" class="has-dropdown not-click" has-dropdown ng-repeat="cs in catalogSegments.data"> 
-                        <a ui-sref="catalog.segment.type({'segment':cs.slug,'type':'*'})">{{cs.name}}</a>
+                        <a ui-sref="catalog.segment({'segment':cs.slug})">{{cs.name}}</a>
                         <ul ng-if="!cs.children.length"  ng-init="catalogTypes = catalogRes.GET({'target':'collection','segment':cs.slug});" class="dropdown catalog-menu-holder">
                             <li ng-repeat="ct in catalogTypes.data" class="catalog-menu-item"> <a ui-sref="catalog.segment.type({'segment':cs.slug,'type':ct.slug.replace('/','---')})" href>{{ct.name}}</a>  </li>
                             <!--  <li class="menu-catalog-after" ng-if="cs.after_menu" ng-bind-html="trust(cs.after_menu)">  </li> -->
@@ -46,7 +46,7 @@
             <li ng-init="buySegments = buyRes.GET({'target':'collection'});"  class="has-dropdown not-click" has-dropdown> <a href=""> {{block.data.title}} </a>
                 <ul class="dropdown" >
                 <li class="has-dropdown not-click" has-dropdown ng-repeat="cs in buySegments.data"> 
-                        <a ui-sref="buy.segment.type({'segment':cs.slug,'type':'*'})">{{cs.name}}</a>
+                        <a ui-sref="buy.segment({'segment':cs.slug})">{{cs.name}}</a>
                         <ul 
                             ng-init="buyTypes = buyRes.GET({'target':'collection','segment':cs.slug});" class="dropdown catalog-menu-holder">
                             <li 

@@ -1,3 +1,12 @@
+
+.zoomContainer {
+  z-index: 1;
+}
+.zoomWindowContainer {
+    z-index:999;
+}
+
+
 * {
   }
 .ngdialog.ngdialog-theme-default.ng-dialog-full .ngdialog-close::before {
@@ -25,9 +34,9 @@
       overflow: visible;
       clip: auto;
       position: absolute !important; 
-left: 0 !important;
-    position: absolute;
-    top: 100%;
+      z-left: 0 !important;
+      position: absolute;
+      z-top: 100%;
 
 }
 
@@ -1026,8 +1035,6 @@ color:lightgray!important;
 div div .dropdown.catalog-menu-holder {
     background-color: #000!important; width: auto;
     overflow:visible;
-    -moz-columns:4;
-    columns:4;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     left: 100%!important;

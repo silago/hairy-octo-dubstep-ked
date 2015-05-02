@@ -13,7 +13,7 @@
             </ul>
     </div>
     <div ui-view class="columns large-10 small-12">
-         <div   ng-init="s = stateParams; s['type']='*'; data=[]; data.data=catalogRes.GET(s);"
-                ng-include="'views/catalog/type.html'">
+         <div   ng-init="s = stateParams; s['type']='*'; data=[]; data=catalogRes.GET(s);"
+                ng-include="'views/catalog/full.html'">
          </div>
     </div>
