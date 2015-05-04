@@ -114,7 +114,7 @@
   font-size: 14px;
 }
 .block-type-photo .linked-photo {
-    border:1px solid #efefef;
+    zborder:1px solid #efefef;
     display:inline-block;
     position:relative;
 }
