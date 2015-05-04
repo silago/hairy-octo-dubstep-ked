@@ -113,6 +113,10 @@
   font-weight: bold;
   font-size: 14px;
 }
+.bgwhite {
+    background-color:white;
+    display:block;
+}
 .block-type-photo .linked-photo {
     zborder:1px solid #efefef;
     display:inline-block;

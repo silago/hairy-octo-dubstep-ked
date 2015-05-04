@@ -1,6 +1,6 @@
         <div ng-attr-style="{{block.data.style}}"
             ng-show="block.type && block.type!='deleted'"
-             class="has-block-controls block-type-{{block.type}} "> 
+             class="has-block-controls block-type-{{block.type}} {{block.data.class}}"> 
              <span class="sub_block_controls">
                     <a class="fi-x      small" ng-click="$parent.block.type = 'deleted'">  </a>
                     <a class="fi-pencil      small" ng-click="updateElement(block);">  </a>
@@ -21,8 +21,8 @@
             <div 
 
                 as-sortable ng-model="block.subitems" class="block-subitems">
-               <span  class="block-type-subitems {{block.data.class}}" as-sortable-item ng-repeat="block in block.subitems">
-                   <ng-include  src="'editable/renderers/block_holder.html'"> ... </ng-include>
+               <span  class="" as-sortable-item ng-repeat="block in block.subitems">
+                   <ng-include class="block-type-subitems"   src="'editable/renderers/block_holder.html'"> ... </ng-include>
 
                 </span>
             </div>
