@@ -18,7 +18,7 @@
 
         <span  ng-init="catalogSegments = catalogRes.GET({'target':'collection'});"
             ng-if="block.type=='catalog_link'">
-            <li  class="has-dropdown not-click" has-dropdown> <a href=""> Коллекция </a>
+            <li  class="has-dropdown" has-dropdown> <a  ui-sref="catalog({})" href> Коллекция </a>
                 <ul class="dropdown" >
                 <li ng-if="!cs.parent_id" class="has-dropdown not-click" has-dropdown ng-repeat="cs in catalogSegments.data"> 
                         <a ui-sref="catalog.segment({'segment':cs.slug})">{{cs.name}}</a>

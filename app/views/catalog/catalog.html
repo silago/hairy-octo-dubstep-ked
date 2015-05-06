@@ -7,9 +7,14 @@
 
     <span ui-view>    
         <div ng-if="data.data" class="columns large-12">
-                <div class="columns large-{{12/data.data.length}} panel text-center white-border-20" ng-repeat="i in data.data">
-                    <a ui-sref="catalog.segment({'target':'sections','segment':i.segment})">{{i.segment}}</a>
-                </div> 
+                <span ng-if="!i.children.length" class="columns large-3" ng-repeat="i in data.data">
+                    <center>
+                        <a ui-sref="catalog.segment({'target':'sections','segment':i.slug})">{{i.name}}</a>
+                        <div ng-bind-html="trust(i.data)" >
+                        </div>
+                    </center>
+                    <br/>
+                </span> 
         </div>
     </span>
 </div>

@@ -44,9 +44,15 @@ angular.module('frontendApp')
                 var index = 3;
                 $stateParams.target = 'collection';
                 $scope.stateParams = $stateParams;
-                console.log($stateParams);
+                //console.log($stateParams);
                 buyRes.collections($stateParams).$promise.then(
                     function(data){
+                        //$state.go('.child.grandchild')
+                        if($state.current.name == 'buy.segment') {
+                            //alert(data.data[0].slug);
+                            // console.log(data);
+                            $state.go('.type',{'type':data.data[0].slug})
+                        }
                         $scope.data=data;
                         if (typeof(data.data.name)!='undefined') 
                             $scope.meta.title = data.data.data.name;
