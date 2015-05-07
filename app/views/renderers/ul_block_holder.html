@@ -23,16 +23,22 @@
                 <li ng-if="!cs.parent_id" class="has-dropdown not-click" has-dropdown ng-repeat="cs in catalogSegments.data"> 
                         <a ui-sref="catalog.segment({'segment':cs.slug})">{{cs.name}}</a>
                         <ul ng-if="!cs.children.length"  ng-init="catalogTypes = catalogRes.GET({'target':'collection','segment':cs.slug});" class="dropdown catalog-menu-holder">
-                            <li ng-repeat="ct in catalogTypes.data" class="catalog-menu-item"> <a ui-sref="catalog.segment.type({'segment':cs.slug,'type':ct.slug.replace('/','---')})" href>{{ct.name}}</a>  </li>
+                            <li ng-repeat="ct in catalogTypes.data" class="catalog-menu-item"> 
+                                <a ng-if="cs.children.length"  href>{{ct.name}}</a>  
+                                <a ng-if="!cs.children.length"  ui-sref="catalog.segment.type({'segment':cs.slug,'type':ct.slug.replace('/','---')})" href>{{ct.name}}</a>  </li>
+                            </li>
                             <!--  <li class="menu-catalog-after" ng-if="cs.after_menu" ng-bind-html="trust(cs.after_menu)">  </li> -->
                         </ul>
 
                         <ul ng-if="cs.children.length"   class="dropdown catalog-menu-holder">
                             <li ng-repeat="scs in cs.children" class="catalog-menu-item">
-                                <a  href>{{scs.name}}</a>  
+                                <a  
+                                    ui-sref="catalog.segment.type({'segment':cs.slug,'type':scs.slug.replace('/','---')})"
+                                    href>{{scs.name}}</a>  
                             <!--  <li class="menu-catalog-after" ng-if="cs.after_menu" ng-bind-html="trust(cs.after_menu)">  </li> -->
                                 <ul ng-init="catalogTypes = catalogRes.GET({'target':'collection','segment':scs.slug});" class="dropdown catalog-menu-holder">
-                                    <li ng-repeat="ct in catalogTypes.data" class="catalog-menu-item"> <a ui-sref="catalog.segment.type({'segment':scs.slug,'type':ct.slug.replace('/','---')})" href>{{ct.name}}</a>  </li>
+                                    <li ng-repeat="ct in catalogTypes.data" class="catalog-menu-item">
+                                    <a ui-sref="catalog.segment.type({'segment':scs.slug,'type':ct.slug.replace('/','---')})" href>{{ct.name}}</a>  </li>
                                     <!--  <li class="menu-catalog-after" ng-if="cs.after_menu" ng-bind-html="trust(cs.after_menu)">  </li> -->
                                 </ul>
                             </li>

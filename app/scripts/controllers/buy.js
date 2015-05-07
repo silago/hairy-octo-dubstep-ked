@@ -48,11 +48,11 @@ angular.module('frontendApp')
                 buyRes.collections($stateParams).$promise.then(
                     function(data){
                         //$state.go('.child.grandchild')
-                        if($state.current.name == 'buy.segment') {
-                            //alert(data.data[0].slug);
-                            // console.log(data);
-                            $state.go('.type',{'type':data.data[0].slug})
-                        }
+                        //if($state.current.name == 'buy.segment') {
+                        //    //alert(data.data[0].slug);
+                        //    // console.log(data);
+                        //    $state.go('.type',{'type':data.data[0].slug})
+                        //}
                         $scope.data=data;
                         if (typeof(data.data.name)!='undefined') 
                             $scope.meta.title = data.data.data.name;

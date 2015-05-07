@@ -2,7 +2,6 @@
 <view-title>{{meta.title}}</view-title>
 <meta view-head name="description" content="{{meta.description}}">
 <meta view-head name="keywords" content="{{meta.keywords}}">
-
     <div  class="columns large-2">
             <ul class="side-nav show-for-medium-up">
                 <li> <h4> {{data.info.name}} </h4> <li> 
@@ -13,7 +12,34 @@
             </ul>
     </div>
     <div ui-view class="columns large-10 small-12">
-         <div   ng-init="s = stateParams; s['type']='*'; data=[]; data.data=buyRes.GET(s);"
-                ng-include="'views/buy/type.html'">
+         <div ng-repeat="t in $parent.data.data">
+
+                <div 
+
+                          infinite-scroll="focused=true"
+                          infinite-scroll-distance="1" 
+                          ng-init="s = stateParams; s['type']=t.slug; data=buyRes.GET(s);"
+
+                class="catalog_type_list">
+            <br/>
+            <h4> {{ t.name }} </h4> <br/>
+            <table
+                ng-if="focused"
+                class="large-12" style="margin:0px; border:0;" ng-repeat="i in data.data">
+                <tr ng-if="$index%4==0" ng-init="_i = $index" > 
+                    <td style="float:none; vertical-align:bottom;" ng-init="i = data.data[_i+_index]" ng-repeat="_index in [0,1,2,3]" class="columns large-3">
+                    <center ng-if="i.sku">
+                    <img ng-src="{{i.data.$$first()['Фотографии'].split(',')[0]}}" alt="" class=""  style="width:100%; padding:0 30px;" />
+                        <div>{{i.sku}}</div> 
+                        <a ui-sref="buy.segment.type.group({'sku':encodeTwice(i.sku)})">  Подробнее  </a>
+                    </center>
+                    <br/>
+                    </td>
+                </tr>
+            </table>
+            <div ng-if="!focused" style="position:relative; height:500px;">
+                <br/>
+            </div>
+        </div>
          </div>
     </div>
