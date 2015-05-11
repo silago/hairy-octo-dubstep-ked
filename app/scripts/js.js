@@ -144,6 +144,10 @@ Object.prototype.$$init = function(key){
 }
 Object.defineProperty(Object.prototype, "$$init", {enumerable: false})
 
+String.prototype.$$quote = function(){
+      return '"'+this+'"';
+}
+
 String.prototype.$$encodeURI = function(){
       return encodeURI(this);
 }

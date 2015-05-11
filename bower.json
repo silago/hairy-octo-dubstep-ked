@@ -33,7 +33,8 @@
     "angularjs-viewhead": "~0.0.1",
     "angular-xeditable": "~0.1.8",
     "angular-sofa-image-zoom": "~0.1.0",
-    "elevatezoom": "~2.2.3"
+    "elevatezoom": "~2.2.3",
+    "angular.treeview": "*"
   },
   "devDependencies": {
     "angular-mocks": "~1.3.0",

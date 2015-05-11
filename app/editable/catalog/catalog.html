@@ -12,9 +12,9 @@
         <div>
              <ul> 
                  <li ng-repeat="c in collections.data"> {{c.name}} 
-                        <a href ng-click="deleteCollection(c.slug);"> Удалить </a> ,
-                        <span ng-show="c.coll_status!=1;">  <a href ng-click="activateCollection(c.slug);">Активировать</a>, </span>
-                        <a href ng-click="chooseCollection(c.slug);">  Редактировать</a>
+                        <a href class="fi-x" ng-click="deleteCollection(c.slug);">  </a> ,
+                        <span ng-show="c.coll_status!=1;">  <a class="fi-check" href ng-click="activateCollection(c.slug);"></a>, </span>
+                        <a href ng-click="chooseCollection(c.slug);" class="fi-pencil">  </a>
                  </li>
              </ul>
         </div>
@@ -26,15 +26,15 @@
                 <ul>
                     <li ng-repeat="i in segments.data">
                         <a editable-text="segments.data[$index].name">{{i.name}}</a>
-                        <a href ng-click="htmlForm=1"> Описание </a>
+                        <a href ng-click="htmlForm=1"i class="fi-pencil">  </a>
 
-                        <a ng-show="!i.group" href ng-click="segments.data[$index].group=1">Объеденить</a>
-                        <a ng-show="i.group==true" href ng-click="segments.data[$index].group=0">Разобъеденить</a>
+                        <a ng-show="!i.group" href ng-click="segments.data[$index].group=1" class="fi-arrows-in"></a>
+                        <a ng-show="i.group==true" href ng-click="segments.data[$index].group=0" class="fi-arrows-out"></a>
                         <a href editable-select="segments.data[$index].parent_id" e-ng-options="s.id as s.name for s in segments.data">
-                           parent_id ({{ i.parent_id}} ) 
+                           parent ({{ i.parent_id}} ) 
                          </a>
-                    
                         <ng-quill-editor
+                                         style="border:1px solid red;"
                                          ng-if="htmlForm"
                                          ng-model="segments.data[$index].data"
                                          toolbar="true"
@@ -45,7 +45,7 @@
                                          required=""
                                          error-class="input-error">
                         </ng-quill-editor>
-                        <a href ng-click="htmlForm=0" > Hide Form </a>
+                        <a href ng-click="htmlForm==0" > Hide Form </a>
                     </li>
                     <li> <a href ng-click="segments.data.push({'collection_id':segments.data[0].collection_id,name:'Новая группа'})" > + </a> </li>
                 </ul>

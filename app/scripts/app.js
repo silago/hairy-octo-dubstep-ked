@@ -33,7 +33,8 @@ angular
     'angular-crop',
     'angular-flexslider',
     'viewhead',
-    'xeditable'
+    'xeditable',
+    'angularTreeview'
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
 
@@ -255,6 +256,20 @@ angular
   })
 
 
+.provider('fmConfig', function () {
+    this.setConfig = function (d) {
+      this.config = d;
+    };
+    this.$get = function () {
+      return this;
+    };
+  })
+.config(function(fmConfigProvider) {
+        fmConfigProvider.setConfig({
+            destionation_url : window.RESTurl+'/api/files',
+            static_prefix : '/static/'
+        });
+})
 
 .config(function($compileProvider) {
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|javascript|mailto|file):/);

@@ -1,4 +1,4 @@
-                <div ng-init="getStaticFiles();">
+                <div no-here-ng-init="getStaticFiles();">
                     <div class="row collapse subscribe">
                         <div class="small-10 columns">
                           <input ng-model="item.data['style']" type="text" placeholder="style">
@@ -91,12 +91,15 @@
                             <img angular-crop ng-src="http://localhost:9000/static/2.jpg" />
                             -->
                         </div>
-
+                        
+                        <div class="row" oi-file="options">
+                        </div>
+                        <fm result="item.data['src']">
+                        </fm>
+                        <! -- 
                         <div class="row" oi-file="options">
                             <div class="large-3 columns" ng-repeat="sf in staticFiles">
-                            <!--
                                 {{sf}}
-                            -->
                             <center>
                             <img ng-click="item.data['src']=sf;"
                                  class="nd-{{ (sf==item.data['src'] ? 'selected' : '0') }}"
@@ -106,4 +109,5 @@
                             </center>
                           </div>
                         </div>
+                        -->
                 </div>
