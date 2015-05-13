@@ -18,8 +18,8 @@
         <ul ng-show="showChild"> 
             <li ng-repeat="p in pages.data">
                 <span style="color:#fff;">{{p.url}}</span>
-                <a style="clear:none;" ui-sref="adm.pages({'lang':'ru','url':'index'})">ru</a>&nbsp;
-                <a style="clear:none;" ui-sref="adm.pages({'lang':'en','url':'index'})">en</a>   
+                <a style="clear:none;" ui-sref="adm.pages({'lang':'ru','url':p.url})">ru</a>&nbsp;
+                <a style="clear:none;" ui-sref="adm.pages({'lang':'en','url':p.url})">en</a>   
             </li>
         </ul>
     </li>

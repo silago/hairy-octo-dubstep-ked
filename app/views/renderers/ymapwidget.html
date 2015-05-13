@@ -39,7 +39,7 @@
                         </option>
                     </select>
                     <select ng-if="selected_country!=-1" ng-change="_result=undefined" ng-model="$parent.selected_city">
-                        <option style="font-size:18px;"  ng-value="cn" ng-repeat="(cn, city) in block.data.countries[selected_country].cities track by $index">
+                        <option ng-if="city.name" style="font-size:18px;"  ng-value="cn" ng-repeat="(cn, city) in block.data.countries[selected_country].cities track by $index">
                             {{city.name}} 
                         </option>
                     </select>

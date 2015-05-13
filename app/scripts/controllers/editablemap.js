@@ -21,7 +21,6 @@ angular.module('frontendApp')
     } else {
         var lang = 'ru';
     }
-    console.log(lang);
 
 
    var role_id = $cookieStore.get('role_id');
@@ -67,7 +66,6 @@ angular.module('frontendApp')
             var dialog = ngDialog.open({template:'editable/adm/mapDialog.html',scope:$scope});
             dialog.closePromise.then(function(d) {
               var mark_data = d.value;
-              console.log(mark_data);
               if (mark_data.type=='city') {
                  createCityMark(pos,mark_data.label);
               } else if (mark_data.type == 'market') {
@@ -104,7 +102,6 @@ angular.module('frontendApp')
                position: e.get('target').geometry.getCoordinates(),
                };
              var idInScopeMarkets = searchInMarketsByCoords(objToFind.position);
-             console.log(idInScopeMarkets);
              $scope.markets.splice(idInScopeMarkets,1);
              $scope.map.geoObjects.remove(e.get('target'));
          }
@@ -135,7 +132,6 @@ angular.module('frontendApp')
     $scope.map.events.add('dblclick',function(e){
         e.stopPropagation();
         var pos = e.get('coords');
-        console.log(pos);;
         mapDialog(pos);
         e.stopPropagation();
 

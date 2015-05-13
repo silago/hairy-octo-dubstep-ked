@@ -255,6 +255,11 @@ Object.prototype.$$first = function(){
 }
 Object.defineProperty(Object.prototype, "$$first", {enumerable: false})
 
+Object.prototype.$$toJson = function(){
+    return angular.toJson(this);
+}
+Object.defineProperty(Object.prototype, "$$toJson", {enumerable: false})
+
 String.prototype.fromJson = function(){
    return angular.fromJson(this);
 }

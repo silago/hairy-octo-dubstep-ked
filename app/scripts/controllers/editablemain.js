@@ -44,16 +44,12 @@ angular.module('frontendApp')
 
     $scope.savePageData = function(data){
             //$scope.page.subitems  = data.subitems;
-            console.log(lang);
-            console.log('!!');
             pageRes.POST({url:$scope.path,data:data,lang:lang}).$promise.then(function(data){
                $scope.page = data;
         },function(data){ alert('something go wrong');});
     }
     $scope.editMeta = function(){
-            console.log('going to edit meta');
             $scope.path = $stateParams.url;
-            console.log('path='+$stateParams.url);
             
             pageRes.get({'url':$scope.path,lang:lang}).$promise.then(function(data){
                     var p = data;
@@ -63,10 +59,8 @@ angular.module('frontendApp')
                      var dialog = ngDialog.open({template:'editable/adm/pageCreate.html',data:{'meta':meta}});
                      dialog.closePromise.then(function(d) {
                        //var new_page_data = d.value;
-                       console.log(d.value);
                        p.meta = d.value.meta;
                        p.asNews = d.value.asNews;
-                        console.log(p);
                        $scope.savePageData(p);
                      });
             //    }
@@ -86,7 +80,6 @@ angular.module('frontendApp')
 
     $scope.getTemplate = templates.getTemplate;
     $scope.init = function(page_path){
-        console.log('init');
         if (page_path==undefined){  $scope.path = $stateParams.url;    } else {  $scope.path = page_path; }
         pageRes.get({'url':$scope.path,lang:lang}).$promise.then(function(data){console.log(data);  $scope.page = (!!data.id ? data : {subitems:[]});
         if (!!$scope.page.meta) {$scope.page.meta = angular.fromJson($scope.page.meta);}

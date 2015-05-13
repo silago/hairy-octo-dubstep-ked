@@ -28,20 +28,6 @@ angular.module('frontendApp')
 
                 $scope.prepare = function(){
                    ymaps.ready(function() {
-                    //  mapRes.GET({}).$promise.then(function(d){
-                    //       $scope.markets = d.data;
-                    //       cityRes.GET({}).$promise.then(function(d){
-
-                    //           $scope.cities  = d.data;
-                    //                $scope.map = new ymaps.Map('YMapsID', {
-                    //                        center: [0,0],
-                    //                        zoom: 12
-                    //                });
-                    //                $scope.makeMap();
-                    //                geo();
-                    //        },function(d){});
-                    //    },function(d){});
-
                                   $scope.map = new ymaps.Map('YMapsID', {
                                           center: [0,0],
                                           zoom: 12
@@ -90,31 +76,6 @@ angular.module('frontendApp')
                         });
                     });
                 });
-              // var ik = Object.keys($scope.block.data.countries); 
-              //  for (var i = 0; i < ik.length; i++) 
-              //  console.log('1__');
-              //      console.log(i<ik.length);
-              //      console.log(i+'<'+ik.length);
-              //      console.log(ik.length);
-              //      console.log(ik);
-              //      console.log(i);
-              //      console.log(ik[i]);
-              //      console.log($scope.block.data.countries[i]);
-              //      console.log($scope.block.data.countries[ik[i]].cities);
-              //      for (var k = 0, kk = Object.keys($scope.block.data.countries[i].cities); k < kk.length; k++) 
-              //  console.log('2__');
-              //          for (var j = 0, jk = Object.keys($scope.block.data.countries[i].cities[k].shops); j < jk; j++) {
-              //  console.log('3__');
-              //             
-              //              if (typeof($scope.block.data.countries[i].cities[k].shops[j].coords!='object')) {
-              //             
-              //                  
-              //                  //console.log($scope.block.data.countries[i].cities[k].shops[j]);
-              //                  $scope.block.data.countries[i].cities[k].shops[j].coords=
-              //                  $scope.block.data.countries[i].cities[k].shops[j].coords.replace(/\[^0-9 ]/g,'');
-              //              }
-              //             createMark($scope.block.data.countries[i].cities[k].shops[j]);
-              //    }
               };
               ymaps.ready($scope.prepare);
       }],
