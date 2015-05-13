@@ -96,6 +96,25 @@ Array.prototype.last = function () {
 }
 Object.defineProperty(Array.prototype,"last",{enumerable:false});
 
+Array.prototype.$$group = function (group_by,group_on) {
+    var result = [];
+    result = this;
+    for (var i =0; i<this.length; i++) {
+        for (var z =0; z<this.length; z++) {
+            if ( z > i &&  this[z][group_by] == this[i][group_by]) {
+                if (typeof(group_on) == undefined) {
+                    result[i] = result[i].concat(result[z]);
+                } else {
+                    result[i][group_on] = result[i][group_on].concat(result[z][group_on]);
+                }
+                result[z] = undefined;
+            }
+        }
+    }
+    return this;
+}
+Object.defineProperty(Array.prototype,"$$group",{enumerable:false});
+
 Array.prototype.$$swap = function(i1,i2) {
    var tmp_item_1 = this[i1];
    var tmp_item_2 = this[i2];

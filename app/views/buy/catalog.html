@@ -7,8 +7,10 @@
 
     <span ui-view>    
         <div ng-if="data.data" class="columns large-12">
-                <div class="columns large-{{12/data.data.length}} panel text-center white-border-20" ng-repeat="i in data.data">
-                    <a ui-sref="buy.segment({'target':'sections','segment':i.segment})">{{i.segment}}</a>
+                <div ng-if="i.slug" class="columns large-6 panel text-center white-border-20" ng-repeat="i in data.data">
+                    <img ng-src="{{i.random_item.$$first()['Фотографии'].split(',')[0]}}" alt="" class=""  style="width:100%; padding:0 30px;" />
+                    <br/>
+                    <a ui-sref="buy.segment({'target':'sections','segment':i.slug})">{{i.name}}</a>
                 </div> 
         </div>
     </span>

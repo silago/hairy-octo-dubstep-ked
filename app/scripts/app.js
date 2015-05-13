@@ -33,8 +33,7 @@ angular
     'angular-crop',
     'angular-flexslider',
     'viewhead',
-    'xeditable',
-    'angularTreeview'
+    'xeditable'
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
 

@@ -49,7 +49,7 @@
         </span>
 
         <span ng-if="block.type=='side_catalog_link'">
-            <li ng-init="buySegments = buyRes.GET({'target':'collection'});"  class="has-dropdown not-click" has-dropdown> <a href=""> {{block.data.title}} </a>
+            <li ng-init="buySegments = buyRes.GET({'target':'collection'});"  class="has-dropdown not-click" has-dropdown> <a href="#/buy/"> {{block.data.title}} </a>
                 <ul class="dropdown" >
                 <li class="has-dropdown not-click" has-dropdown ng-repeat="cs in buySegments.data"> 
                         <a ui-sref="buy.segment({'segment':cs.slug})">{{cs.name}}</a>

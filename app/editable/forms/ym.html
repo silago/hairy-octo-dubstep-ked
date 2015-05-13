@@ -35,6 +35,7 @@
         </div>
     </div>
     </div>
+        <textarea ng-model="item.data.countries"></textarea>
         <ul>  
             <li ng-repeat="country in item.data.countries|orderBy:'order'">
                    <a href editable-text="country.name">{{ country.name || "empty" }}</a>
