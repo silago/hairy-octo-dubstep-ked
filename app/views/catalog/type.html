@@ -23,9 +23,11 @@
                 <tr ng-if="$index%4==0" ng-init="_i = $index" > 
                     <td   style="float:none; vertical-align:bottom;" ng-init="i = data.data[_i+_index]" ng-repeat="_index in [0,1,2,3]" class="columns large-3">
                     <center ng-show="i.sku">
+                    <a ui-sref="catalog.segment.type.group({'sku':encodeTwice(i.sku)})"> 
                     <img ng-src="/static/catalog/{{i.data['image_1']}}" alt="" class=""  style="width:100%; padding:0 30px;" />
                         <br/>
                         <div>{{i.sku}}</div> 
+                    </span>
                         <a ui-sref="catalog.segment.type.group({'sku':encodeTwice(i.sku)})">  Подробнее  </a>
                     </center>
                     <br/>
