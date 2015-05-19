@@ -1,3 +1,8 @@
+   
+    function intOrder(obj) {
+        return parseInt(obj.order);
+    }
+
    function delay(v,t) { 
         setTimeout(eval(v), t);
    }

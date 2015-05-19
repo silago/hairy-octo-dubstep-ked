@@ -27,7 +27,7 @@
                      ng-model="page.preview"
                      as-sortable
                      jqyoui-droppable="{multiple:true,onDrop:alert(1)}">
-                     <span class="{{block.data.class || 'columns large-12' }}" as-sortable-item ng-repeat="block in page.preview">
+                     <span class="{{block.data.class || 'columns large-12' }}" as-sortable-item ng-repeat="block in page.preview | orderBy:'order'">
                          <block prefix="editable" is-editable="true"  data="block">
                                  ....
                          </block>

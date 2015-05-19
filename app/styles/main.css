@@ -1,4 +1,6 @@
-
+.top-menu-left {
+    display:inline!important;
+}
 .zoomContainer {
   z-index: 1;
 }
@@ -664,9 +666,6 @@ ul.title-area { z-index:99;}
     z-index: 99999;
 }
 
-  .top-menu-left {
-     display:inline-block!important;
-  }
 
   div .top-bar-section .has-dropdown > a:after {
      border: 0 none !important;

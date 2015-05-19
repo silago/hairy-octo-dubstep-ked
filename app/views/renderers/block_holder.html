@@ -14,7 +14,8 @@
                 <ng-include src="'views/renderers/'+block.type+'.html'"> </ng-include>
             </div>
             <div z-ui-sortable z-model="block.subitems">
-                <span  class="" ng-repeat="block in block.subitems | orderBy:order"> 
+                <span  class="" ng-repeat="block in block.subitems | orderBy:'order'"> 
+
                 <ng-include class="block-type-subitems"  src="'views/renderers/block_holder.html'"  > ... </ng-include>
                 </span>
             </div>
