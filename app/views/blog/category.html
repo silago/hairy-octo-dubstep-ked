@@ -11,7 +11,7 @@
     <div class="columns large-12">
           <br/>
           <div class="blog-page-item"  ng-repeat="page in page.subitems">
-                <div> <div class="" ng-repeat="block in page.preview"> <block   data="block"> </block> </div> </div>
+                <div> <div class="" ng-repeat="block in page.preview | orderBy:order"> <block   data="block"> </block> </div> </div>
                 <div class="columns large-12"  ng-if="page.subitems.length">
                     <a   ui-sref="blog.category.block({'alias':page.url})"> Подробнее </a>
                     <br/>

@@ -21,7 +21,7 @@
             <div 
 
                 as-sortable ng-model="block.subitems" class="block-subitems">
-               <span  class="" as-sortable-item ng-repeat="block in block.subitems">
+               <span  class="" as-sortable-item ng-repeat="block in block.subitems | orderBy:'order'">
                    <ng-include class="block-type-subitems"   src="'editable/renderers/block_holder.html'"> ... </ng-include>
 
                 </span>
