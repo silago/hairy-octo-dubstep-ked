@@ -19,7 +19,7 @@ angular.module('frontendApp')
                 }
                 
                 function setPosition(position) {
-                    var coords = [55.7522200,37.6155600];
+                    var coords = [37.6155600,55.7522200];
                     if(position) {
                        coords = [position.coords.latitude, position.coords.longitude];
                     } else { }
@@ -29,8 +29,8 @@ angular.module('frontendApp')
                 $scope.prepare = function(){
                    ymaps.ready(function() {
                                   $scope.map = new ymaps.Map('YMapsID', {
-                                          center: [0,0],
-                                          zoom: 12
+                                          center: [54.8990493,102.4726563],
+                                          zoom: 3
                                   });
                                   $scope.makeMap();
                                   geo();
@@ -48,7 +48,8 @@ angular.module('frontendApp')
 
               $scope.makeMap = function(){
                 function createMark (item) {
-                    if (typeof(item.coords) =='string') {
+                    if( item!=null ) {
+                    if ( typeof(item.coords) =='string') {
                         item.coords = item.coords.split(' ');
                     }
                     if (item.coords.length == 1) {
@@ -66,10 +67,11 @@ angular.module('frontendApp')
                         else
                             var placemark = new ymaps.Placemark(item.coords, {balloonContent: item.description,hintContent: item.name},{iconImageHref: 'images/crown.png'});
                         $scope.map.geoObjects.add(placemark);//new ymaps.Placemark(i.position,{balloonContent:i.name}));
-                }
+                }}
 
                 angular.forEach($scope.block.data.countries,function($country,$country_key) {
                     angular.forEach($country.cities,function($city,$city_key) {
+                        if ($city!=null)
                         angular.forEach($city.shops,function($shop,$shop_key){
                             //$shop.coords = $shop.coords.replace(/\[^0-9 ]/g,'');
                             createMark($shop);

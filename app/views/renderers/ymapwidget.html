@@ -56,8 +56,7 @@
                     <span ng-if="_result!==undefined" style="font-size:18px;"> РЕЗУЛЬТАТЫ </span>  
                     <p ng-if="">Ничего не найдено </p>
                     <ul style="list-style:none;" ng-if="_result" class="no-bullet"> 
-                            <li ng-repeat="c in _result[0]">
-    
+                            <li ng-if="c.type" ng-repeat="c in _result[0]">
            <img width=12px src="images/pl.png" /> <a style="font-size:14px; color:#000;" href ng-click="focusToLocation(c.coords)">{{ (_result[1]+' '+c.name).toUpperCase() }}  </a><img width=12px ng-show="c.type=='firm'" src="/images/crown.png"/> <br/>
                             </li>
                         </div>
