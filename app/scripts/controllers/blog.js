@@ -15,6 +15,8 @@ angular.module('frontendApp')
         $scope.page = blogRes.GET($stateParams); 
         $scope.window = $window;
         $scope.loadMore = function() {
+            if ($stateParams.alias) 
+                return false;
             if (typeof($scope.page.subitems)=='undefined') 
                 return false;
             offset++;
