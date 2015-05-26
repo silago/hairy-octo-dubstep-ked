@@ -19,7 +19,13 @@ angular.module('frontendApp')
                          method:'DELETE'
                        },
                        GET:{
-                         method:'GET'
+                         method:'GET',
+                         data:{
+                            offset:'0'
+                         },
+                         params:{
+                            offset:'0'
+                         } 
                        },
                        POST:{
                          category:'@category', 

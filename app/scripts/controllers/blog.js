@@ -9,7 +9,19 @@
  */
 angular.module('frontendApp') 
   .controller('BlogCtrl', function ($scope,blogRes,$stateParams,$state,$window) {
+        var offset = 0;
+        var limit  = 1;
         $scope.categories = blogRes.categories({'categories':'*'});
         $scope.page = blogRes.GET($stateParams); 
         $scope.window = $window;
+        $scope.loadMore = function() {
+            if (typeof($scope.page.subitems)=='undefined') 
+                return false;
+            offset++;
+            var params = $stateParams;
+            params.offset = offset;
+            blogRes.GET(params).$promise.then(function(data){
+                $scope.page.subitems = $scope.page.subitems.concat(data.subitems);
+            });
+        }
   });
